@@ -1,0 +1,170 @@
+body {
+    margin: 0;
+    height: 100%;
+}
+
+#topbar-template{
+    display: flex;
+    height: 100px;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: -2px 0px 6px 0px rgb(0, 0, 0, 0.2);
+    margin-bottom: 50px;
+}
+
+/*/-------------------- SIDEBAR TEMPLATE----------------/*/
+#sidebar-template {
+    background-color: rgb(42, 54, 71);
+    min-height: 100%;
+    width: 250px;
+    font-size: 16px;
+    position: fixed;
+    top: 0;
+    z-index: 0;
+}
+
+/*/------------------ SIDEBAR-TOP-------------------------/*/
+
+.sidebar-top {
+    display: flex;
+    justify-content: center;
+    padding: 80px;
+}
+
+
+/*/------------------ SIDEBAR-MIDDLE--------------------/*/
+.sidebar-middle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 150px;
+    gap: 20px;
+}
+
+.sidebar-middle a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-middle img {
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+/*/----------------- SUMMARY ( SIDEBAR MIDDLE ) -----------/*/
+.summary {
+    width: 250px;
+    height: 42px;
+}
+.summary:hover {
+    background-color: rgb(9, 25, 49);
+    cursor: pointer;
+}
+
+.summary-picture{
+    margin-left: 65px;
+}
+
+.summary-string{
+    margin-left: 20px;
+}
+
+/*/----------------- CONTACTS ( SIDEBAR MIDDLE ) -----------/*/
+.contacts {
+    width: 250px;
+    height: 42px;
+}
+.contacts:hover {
+    background-color: rgb(9, 25, 49);
+    cursor: pointer;
+}
+
+.contacts-picture{
+    margin-left: 65px;
+}
+
+.contacts-string{
+    margin-left: 20px;
+}
+
+
+/*/----------------- ADD TASK ( SIDEBAR MIDDLE ) -----------/*/
+.addTask {
+    width: 250px;
+    height: 42px;
+}
+.addTask:hover {
+    background-color: rgb(9, 25, 49);
+    cursor: pointer;
+}
+
+.addTask-picture{
+    margin-left: 65px;
+}
+
+.addTask-string{
+    margin-left: 20px;
+}
+/*/----------------- BOARD ( SIDEBAR MIDDLE ) -----------/*/
+.board {
+    width: 250px;
+    height: 42px;
+}
+.board:hover {
+    background-color: rgb(9, 25, 49);
+    cursor: pointer;
+}
+
+.board-picture{
+    margin-left: 65px;
+}
+
+.board-string{
+    margin-left: 20px;
+}
+
+
+
+/*/-------------------------- SIDEBAR-BOTTOM-------------/*/
+
+.sidebar-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 150px;
+    gap: 20px;
+}
+
+.sidebar-bottom img {
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.sidebar-bottom a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+
+/*/-------------------------- DATENSCHUTZ ( SIDEBAR-BOTTOM ) -------------/*/
+.datenschutz {
+    width: 250px;
+    height: 42px;
+}
+.datenschutz:hover {
+    background-color: rgb(9, 25, 49);
+    cursor: pointer;
+}
+.datenschutz-picture{
+    margin-left: 25px;
+}
+
+.datenschutz-string{
+    margin-left: 20px;
+}
