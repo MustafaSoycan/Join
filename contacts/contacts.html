@@ -5,14 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacts</title>
-    <script src="../templates/include.js"></script>
+
+    <link rel="stylesheet" href="./contacts.css">
     <link rel="stylesheet" href="../templates/desktop_template.css">
+
+    <script src="../templates/include.js"></script>
+    <script src="./contacts.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
   
 </head>
-<body onload="includeHTML()">
+<body onload="includeHTML(), loadContactList()">
 
-    <div w3-include-html="../templates/desktop_template.html"></div>
-
+   <!--  <div w3-include-html="../templates/desktop_template.html"></div> -->
+    <div id="contacts">
+        <div id="contactList">
+        </div>
+        <div id="contactDetail">
+            <div class="contactDetailHeader">
+                <h1>CONTACTS</h1>
+                <span class="divider"></span>
+                <h3>Better with a Team</h3>
+            </div>
+        </div>
+    </div>
     
 </body>
 </html>
