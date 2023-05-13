@@ -44,7 +44,7 @@ body {
     }
 
     to {
-        transform: translate(-320%, -120%) scale(0.3);
+        transform: translate(-120%, -120%) scale(0.3);
     }
 }
 
