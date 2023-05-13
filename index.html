@@ -4,14 +4,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./templates/include.js"></script>
-    <link rel="stylesheet" href="templates/desktop_template.css">
+    <link rel="stylesheet" href="style.css">
     <title>Join</title>
 </head>
-<body onload="includeHTML()">
+<body>
 
-    <div w3-include-html="templates/desktop_template.html"></div>
-    <h2>Hallo</h2>
+    <div class="logo-page">
+            <img src="/img/logo-dark.png" alt="">
+            <div class="login-page">
+                <h2>Log in</h2>
+                <div class="login-input">
+                    <input type="text">
+                    <input type="text">
+                </div>
+                <div>
+                    <div>
+                        <div>
+                            <img src="/img/board-icon.png" alt="">
+                            <span>Remember me</span>
+                        </div>
+                        <button>Log in</button>
+                    </div>
+                    <div>
+                        <span>Forgot my password</span>
+                        <button>Guest Log in</button>
+                    </div>
+                </div>
+
+            </div>
+    </div>
+
+
 
     
 </body>
