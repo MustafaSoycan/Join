@@ -45,6 +45,11 @@ body {
     border-radius: 2rem;
 }
 
+.logo-img {
+    fill: #2A3647;
+}
+
+
 .logo-page-background {
     background-color: #F6F7F8;
     animation-name: fade-background;
@@ -56,11 +61,11 @@ body {
     position: absolute;
     z-index: 4;
     transition: z-index 1s ease-in-out;
-  }
+}
 
-  .logo-page-background:hover {
+.logo-page-background:hover {
     z-index: 0;
-  }
+}
 
 
 .title-container span {
@@ -103,6 +108,7 @@ body {
         background-color: #F6F7F8;
         z-index: 4;
     }
+
     to {
         background-color: transparent;
         z-index: 0;
@@ -162,7 +168,7 @@ body {
     gap: 4vw;
 }
 
-.gap-small{
+.gap-small {
     gap: 1rem;
 }
 
@@ -200,7 +206,7 @@ body {
     border: none;
 }
 
-.guest-log-btn{
+.guest-log-btn {
     background: #FFFFFF;
     border-radius: 0.5rem;
     display: flex;
@@ -216,11 +222,63 @@ body {
     font-size: 1rem;
 }
 
-.sign-up-container{
+.sign-up-container {
     display: flex;
     align-items: center;
     gap: 2rem;
     position: absolute;
     top: 60px;
     right: 70px;
+}
+
+@media only screen and (min-width: 350px) and (max-width: 600px) {
+    .login-page {
+        width: 85vw;
+        height: 70vh;
+    }
+
+    .mobile-column {
+        flex-direction: column;
+    }
+
+    .sign-up-container {
+        bottom: 35px;
+        left: 50px;
+        top: unset;
+        right: unset;
+    }
+
+    .log-btn {
+        width: 40vw;
+    }
+
+    .guest-log-btn {
+        width: 40vw;
+    }
+
+    .login-input input {
+        width: 70vw;
+    }
+
+    .title-container span {
+        font-size: 3rem;
+    }
+
+    .title-container {
+        width: 25vw;
+    }
+
+    @keyframes move-and-scale {
+        from {
+            transform: translate(0, 0) scale(1);
+        }
+    
+        to {
+            transform: translate(-36vw, -42vh) scale(0.4);
+        }
+    }
+    
+    .mobile-btn{
+        width: 30vw;
+    }
 }
