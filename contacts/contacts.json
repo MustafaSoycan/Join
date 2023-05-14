@@ -1,110 +1,100 @@
 [
     {
-        "firstName":"Matthias", 
-        "lastName":"Plank", 
+        "firstName": "Matthias",
+        "lastName": "Plank",
         "email": "mathias.plank@gmx.at",
-        "tel":"+4366412345678"
-    }, 
+        "tel": "+4366412345678",
+        "bgIconColor": "#0faabb"
+    },
     {
-        "firstName":"Anton", 
-        "lastName":"Mayer",
+        "firstName": "Anton",
+        "lastName": "Mayer",
         "email": "anton.mayer@gmx.com",
-        "tel":"+4366412345678"
-    }, 
+        "tel": "+4366412345678",
+        "bgIconColor": "#7f3dc2"
+    },
     {
-        "firstName":"Benedikt", 
-        "lastName":"Ziegler",
+        "firstName": "Benedikt",
+        "lastName": "Ziegler",
         "email": "benedikt.ziegler@gmail.de",
-        "tel":"+4366412345678"
-    }, 
+        "tel": "+4366412345678",
+        "bgIconColor": "#45e3a8"
+    },
     {
-        "firstName":"Anja", 
-        "lastName":"Schulz", 
+        "firstName": "Anja",
+        "lastName": "Schulz",
         "email": "anja.schulz@gmail.com",
-        "tel":"+4366412345678"
+        "tel": "+4366412345678",
+        "bgIconColor": "#08f9d4"
     },
     {
-        "firstName":"John", 
-        "lastName":"Doe", 
+        "firstName": "John",
+        "lastName": "Doe",
         "email": "john.doe@example.com",
-        "tel":"+1234567890"
+        "tel": "+1234567890",
+        "bgIconColor": "#9c7b1e"
     },
     {
-        "firstName":"Jane", 
-        "lastName":"Smith", 
+        "firstName": "Jane",
+        "lastName": "Smith",
         "email": "jane.smith@example.com",
-        "tel":"+1234567890"
+        "tel": "+1234567890",
+        "bgIconColor": "#f75c82"
     },
     {
-        "firstName":"David", 
-        "lastName":"Johnson", 
+        "firstName": "David",
+        "lastName": "Johnson",
         "email": "david.johnson@example.com",
-        "tel":"+1234567890"
+        "tel": "+1234567890",
+        "bgIconColor": "#5ae8c1"
     },
     {
-        "firstName":"Emily", 
-        "lastName":"Davis", 
+        "firstName": "Emily",
+        "lastName": "Davis",
         "email": "emily.davis@example.com",
-        "tel":"+1234567890"
+        "tel": "+1234567890",
+        "bgIconColor": "#db592f"
     },
     {
-        "firstName":"Michael", 
-        "lastName":"Wilson", 
+        "firstName": "Michael",
+        "lastName": "Wilson",
         "email": "michael.wilson@example.com",
-        "tel":"+1234567890"
+        "tel": "+1234567890",
+        "bgIconColor": "#3275e4"
     },
     {
-        "firstName":"Olivia", 
-        "lastName":"Anderson", 
+        "firstName": "Olivia",
+        "lastName": "Anderson",
         "email": "olivia.anderson@example.com",
-        "tel":"+1234567890"
+        "tel": "+1234567890",
+        "bgIconColor": "#e692b7"
     },
     {
-        "firstName":"William", 
-        "lastName":"Clark", 
+        "firstName": "William",
+        "lastName": "Clark",
         "email": "william.clark@example.com",
-        "tel":"+1234567890"
+        "tel": "+1234567890",
+        "bgIconColor": "#76adf4"
     },
     {
-        "firstName":"Sophia", 
-        "lastName":"Lee", 
+        "firstName": "Sophia",
+        "lastName": "Lee",
         "email": "sophia.lee@example.com",
-        "tel":"+1234567890"
+        "tel": "+1234567890",
+        "bgIconColor": "#2e891c"
     },
     {
-        "firstName":"James", 
-        "lastName":"Taylor", 
+        "firstName": "James",
+        "lastName": "Taylor",
         "email": "james.taylor@example.com",
-        "tel":"+1234567890"
+        "tel": "+1234567890",
+        "bgIconColor": "#ffed7d"
     },
     {
-        "firstName":"Ava", 
-        "lastName":"White", 
-        "email": "ava.white@example.com",
-        "tel":"+1234567890"
-    },
-    {
-        "firstName":"Benjamin", 
-        "lastName":"Jackson", 
-        "email": "benjamin.jackson@example.com",
-        "tel":"+1234567890"
-    },
-    {
-        "firstName":"Mia", 
-        "lastName":"Harris", 
-        "email": "mia.harris@example.com",
-        "tel":"+1234567890"
-    },
-    {
-        "firstName":"Jacob", 
-        "lastName":"Martin", 
-        "email": "jacob.martin@example.com",
-        "tel":"+1234567890"
-    },
-    {
-        "firstName":"Charlotte", 
-        "lastName":"Thompson", 
-        "email": "charlotte.thompson@example.com",
-        "tel":"+1234567890"
+        "firstName": "Ava",
+        "lastName": "White",
+        "email": "james.taylor@example.com",
+        "tel": "+1234567890",
+        "bgIconColor": "#ffed7d"
     }
 ]

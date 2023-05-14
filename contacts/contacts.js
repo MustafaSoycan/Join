@@ -14,6 +14,7 @@ function renderContactList(){
     for (let i = 0; i < contacts.length; i++) {
         const contact = contacts[i];
         const firstLetter = contact.firstName.substring(0, 1); 
+        const firstLetterLastName = contact.lastName.substring(0, 1); 
         if(letter != firstLetter) {
             letter = firstLetter; 
             document.getElementById("contactList").innerHTML += /*html*/ `
@@ -24,9 +25,9 @@ function renderContactList(){
             `; 
        }
         document.getElementById("contactList").innerHTML += /*html*/ `
-            <div class="contactListItem">
+            <div id="contactListItem" class="contactListItem" onClick="openContactDetails(${i})">
                 <div>
-                    <div id="contactIcon${i}" class="contactIcon">AA</div>
+                    <div id="contactIcon${i}" class="contactIcon">${firstLetter}${firstLetterLastName}</div>
                 </div>
                 <div>
                     <h3 class="contactName">${contact.firstName} ${contact.lastName}</h3>
@@ -35,7 +36,8 @@ function renderContactList(){
                
             </div>
         `; 
-        setContactIconBackground(i); 
+        document.getElementById("contactIcon"+i).style.backgroundColor = contact.bgIconColor; 
+        //setContactIconBackground(i); 
     }
 }
 
@@ -56,4 +58,38 @@ async function getContactsFromRemoteStorage(){
     response = await fetch(url); 
     console.log(response);         
     contacts = await response.json();       
+}
+
+function openContactDetails(index){
+    let contact = contacts[index]; 
+    const firstLetter = contact.firstName.substring(0, 1); 
+    const firstLetterLastName = contact.lastName.substring(0, 1); 
+    document.getElementById("selectedContact").innerHTML = /*html*/  `
+    <div>
+        <div class="contactDetailsName">
+            <div class="contactDetailsIcon" id="contactDetailsIcon${index}">${firstLetter}${firstLetterLastName}</div>
+            <div>
+                <h3>${contact.firstName} ${contact.lastName}</h3>
+                <a>
+                    <img class="contactDetailsNamePlusIcon" src="../img/plus-icon-blue.png" alt="PlusIcon">  
+                    <span class="contactDetailsNamePlusText">Add Task</span>
+                </a>
+            </div>
+        </div>
+        <div class="contactDetailsConatctInfos">
+            <h3>Contact Information</h3>
+            <img src="../img/edit-contact-icon.png" alt="">
+        </div>
+        <div  class="contactDetailsConatctMailTel">
+            <h3>E-Mail</h3>
+            <a class="contactEmail" href= "mailto:${contact.email}">${contact.email}</a>
+        </div>
+        <div  class="contactDetailsConatctMailTel">
+            <h3>Phone</h3>
+            <a class="contactEmail" href= "tel:${contact.tel}">${contact.tel}</a>
+        </div>
+    </div>
+    `;
+    document.getElementById("contactDetailsIcon"+index).style.backgroundColor = contact.bgIconColor; 
+    console.log("Open" + index); 
 }
