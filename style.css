@@ -22,6 +22,15 @@ body {
     align-items: center;
 }
 
+.logo-sign-up {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .logo-page img {
     animation-name: move-and-scale;
     animation-duration: 1s;
@@ -144,6 +153,15 @@ body {
     padding-left: 0.5rem;
 }
 
+.input-name {
+    background-image: url('/img/profile-icon.png');
+    background-position: right center;
+    background-repeat: no-repeat;
+    padding-right: 0.5rem;
+    background-origin: content-box;
+    padding-left: 0.5rem;
+}
+
 .input-key {
     background-image: url('/img/lock-icon.png');
     background-position: right center;
@@ -231,14 +249,21 @@ body {
     right: 70px;
 }
 
+.left-arrow-img{
+    position: absolute;
+    top: 2vh;
+    left: 2vw;
+}
+
 @media only screen and (min-width: 350px) and (max-width: 600px) {
     .login-page {
         width: 85vw;
         height: 70vh;
     }
 
-    .mobile-column {
-        flex-direction: column;
+    .login-page {
+        width: 85vw;
+        height: 55vh;
     }
 
     .sign-up-container {
@@ -267,18 +292,15 @@ body {
     .title-container {
         width: 25vw;
     }
-
-    @keyframes move-and-scale {
-        from {
-            transform: translate(0, 0) scale(1);
-        }
-    
-        to {
-            transform: translate(-36vw, -42vh) scale(0.4);
-        }
-    }
     
     .mobile-btn{
         width: 30vw;
     }
+
+    .left-arrow-img {
+        position: absolute;
+        top: 3vh;
+        left: 8vw;
+    }
+
 }
