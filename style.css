@@ -27,7 +27,8 @@ body {
     animation-duration: 1s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
-    z-index: 2;
+    z-index: 5;
+
 }
 
 .login-page {
@@ -44,6 +45,24 @@ body {
     border-radius: 2rem;
 }
 
+.logo-page-background {
+    background-color: #F6F7F8;
+    animation-name: fade-background;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    z-index: 4;
+    transition: z-index 1s ease-in-out;
+  }
+
+  .logo-page-background:hover {
+    z-index: 0;
+  }
+
+
 .title-container span {
     font-family: 'Inter';
     font-style: normal;
@@ -54,8 +73,11 @@ body {
     flex: none;
     order: 0;
     flex-grow: 0;
-    height: 5vh;
+    height: 12vh;
+    display: flex;
+    align-items: center;
 }
+
 
 .title-container {
     border-bottom: 3px solid #29ABE2;
@@ -72,7 +94,18 @@ body {
     }
 
     to {
-        transform: translate(-55%, -35%) scale(0.4);
+        transform: translate(-43vw, -39vh) scale(0.4);
+    }
+}
+
+@keyframes fade-background {
+    from {
+        background-color: #F6F7F8;
+        z-index: 4;
+    }
+    to {
+        background-color: transparent;
+        z-index: 0;
     }
 }
 
@@ -181,4 +214,13 @@ body {
     font-style: normal;
     font-weight: 700;
     font-size: 1rem;
+}
+
+.sign-up-container{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    position: absolute;
+    top: 60px;
+    right: 70px;
 }
