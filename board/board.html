@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,10 +8,39 @@
     <script src="../templates/include.js"></script>
     <link rel="stylesheet" href="../templates/desktop_template.css">
 
+    <link rel="stylesheet" href="../board/board.css">
+
 
     <title>Join</title>
 </head>
+
 <body onload="includeHTML()">
     <div w3-include-html="../templates/desktop_template.html"></div>
+
+    <div class="content">
+
+        <div id="board-header">
+            <div>
+            <h1>Board</h1>
+            </div>
+
+
+            <div class="interact">
+                <div class="find-task">
+                    <input placeholder="Find Task">
+                    <img src="../img/search.png">
+                </div>
+
+                <button class="add-task-button"> Add task <img src="../img/addtask.png">  </button>
+            </div>
+        </div>
+
+
+
+
+
+
+    </div>
 </body>
+
 </html>

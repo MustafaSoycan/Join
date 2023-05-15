@@ -1,0 +1,50 @@
+.content {
+    margin-left: 300px;
+    margin-top: 150px;
+}
+
+#board-header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#board-header h1 {
+    font-size: 55px;
+}
+
+.find-task {
+    border: 2px solid lightgrey;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.find-task input {
+    height: 25px;
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+}
+
+.add-task-button {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 10px;
+    background-color: rgb(42, 54, 71);
+    color: white;
+    font-size: 25px;
+    border-radius: 10px;
+    border: unset;
+    margin-left: 30px;
+}
+
+.add-task-button:hover {
+    background-color: rgb(41,171,226);
+    cursor: pointer;
+}
+
+.interact{
+    display: flex;
+}
