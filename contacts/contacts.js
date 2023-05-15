@@ -1,8 +1,14 @@
 let contacts = [];
+const remoteStorageKey = `contacts`;
 
 async function loadContactList(){
 
     await getContactsFromRemoteStorage();
+    
+    let resp = setItem(remoteStorageKey , JSON.stringify(contacts)); 
+    console.log(resp); 
+    
+
     renderContactList();
 
 }
@@ -54,10 +60,21 @@ function setContactIconBackground(id){
 } 
 
 async function getContactsFromRemoteStorage(){
+    
+    /*ALLTE VERSION - JSON FROM LOCAL FILE */
+    /* 
     const url = "./contacts.json"
     response = await fetch(url); 
-    console.log(response);         
-    contacts = await response.json();       
+    //console.log(response);         
+    contacts = await response.json();     
+    */
+    
+    /* GET CONTACTS FROM REMOTE STORAGE */
+    let resp =  await getItem(remoteStorageKey);
+    contacts = JSON.parse(resp.data.value); 
+    //console.log("GET FROM STORAGE:" + contacts);
+
+
 }
 
 function openContactDetails(index){
