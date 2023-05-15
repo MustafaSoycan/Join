@@ -1,6 +1,12 @@
 body {
+    font-family: 'Inter', sans-serif;
     margin: 0;
     height: 100%;
+}
+
+@font-face{
+    font-family: 'Inter', sans-serif;
+    src: url(fonts/inter/static/Inter-Regular.ttf)
 }
 
 #topbar-template{
@@ -10,6 +16,9 @@ body {
     align-items: center;
     box-shadow: -2px 0px 6px 0px rgb(0, 0, 0, 0.2);
     margin-bottom: 50px;
+    position: fixed;
+    left: 250px;
+    width: 100%;
 }
 
 /*/-------------------- SIDEBAR TEMPLATE----------------/*/
@@ -20,7 +29,8 @@ body {
     font-size: 16px;
     position: fixed;
     top: 0;
-    z-index: 0;
+    right: 0;
+    left: 250px;
 }
 
 /*/------------------ SIDEBAR-TOP-------------------------/*/
@@ -68,10 +78,6 @@ body {
     margin-left: 65px;
 }
 
-.summary-string{
-    margin-left: 20px;
-}
-
 /*/----------------- CONTACTS ( SIDEBAR MIDDLE ) -----------/*/
 .contacts {
     width: 250px;
@@ -85,11 +91,6 @@ body {
 .contacts-picture{
     margin-left: 65px;
 }
-
-.contacts-string{
-    margin-left: 20px;
-}
-
 
 /*/----------------- ADD TASK ( SIDEBAR MIDDLE ) -----------/*/
 .addTask {
@@ -105,9 +106,6 @@ body {
     margin-left: 65px;
 }
 
-.addTask-string{
-    margin-left: 20px;
-}
 /*/----------------- BOARD ( SIDEBAR MIDDLE ) -----------/*/
 .board {
     width: 250px;
@@ -121,12 +119,6 @@ body {
 .board-picture{
     margin-left: 65px;
 }
-
-.board-string{
-    margin-left: 20px;
-}
-
-
 
 /*/-------------------------- SIDEBAR-BOTTOM-------------/*/
 
@@ -165,6 +157,3 @@ body {
     margin-left: 25px;
 }
 
-.datenschutz-string{
-    margin-left: 20px;
-}
