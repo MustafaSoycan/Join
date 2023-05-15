@@ -97,10 +97,22 @@ body{
 }
 
 #to-do{
-    min-height: 200px;
+    min-height: 500px;
 }
 
+#in-progress{
+    min-height: 500px;
+}
 
+#awaiting-feedback{
+    min-height: 500px;
+}
+
+#done{
+    min-height: 500px;
+}
+
+/*/------------------ TO DO DIV ------------/*/
 .todo{
     padding: 10px;
     min-height: 50px;
@@ -113,4 +125,10 @@ body{
 
 .todo:hover{
     cursor: pointer;
+}
+
+/*/---------- DRAG AND DROP HIGHLIGHT --------/*/
+.drag-area-highlight{
+    background-color: rgb(214, 214, 214);
+    border-radius: 10px;
 }
