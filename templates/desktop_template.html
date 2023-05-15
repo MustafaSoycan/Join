@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="desktop_template.css">
+
+    <script src="../templates/desktop.js"></script>
     <title>Join</title>
 </head>
 
@@ -16,12 +18,13 @@
         <p>Kanban Project Management Tool</p>
         </div>
 
-        <div>
-            <img src="/img/questionmark.png">
-        </div>
 
-        <div>
-            <img> PROFIL-ICON 
+        <div id="log-out-section">
+            <a class="questionmark" href="../datenschutz/datenschutz.html">
+                <img class="questionmark" src="/img/questionmark.png">
+            </a>
+            
+            <img  onclick="logOut()" class="avatar" src="../img/avatar.png">
         </div>
     </div>
 

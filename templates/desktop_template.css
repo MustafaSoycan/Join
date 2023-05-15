@@ -4,12 +4,12 @@ body {
     height: 100%;
 }
 
-@font-face{
+@font-face {
     font-family: 'Inter', sans-serif;
     src: url(fonts/inter/static/Inter-Regular.ttf)
 }
 
-#topbar-template{
+#topbar-template {
     display: flex;
     height: 100px;
     justify-content: space-around;
@@ -20,6 +20,28 @@ body {
     left: 250px;
     right: 0;
     background-color: white;
+    font-size: 22px;
+}
+
+#topbar-template .questionmark {
+    vertical-align: middle;
+    text-decoration: none;
+}
+
+#topbar-template .questionmark:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+#topbar-template .avatar {
+    vertical-align: middle;
+    border-radius: 100%;
+    margin-left: 15px ;
+}
+
+#topbar-template .avatar:hover {
+    opacity: 0.7;
+    cursor: pointer;
 }
 
 /*/-------------------- SIDEBAR TEMPLATE----------------/*/
@@ -70,13 +92,18 @@ body {
     width: 250px;
     height: 42px;
 }
+
 .summary:hover {
     background-color: rgb(9, 25, 49);
     cursor: pointer;
 }
 
-.summary-picture{
+.summary-picture {
     margin-left: 65px;
+}
+
+.summary:active{
+    background-color: rgb(9, 25, 49);
 }
 
 /*/----------------- CONTACTS ( SIDEBAR MIDDLE ) -----------/*/
@@ -84,12 +111,13 @@ body {
     width: 250px;
     height: 42px;
 }
+
 .contacts:hover {
     background-color: rgb(9, 25, 49);
     cursor: pointer;
 }
 
-.contacts-picture{
+.contacts-picture {
     margin-left: 65px;
 }
 
@@ -98,12 +126,13 @@ body {
     width: 250px;
     height: 42px;
 }
+
 .addTask:hover {
     background-color: rgb(9, 25, 49);
     cursor: pointer;
 }
 
-.addTask-picture{
+.addTask-picture {
     margin-left: 65px;
 }
 
@@ -112,14 +141,21 @@ body {
     width: 250px;
     height: 42px;
 }
+
 .board:hover {
     background-color: rgb(9, 25, 49);
     cursor: pointer;
 }
 
-.board-picture{
+.board-picture {
     margin-left: 65px;
 }
+
+.board:active {
+    background-color: rgb(9, 25, 49);
+
+}
+
 
 /*/-------------------------- SIDEBAR-BOTTOM-------------/*/
 
@@ -150,11 +186,12 @@ body {
     width: 250px;
     height: 42px;
 }
+
 .datenschutz:hover {
     background-color: rgb(9, 25, 49);
     cursor: pointer;
 }
-.datenschutz-picture{
+
+.datenschutz-picture {
     margin-left: 25px;
 }
-

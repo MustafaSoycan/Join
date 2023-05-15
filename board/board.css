@@ -3,10 +3,16 @@
     margin-top: 150px;
 }
 
+body{
+    background-color: rgb(246,247,248);
+}
+
 #board-header {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+    margin-right: 100px;
+    margin-left: 50px;
 }
 
 #board-header h1 {
@@ -18,6 +24,7 @@
     border-radius: 10px;
     display: flex;
     align-items: center;
+    background-color: white;
 }
 
 .find-task input {
@@ -47,4 +54,63 @@
 
 .interact{
     display: flex;
+}
+
+
+
+
+/*/--------------------------- KANBAN BOARD --------------------------/*/
+
+
+.kanbanboard{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 100px;
+    margin-left: 50px;
+    margin-top: 50px;
+}
+
+.kanban{
+    display: flex;
+    flex-direction: column;
+    max-width: 250px;
+    min-width: 250px;
+}
+
+.kanban-header{
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 50px;
+}
+
+.kanban-header img{
+    vertical-align: middle;
+    margin-left: 5px;
+
+}
+
+.kanban-header img:hover{
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+#to-do{
+    min-height: 200px;
+}
+
+
+.todo{
+    padding: 10px;
+    min-height: 50px;
+    background-color: rgb(255, 255, 255);
+    margin-bottom: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.todo:hover{
+    cursor: pointer;
 }

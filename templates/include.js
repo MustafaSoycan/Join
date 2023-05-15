@@ -25,3 +25,11 @@ function includeHTML() {
       }
     }
   }
+
+  function logOut(){
+    document.getElementById('log-out-section').innerHTML += 
+    ` 
+    <a href="../index.html"> 
+    <button> Log out </button>
+    </a>`;
+}

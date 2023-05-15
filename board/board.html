@@ -10,11 +10,12 @@
 
     <link rel="stylesheet" href="../board/board.css">
 
+    <script src="../board/board.js"></script>
 
     <title>Join</title>
 </head>
 
-<body onload="includeHTML()">
+<body onload="includeHTML(); updateHTML()">
     <div w3-include-html="../templates/desktop_template.html"></div>
 
     <div class="content">
@@ -33,6 +34,60 @@
 
                 <button class="add-task-button"> Add task <img src="../img/addtask.png">  </button>
             </div>
+        </div>
+
+
+        <div class="kanbanboard">
+
+            <div class="kanban">
+                <div class="kanban-header">
+                    
+                    TO DO <img src="../img/kanban-plus.png">
+                </div>
+
+                <div id="to-do">
+                </div>
+            </div>
+
+
+
+            <div class="kanban">
+                <div class="kanban-header">
+                    IN PROGRESS <img src="../img/kanban-plus.png">
+                </div>
+
+                <div id="in-progress">
+                </div>
+            </div>
+
+
+
+            <div class="kanban">
+                <div class="kanban-header">
+                    AWAITING FEEDBACK <img src="../img/kanban-plus.png">
+                </div>
+
+                <div id="awaiting-feedback">
+                </div>
+            </div>
+
+
+
+            <div class="kanban">
+                <div class="kanban-header">
+                    DONE <img src="../img/kanban-plus.png">
+                </div>
+
+                <div id="done">
+                </div>
+            </div>
+
+
+
+            
+
+
+
         </div>
 
 
