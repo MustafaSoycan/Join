@@ -7,8 +7,8 @@ h3{
     margin-left: 250px;
     display: flex;
     flex-direction: row;
-    height: calc(100vh - 100px - 24px); /* 100px Header 24px Padding-Top Contact List
-    font-family: 'Inter', sans-serif;  /*FOR TEST*/
+    height: calc(100vh - 100px - 24px); /* 100px Header 24px Padding-Top Contact List */
+    /*sfont-family: 'Inter', sans-serif;  /*FOR TEST*/
 }
 #contactList{
     display: flex;
@@ -126,7 +126,6 @@ h3{
 }
 .contactDetailsName h3{
 
-    font-family: Inter;
     font-size: 47px;
     font-weight: 500;
     line-height: 56px;
