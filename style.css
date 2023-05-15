@@ -54,6 +54,15 @@ body {
     border-radius: 2rem;
 }
 
+.forgot-pw-page{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .logo-img {
     fill: #2A3647;
 }
@@ -141,7 +150,6 @@ body {
     height: 4vh;
     border-radius: 0.5rem;
     border: 1px solid #D1D1D1;
-
 }
 
 .input-mail {
@@ -255,6 +263,36 @@ body {
     left: 2vw;
 }
 
+.login-input span{
+    text-align: center;
+}
+
+.forgot-pw{
+    width: 70vw;
+    height: 55vh;
+    justify-content: center;
+}
+
+.forgot-pw-btn{
+    width: 25vw;
+    height: 8vh;
+}
+
+.forgot-pw-input{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.forgot-pw-input input{
+    width: 40vw;
+    height: 5vh;
+    border-radius: 0.5rem;
+    border: 1px solid #D1D1D1;
+}
+
+
+
 @media only screen and (min-width: 350px) and (max-width: 600px) {
     .login-page {
         width: 85vw;
@@ -301,6 +339,29 @@ body {
         position: absolute;
         top: 3vh;
         left: 8vw;
+    }
+
+    .pw-mobile span{
+        font-size: 1.5rem;
+    }
+
+    .forgot-pw-input{
+        text-align: center;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .forgot-pw-input input {
+        width: 70vw;
+    }
+
+    .forgot-pw-btn{
+        width: 55vw;
+        height: 6vh;
+    }
+
+    .pw-mobile{
+        height: 6vh;
     }
 
 }

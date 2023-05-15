@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,56 +10,55 @@
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <title>Join</title>
 </head>
+
 <body>
 
     <div class="logo-page" style="display:none">
-            <img class="logo-img" src="./img/join-logo.svg" alt="">
-            <div class="logo-page-background"></div>
-            <div class="login-page">
-                <div class="title-container">
+        <img class="logo-img" src="./img/join-logo.svg" alt="">
+        <div class="logo-page-background"></div>
+        <div class="login-page">
+            <div class="title-container">
                 <span>Log in</span>
-                </div>
-                <div class="login-input">
-                    <input class="input-mail" type="text"  placeholder="E-mail">
-                    <input class="input-key"type="text" placeholder="Password">
-                </div>
-                <div class="flex-column gap-small">
-                    <div class="flex gap mobile-column">
-                        <div class="flex-column">
-                            <div>
+            </div>
+            <div class="login-input">
+                <input class="input-mail" type="text" placeholder="E-mail">
+                <input class="input-key" type="text" placeholder="Password">
+            </div>
+            <div class="flex-column gap-small">
+                <div class="flex gap mobile-column">
+                    <div class="flex-column">
+                        <div>
                             <input type="checkbox">
                             <span class="remember-span">Remember me</span>
-                            </div>
                         </div>
-                        <span class="forgot-span">Forgot my password</span>
+                    </div>
+                    <span class="forgot-span">Forgot my password</span>
 
-                    </div>
-                    <div class="flex gap mobile-column">
-                        <button class="log-btn">Log in</button>
-                        <button class="guest-log-btn">Guest Log in</button>
-                    </div>
                 </div>
-
+                <div class="flex gap mobile-column">
+                    <button class="log-btn">Log in</button>
+                    <button class="guest-log-btn">Guest Log in</button>
+                </div>
             </div>
-            
-            <div class="sign-up-container">
-                <span>Not a Join User?</span>
+        </div>
+        <div class="sign-up-container">
+            <span>Not a Join User?</span>
             <button class="log-btn mobile-btn">Sign up</button>
-            </div>
+        </div>
     </div>
 
 
-    <div class="logo-sign-up">
+    <div class="logo-sign-up" style="display:none">
         <img class="logo-img" src="./img/join-logo.svg" alt="">
         <div class="login-page">
             <div class="title-container">
                 <img class="left-arrow-img" src="./img/left-arrow-icon.png" alt="">
-            <span>Sign in</span>
+                <span>Sign in</span>
             </div>
             <div class="login-input">
-                <input class="input-name"type="text" placeholder="name">
-                <input class="input-mail" type="text"  placeholder="E-mail">
-                <input class="input-key"type="text" placeholder="Password">
+                <input class="input-name" type="text" placeholder="name">
+                <input class="input-mail" type="text" placeholder="E-mail">
+                <input class="input-key" type="text" placeholder="Password">
             </div>
             <div class="flex-column gap-small">
 
@@ -66,11 +66,32 @@
                     <button class="log-btn">Sign up</button>
                 </div>
             </div>
-
         </div>
-</div>
+    </div>
 
 
-    
+
+
+
+    <div class="logo-sign-up ">
+        <div class="login-page forgot-pw">
+            <div class="title-container pw-mobile">
+                <img class="left-arrow-img" src="./img/left-arrow-icon.png" alt="">
+                <span>I forgot my password</span>
+            </div>
+            <div class="forgot-pw-input flex-column">
+                <span>Don't worry! We will send you an email with the instructions to reset your password.</span>
+                <input class="input-mail" type="text" placeholder="E-mail">
+            </div>
+            <div class="flex-column gap-small">
+                <div class="flex gap mobile-column">
+                    <button class="log-btn forgot-pw-btn">Send me the email</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 </body>
+
 </html>
