@@ -15,10 +15,11 @@ body {
     justify-content: space-around;
     align-items: center;
     box-shadow: -2px 0px 6px 0px rgb(0, 0, 0, 0.2);
-    margin-bottom: 50px;
     position: fixed;
+    top: 0;
     left: 250px;
-    width: 100%;
+    right: 0;
+    background-color: white;
 }
 
 /*/-------------------- SIDEBAR TEMPLATE----------------/*/
@@ -30,7 +31,7 @@ body {
     position: fixed;
     top: 0;
     right: 0;
-    left: 250px;
+    left: 0;
 }
 
 /*/------------------ SIDEBAR-TOP-------------------------/*/
