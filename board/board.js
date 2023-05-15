@@ -1,33 +1,35 @@
 let todos = [
     {
-        'ID': 0,
+        'id': 0,
         'title': 'Putzen',
         'description': 'lorem asdfgsatf sadfsadfsaf asfsadfsad asfasfsaf ',
         'kanban': 'to-do'
     },
 
     {
-        'ID': 1,
+        'id': 1,
         'title': 'Kochen',
         'description': 'lorem asdfgsatf sadfsadfsaf asfsadfsad asfasfsaf ',
         'kanban': 'in-progress'
     },
 
     {
-        'ID': 2,
+        'id': 2,
         'title': 'Essen',
         'description': 'lorem asdfgsatf sadfsadfsaf asfsadfsad asfasfsaf ',
         'kanban': 'awaiting-feedback'
     },
 
     {
-        'ID': 3,
+        'id': 3,
         'title': 'Sport',
         'description': 'lorem asdfgsatf sadfsadfsaf asfsadfsad asfasfsaf ',
         'kanban': 'done'
     },
 ];
 
+
+let currentDraggedElement;
 
 function updateHTML(){
 
@@ -61,10 +63,24 @@ function updateHTML(){
     }
 }
 
+function startDragging(id){
+    currentDraggedElement = id;
+    }
+    
+
 function generateTodoHTML(element){
     return `
-    <div class="todo">
+    <div draggable="true" ondragstart="startDragging(${element['id']})" class="todo">
     <h3> ${element['title']} </h3>
     ${element['description']} 
     </div>`;
 }
+
+function allowDrop(ev) {
+    ev.preventDefault();
+  }
+
+  function moveTo(kanban){
+    todos[currentDraggedElement]['kanban'] = kanban; // Z.B. Todo mit id 1: Das Feld 'category' ändert sich zu zb 'closed'
+    updateHTML();
+  }

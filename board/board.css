@@ -13,6 +13,7 @@ body{
     align-items: center;
     margin-right: 100px;
     margin-left: 50px;
+    margin-bottom: 50px;
 }
 
 #board-header h1 {
@@ -67,7 +68,6 @@ body{
     justify-content: space-between;
     margin-right: 100px;
     margin-left: 50px;
-    margin-top: 50px;
 }
 
 .kanban{
