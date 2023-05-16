@@ -68,6 +68,7 @@ body{
     justify-content: space-between;
     margin-right: 100px;
     margin-left: 50px;
+    flex-wrap: wrap;
 }
 
 .kanban{
@@ -75,6 +76,8 @@ body{
     flex-direction: column;
     max-width: 250px;
     min-width: 250px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .kanban-header{
@@ -97,19 +100,19 @@ body{
 }
 
 #to-do{
-    min-height: 500px;
+    min-height: 300px;
 }
 
 #in-progress{
-    min-height: 500px;
+    min-height: 300px;
 }
 
 #awaiting-feedback{
-    min-height: 500px;
+    min-height: 300px;
 }
 
 #done{
-    min-height: 500px;
+    min-height: 300px;
 }
 
 /*/------------------ TO DO DIV ------------/*/
@@ -132,3 +135,8 @@ body{
     background-color: rgb(214, 214, 214);
     border-radius: 10px;
 }
+
+
+
+/*/------------------- MOBILE QUERRY --------------/*/
+
