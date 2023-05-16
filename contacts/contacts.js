@@ -5,9 +5,11 @@ async function loadContactList(){
 
     await getContactsFromRemoteStorage();
     
+
+    /*
     let resp = setItem(remoteStorageKey , JSON.stringify(contacts)); 
     console.log(resp); 
-    
+    */
 
     renderContactList();
 
@@ -109,4 +111,65 @@ function openContactDetails(index){
     `;
     document.getElementById("contactDetailsIcon"+index).style.backgroundColor = contact.bgIconColor; 
     console.log("Open" + index); 
+}
+
+function addNewContact(){
+    document.getElementById("openContact").classList.remove("dsp-none");
+    document.getElementById("openContact").classList.add("openContact"); 
+    renderContactForm(); 
+    
+
+
+}
+
+function renderContactForm(){
+
+    document.getElementById("openContact").innerHTML = /*html*/ `
+    <div class="contactOverlay">
+        <div class="contactOverlayContentClose">
+            <img onclick="closeContactOverlay()"src="../img/cross-icon.png" alt="cross">
+        </div>
+        <div class="contactOverlaySideBar">
+            <img src="../img/join-logo.png" alt="">
+            <h1>Add contact</h1>
+            <h2>Tasks are better with a team!</h2>
+            <div class="blueStyleElem"></div>
+        </div>
+        <div class="contactOverlayContent">
+            <div class="contactOverlayContentView">
+                <form onsubmit="addContact();return false">
+                    <div class="contactOverlayContentMain">
+                        <div>
+                            <img class="contactOverlayContentIcon" src="../img/profil-icon-white.png" alt="profilIcon">
+                       </div>
+                        <div class="contactOverlayContentInputs">
+                            <input required class="backgroundName" placeholder="Name" type="text">
+                            <input required class="backgroundMail" placeholder="Email" type="email">
+                            <input required class="backgroundTel" placeholder="Phone" type="tel">
+                        </div>
+                    </div>
+                    <div>
+                        <button>Cancel</button>
+                        <button type="submit">Add</button>
+                    </div>
+                </form>
+
+            </div>
+
+
+            
+        </div>
+    </div>
+    
+    `;
+
+}
+
+function addContact(){
+    console.log("Add Contact"); 
+}
+
+function closeContactOverlay(){
+    console.log("Close"); 
+
 }

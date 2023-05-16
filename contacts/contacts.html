@@ -17,6 +17,7 @@
 <body onload="includeHTML(), loadContactList()">
 
     <div w3-include-html="../templates/desktop_template.html"></div>
+    <div id="openContact" class="dsp-none"></div>
     <div id="contacts">
         <div id="contactList">
         </div>
@@ -28,7 +29,7 @@
             </div>
             <div id="selectedContact"></div>
                 <div class="newContactBtn" id="newContactBtn">
-                    <button>
+                    <button onclick="addNewContact()">
                         <h2>New contact</h2>
                         <img src="../img/add-contact-icon.png" alt="">
                     </button>

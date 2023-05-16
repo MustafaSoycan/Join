@@ -1,6 +1,9 @@
 h3{
     margin: 0px;
 }
+.dsp-none{
+    display: none;
+}
 
 #contacts{
     margin-top: 100px;
@@ -203,4 +206,123 @@ h3{
    font-size: 21px;
    font-weight: 700;
    margin: 0;
+}
+.openContact{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(211, 211, 211, 0.5);
+    z-index: 20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contactOverlay{
+    position: absolute;
+    height: 60vh;
+    width: 80vw;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+.contactOverlay h1{
+    font-size: 61px;
+    font-weight: 700;
+    color: white;
+    margin: 0px;
+}
+.contactOverlay h2{
+    font-size: 27px;
+    font-weight: 400;
+    color: white;
+    margin: 0px;
+}
+.contactOverlaySideBar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 24px;
+    background-color: #2A3647;
+    width: 400px; 
+    padding-left: 30px;
+}
+.contactOverlaySideBar img{
+  width: 50px;
+}
+.contactOverlayContent{
+    background-color: white;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.blueStyleElem{
+    height: 1px;
+    width: 100px;
+    background-color: #29ABE2;
+}
+.contactOverlayContentView{
+    margin-left: 80px;
+    margin-right: 80px;
+}
+
+.contactOverlayContentClose{
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 12px;
+}
+.contactOverlayContentIcon{
+    width: 100px;
+    height: 100px;
+    overflow: visible;
+    padding: 20px;
+    background-color: #D1D1D1;
+    border-radius: 50%;
+    object-fit: scale-down;
+}
+.contactOverlayContentMain{
+    display: flex;
+    flex-direction: row;
+    gap:48px;
+    align-items: center;
+}
+.contactOverlayContentInputs{
+    display: flex;
+    flex-direction: column;
+    gap:48px;
+    width: 100%;
+}
+.contactOverlayContentInputs input{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 15px;
+    font-size: 21px;
+    padding-left: 24px;
+    padding-right: 24px;
+    border: 1px solid #D1D1D1;
+}
+.backgroundName{
+    background: url("../img/profile-icon.png") no-repeat;
+    background-position: right 15px top 15px;
+}
+.backgroundMail{
+    background: url("../img/mail-icon.png") no-repeat;
+    background-position: right 15px top 15px;
+}
+.backgroundTel{
+    background: url("../img/phone-icon.png") no-repeat;
+    background-position: right 15px top 15px;
+}
+.contactOverlayContentInputs input::placeholder{
+   font-size: 21px;
+   padding-left: 0px;
+   color: #D1D1D1;
+   line-height: 50px;
 }
