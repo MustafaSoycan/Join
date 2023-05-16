@@ -68,16 +68,14 @@ body{
     justify-content: space-between;
     margin-right: 100px;
     margin-left: 50px;
-    flex-wrap: wrap;
 }
 
 .kanban{
     display: flex;
     flex-direction: column;
-    max-width: 250px;
     min-width: 250px;
-    padding-left: 15px;
-    padding-right: 15px;
+    max-width: 280px;
+    padding: 24px;
 }
 
 .kanban-header{
@@ -100,28 +98,29 @@ body{
 }
 
 #to-do{
-    min-height: 300px;
+    min-height: 200px;
+    height: 100%;
 }
 
 #in-progress{
-    min-height: 300px;
+    min-height: 200px;
 }
 
 #awaiting-feedback{
-    min-height: 300px;
+    min-height: 200px;
 }
 
 #done{
-    min-height: 300px;
+    min-height: 200px;
 }
 
 /*/------------------ TO DO DIV ------------/*/
 .todo{
-    padding: 10px;
+    padding: 20px 20px;
     min-height: 50px;
     background-color: rgb(255, 255, 255);
     margin-bottom: 20px;
-    border-radius: 10px;
+    border-radius: 24px;
     display: flex;
     flex-direction: column;
 }
@@ -137,6 +136,41 @@ body{
 }
 
 
+/*/----------------------- TASK DIV ------------------- /*/
+.category{
+    padding: 10px 16px;
+    max-width: 80px;
+    height: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    color: white;
+    margin-bottom: 12px;
+}
 
+.design{
+    background-color: orange;
+}
+
+.backoffice{
+    background-color: green;
+}
+
+.sales{
+    background-color: pink;
+}
+
+.marketing{
+    background-color: blue;
+}
+
+.title{
+    margin-bottom: 12px;
+}
+
+.description{
+    color: gray;
+}
 /*/------------------- MOBILE QUERRY --------------/*/
 
