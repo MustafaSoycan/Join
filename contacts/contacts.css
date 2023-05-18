@@ -165,6 +165,16 @@ h3{
     margin-top: 48px;
     margin-bottom: 12px;
 }
+.contactDetailsConatctInfosEdit{
+    display: flex;
+    gap:12px;
+    align-items: center;
+}
+.contactDetailsConatctInfosEdit:hover{
+   color: #29ABE2;
+   cursor: pointer;
+   font-weight: 800;
+}
 
 .contactDetailsConatctMailTel{
     margin-left: 48px; 
@@ -200,7 +210,11 @@ h3{
     border-radius: 10px;
     gap: 12px;
     padding: 12px;
-
+}
+.newContactBtn button:hover{
+   background-color: #29ABE2;
+   border: 1px solid #29ABE2;
+   cursor: pointer;
 }
 .newContactBtn h2{
    font-size: 21px;

@@ -94,7 +94,10 @@ function openContactDetails(index){
         </div>
         <div class="contactDetailsConatctInfos">
             <h3>Contact Information</h3>
-            <img onclick="editContact(${index})" src="../img/edit-contact-icon.png" alt="">
+            <div class="contactDetailsConatctInfosEdit" onclick="editContact(${index})">
+                <img  src="../img/edit-contact-icon.png" alt="">
+                <h3>Edit contact</h3>
+            </div>
         </div>
         <div  class="contactDetailsConatctMailTel">
             <h3>E-Mail</h3>
