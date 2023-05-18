@@ -67,7 +67,7 @@ let priorities = [
     },
 ]
 
-let contacts= [
+let contacts = [
     {
         'name': "Mustafa Soycan",
         'avatar': '<div class="avatar-mustafa"> MS </div>'
@@ -100,7 +100,7 @@ function startDragging(id) {
 function generateTodoHTML(element) {
 
     return `
-    <div draggable="true" ondragstart="startDragging(${element['id']})" class="todo">
+    <div onclick="editTask(${element['id']})" draggable="true" ondragstart="startDragging(${element['id']})" class="todo">
 
     <div class="${categories[1]['backgroundColor']} category">
     ${categories[1]['name']}
@@ -122,14 +122,15 @@ function generateTodoHTML(element) {
     </div>
 
     <div class="priorities">
-    ${priorities[0]['image']}
+    ${priorities[1]['image']}
     </div>
 
     </div>
-
 
     </div>`;
 }
+
+
 
 function showToDoBoard() {
     let toDo = todos.filter(t => t['kanban'] == 'to-do');
@@ -182,4 +183,59 @@ function highlight(id) {
 
 function removeHighlight(id) {
     document.getElementById(id).classList.remove('drag-area-highlight');
+}
+
+function editTask(elementId) {
+    let currentTask = document.getElementById('edit-task');
+    
+    let content = document.getElementById('content');
+
+    
+
+    // Suchen Sie den entsprechenden Task anhand der ID
+    const element = todos.find(task => task.id === elementId);
+
+    // Erstellen Sie den HTML-Code für die Karte mit den Werten des ausgewählten Tasks
+    currentTask.innerHTML = ``;
+    currentTask.innerHTML = `
+        <button onclick="closeTask()"> CLOSE </button>
+        <div class="${categories[1]['backgroundColor']} category">
+            ${categories[1]['name']}
+        </div>
+
+        <div class="title">
+            <h1>${element['title']}</h1>
+        </div>
+
+        <div class="description">
+            ${element['description']} 
+        </div>
+
+        <div class="date">
+        <b>Due date:</b>
+        </div>
+
+        <div class="priorities">
+            <b>Priority:</b> ${priorities[1]['image']}
+        </div>
+
+        <div>
+            <div class="assigned">
+                ${contacts[0]['avatar']}
+            </div>
+            
+            
+        </div>`;
+
+    currentTask.classList.remove('d-none');
+    content.classList.add('blur');
+}
+
+function closeTask(){
+    let currentTask = document.getElementById('edit-task');
+
+    currentTask.classList.add('d-none');
+
+    let content = document.getElementById('content');
+    content.classList.remove('blur');
 }

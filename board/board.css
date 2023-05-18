@@ -1,10 +1,10 @@
-.content {
+#content {
     margin-left: 300px;
     margin-top: 150px;
 }
 
 body{
-    background-color: rgb(246,247,248);
+    background-color: rgb(228, 228, 228);
 }
 
 #board-header {
@@ -124,6 +124,7 @@ body{
 
 .todo:hover{
     cursor: pointer;
+    
 }
 
 /*/---------- DRAG AND DROP HIGHLIGHT --------/*/
@@ -190,7 +191,27 @@ body{
     align-items: center;
 }
 
+/*/--------------------------- DISPLAY NONE --------------/*/
 
+.d-none{
+    display: none;
+}
 
-/*/------------------- MOBILE QUERRY --------------/*/
+/*/------------------- EDIT TASK --------------/*/
 
+#edit-task{
+    height: 500px !important;
+    width: 400px;
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    background-color: white;
+    padding: 32px;
+    border-radius: 20px;
+}
+
+#edit-task 
+
+.blur{
+    filter: blur(4px);
+}
