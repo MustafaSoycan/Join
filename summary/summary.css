@@ -3,6 +3,7 @@
     margin-left: 250px;
     padding-top: 50px;
     padding-left: 100px;
+    padding-right: 100px;
     display: flex;
     flex-direction: column;
     background-color: #F5F5F5;
@@ -57,9 +58,29 @@
 }
 .summaryContent h4{
     font-size: 21px;
+    font-weight: 100;
+    margin: 0px;
+}
+.summaryHeader h1{
+    font-size: 61px;
+    font-weight: 700;
+    margin: 0px;
+}
+.summaryHeader h3{
+    font-size: 27px;
     font-weight: 400;
     margin: 0px;
-  
+}
+.summaryWelcomeMessage{
+    font-size: 47px;
+    font-weight: 500;
+    margin: 0px;
+}
+.summaryUsername{
+    color: #29ABE2;
+    font-size: 60px;
+    font-weight: 700;
+    margin: 0px;
 }
 .summaryCardWithIcon{
     border-radius: 15px;

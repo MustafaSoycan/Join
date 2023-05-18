@@ -4,7 +4,6 @@ const remoteStorageKey = `contacts`;
 async function loadContactList(){
 
     await getContactsFromRemoteStorage();
-    
 
     /*
     let resp = setItem(remoteStorageKey , JSON.stringify(contacts)); 
