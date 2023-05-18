@@ -73,10 +73,8 @@ async function getContactsFromRemoteStorage(){
     
     /* GET CONTACTS FROM REMOTE STORAGE */
     let resp =  await getItem(remoteStorageKey);
-    contacts = JSON.parse(resp.data.value); 
+    contacts = JSON.parse(resp); 
     //console.log("GET FROM STORAGE:" + contacts);
-
-
 }
 
 function openContactDetails(index){
