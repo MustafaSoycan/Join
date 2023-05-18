@@ -143,9 +143,9 @@ function renderContactForm(){
                             <img class="contactOverlayContentIcon" src="../img/profil-icon-white.png" alt="profilIcon">
                        </div>
                         <div class="contactOverlayContentInputs">
-                            <input required class="backgroundName" placeholder="Name" type="text">
-                            <input required class="backgroundMail" placeholder="Email" type="email">
-                            <input required class="backgroundTel" placeholder="Phone" type="tel">
+                            <input required class="backgroundName" id="contactOverlayName" placeholder="Name" type="text" pattern="">
+                            <input required class="backgroundMail" id="contactOverlayEmail" placeholder="Email" type="email">
+                            <input required class="backgroundTel" id="contactOverlayPhone" placeholder="Phone" type="tel">
                         </div>
                     </div>
                     <div class="contactOverlayButtons">
@@ -173,11 +173,33 @@ function renderContactForm(){
 
 function addContact(){
     console.log("Add Contact"); 
+    let name = document.getElementById("contactOverlayName").value ; 
+    let email = document.getElementById("contactOverlayEmail").value ; 
+    let phone = document.getElementById("contactOverlayPhone").value ; 
+    let fullName = name.split(' '); 
+    let firstName = fullName[0];
+    let lastName = fullName[1];
+    let bgColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+
+    contacts.push({
+        "firstName": `${firstName}`,
+        "lastName": `${lastName}`,
+        "email": `${email}`,
+        "tel": `${phone}`,
+        "bgIconColor": `${bgColor}`
+    })
+    setContactsToRemoteStorage(); 
+    closeContactOverlay(); 
+    renderContactList(); 
+}
+
+function setContactsToRemoteStorage(){
+    let resp = setItem(remoteStorageKey , JSON.stringify(contacts)); 
+    console.log(resp); 
 }
 
 function closeContactOverlay(){
     console.log("Close"); 
     document.getElementById("openContact").classList.add("dsp-none");
     document.getElementById("openContact").classList.remove("openContact"); 
-
 }
