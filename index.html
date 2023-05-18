@@ -8,16 +8,17 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+<script src="script.js"></script>
     <title>Join</title>
 </head>
 
 <body>
 
-    <div class="logo-page" style="display:none">
-        <img class="logo-img" src="./img/join-logo.svg" alt="">
+    <div class="logo-page" id="login-screen" style="display:flex">
+        <img class="logo-img" src="./img/logo-dark.png" alt="">
         <div class="logo-page-background"></div>
         <div class="login-page">
-            <div class="title-container">
+            <div class="title-container" >
                 <span>Log in</span>
             </div>
             <div class="login-input">
@@ -32,27 +33,31 @@
                             <span class="remember-span">Remember me</span>
                         </div>
                     </div>
+                    <div onclick="openPage('forgotPW')">
                     <span class="forgot-span">Forgot my password</span>
+                    </div>
 
                 </div>
                 <div class="flex gap mobile-column">
-                    <button class="log-btn">Log in</button>
-                    <button class="guest-log-btn">Guest Log in</button>
+                    <button  onclick="openPage('summary')" class="log-btn">Log in</button>
+                    <button  onclick="openPage('summary')" class="guest-log-btn">Guest Log in</button>
                 </div>
             </div>
         </div>
         <div class="sign-up-container">
             <span>Not a Join User?</span>
-            <button class="log-btn mobile-btn">Sign up</button>
+            <button class="log-btn mobile-btn" onclick="openPage('sign-up')">Sign up</button>
         </div>
     </div>
 
 
-    <div class="logo-sign-up" style="display:none">
+    <div id="sign-up-screen" class="logo-sign-up" style="display:none">
         <img class="logo-img" src="./img/join-logo.svg" alt="">
         <div class="login-page">
-            <div class="title-container">
+            <div class="title-container" >
+                <div onclick="openPage('back')">
                 <img class="left-arrow-img" src="./img/left-arrow-icon.png" alt="">
+                </div>
                 <span>Sign in</span>
             </div>
             <div class="login-input">
@@ -63,20 +68,19 @@
             <div class="flex-column gap-small">
 
                 <div class="flex gap mobile-column">
-                    <button class="log-btn">Sign up</button>
+                    <button  class="log-btn">Sign up</button>
                 </div>
             </div>
         </div>
     </div>
 
 
-
-
-
-    <div class="logo-sign-up ">
+    <div id="forgotPW" class="logo-sign-up" style="display:none"  ">
         <div class="login-page forgot-pw">
             <div class="title-container pw-mobile">
+                <div onclick="openPage('back')">
                 <img class="left-arrow-img" src="./img/left-arrow-icon.png" alt="">
+                </div>
                 <span>I forgot my password</span>
             </div>
             <div class="forgot-pw-input flex-column">
@@ -86,6 +90,25 @@
             <div class="flex-column gap-small">
                 <div class="flex gap mobile-column">
                     <button class="log-btn forgot-pw-btn">Send me the email</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="logo-sign-up" style="display:none">
+        <div class="login-page reset-pw">
+            <div class=" title-container" style="width: 13vw;">
+                <img class="left-arrow-img" src="./img/left-arrow-icon.png" alt="">
+                <span style="font-size: 3rem">Reset your password</span>
+            </div>
+            <div class="forgot-pw-input flex-column">
+                <span>Change your account password</span>
+                <input  type="text" placeholder="New password">
+                <input  type="text" placeholder="Confirm password">            </div>
+            <div class="flex-column gap-small">
+                <div class="flex gap mobile-column">
+                    <button class="log-btn forgot-pw-btn">Continue</button>
                 </div>
             </div>
         </div>
