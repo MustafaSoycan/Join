@@ -97,7 +97,7 @@ function openContactDetails(index){
         </div>
         <div class="contactDetailsConatctInfos">
             <h3>Contact Information</h3>
-            <img src="../img/edit-contact-icon.png" alt="">
+            <img onclick="editContact(${index})" src="../img/edit-contact-icon.png" alt="">
         </div>
         <div  class="contactDetailsConatctMailTel">
             <h3>E-Mail</h3>
@@ -131,30 +131,30 @@ function renderContactForm(){
         </div>
         <div class="contactOverlaySideBar">
             <img src="../img/join-logo.png" alt="">
-            <h1>Add contact</h1>
-            <h2>Tasks are better with a team!</h2>
+            <h1 id="contactOverlaySideBarTitle">Add contact</h1>
+            <h2 id="contactOverlaySideBarSubtitle">Tasks are better with a team!</h2>
             <div class="blueStyleElem"></div>
         </div>
         <div class="contactOverlayContent">
             <div class="contactOverlayContentView">
-                <form onsubmit="addContact();return false">
+                <form id="contactOverlayForm" onsubmit="addContact();return false">
                     <div class="contactOverlayContentMain">
                         <div>
                             <img class="contactOverlayContentIcon" src="../img/profil-icon-white.png" alt="profilIcon">
                        </div>
                         <div class="contactOverlayContentInputs">
-                            <input required class="backgroundName" id="contactOverlayName" placeholder="Name" type="text" pattern="">
+                            <input required class="backgroundName" id="contactOverlayName" placeholder="Name" type="text">
                             <input required class="backgroundMail" id="contactOverlayEmail" placeholder="Email" type="email">
                             <input required class="backgroundTel" id="contactOverlayPhone" placeholder="Phone" type="tel">
                         </div>
                     </div>
                     <div class="contactOverlayButtons">
-                        <button onclick="closeContactOverlay()" type="button" class="buttonWhite">
-                            <h3>Cancel</h3>
+                        <button id="contactOverlayCancleButton" onclick="closeContactOverlay()" type="button" class="buttonWhite">
+                            <h3 id="contactOverlayCancleButtonText">Cancel</h3>
                             <img src="../img/cross-icon.png" alt=""> 
                         </button>
-                        <button class="buttonBlue" type="submit">
-                            <h3>Create contact</h3>
+                        <button id="contactOverlaySubmitButton" class="buttonBlue" type="submit">
+                            <h3 id="contactOverlaySubmitButtonText">Create contact</h3>
                             <img src="../img/checkmark-only-icon.png" alt=""> 
                         </button>
                     </div>
@@ -202,4 +202,45 @@ function closeContactOverlay(){
     console.log("Close"); 
     document.getElementById("openContact").classList.add("dsp-none");
     document.getElementById("openContact").classList.remove("openContact"); 
+}
+
+function editContact(index){
+    console.log("edit");
+    console.log(contacts[index].firstName);
+    document.getElementById("openContact").classList.remove("dsp-none");
+    document.getElementById("openContact").classList.add("openContact"); 
+    renderContactForm(); 
+    document.getElementById("contactOverlaySideBarTitle").innerHTML = "Edit contact"; 
+    document.getElementById("contactOverlaySideBarSubtitle").innerHTML = ""; 
+    document.getElementById("contactOverlayName").value = contacts[index].firstName + " " + contacts[index].lastName; 
+    document.getElementById("contactOverlayEmail").value = contacts[index].email; 
+    document.getElementById("contactOverlayPhone").value = contacts[index].tel; 
+    document.getElementById("contactOverlaySubmitButtonText").innerHTML = "Save"; 
+    document.getElementById("contactOverlayForm").onsubmit = function() {saveEditedContact(index)};
+    document.getElementById("contactOverlayCancleButton").onclick = function() {deleteEditedContact(index)};
+    document.getElementById("contactOverlayCancleButtonText").innerHTML = "Delete"; 
+    
+}
+
+function saveEditedContact(index){
+    console.log("SAVE edit");
+    let name = document.getElementById("contactOverlayName").value ; 
+    let fullName = name.split(' '); 
+    let firstName = fullName[0];
+    let lastName = fullName[1];
+    contacts[index].firstName = firstName; 
+    contacts[index].lastName = lastName; 
+    contacts[index].email = document.getElementById("contactOverlayEmail").value ; 
+    contacts[index].tel = document.getElementById("contactOverlayPhone").value ; 
+    setContactsToRemoteStorage(); 
+    closeContactOverlay(); 
+    renderContactList(); 
+} 
+
+function deleteEditedContact(index){
+    console.log("DELETE edit");
+    contacts.splice(index, 1); 
+    setContactsToRemoteStorage(); 
+    closeContactOverlay(); 
+    renderContactList(); 
 }
