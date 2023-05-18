@@ -291,6 +291,10 @@ h3{
     right: 30px;
     width: 12px;
 }
+.contactOverlayContentClose img:hover{
+   cursor: pointer;
+   transform: scale(1.5);
+}
 .contactOverlayContentIcon{
     width: 100px;
     height: 100px;
@@ -358,6 +362,12 @@ h3{
     gap: 12px;
     padding: 12px;
 }
+.contactOverlayButtons button:hover{
+    
+    border: 1px solid #29ABE2;
+    color: #29ABE2;
+
+}
 .buttonWhite{
     background-color: white;
     color:#2A3647
@@ -365,4 +375,9 @@ h3{
 .buttonBlue{
     color: white;
     background-color: #2A3647;
+}
+.buttonBlue:hover{
+    color: white;
+    background-color: #29ABE2;
+    color: white !important;
 }
