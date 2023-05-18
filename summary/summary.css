@@ -43,4 +43,39 @@
     flex-grow: 1;
     flex-shrink: 1;
     flex-basis: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
+.summaryContent h1{
+    margin: 0px;
+    font-size: 64px;
+    font-weight: 600;
+  
+}
+.summaryContent h4{
+    font-size: 21px;
+    font-weight: 400;
+    margin: 0px;
+  
+}
+.summaryCardWithIcon{
+    border-radius: 15px;
+    background-color: white;
+    padding: 24px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+.cardDivider{
+    height: 120px;
+    border: 1px solid black;
+}
+
