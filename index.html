@@ -8,11 +8,14 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-<script src="script.js"></script>
+
+    <script src="../remoteStorage/remoteStorage.js"></script>
+    <script src="script.js"></script>
+
     <title>Join</title>
 </head>
 
-<body>
+<body onload="init()" >
 
     <div class="logo-page" id="login-screen" style="display:flex">
         <img class="logo-img" src="./img/logo-dark.png" alt="">
@@ -53,26 +56,26 @@
 
     <div id="sign-up-screen" class="logo-sign-up" style="display:none">
         <img class="logo-img" src="./img/join-logo.svg" alt="">
-        <div class="login-page">
+        <form onsubmit="register(); return false;" class="login-page">
             <div class="title-container" >
                 <div onclick="openPage('back')">
-                <img class="left-arrow-img" src="./img/left-arrow-icon.png" alt="">
+                    <img class="left-arrow-img" src="./img/left-arrow-icon.png" alt="">
                 </div>
                 <span>Sign in</span>
             </div>
             <div class="login-input">
-                <input class="input-name" type="text" placeholder="name">
-                <input class="input-mail" type="text" placeholder="E-mail">
-                <input class="input-key" type="text" placeholder="Password">
+                <input id="name" class="input-name" required type="text" placeholder="name">
+                <input id="email" class="input-mail" required type="text" placeholder="E-mail">
+                <input id="password" class="input-key" required type="text" placeholder="Password">
             </div>
             <div class="flex-column gap-small">
-
                 <div class="flex gap mobile-column">
-                    <button  class="log-btn">Sign up</button>
+                    <button id="registerBtn" class="log-btn">Sign up</button>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
+    
 
 
     <div id="forgotPW" class="logo-sign-up" style="display:none"  ">
