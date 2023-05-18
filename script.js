@@ -33,27 +33,28 @@ function back() {
     forgotPW.style.display = 'none';
 }
 
+let user = [];
 
-async function init(){
+
+async function init() {
     loadUser();
 }
 
-async function loadUser(){
+async function loadUser() {
     try {
         user = JSON.parse(await getItem('user'));
-    } catch(e){
+    } catch (e) {
         console.error('Loading error:', e);
     }
 }
 
 
-document.addEventListener('DOMContentLoaded', function() {
-    let user = [];
+
+document.addEventListener('DOMContentLoaded', function () {
     let nameInput = document.getElementById('name');
     let email = document.getElementById('email');
     let password = document.getElementById('password');
     let registerBtn = document.getElementById('registerBtn');
-
     async function register() {
         registerBtn.disabled = true;
         user.push({
@@ -63,7 +64,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         await setItem('user', JSON.stringify(user));
         resetForm();
+        loadUser();
     }
+
 
     function resetForm() {
         nameInput.value = '';
@@ -72,5 +75,8 @@ document.addEventListener('DOMContentLoaded', function() {
         registerBtn.disabled = false;
     }
 
+
     registerBtn.addEventListener('click', register);
 });
+
+
