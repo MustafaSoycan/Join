@@ -208,6 +208,11 @@ body {
     font-weight: 400;
     font-size: 1rem;
     line-height: 120%;
+    cursor: pointer;
+}
+
+.forgot-span :hover{
+    border-bottom: 1px #29ABE2;
 }
 
 .remember-span {
@@ -233,6 +238,7 @@ body {
     font-weight: 700;
     font-size: 1rem;
     border: none;
+    cursor: pointer;
 }
 
 .guest-log-btn {
@@ -249,6 +255,7 @@ body {
     font-style: normal;
     font-weight: 700;
     font-size: 1rem;
+    cursor: pointer;
 }
 
 .sign-up-container {
@@ -264,8 +271,8 @@ body {
     position: absolute;
     top: 2vh;
     left: 2vw;
+    cursor: pointer;
 }
-
 .login-input span {
     text-align: center;
 }
