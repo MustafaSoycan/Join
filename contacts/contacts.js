@@ -4,7 +4,6 @@ const remoteStorageKey = `contacts`;
 async function loadContactList(){
 
     await getContactsFromRemoteStorage();
-    
 
     /*
     let resp = setItem(remoteStorageKey , JSON.stringify(contacts)); 
@@ -73,10 +72,8 @@ async function getContactsFromRemoteStorage(){
     
     /* GET CONTACTS FROM REMOTE STORAGE */
     let resp =  await getItem(remoteStorageKey);
-    contacts = JSON.parse(resp.data.value); 
+    contacts = JSON.parse(resp); 
     //console.log("GET FROM STORAGE:" + contacts);
-
-
 }
 
 function openContactDetails(index){
@@ -97,7 +94,10 @@ function openContactDetails(index){
         </div>
         <div class="contactDetailsConatctInfos">
             <h3>Contact Information</h3>
-            <img onclick="editContact(${index})" src="../img/edit-contact-icon.png" alt="">
+            <div class="contactDetailsConatctInfosEdit" onclick="editContact(${index})">
+                <img  src="../img/edit-contact-icon.png" alt="">
+                <h3>Edit contact</h3>
+            </div>
         </div>
         <div  class="contactDetailsConatctMailTel">
             <h3>E-Mail</h3>

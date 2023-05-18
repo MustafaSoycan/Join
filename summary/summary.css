@@ -3,6 +3,7 @@
     margin-left: 250px;
     padding-top: 50px;
     padding-left: 100px;
+    padding-right: 100px;
     display: flex;
     flex-direction: column;
     background-color: #F5F5F5;
@@ -37,10 +38,80 @@
     gap:32px;
 }
 .summaryCard{
-    border-radius: 15px;
+    border-radius: 30px;
     background-color: white;
     padding: 24px;
     flex-grow: 1;
     flex-shrink: 1;
     flex-basis: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 4px 0px 6px rgba(0, 0, 0, 0.08);
 }
+.summaryContent h1{
+    margin: 0px;
+    font-size: 64px;
+    font-weight: 600;
+  
+}
+.summaryContent h4{
+    font-size: 21px;
+    font-weight: 100;
+    margin: 0px;
+}
+.summaryHeader h1{
+    font-size: 61px;
+    font-weight: 700;
+    margin: 0px;
+}
+.summaryHeader h3{
+    font-size: 27px;
+    font-weight: 400;
+    margin: 0px;
+}
+.summaryWelcomeMessage{
+    font-size: 47px;
+    font-weight: 500;
+    margin: 0px;
+}
+.summaryUsername{
+    color: #29ABE2;
+    font-size: 60px;
+    font-weight: 700;
+    margin: 0px;
+}
+.summaryCardWithIcon{
+    border-radius: 30px;
+    background-color: white;
+    padding: 24px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    box-shadow: 4px 0px 6px rgba(0, 0, 0, 0.08);
+}
+.cardDivider{
+    height: 120px;
+    border: 1px solid black;
+}
+.summaryContent a{
+    text-decoration: none;
+    color: black;
+}
+.summaryContent a:hover{
+   color: white;
+   background-color: #2A3647;
+   transition: transform 125ms linear;
+   transform: scale(1.05); 
+}
+.hoverIcon:hover img{
+   filter: invert() grayscale(100%) contrast(100);
+ }
+ 
