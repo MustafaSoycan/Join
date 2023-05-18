@@ -148,9 +148,15 @@ function renderContactForm(){
                             <input required class="backgroundTel" placeholder="Phone" type="tel">
                         </div>
                     </div>
-                    <div>
-                        <button>Cancel</button>
-                        <button type="submit">Add</button>
+                    <div class="contactOverlayButtons">
+                        <button onclick="closeContactOverlay()" type="button" class="buttonWhite">
+                            <h3>Cancel</h3>
+                            <img src="../img/cross-icon.png" alt=""> 
+                        </button>
+                        <button class="buttonBlue" type="submit">
+                            <h3>Create contact</h3>
+                            <img src="../img/checkmark-only-icon.png" alt=""> 
+                        </button>
                     </div>
                 </form>
 
@@ -171,5 +177,7 @@ function addContact(){
 
 function closeContactOverlay(){
     console.log("Close"); 
+    document.getElementById("openContact").classList.add("dsp-none");
+    document.getElementById("openContact").classList.remove("openContact"); 
 
 }
