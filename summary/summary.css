@@ -1,0 +1,46 @@
+.summarySection{
+    margin-top: 100px;
+    margin-left: 250px;
+    padding-top: 50px;
+    padding-left: 100px;
+    display: flex;
+    flex-direction: column;
+    background-color: #F5F5F5;
+    height: calc(100vh - 100px - 50px);
+}
+.summaryHeader{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap:48px;
+}
+.verticalDivider{
+    width: 0px;
+    height: 59px;
+    border: 3px solid #29ABE2;
+}
+.summaryContent{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap:48px;
+    margin-top: 48px;
+}
+.summaryCardsRow{
+    display: flex;
+    gap:32px;
+}
+.summaryCards{
+    display: flex;
+    flex-direction: column;
+    gap:32px;
+}
+.summaryCard{
+    border-radius: 15px;
+    background-color: white;
+    padding: 24px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0;
+}
