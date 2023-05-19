@@ -86,7 +86,7 @@ let contacts = [
         'avatar': '<div class="avatar-matthias"> MP </div>'
     },
 ]
-
+let currentEditingIndex = -1;
 let currentDraggedElement;
 
 function updateHTML() {
@@ -99,41 +99,6 @@ function updateHTML() {
 function startDragging(id) {
     currentDraggedElement = id;
 }
-
-function generateTodoHTML(element) {
-
-    return `
-    <div onclick="editTask(${element['id']})" draggable="true" ondragstart="startDragging(${element['id']})" class="todo">
-
-    <div class="${categories[1]['backgroundColor']} category">
-    ${categories[1]['name']}
-    </div>
-
-    <div class="title">
-    <b>${element['title']} </b>
-    </div>
-
-    <div class="description">
-    ${element['description']} 
-    </div>
-
-
-    <div class="space-between">
-
-    <div  class="assigned">
-    ${contacts[0]['avatar']} 
-    </div>
-
-    <div class="priorities">
-    ${priorities[1]['image']}
-    </div>
-
-    </div>
-
-    </div>`;
-}
-
-
 
 function showToDoBoard() {
     let toDo = todos.filter(t => t['kanban'] == 'to-do');
@@ -188,9 +153,8 @@ function removeHighlight(id) {
     document.getElementById(id).classList.remove('drag-area-highlight');
 }
 
-function editTask(elementId) {
+function openTask(elementId) {
     let currentTask = document.getElementById('edit-task');
-
     let content = document.getElementById('content');
 
     let date = new Date("July 21");
@@ -200,52 +164,7 @@ function editTask(elementId) {
 
     // Erstellen Sie den HTML-Code für die Karte mit den Werten des ausgewählten Tasks
     currentTask.innerHTML = ``;
-    currentTask.innerHTML = `
-        <div class="close-task">
-        <img onclick="closeTask()" src="../img/close-task.png">
-        </div>
-        <div class="${categories[1]['backgroundColor']} category">
-            ${categories[1]['name']}
-        </div>
-
-        <div class="title">
-            <h1>${element['title']}</h1>
-        </div>
-
-        <div class="description">
-            ${element['description']} 
-        </div>
-
-        <div class="date">
-        <b>Due date:</b>
-        ${date}
-        </div>
-
-        <div class="priorities">
-            <b>Priority:</b> ${priorities[0]['symbol']}
-        </div>
-
-        <div>
-
-              <div class="assigned-to">
-                <b> Assigned to: </b>
-                </div>
-
-            <div class="assigned">
-                <div class="assigned-avatar">
-                ${contacts[0]['avatar']}
-                </div>
-
-                <div class="assigned-name">
-                 ${contacts[0]['name']}
-                 </div>
-            </div>
-
-            <div class="delete-edit-buttons">
-            <button class="delete-button"> </button>
-            <button class="edit-button"> <img src="../img/edit.png"> </button>
-             </div>
-        </div>`;
+    currentTask.innerHTML = openTaskHTML(element, date);
 
     currentTask.classList.remove('d-none');
     content.classList.add('blur');
@@ -258,4 +177,68 @@ function closeTask() {
 
     let content = document.getElementById('content');
     content.classList.remove('blur');
+}
+
+function editTask(id) {
+    let currentTask = document.getElementById('edit-task');
+    currentTask.innerHTML = '';
+
+    // Suchen Sie den entsprechenden Task anhand der ID
+    const element = todos.find(task => task.id === id);
+
+    currentTask.innerHTML = `
+        <div class="edit-container">
+            <div class="title-input">
+                title
+                <input id="titleInput" value="${element['title']}">
+            </div>
+        
+            <div class="description-input">
+                Description
+                <input id="descriptionInput" value="${element['description']}">
+            </div>
+
+            <div class="date-input">
+                Date
+                <input type="date" id="dateInput" value="${element['date']}">
+            </div>
+
+            <div class="priority-input">
+                Prio
+            </div>
+
+            <div class="assigned-input">
+                Assigned to
+                <select id="assignedSelect">
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">Saab</option>
+                    <option value="mercedes">Mercedes</option>
+                    <option value="audi">Audi</option>
+                </select>
+            </div>
+
+            <div class="save-changes-button-container">
+                <button class="save-changes-button" onclick="saveChanges()"> <span> Ok </span> <img src="../img/checkmark-only-icon.png"> </button>
+            </div>
+        </div>`;
+
+    // Setze den aktuellen Index für die Bearbeitung
+    currentEditingIndex = todos.findIndex(task => task.id === id);
+}
+
+function saveChanges() {
+    const title = document.getElementById('titleInput').value;
+    const description = document.getElementById('descriptionInput').value;
+
+    // Überprüfe, ob der Index gültig ist
+    if (currentEditingIndex >= 0 && currentEditingIndex < todos.length) {
+        todos[currentEditingIndex].title = title;
+        todos[currentEditingIndex].description = description;
+    }
+
+    // Aktualisiere das HTML
+    updateHTML();
+
+    // Schließe das Bearbeitungsfenster
+    closeTask();
 }

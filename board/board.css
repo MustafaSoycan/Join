@@ -215,7 +215,7 @@ body{
     margin-left: 8px;
 }
 
-/*/------------------- EDIT TASK --------------/*/
+/*/------------------- OPEN TASK --------------/*/
 
 #edit-task{
     width: 400px;
@@ -305,4 +305,86 @@ body{
     cursor: pointer;
     border-color: rgb(41,171,226);
     background-image: url(../img/delete-hover.png);
+}
+
+/*/ ------------------- EDIT TASK -----------------/*/
+
+.edit-container .title-input input{
+    height: 35px;
+    border-radius: 10px;
+    border: 0.5px solid lightgray;
+    padding: 12px;
+}
+
+.edit-container .description-input input{
+    height: 75px;
+    border-radius: 10px;
+    border: 0.5px solid lightgray;
+    padding: 12px;
+}
+
+.edit-container .date-input input{
+    height: 35px;
+    border-radius: 10px;
+    border: 0.5px solid lightgray;
+    padding: 12px;
+}
+
+.edit-container .assigned-input select{
+    height: 35px;
+    border-radius: 10px;
+    border: 0.5px solid lightgray;
+}
+
+.title-input{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+
+}
+
+.description-input{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+}
+
+.date-input{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+}
+
+.priority-input{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+}
+
+.assigned-input{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+}
+
+.save-changes-button{
+    background-color: rgb(42,54,71);
+    width: 50px;
+    height: 30px;
+    color: white;    
+    padding: 18px 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: unset;
+}
+
+.save-changes-button:hover{
+    background-color: rgb(41,171,226);
+}
+
+.save-changes-button-container{
+    display: flex;
+    justify-content: flex-end;
 }
