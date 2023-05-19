@@ -198,3 +198,88 @@ body {
 
 /*/---------------- MOBILE QUERRYS----------------/*/
 
+.sidebar-mobile{
+    display: none;
+    background-color: #333;
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    background-color: rgb(42, 54, 71);
+}
+.sidebar-mobile img{
+    width: 28px;
+    height: 28px;
+}
+.sidebar-mobile a{
+    text-decoration: none;
+    color: white;
+}
+.sidebar-mobile a:hover{
+    background-color: #091931;
+}
+
+@media only screen and (max-width: 800px) {
+    .addTask-picture{
+        margin-left: 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+    }
+    .summary-picture{
+        margin-left: 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+    }
+    .board-picture{
+        margin-left: 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+    }
+    .contacts-picture{
+        margin-left: 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+    }
+    .sidebar-mobile{
+        z-index: 100;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        position: fixed;
+        bottom: 0px;
+        left: 0px;
+        /*top: calc(100vh - 100px);*/
+        height: 100px;
+    }
+    .mobileTab{
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        gap:48px;
+    }
+    .mobileTab h3{
+        margin: 0px;
+        font-size: 16px;
+        font-weight: 400;
+    }
+    #sidebar-template{
+        display: none;
+    }
+    #topbar-template{   
+        left: 0px;
+    }
+}
