@@ -22,7 +22,13 @@
         <div class="logo-page-background"> </div>
 
     <div class="logo-page" id="login-screen" style="display:flex">
+        <div class="sign-up-container">
+            <span>Not a Join User?</span>
+            <button class="log-btn mobile-btn" onclick="openPage('sign-up')">Sign up</button>
         </div>
+        </div>
+
+        
         <div class="login-page">
             <div class="title-container" >
                 <span>Log in</span>
@@ -50,10 +56,7 @@
                 </div>
             </div>
         </div>
-        <div class="sign-up-container">
-            <span>Not a Join User?</span>
-            <button class="log-btn mobile-btn" onclick="openPage('sign-up')">Sign up</button>
-        </div>
+
     </div>
 
 
@@ -67,7 +70,7 @@
             </div>
             <div class="login-input">
                 <input id="name" class="input-name" required type="text" placeholder="name">
-                <input id="email" class="input-mail" required type="text" placeholder="E-mail">
+                <input id="email" class="input-mail" required type="email" placeholder="E-mail">
                 <input id="password" class="input-key" required type="text" placeholder="Password">
             </div>
             <div class="flex-column gap-small">
@@ -90,21 +93,32 @@
             </div>
             <div class="forgot-pw-input flex-column">
                 <span>Don't worry! We will send you an email with the instructions to reset your password.</span>
-                <input class="input-mail" type="text" placeholder="E-mail">
+                <input id="email-forgot" class="input-mail" required type="email" placeholder="E-mail">
             </div>
             <div class="flex-column gap-small">
                 <div class="flex gap mobile-column">
-                    <button class="log-btn forgot-pw-btn">Send me the email</button>
+                    <button onclick="resetPW()" class="log-btn forgot-pw-btn">Send me the email</button>
                 </div>
             </div>
         </div>
     </div>
 
+<div id="animation-info" class="info-background" style="display:none">
+  <img class="info-image" src="./img/send-message-information.png" alt="">
+</div>
 
-    <div class="logo-sign-up" style="display:none">
+<div id="animation-reset" class="info-background" style="display:none">
+  <img class="info-image" src="./img/confirmation-pw.png" alt="">
+</div>
+
+
+
+    <div id="changePW" class="logo-sign-up" style="display:none">
         <div class="login-page reset-pw">
             <div class=" title-container" style="width: 13vw;">
+                <div onclick="openPage('backChange')">
                 <img class="left-arrow-img" src="./img/left-arrow-icon.png" alt="">
+                </div>
                 <span style="font-size: 3rem">Reset your password</span>
             </div>
             <div class="forgot-pw-input flex-column">
@@ -113,7 +127,7 @@
                 <input  type="text" placeholder="Confirm password">            </div>
             <div class="flex-column gap-small">
                 <div class="flex gap mobile-column">
-                    <button class="log-btn forgot-pw-btn">Continue</button>
+                    <button onclick="checkPW()" class="log-btn forgot-pw-btn">Continue</button>
                 </div>
             </div>
         </div>

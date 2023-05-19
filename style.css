@@ -78,6 +78,57 @@ body {
     transition: z-index 1s ease-in-out;
 }
 
+.info-background {
+    position: absolute;
+    animation-name: fade-background1;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    height: 100vh;
+    width: 100vw;
+    z-index: 5;
+    transition: z-index 1s ease-in-out;
+  }
+  
+  .info-image {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: slideAndDisappear 2s forwards;
+    z-index: 9999; /* Hoher z-index-Wert */
+  }
+  
+  @keyframes slideAndDisappear {
+    0% {
+      transform: translateX(-50%) translateY(100%);
+      opacity: 1;
+    }
+    50% {
+      transform: translateX(-50%) translateY(-600%);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(-50%) translateY(-600%);
+      opacity: 0;
+    }
+  }
+
+  @keyframes fade-background1 {
+    from {
+      background-color: rgba(0, 0, 0, 0.8);
+      z-index: 5;
+    }
+  
+    to {
+      background-color: transparent;
+      z-index: 0;
+    }
+  }
+  
+
+
+
 
 .logo-page-background:hover {
     z-index: 0;
