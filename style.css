@@ -64,10 +64,6 @@ body {
     align-items: center;
 }
 
-.logo-img {
-    fill: #2A3647;
-}
-
 
 .logo-page-background {
     background-color: #F6F7F8;
@@ -81,6 +77,7 @@ body {
     z-index: 4;
     transition: z-index 1s ease-in-out;
 }
+
 
 .logo-page-background:hover {
     z-index: 0;
@@ -120,7 +117,7 @@ body {
     }
 
     to {
-        transform: translate(-43vw, -39vh) scale(0.4);
+        transform: translate(-42vw, -39vh) scale(0.4);
     }
 }
 
