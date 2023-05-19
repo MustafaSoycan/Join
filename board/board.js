@@ -53,17 +53,20 @@ let categories = [
 let priorities = [
     {
         'name': "urgent",
-        'image': '<img src="../img/priority-urgent.png">'
+        'image': '<img src="../img/priority-urgent.png">',
+        'symbol': '<div class="urgent"> Urgent <img class="urgent-symbol" src="../img/urgent-symbol.png"> </div>'
     },
 
     {
         'name': "medium",
-        'image': '<img src="../img/priority-medium.png">'
+        'image': '<img src="../img/priority-medium.png">',
+        'symbol': '<div class="urgent"> Medium <img src="../img/medium-symbol.png"> </div>'
     },
 
     {
         'name': "low",
-        'image': '<img src="../img/priority-low.png">'
+        'image': '<img src="../img/priority-low.png">',
+        'symbol': '<div class="urgent"> Low <img src="../img/low-symbol.png"> </div>'
     },
 ]
 
@@ -118,7 +121,7 @@ function generateTodoHTML(element) {
     <div class="space-between">
 
     <div  class="assigned">
-    ${contacts[0]['avatar']}
+    ${contacts[0]['avatar']} 
     </div>
 
     <div class="priorities">
@@ -187,10 +190,10 @@ function removeHighlight(id) {
 
 function editTask(elementId) {
     let currentTask = document.getElementById('edit-task');
-    
+
     let content = document.getElementById('content');
 
-    
+    let date = new Date("July 21");
 
     // Suchen Sie den entsprechenden Task anhand der ID
     const element = todos.find(task => task.id === elementId);
@@ -198,7 +201,9 @@ function editTask(elementId) {
     // Erstellen Sie den HTML-Code für die Karte mit den Werten des ausgewählten Tasks
     currentTask.innerHTML = ``;
     currentTask.innerHTML = `
-        <button onclick="closeTask()"> CLOSE </button>
+        <div class="close-task">
+        <img onclick="closeTask()" src="../img/close-task.png">
+        </div>
         <div class="${categories[1]['backgroundColor']} category">
             ${categories[1]['name']}
         </div>
@@ -213,25 +218,40 @@ function editTask(elementId) {
 
         <div class="date">
         <b>Due date:</b>
+        ${date}
         </div>
 
         <div class="priorities">
-            <b>Priority:</b> ${priorities[1]['image']}
+            <b>Priority:</b> ${priorities[0]['symbol']}
         </div>
 
         <div>
+
+              <div class="assigned-to">
+                <b> Assigned to: </b>
+                </div>
+
             <div class="assigned">
+                <div class="assigned-avatar">
                 ${contacts[0]['avatar']}
+                </div>
+
+                <div class="assigned-name">
+                 ${contacts[0]['name']}
+                 </div>
             </div>
-            
-            
+
+            <div class="delete-edit-buttons">
+            <button class="delete-button"> </button>
+            <button class="edit-button"> <img src="../img/edit.png"> </button>
+             </div>
         </div>`;
 
     currentTask.classList.remove('d-none');
     content.classList.add('blur');
 }
 
-function closeTask(){
+function closeTask() {
     let currentTask = document.getElementById('edit-task');
 
     currentTask.classList.add('d-none');
