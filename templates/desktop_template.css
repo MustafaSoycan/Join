@@ -1,3 +1,6 @@
+html{
+    margin: 0;  
+}
 body {
     font-family: 'Inter', sans-serif;
     margin: 0;
@@ -217,6 +220,25 @@ body {
 .sidebar-mobile a:hover{
     background-color: #091931;
 }
+#topbar-mobile{
+    display: none;
+    height: 50px;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: -2px 0px 6px 0px rgb(0, 0, 0, 0.2);
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    background-color: white;
+    font-size: 22px;
+    width: calc(100vw - 60px);  
+    padding-right: 30px;
+    padding-left: 30px;
+}
+.mobileProjectInfo{
+    display: none;
+}
 
 @media only screen and (max-width: 800px) {
     .addTask-picture{
@@ -279,7 +301,34 @@ body {
     #sidebar-template{
         display: none;
     }
+
+    /*TOP BAR*/
     #topbar-template{   
-        left: 0px;
+       display: none;
     }
+    #topbar-mobile{
+        display: flex;
+    }
+    #topbar-mobile img{
+        width: 32px;
+    }
+    .mobileProjectInfo{   
+        z-index: 1;
+        position: absolute;
+        display: flex;
+        justify-content: start;
+        top: 50px;
+        font-size: 18px;
+        font-weight: 100;
+        text-align: left;
+        width: 100vw;
+        margin: 0px;
+        height: 50px;
+        background-color: #F5F5F5;
+        align-items: center;
+        padding-left: 25px;
+    }
+
+   
+
 }

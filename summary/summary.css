@@ -146,5 +146,25 @@
   .summaryCardsRow{
     gap:8px;
   }
+  .summaryHeader{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .summaryHeader :nth-child(1) { order: 1; }
+  .summaryHeader :nth-child(2) { order: 3; }
+  .summaryHeader :nth-child(3) { order: 2; }
+  .verticalDivider{
+    transform: rotate(90deg);
+    margin-left: 32px;
+    border: 1px solid #29ABE2;
+  }
+  .summaryHeader h1{
+   font-size: 32px;
+  }
+  .summaryHeader h3{
+    font-size: 18px;
+    font-weight: 300;
+   }
 }
 

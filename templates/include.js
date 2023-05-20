@@ -33,3 +33,7 @@ function includeHTML() {
     <button> Log out </button>
     </a>`;
 }
+
+function openMenu(){
+  console.log("openMobileMenu"); 
+}
