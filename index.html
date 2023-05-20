@@ -17,6 +17,10 @@
 
 <body onload="init()" >
 
+    <div style="display: none;">
+    <span id="current-user"></span>
+    </div>
+
     <div class="logo-page">
         <img class="logo-img" src="./img/logo-dark.png" alt="">
         <div class="logo-page-background"> </div>
@@ -34,8 +38,8 @@
                 <span>Log in</span>
             </div>
             <div class="login-input">
-                <input class="input-mail" type="text" placeholder="E-mail">
-                <input class="input-key" type="text" placeholder="Password">
+                <input id="log-in-email" class="input-mail" type="text" placeholder="E-mail">
+                <input id="log-in-pw" class="input-key" type="text" placeholder="Password">
             </div>
             <div class="flex-column gap-small">
                 <div class="flex gap mobile-column">
@@ -51,7 +55,7 @@
 
                 </div>
                 <div class="flex gap mobile-column">
-                    <button  onclick="openPage('summary')" class="log-btn">Log in</button>
+                    <button  onclick="openPage('log-in')" class="log-btn">Log in</button>
                     <button  onclick="openPage('summary')" class="guest-log-btn">Guest Log in</button>
                 </div>
             </div>
@@ -123,8 +127,8 @@
             </div>
             <div class="forgot-pw-input flex-column">
                 <span>Change your account password</span>
-                <input  type="text" placeholder="New password">
-                <input  type="text" placeholder="Confirm password">            </div>
+                <input id="new-password" type="text" placeholder="New password">
+                <input id="confirm-password" type="text" placeholder="Confirm password">            </div>
             <div class="flex-column gap-small">
                 <div class="flex gap mobile-column">
                     <button onclick="checkPW()" class="log-btn forgot-pw-btn">Continue</button>
