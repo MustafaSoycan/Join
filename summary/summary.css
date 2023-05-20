@@ -27,6 +27,7 @@
     align-items: center;
     gap:48px;
     margin-top: 48px;
+    justify-content: center;
 }
 .summaryCardsRow{
     display: flex;
@@ -115,9 +116,35 @@
    filter: invert() grayscale(100%) contrast(100);
  }
  
-
+ @media only screen and (max-width: 1200px) {
+    .summaryWelcome{
+        display: none;
+    }
+}
  @media only screen and (max-width: 800px) {
     .summarySection{
         margin-left: 0px;
     }
 }
+@media only screen and (max-width: 650px) {
+  .summarySection{
+    margin-top: 100px;
+    margin-left: 0px;
+    padding-top: 50px;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+  .summaryCard{
+    padding: 12px;
+  }
+  .summaryCard h1{
+    font-size: 32px;
+  }
+  .summaryCard h4{
+    font-size: 12px;
+  }
+  .summaryCardsRow{
+    gap:8px;
+  }
+}
+
