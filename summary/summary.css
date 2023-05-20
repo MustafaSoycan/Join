@@ -115,3 +115,9 @@
    filter: invert() grayscale(100%) contrast(100);
  }
  
+
+ @media only screen and (max-width: 800px) {
+    .summarySection{
+        margin-left: 0px;
+    }
+}

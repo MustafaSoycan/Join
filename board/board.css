@@ -196,11 +196,28 @@ body{
 .d-none{
     display: none;
 }
+/*/ --------------------- PRIORITIES ------------------/*/
 
-/*/------------------- EDIT TASK --------------/*/
+.urgent{
+    background-color: rgb(255,61,0);
+    padding: 10px 24px;
+    width: 50px;
+    height: 10px;
+    border-radius: 10px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+}
+
+.urgent-symbol{
+    margin-left: 8px;
+}
+
+/*/------------------- OPEN TASK --------------/*/
 
 #edit-task{
-    height: 500px !important;
     width: 400px;
     position: absolute;
     top: 30%;
@@ -210,8 +227,164 @@ body{
     border-radius: 20px;
 }
 
-#edit-task 
+.close-task{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.close-task img:hover{
+    opacity: 0.6;
+    cursor: pointer;
+}
 
 .blur{
     filter: blur(4px);
+}
+
+.assigned{
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+
+
+.assigned-avatar{
+    margin-right: 12px;
+}
+
+.date{
+    margin-bottom: 24px;
+}
+
+.priorities{
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+}
+
+.priorities b{
+    margin-right: 12px;
+}
+
+.assigned-to{
+    margin-bottom: 24px;
+}
+
+.delete-edit-buttons{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.edit-button{
+    background-color: rgb(42, 54, 71);
+    border: unset;
+    height: 40px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.edit-button:hover{
+    background-color: rgb(41,171,226);
+    cursor: pointer;
+}
+
+.delete-button{
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-image: url(../img/delete.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.delete-button:hover{
+    border: 1px solid rgb(41,171,226) ;
+    cursor: pointer;
+    border-color: rgb(41,171,226);
+    background-image: url(../img/delete-hover.png);
+}
+
+/*/ ------------------- EDIT TASK -----------------/*/
+
+.edit-container .title-input input{
+    height: 35px;
+    border-radius: 10px;
+    border: 0.5px solid lightgray;
+    padding: 12px;
+}
+
+.edit-container .description-input input{
+    height: 75px;
+    border-radius: 10px;
+    border: 0.5px solid lightgray;
+    padding: 12px;
+}
+
+.edit-container .date-input input{
+    height: 35px;
+    border-radius: 10px;
+    border: 0.5px solid lightgray;
+    padding: 12px;
+}
+
+.edit-container .assigned-input select{
+    height: 35px;
+    border-radius: 10px;
+    border: 0.5px solid lightgray;
+}
+
+.title-input{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+
+}
+
+.description-input{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+}
+
+.date-input{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+}
+
+.priority-input{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+}
+
+.assigned-input{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+}
+
+.save-changes-button{
+    background-color: rgb(42,54,71);
+    width: 50px;
+    height: 30px;
+    color: white;    
+    padding: 18px 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: unset;
+}
+
+.save-changes-button:hover{
+    background-color: rgb(41,171,226);
+}
+
+.save-changes-button-container{
+    display: flex;
+    justify-content: flex-end;
 }
