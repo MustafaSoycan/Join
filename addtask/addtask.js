@@ -1,21 +1,24 @@
 function createTask() {
-    let title = document.getElementById('titleInput').value;
-    let description = document.getElementById('descriptionInput').value;
-    
-  
-    let newTask = {
-      id: todos.length, // Weise eine eindeutige ID basierend auf der Anzahl der vorhandenen Tasks zu
+  let title = document.getElementById('titleInput').value;
+  let description = document.getElementById('descriptionInput').value;
+  let category = document.getElementById('categoryInput').value;
+  let dueDate = document.getElementById('dueDateInput').value;
+
+  let newTask = {
+      id: todos.length,
       title: title,
       description: description,
-      kanban: 'to-do' // Setze den kanban-Wert auf den Standardwert
-    };
-  
-    todos.push(newTask); // Füge den neuen Task zum todos-Array hinzu
-  
-    document.getElementById('titleInput').value = '';
-    document.getElementById('descriptionInput').value = '';
+      category: category,
+      dueDate: dueDate,
+      kanban: 'to-do'
+  };
 
-    setBoardToRemoteStorage();
-    updateHTML();
-  }
+  todos.push(newTask);
 
+  document.getElementById('titleInput').value = '';
+  document.getElementById('descriptionInput').value = '';
+
+
+  setBoardToRemoteStorage();
+  updateHTML();
+}

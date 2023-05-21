@@ -2,8 +2,8 @@ function generateTodoHTML(element) {
     return `
     <div onclick="openTask(${element['id']})" draggable="true" ondragstart="startDragging(${element['id']})" class="todo">
 
-    <div class="${categories[1]['backgroundColor']} category">
-    ${categories[1]['name']}
+    <div class="${element['category']} category">
+    ${element['category']}
     </div>
 
     <div class="title">
@@ -30,13 +30,13 @@ function generateTodoHTML(element) {
     </div>`;
 }
 
-function openTaskHTML(element, date){
+function openTaskHTML(element){
     return `
     <div class="close-task">
     <img onclick="closeTask()" src="../img/close-task.png">
     </div>
-    <div class="${categories[1]['backgroundColor']} category">
-        ${categories[1]['name']}
+    <div class="${element['category']} category">
+    ${element['category']}
     </div>
 
     <div class="title">
@@ -49,7 +49,7 @@ function openTaskHTML(element, date){
 
     <div class="date">
     <b>Due date:</b>
-    ${date}
+    ${element['dueDate']}
     </div>
 
     <div class="priorities">

@@ -148,20 +148,24 @@ body {
     margin-bottom: 12px;
 }
 
-.yellow {
+.design {
     background-color: orange;
 }
 
-.red {
+.sales {
     background-color: red;
 }
 
-.black {
+.media {
     background-color: black;
 }
 
-.blue {
+.marketing {
     background-color: blue;
+}
+
+.backoffice{
+    background-color: aqua;
 }
 
 .title {
@@ -169,7 +173,7 @@ body {
 }
 
 .description {
-    color: gray;
+
     margin-bottom: 12px;
 }
 

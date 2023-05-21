@@ -8,17 +8,22 @@
     <script src="../templates/include.js"></script>
     <link rel="stylesheet" href="../templates/desktop_template.css">
     <link rel="stylesheet" href="addtask.css">
-    <script src="../remoteStorage/remoteStorage.js"></script>
-    <script src="../board/board.js"></script>
     <link rel="stylesheet" href="../board/board.css">
+
+    <script src="../remoteStorage/remoteStorage.js"></script>
     <script src="./addtask.js"></script>
+    <script src="../board/board.js"></script>
+    
+
     <title>Document</title>
 </head>
 
 <body onload="includeHTML()">
     <div w3-include-html="../templates/desktop_template.html"></div>
 
+
     <div class="content">
+
 
 
         <div class="addTask-container">
@@ -43,7 +48,13 @@
 
                     <div class="task-category">
                         <span>Category</span>
-                        <select placeholder="Select task category"></select>
+                        <select id="categoryInput" placeholder="Select task category">
+                            <option value="design">Design</option>
+                            <option value="sales">Sales</option>
+                            <option value="backoffice">Backoffice</option>
+                            <option value="marketing">Marketing</option>
+                            <option value="media">Media</option>
+                        </select>
                     </div>
 
                     <div class="task-assigned">
@@ -58,7 +69,7 @@
                 <div class="addTask-rightSide">
                     <div class="task-date">
                         <span>Due Date</span>
-                        <input type="date">
+                        <input id="dueDateInput" type="date">
                     </div>
 
                     <div class="task-priority">

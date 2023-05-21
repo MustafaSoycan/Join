@@ -30,7 +30,10 @@ let todos = [
         'id': 0,
         'title': 'Putzen',
         'description': 'lorem asdfgsatf sadfsadfsaf asfsadfsad asfasfsaf ',
-        'kanban': 'to-do'
+        'kanban': 'to-do',
+        'category':'design',
+        'priority': 'Urgent',
+        'dueDate': '2023-05-02'
     },
 
 ];
@@ -110,12 +113,13 @@ function startDragging(id) {
 
 function showToDoBoard() {
     let toDo = todos.filter(t => t['kanban'] == 'to-do');
+    document.getElementById('to-do').innerHTML = '';
     for (let index = 0; index < toDo.length; index++) {
         let element = toDo[index];
         document.getElementById('to-do').innerHTML += generateTodoHTML(element);
     }
 
-    setBoardToRemoteStorage();
+
 }
 
 function showInProgressBoard() {
@@ -125,6 +129,7 @@ function showInProgressBoard() {
         let element = inProgress[index];
         document.getElementById('in-progress').innerHTML += generateTodoHTML(element);
     }
+
 }
 
 function showAwaitingFeedbackBoard() {
@@ -134,14 +139,17 @@ function showAwaitingFeedbackBoard() {
         let element = awaitingFeedback[index];
         document.getElementById('awaiting-feedback').innerHTML += generateTodoHTML(element);
     }
+
 }
 
 function showDoneBoard() {
     let done = todos.filter(t => t['kanban'] == 'done');
+    document.getElementById('done').innerHTML = '';
     for (let index = 0; index < done.length; index++) {
         let element = done[index];
         document.getElementById('done').innerHTML += generateTodoHTML(element);
     }
+
 }
 
 function allowDrop(ev) {
@@ -181,9 +189,7 @@ function openTask(elementId) {
 
 function closeTask() {
     let currentTask = document.getElementById('edit-task');
-
     currentTask.classList.add('d-none');
-
     let content = document.getElementById('content');
     content.classList.remove('blur');
 }
@@ -209,7 +215,7 @@ function editTask(id) {
 
             <div class="date-input">
                 Date
-                <input type="date" id="dateInput" value="${element['date']}">
+                <input type="date" id="dateInput" value="${element['dueDate']}">
             </div>
 
             <div class="priority-input">
@@ -242,13 +248,15 @@ function editTask(id) {
 function saveChanges() {
     const title = document.getElementById('titleInput').value;
     const description = document.getElementById('descriptionInput').value;
+    const dueDate = document.getElementById('dueDateInput').value;
+
 
     // Überprüfe, ob der Index gültig ist
     if (currentEditingIndex >= 0 && currentEditingIndex < todos.length) {
         todos[currentEditingIndex].title = title;
         todos[currentEditingIndex].description = description;
+        todos[currentEditingIndex].dueDate = dueDate;
     }
-
     setBoardToRemoteStorage();
     updateHTML();
     closeTask();
