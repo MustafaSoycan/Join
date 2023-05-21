@@ -11,6 +11,7 @@
 
     <script src="../board/board.js"></script>
     <link rel="stylesheet" href="../board/board.css">
+    <script src="./addtask.js"></script>
     <title>Document</title>
 </head>
 
@@ -34,12 +35,12 @@
 
                     <div class="task-title">
                         <span>Title</span>
-                        <input placeholder="Enter a title">
+                        <input id="titleInput" placeholder="Enter a title">
                     </div>
 
                     <div class="task-description">
                         <span>Description</span>
-                        <textarea placeholder="Enter adesc"> </textarea>
+                        <textarea id="descriptionInput" placeholder="Enter adesc"> </textarea>
                     </div>
 
                     <div class="task-category">
@@ -86,7 +87,7 @@
 
             <div>
             <button> Clear </button>
-            <button> Create Task</button>
+            <button onclick="createTask()">Create Task</button>
             </div>
 </body>
 

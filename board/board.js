@@ -96,6 +96,7 @@ function updateHTML() {
     showDoneBoard();
 }
 
+
 function startDragging(id) {
     currentDraggedElement = id;
 }
@@ -248,44 +249,44 @@ function saveChanges() {
     closeTask();
 }
 
-function priorityUrgent(){
+function priorityUrgent() {
     document.getElementById('buttonUrgent').classList.add('urgent-background');
-    document.getElementById('urgent-image').src="../img/urgent-symbol.png";
-    
+    document.getElementById('urgent-image').src = "../img/urgent-symbol.png";
+
     document.getElementById('buttonMedium').classList.remove('medium-background');
-    document.getElementById('medium-image').src="../img/priority-medium.png";
-    
+    document.getElementById('medium-image').src = "../img/priority-medium.png";
+
     document.getElementById('buttonLow').classList.remove('low-background');
-    document.getElementById('low-image').src="../img/priority-low.png";
-    
+    document.getElementById('low-image').src = "../img/priority-low.png";
+
     // Aktualisiere die Priorität im todos Array
     todos[currentEditingIndex].priority = 'urgent';
 }
 
-function priorityMedium(){
+function priorityMedium() {
     document.getElementById('buttonMedium').classList.add('medium-background');
-    document.getElementById('medium-image').src="../img/medium-symbol.svg";
-    
+    document.getElementById('medium-image').src = "../img/medium-symbol.svg";
+
     document.getElementById('buttonUrgent').classList.remove('urgent-background');
-    document.getElementById('urgent-image').src="../img/priority-urgent.png";
-    
+    document.getElementById('urgent-image').src = "../img/priority-urgent.png";
+
     document.getElementById('buttonLow').classList.remove('low-background');
-    document.getElementById('low-image').src="../img/priority-low.png";
-    
+    document.getElementById('low-image').src = "../img/priority-low.png";
+
     // Aktualisiere die Priorität im todos Array
     todos[currentEditingIndex].priority = 'medium';
 }
 
-function priorityLow(){
+function priorityLow() {
     document.getElementById('buttonLow').classList.add('low-background');
-    document.getElementById('low-image').src="../img/low-symbol.svg";
-    
+    document.getElementById('low-image').src = "../img/low-symbol.svg";
+
     document.getElementById('buttonUrgent').classList.remove('urgent-background');
-    document.getElementById('urgent-image').src="../img/priority-urgent.png";
-    
+    document.getElementById('urgent-image').src = "../img/priority-urgent.png";
+
     document.getElementById('buttonMedium').classList.remove('medium-background');
-    document.getElementById('medium-image').src="../img/priority-medium.png";
-    
+    document.getElementById('medium-image').src = "../img/priority-medium.png";
+
     // Aktualisiere die Priorität im todos Array
     todos[currentEditingIndex].priority = 'low';
 }
