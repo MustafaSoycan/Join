@@ -1,9 +1,9 @@
 function createTask() {
-    const title = document.getElementById('titleInput').value;
-    const description = document.getElementById('descriptionInput').value;
+    let title = document.getElementById('titleInput').value;
+    let description = document.getElementById('descriptionInput').value;
     
   
-    const newTask = {
+    let newTask = {
       id: todos.length, // Weise eine eindeutige ID basierend auf der Anzahl der vorhandenen Tasks zu
       title: title,
       description: description,
@@ -15,6 +15,7 @@ function createTask() {
     document.getElementById('titleInput').value = '';
     document.getElementById('descriptionInput').value = '';
 
+    setBoardToRemoteStorage();
     updateHTML();
   }
 

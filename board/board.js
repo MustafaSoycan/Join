@@ -1,3 +1,30 @@
+const remoteStorageKey = 'board';
+async function loadBoard() {
+    todos = await getBoardFromRemoteStorage();
+    updateHTML();
+  }
+
+async function setBoardToRemoteStorage() {
+    try {
+      const response = await setItem(remoteStorageKey, JSON.stringify(todos));
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function getBoardFromRemoteStorage() {
+    try {
+      const response = await getItem(remoteStorageKey);
+      return JSON.parse(response);
+    } catch (error) {
+      console.log(error);
+      return [];
+    }
+  }
+
+  
+
 let todos = [
     {
         'id': 0,
@@ -6,26 +33,6 @@ let todos = [
         'kanban': 'to-do'
     },
 
-    {
-        'id': 1,
-        'title': 'Kochen',
-        'description': 'lorem asdfgsatf sadfsadfsaf asfsadfsad asfasfsaf ',
-        'kanban': 'in-progress'
-    },
-
-    {
-        'id': 2,
-        'title': 'Essen',
-        'description': 'lorem asdfgsatf sadfsadfsaf asfsadfsad asfasfsaf ',
-        'kanban': 'awaiting-feedback'
-    },
-
-    {
-        'id': 3,
-        'title': 'Sport',
-        'description': 'lorem asdfgsatf sadfsadfsaf asfsadfsad asfasfsaf ',
-        'kanban': 'done'
-    },
 ];
 
 let categories = [
@@ -103,18 +110,19 @@ function startDragging(id) {
 
 function showToDoBoard() {
     let toDo = todos.filter(t => t['kanban'] == 'to-do');
-    document.getElementById('to-do').innerHTML = '';
     for (let index = 0; index < toDo.length; index++) {
-        const element = toDo[index];
+        let element = toDo[index];
         document.getElementById('to-do').innerHTML += generateTodoHTML(element);
     }
+
+    setBoardToRemoteStorage();
 }
 
 function showInProgressBoard() {
     let inProgress = todos.filter(t => t['kanban'] == 'in-progress');
     document.getElementById('in-progress').innerHTML = '';
     for (let index = 0; index < inProgress.length; index++) {
-        const element = inProgress[index];
+        let element = inProgress[index];
         document.getElementById('in-progress').innerHTML += generateTodoHTML(element);
     }
 }
@@ -123,16 +131,15 @@ function showAwaitingFeedbackBoard() {
     let awaitingFeedback = todos.filter(t => t['kanban'] == 'awaiting-feedback');
     document.getElementById('awaiting-feedback').innerHTML = '';
     for (let index = 0; index < awaitingFeedback.length; index++) {
-        const element = awaitingFeedback[index];
+        let element = awaitingFeedback[index];
         document.getElementById('awaiting-feedback').innerHTML += generateTodoHTML(element);
     }
 }
 
 function showDoneBoard() {
     let done = todos.filter(t => t['kanban'] == 'done');
-    document.getElementById('done').innerHTML = '';
     for (let index = 0; index < done.length; index++) {
-        const element = done[index];
+        let element = done[index];
         document.getElementById('done').innerHTML += generateTodoHTML(element);
     }
 }
@@ -143,6 +150,7 @@ function allowDrop(ev) {
 
 function moveTo(kanban) {
     todos[currentDraggedElement]['kanban'] = kanban; // Z.B. Todo mit id 1: Das Feld 'category' ändert sich zu zb 'closed'
+    setBoardToRemoteStorage();
     updateHTML();
 }
 
@@ -216,10 +224,9 @@ function editTask(id) {
             <div class="assigned-input">
                 Assigned to
                 <select id="assignedSelect">
-                    <option value="volvo">Volvo</option>
-                    <option value="saab">Saab</option>
-                    <option value="mercedes">Mercedes</option>
-                    <option value="audi">Audi</option>
+                    <option value="volvo">Mustafa Soycan</option>
+                    <option value="saab">Hao Truong</option>
+                    <option value="mercedes">Matthias Plank</option>
                 </select>
             </div>
 
@@ -242,10 +249,8 @@ function saveChanges() {
         todos[currentEditingIndex].description = description;
     }
 
-    // Aktualisiere das HTML
+    setBoardToRemoteStorage();
     updateHTML();
-
-    // Schließe das Bearbeitungsfenster
     closeTask();
 }
 

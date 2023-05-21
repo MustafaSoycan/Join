@@ -9,15 +9,18 @@
     <link rel="stylesheet" href="../templates/desktop_template.css">
 
     <link rel="stylesheet" href="../board/board.css">
-
+    <script src="../remoteStorage/remoteStorage.js"></script>
     <script src="../board/board.js"></script>
     <script src="../board/board-template.js"></script>
     <script src="../addtask/addtask.js"></script>
 
+
+ 
+
     <title>Join</title>
 </head>
 
-<body onload="includeHTML(); updateHTML()">
+<body onload="includeHTML(); loadBoard()">
     <div w3-include-html="../templates/desktop_template.html"></div>
 
     <div id="content">
