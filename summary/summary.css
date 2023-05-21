@@ -124,11 +124,13 @@
  @media only screen and (max-width: 800px) {
     .summarySection{
         margin-left: 0px;
+        height: 100%;
+        padding-bottom: 120px;
     }
 }
 @media only screen and (max-width: 650px) {
   .summarySection{
-    margin-top: 100px;
+    margin-top: 70px;
     margin-left: 0px;
     padding-top: 50px;
     padding-left: 25px;
@@ -137,10 +139,10 @@
   .summaryCard{
     padding: 12px;
   }
-  .summaryCard h1{
+  .summaryCard h1, .summaryCardWithIcon h1{
     font-size: 32px;
   }
-  .summaryCard h4{
+  .summaryCard h4, .summaryCardWithIcon h4{
     font-size: 12px;
   }
   .summaryCardsRow{
@@ -162,9 +164,22 @@
   .summaryHeader h1{
    font-size: 32px;
   }
-  .summaryHeader h3{
+  .summaryHeader h3, .summaryCardWithIcon h3{
     font-size: 18px;
     font-weight: 300;
    }
+   .summaryCardWithIcon img{
+        width: 32px;
+   }
+   .summaryContent{
+    margin-top: 0px;;
+   }
+   .verticalDivider{
+        margin-left: 32px;
+        margin-right: 0px;
+        margin-bottom: -10px;
+        margin-top: -25px;
+   }
+ 
 }
 

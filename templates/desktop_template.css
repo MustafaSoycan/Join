@@ -222,7 +222,7 @@ body {
 }
 #topbar-mobile{
     display: none;
-    height: 50px;
+    height: 51px;
     justify-content: space-between;
     align-items: center;
     box-shadow: -2px 0px 6px 0px rgb(0, 0, 0, 0.2);
@@ -314,7 +314,7 @@ body {
     }
     .mobileProjectInfo{   
         z-index: 1;
-        position: absolute;
+        position: fixed;
         display: flex;
         justify-content: start;
         top: 50px;
