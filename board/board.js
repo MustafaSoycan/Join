@@ -189,7 +189,7 @@ function editTask(id) {
     currentTask.innerHTML = `
         <div class="edit-container">
             <div class="title-input">
-                title
+                Title
                 <input id="titleInput" value="${element['title']}">
             </div>
         
@@ -205,6 +205,11 @@ function editTask(id) {
 
             <div class="priority-input">
                 Prio
+                <div class="edit-task-prio-buttons">
+                <button id="buttonUrgent" onclick="priorityUrgent()"> Urgent <img id="urgent-image" src="../img/priority-urgent.png"></button>
+                <button id="buttonMedium" onclick="priorityMedium()"> Medium <img id="medium-image" src="../img/priority-medium.png"></button>
+                <button id="buttonLow" onclick="priorityLow()"> Low <img id="low-image" src="../img/priority-low.png"></button>
+                </div>
             </div>
 
             <div class="assigned-input">
@@ -241,4 +246,46 @@ function saveChanges() {
 
     // Schließe das Bearbeitungsfenster
     closeTask();
+}
+
+function priorityUrgent(){
+    document.getElementById('buttonUrgent').classList.add('urgent-background');
+    document.getElementById('urgent-image').src="../img/urgent-symbol.png";
+    
+    document.getElementById('buttonMedium').classList.remove('medium-background');
+    document.getElementById('medium-image').src="../img/priority-medium.png";
+    
+    document.getElementById('buttonLow').classList.remove('low-background');
+    document.getElementById('low-image').src="../img/priority-low.png";
+    
+    // Aktualisiere die Priorität im todos Array
+    todos[currentEditingIndex].priority = 'urgent';
+}
+
+function priorityMedium(){
+    document.getElementById('buttonMedium').classList.add('medium-background');
+    document.getElementById('medium-image').src="../img/medium-symbol.svg";
+    
+    document.getElementById('buttonUrgent').classList.remove('urgent-background');
+    document.getElementById('urgent-image').src="../img/priority-urgent.png";
+    
+    document.getElementById('buttonLow').classList.remove('low-background');
+    document.getElementById('low-image').src="../img/priority-low.png";
+    
+    // Aktualisiere die Priorität im todos Array
+    todos[currentEditingIndex].priority = 'medium';
+}
+
+function priorityLow(){
+    document.getElementById('buttonLow').classList.add('low-background');
+    document.getElementById('low-image').src="../img/low-symbol.svg";
+    
+    document.getElementById('buttonUrgent').classList.remove('urgent-background');
+    document.getElementById('urgent-image').src="../img/priority-urgent.png";
+    
+    document.getElementById('buttonMedium').classList.remove('medium-background');
+    document.getElementById('medium-image').src="../img/priority-medium.png";
+    
+    // Aktualisiere die Priorität im todos Array
+    todos[currentEditingIndex].priority = 'low';
 }

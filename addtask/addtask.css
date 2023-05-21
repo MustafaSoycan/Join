@@ -1,0 +1,135 @@
+body {
+    background-color: rgb(246, 247, 248);
+}
+
+.content {
+    margin-left: 250px;
+    margin-top: 100px;
+}
+
+.addTask-container {
+    margin-left: 200px;
+    margin-top: 200px;
+    font-size: 22px;
+}
+
+.addTask-container span {
+    margin-bottom: 8px;
+}
+
+.addTask-container input {
+    font-size: 22px;
+}
+
+.addTask-container h1 {
+    font-size: 48px;
+}
+
+.addTask-content {
+    display: flex;
+}
+
+.addTask-leftSide {
+    margin-right: 100px;
+}
+
+.addTask-leftSide div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+}
+
+.task-title input {
+    padding: 12px 18px;
+    min-width: 300px;
+    border-radius: 10px;
+    border: 1px solid lightgray;
+    outline: none;
+}
+
+
+
+.task-description textarea {
+    padding: 12px 18px;
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid lightgray;
+    outline: none;
+    min-width: 300px;
+}
+
+.task-category select {
+    padding: 12px 18px;
+    border-radius: 10px;
+    border: 1px solid lightgray;
+    outline: none;
+    min-width: 300px;
+}
+
+.task-assigned select {
+    padding: 12px 18px;
+    border-radius: 10px;
+    border: 1px solid lightgray;
+    outline: none;
+    min-width: 300px;
+}
+
+
+/*/ ------------- RIGHT SIDE ADD TASK CONTENT ---------------/*/
+
+.addTask-rightSide {
+    margin-left: 100px;
+}
+
+
+
+.addTask-rightSide div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+}
+
+.task-date input {
+    padding: 12px 18px;
+    border-radius: 10px;
+    min-width: 300px;
+    border: 1px solid lightgray;
+    outline: none;
+}
+
+.task-priority-buttons {
+    flex-direction: row !important;
+}
+
+.task-subtasks input {
+    padding: 12px 18px;
+    border-radius: 10px;
+    border: 1px solid lightgray;
+    outline: none;
+    min-width: 300px;
+}
+
+/*/ --------------- PRIO BUTTONS ----------- /*/
+.task-priority-buttons {
+    gap: 16px;
+}
+
+.task-priority-buttons button {
+    padding: 12px 24px;
+    border-radius: 10px;
+    border: 0.5px solid lightgray;
+    background-color: white;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.task-priority-buttons button:hover {
+    cursor: pointer;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
+    transform: translateY(-1px);
+}
+.task-priority-buttons button img {
+    margin-left: 8px;
+}

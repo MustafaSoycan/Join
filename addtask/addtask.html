@@ -1,14 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../templates/include.js"></script>
     <link rel="stylesheet" href="../templates/desktop_template.css">
+    <link rel="stylesheet" href="addtask.css">
+
+    <script src="../board/board.js"></script>
+    <link rel="stylesheet" href="../board/board.css">
     <title>Document</title>
 </head>
+
 <body onload="includeHTML()">
     <div w3-include-html="../templates/desktop_template.html"></div>
+
+
+    <div class="content">
+
+
+
+        <div class="addTask-container">
+
+            <div class="addTask-title">
+                <h1>Add Task</h1>
+            </div>
+
+            <div class="addTask-content">
+
+                <div class="addTask-leftSide">
+
+                    <div class="task-title">
+                        <span>Title</span>
+                        <input placeholder="Enter a title">
+                    </div>
+
+                    <div class="task-description">
+                        <span>Description</span>
+                        <textarea placeholder="Enter adesc"> </textarea>
+                    </div>
+
+                    <div class="task-category">
+                        <span>Category</span>
+                        <select placeholder="Select task category"></select>
+                    </div>
+
+                    <div class="task-assigned">
+                        <span>Assigned to:</span>
+                        <select placeholder="Select contacts to assign"> </select>
+                    </div>
+
+                </div>
+
+                <img src="../img/line.png">
+
+                <div class="addTask-rightSide">
+                    <div class="task-date">
+                        <span>Due Date</span>
+                        <input type="date">
+                    </div>
+
+                    <div class="task-priority">
+                        <span>Prio</span>
+                        <div class="task-priority-buttons">
+                            <button id="buttonUrgent" onclick="priorityUrgent()">Urgent <img id="urgent-image"
+                                    src="../img/priority-urgent.png"> </button>
+                            <button id="buttonMedium" onclick="priorityMedium()">Medium <img id="medium-image"
+                                    src="../img/priority-medium.png"> </button>
+                            <button id="buttonLow" onclick="priorityLow()">Low <img id="low-image"
+                                    src="../img/priority-low.png"> </button>
+                        </div>
+                    </div>
+
+                    <div class="task-subtasks">
+                        <span>Subtasks</span>
+                        <input type="text" placeholder="Add new subtask">
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <div>
+            <button> Clear </button>
+            <button> Create Task</button>
+            </div>
 </body>
+
 </html>

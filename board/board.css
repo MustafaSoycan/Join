@@ -3,8 +3,8 @@
     margin-top: 150px;
 }
 
-body{
-    background-color: rgb(228, 228, 228);
+body {
+    background-color: rgb(245,245,245);
 }
 
 #board-header {
@@ -49,34 +49,34 @@ body{
 }
 
 .add-task-button:hover {
-    background-color: rgb(41,171,226);
+    background-color: rgb(41, 171, 226);
     cursor: pointer;
 }
 
-.interact{
+.interact {
     display: flex;
 }
 
 /*/--------------------------- KANBAN BOARD --------------------------/*/
 
 
-.kanbanboard{
+.kanbanboard {
     display: flex;
     justify-content: space-around;
     margin-right: 100px;
     margin-left: 50px;
 }
 
-.kanban{
+.kanban {
     display: flex;
     flex-direction: column;
     min-width: 250px;
     max-width: 280px;
     padding: 24px;
-   
+
 }
 
-.kanban-header{
+.kanban-header {
     display: flex;
     justify-content: space-between;
     font-size: 18px;
@@ -84,35 +84,35 @@ body{
     margin-bottom: 50px;
 }
 
-.kanban-header img{
+.kanban-header img {
     vertical-align: middle;
     margin-left: 5px;
 
 }
 
-.kanban-header img:hover{
+.kanban-header img:hover {
     opacity: 0.5;
     cursor: pointer;
 }
 
-#to-do{
+#to-do {
     min-height: 100%;
 }
 
-#in-progress{
+#in-progress {
     min-height: 100%;
 }
 
-#awaiting-feedback{
+#awaiting-feedback {
     min-height: 100%;
 }
 
-#done{
+#done {
     min-height: 100%;
 }
 
 /*/------------------ TO DO DIV ------------/*/
-.todo{
+.todo {
     padding: 20px 20px;
     min-height: 50px;
     background-color: rgb(255, 255, 255);
@@ -122,13 +122,13 @@ body{
     flex-direction: column;
 }
 
-.todo:hover{
+.todo:hover {
     cursor: pointer;
-    
+
 }
 
 /*/---------- DRAG AND DROP HIGHLIGHT --------/*/
-.drag-area-highlight{
+.drag-area-highlight {
     background-color: rgb(214, 214, 214);
     border-radius: 10px;
     border: 3px dashed grey;
@@ -136,7 +136,7 @@ body{
 
 
 /*/----------------------- CATEGORY DIV ------------------- /*/
-.category{
+.category {
     padding: 10px 16px;
     max-width: 80px;
     height: 12px;
@@ -148,39 +148,40 @@ body{
     margin-bottom: 12px;
 }
 
-.yellow{
+.yellow {
     background-color: orange;
 }
 
-.red{
+.red {
     background-color: red;
 }
 
-.black{
+.black {
     background-color: black;
 }
 
-.blue{
+.blue {
     background-color: blue;
 }
 
-.title{
+.title {
     margin-bottom: 12px;
 }
 
-.description{
+.description {
     color: gray;
     margin-bottom: 12px;
 }
+
 /*/-------------------- ASSSIGNED DIV-----------------/*/
 
-.space-between{
+.space-between {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.avatar-mustafa{
+.avatar-mustafa {
     height: 40px;
     width: 40px;
     background-color: red;
@@ -193,13 +194,14 @@ body{
 
 /*/--------------------------- DISPLAY NONE --------------/*/
 
-.d-none{
+.d-none {
     display: none;
 }
+
 /*/ --------------------- PRIORITIES ------------------/*/
 
-.urgent{
-    background-color: rgb(255,61,0);
+.urgent {
+    background-color: rgb(255, 61, 0);
     padding: 10px 24px;
     width: 50px;
     height: 10px;
@@ -211,13 +213,13 @@ body{
     vertical-align: middle;
 }
 
-.urgent-symbol{
+.urgent-symbol {
     margin-left: 8px;
 }
 
 /*/------------------- OPEN TASK --------------/*/
 
-#edit-task{
+#edit-task {
     width: 400px;
     position: absolute;
     top: 30%;
@@ -227,21 +229,21 @@ body{
     border-radius: 20px;
 }
 
-.close-task{
+.close-task {
     display: flex;
     justify-content: flex-end;
 }
 
-.close-task img:hover{
+.close-task img:hover {
     opacity: 0.6;
     cursor: pointer;
 }
 
-.blur{
+.blur {
     filter: blur(4px);
 }
 
-.assigned{
+.assigned {
     display: flex;
     align-items: center;
     margin-bottom: 24px;
@@ -249,34 +251,34 @@ body{
 
 
 
-.assigned-avatar{
+.assigned-avatar {
     margin-right: 12px;
 }
 
-.date{
+.date {
     margin-bottom: 24px;
 }
 
-.priorities{
+.priorities {
     margin-bottom: 24px;
     display: flex;
     align-items: center;
 }
 
-.priorities b{
+.priorities b {
     margin-right: 12px;
 }
 
-.assigned-to{
+.assigned-to {
     margin-bottom: 24px;
 }
 
-.delete-edit-buttons{
+.delete-edit-buttons {
     display: flex;
     justify-content: flex-end;
 }
 
-.edit-button{
+.edit-button {
     background-color: rgb(42, 54, 71);
     border: unset;
     height: 40px;
@@ -284,12 +286,12 @@ body{
     border-bottom-right-radius: 10px;
 }
 
-.edit-button:hover{
-    background-color: rgb(41,171,226);
+.edit-button:hover {
+    background-color: rgb(41, 171, 226);
     cursor: pointer;
 }
 
-.delete-button{
+.delete-button {
     width: 40px;
     height: 40px;
     background-color: white;
@@ -300,78 +302,82 @@ body{
     background-position: center;
 }
 
-.delete-button:hover{
-    border: 1px solid rgb(41,171,226) ;
+.delete-button:hover {
+    border: 1px solid rgb(41, 171, 226);
     cursor: pointer;
-    border-color: rgb(41,171,226);
+    border-color: rgb(41, 171, 226);
     background-image: url(../img/delete-hover.png);
 }
 
 /*/ ------------------- EDIT TASK -----------------/*/
-
-.edit-container .title-input input{
-    height: 35px;
+.edit-container .title-input input {
+    height: 30px;
     border-radius: 10px;
     border: 0.5px solid lightgray;
     padding: 12px;
+    font-size: 16px;
 }
 
-.edit-container .description-input input{
+.edit-container .description-input input {
     height: 75px;
     border-radius: 10px;
     border: 0.5px solid lightgray;
     padding: 12px;
+    font-size: 16px;
 }
 
-.edit-container .date-input input{
-    height: 35px;
+.edit-container .date-input input {
+    height: 30px;
     border-radius: 10px;
     border: 0.5px solid lightgray;
     padding: 12px;
+    font-size: 16px;
 }
 
-.edit-container .assigned-input select{
-    height: 35px;
+.edit-container .assigned-input select {
+    height: 30px;
     border-radius: 10px;
     border: 0.5px solid lightgray;
+    font-size: 16px;
 }
 
-.title-input{
+.title-input {
     display: flex;
     flex-direction: column;
     margin-bottom: 24px;
 
 }
 
-.description-input{
+.description-input {
     display: flex;
     flex-direction: column;
     margin-bottom: 24px;
 }
 
-.date-input{
+.date-input {
     display: flex;
     flex-direction: column;
     margin-bottom: 24px;
 }
 
-.priority-input{
+.priority-input {
     display: flex;
     flex-direction: column;
     margin-bottom: 24px;
 }
 
-.assigned-input{
+.assigned-input {
     display: flex;
     flex-direction: column;
     margin-bottom: 24px;
+    
 }
 
-.save-changes-button{
-    background-color: rgb(42,54,71);
+.save-changes-button {
+    background-color: rgb(42, 54, 71);
     width: 50px;
     height: 30px;
-    color: white;    
+    color: white;
     padding: 18px 36px;
     display: flex;
     justify-content: center;
@@ -380,11 +386,60 @@ body{
     border: unset;
 }
 
-.save-changes-button:hover{
-    background-color: rgb(41,171,226);
+.save-changes-button img{
+    margin-left: 8px;
 }
 
-.save-changes-button-container{
+.save-changes-button:hover {
+    background-color: rgb(41, 171, 226);
+    cursor: pointer;
+}
+
+.save-changes-button-container {
     display: flex;
     justify-content: flex-end;
+}
+
+.edit-task-prio-buttons {
+    display: flex;
+    gap: 16px;
+}
+
+.edit-task-prio-buttons button {
+    padding: 12px 24px;
+    border-radius: 10px;
+    border: 0.5px solid lightgray;
+    background-color: white;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit-task-prio-buttons button img {
+    margin-left: 8px;
+}
+
+.edit-task-prio-buttons button:hover {
+    cursor: pointer;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
+    transform: translateY(-1px);
+}
+
+.urgent-background{
+    background-color: rgb(255,61,0) !important;
+    font-weight: bold;
+    color: white;
+}
+
+.medium-background{
+    background-color: rgb(255,168,0) !important;
+    font-weight: bold;
+    color: white;
+}
+
+.low-background{
+    background-color: rgb(122,226,41) !important;
+    font-weight: bold;
+    color: white;
 }
