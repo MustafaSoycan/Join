@@ -17,6 +17,15 @@
 <body onload="includeHTML(), loadContactList()">
 
     <div w3-include-html="../templates/desktop_template.html"></div>
+
+    <div id="mobileAddButton" class="mobileAddButton" onclick="addNewContact()">
+        <button>
+            <img src="../img/add-contact-icon.png" alt="">
+            <h2>New contact</h2>
+        </button>
+    </div>
+
+
     <div id="openContact" class="dsp-none"></div>
     <div id="contacts">
         <div id="contactList">
