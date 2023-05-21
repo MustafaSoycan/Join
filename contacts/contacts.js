@@ -77,6 +77,14 @@ async function getContactsFromRemoteStorage(){
 }
 
 function openContactDetails(index){
+
+    if (window.matchMedia('screen and (max-width: 800px) ').matches) {
+        console.log("mobile");
+        openMobileVersion(index); 
+    } else {
+        console.log("not mobile");
+    }
+
     let contact = contacts[index]; 
     const firstLetter = contact.firstName.substring(0, 1); 
     const firstLetterLastName = contact.lastName.substring(0, 1); 
@@ -117,9 +125,6 @@ function addNewContact(){
     document.getElementById("openContact").classList.remove("dsp-none");
     document.getElementById("openContact").classList.add("openContact"); 
     renderContactForm(); 
-    
-
-
 }
 
 function renderContactForm(){
@@ -243,4 +248,23 @@ function deleteEditedContact(index){
     setContactsToRemoteStorage(); 
     closeContactOverlay(); 
     renderContactList(); 
+}
+
+function openMobileVersion(index){
+    document.getElementById("contactList").classList.add("dsp-none");
+    document.getElementById("newContactBtn").classList.add("dsp-none");
+    document.getElementById("mobileAddButton").classList.add("dsp-none");
+    document.getElementById("contactDetail").style.display = "flex";
+    document.getElementById("mobileProjectInfo").style.setProperty('display', 'flex', 'important');
+    document.getElementById("mobileButtons").style.display = "flex";
+    document.getElementById("mobileDeleteBtn").onclick = function() {deleteMobile(index)};
+    document.getElementById("mobileEditBtn").onclick = function() {editMobile(index)};
+}
+
+function deleteMobile(index){
+    console.log("DELETE Mobile" + index);
+}
+function editMobile(index){
+    console.log("EDIT Mobile" + index);
+    editContact(index);
 }

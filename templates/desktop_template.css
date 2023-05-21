@@ -235,6 +235,8 @@ body {
     width: calc(100vw - 60px);  
     padding-right: 30px;
     padding-left: 30px;
+    z-index: 120;
+
 }
 .mobileProjectInfo{
     display: none;

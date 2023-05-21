@@ -1,0 +1,23 @@
+body{
+    margin: 0px;
+    background-color: #F5F5F5;
+}
+
+.help{
+    margin-left: 350px;
+    margin-top: 200px;
+    padding-right: 100px;
+}
+
+.help p{
+    text-align: justify;
+}
+
+td:first-child{
+    font-size: 24px;
+    padding-right: 24px;
+
+}
+td:last-child{
+    padding-bottom: 18px;
+}
