@@ -2,7 +2,7 @@ h3{
     margin: 0px;
 }
 .dsp-none{
-    display: none;
+    display: none !important;
 }
 #topbar-template{
     z-index: 99;
@@ -116,6 +116,7 @@ h3{
     background-color: #007CEE;
     width: 120px;
     height: 120px;
+    aspect-ratio: 1;
     font-size: 47px;
     color: white;
     border-radius: 50%;
@@ -168,6 +169,7 @@ h3{
     gap:24px;
     margin-top: 48px;
     margin-bottom: 12px;
+    align-items: center;
 }
 .contactDetailsConatctInfosEdit{
     display: flex;
@@ -394,9 +396,11 @@ h3{
         margin-left: 0px;
         margin-bottom: 130px;
         display: block;
+        height: auto;
     }
     #contactDetail{
         display: none;
+        height: calc(100vh - 200px);
     }
     #contactList{
         width: 100%;
@@ -404,6 +408,8 @@ h3{
         overflow-y:unset;
         height: auto;
         padding-bottom: 100px;
+        top: 50px;
+        position: absolute;
     }
     .mobileAddButton{
         position: fixed;
@@ -414,9 +420,10 @@ h3{
         display: flex;
         justify-content: flex-end;
         z-index: 20;
-        background: white;
+        background: transparent;
     }
     .mobileAddButton button{
+     
       margin-right: 20px;
       display: flex;
       flex-direction: row;
@@ -428,6 +435,8 @@ h3{
       border-radius: 10px;
       gap: 12px;
       padding: 12px;
+      height: 40px;
+      margin-top: 15px;
     }
     .mobileAddButton button:hover{
        background-color: #29ABE2;
@@ -435,10 +444,75 @@ h3{
        cursor: pointer;
     }
     .mobileAddButton h2{
-       font-size: 21px;
+       font-size: 18px;
        font-weight: 700;
        margin: 0;
     }
+    .mobileAddButton img{
+        width: 18px;
+     }
+
+    .contactDetailHeader h1{
+        font-size: 47px;
+        margin: 0px;
+    }
+    
+    .contactDetailHeader{
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin-left: 25px;
+        gap: 12px;
+        margin-top: 8px;
+    }
+    .contactDetailHeader :nth-child(1) { order: 1; }
+    .contactDetailHeader :nth-child(2) { order: 3; }
+    .contactDetailHeader :nth-child(3) { order: 2; }
+    .divider{
+        transform: rotate(90deg);
+        margin-left: 32px;
+        border: 1px solid #29ABE2;
+        margin-top: -25px;
+    }
+    .contactDetailsIcon{
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+    }
+    .contactDetailsName{
+        margin-left: 24px;
+    }
+    .contactDetailsName h3{
+        font-size: 24px;
+    }
+    .contactDetailsName a{
+        margin-top: 0px;
+    }
+    .contactDetailsConatctInfos{
+        margin-left: 24px;
+        margin-bottom: 24px;
+    }
+    .contactDetailsConatctInfos h3{
+        font-size: 18px;
+    }
+    .contactDetailsConatctInfosEdit{
+        display: none;
+    }
+    .contactDetailsConatctMailTel{
+        margin-top: 12px;
+        margin-left: 24px;
+    }
+    .contactDetailsConatctMailTel h3{
+        font-size: 18px;
+    }
+    .mobileProjectInfo{
+        display: none !important;
+    }
+
+
+
+
+
 
 
 

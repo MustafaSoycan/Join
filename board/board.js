@@ -12,7 +12,6 @@ let todos = [
         'description': 'lorem asdfgsatf sadfsadfsaf asfsadfsad asfasfsaf ',
         'kanban': 'in-progress'
     },
-
     {
         'id': 2,
         'title': 'Essen',
