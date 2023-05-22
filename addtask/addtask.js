@@ -1,5 +1,9 @@
+async function loadArray(){
+todos = await getBoardFromRemoteStorage();
+}
 
-function createTask() {
+async function createTask() {
+  
   let title = document.getElementById('titleInput').value;
   let description = document.getElementById('descriptionInput').value;
   let category = document.getElementById('categoryInput').value;
@@ -27,5 +31,5 @@ function createTask() {
  
 
   setBoardToRemoteStorage();
-  updateHTML();
+
 }
