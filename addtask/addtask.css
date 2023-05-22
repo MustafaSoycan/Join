@@ -45,17 +45,22 @@ body {
     border-radius: 10px;
     border: 1px solid lightgray;
     outline: none;
+    
+}
+
+form{
+    display: flex !important;
 }
 
 
-
-.task-description textarea {
+.task-description input {
     padding: 12px 18px;
     height: 50px;
     border-radius: 10px;
     border: 1px solid lightgray;
     outline: none;
     min-width: 300px;
+    font-size: 22px;
 }
 
 .task-category select {
@@ -64,6 +69,7 @@ body {
     border: 1px solid lightgray;
     outline: none;
     min-width: 300px;
+    font-size: 22px;
 }
 
 .task-assigned select {
@@ -72,6 +78,7 @@ body {
     border: 1px solid lightgray;
     outline: none;
     min-width: 300px;
+    font-size: 22px;
 }
 
 
@@ -115,14 +122,15 @@ body {
 }
 
 .task-priority-buttons button {
-    padding: 12px 24px;
+    padding: 10px 32px;
     border-radius: 10px;
     border: 0.5px solid lightgray;
     background-color: white;
-    width: 100px;
+    width: 120px;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 22px;
 }
 
 .task-priority-buttons button:hover {

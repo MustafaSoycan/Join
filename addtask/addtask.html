@@ -13,7 +13,7 @@
     <script src="../remoteStorage/remoteStorage.js"></script>
     <script src="./addtask.js"></script>
     <script src="../board/board.js"></script>
-    
+
 
     <title>Document</title>
 </head>
@@ -43,7 +43,7 @@
 
                     <div class="task-description">
                         <span>Description</span>
-                        <textarea id="descriptionInput" placeholder="Enter adesc"> </textarea>
+                        <input id="descriptionInput" placeholder="Enter a description"> </input>
                     </div>
 
                     <div class="task-category">
@@ -59,7 +59,12 @@
 
                     <div class="task-assigned">
                         <span>Assigned to:</span>
-                        <select placeholder="Select contacts to assign"> </select>
+                        <select id="assignedToInput" placeholder="Select contacts to assign">
+                            <option value="Mustafa Soycan">Mustafa Soycan</option>
+                            <option value="Hao Truong">Hao Truong</option>
+                            <option value="Matthias Plank">Matthias Plank</option>
+                            
+                        </select>
                     </div>
 
                 </div>
@@ -75,11 +80,11 @@
                     <div class="task-priority">
                         <span>Prio</span>
                         <div class="task-priority-buttons">
-                            <button id="buttonUrgent" onclick="priorityUrgent()">Urgent <img id="urgent-image"
+                            <button id="buttonUrgent" onclick="priorityUrgent()">urgent<img id="urgent-image"
                                     src="../img/priority-urgent.png"> </button>
-                            <button id="buttonMedium" onclick="priorityMedium()">Medium <img id="medium-image"
+                            <button id="buttonMedium" onclick="priorityMedium()">medium<img id="medium-image"
                                     src="../img/priority-medium.png"> </button>
-                            <button id="buttonLow" onclick="priorityLow()">Low <img id="low-image"
+                            <button id="buttonLow" onclick="priorityLow()">low<img id="low-image"
                                     src="../img/priority-low.png"> </button>
                         </div>
                     </div>
@@ -95,8 +100,8 @@
             </div>
 
             <div>
-            <button> Clear </button>
-            <button onclick="createTask()">Create Task</button>
+                <button> Clear </button>
+                <button onclick="createTask()">Create Task</button>
             </div>
 </body>
 

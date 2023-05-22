@@ -1,4 +1,21 @@
+let todos = [
+    {
+        'id': 0,
+        'title': 'Putzen',
+        'description': 'lorem asdfgsatf sadfsadfsaf asfsadfsad asfasfsaf ',
+        'kanban': 'to-do',
+        'category':'design',
+        'priority': 'urgent',
+        'dueDate': '03-04-2023',
+        'assigned': 'Mustafa Soycan'
+    },
+
+];
+
 const remoteStorageKey = 'board';
+let currentEditingIndex = -1;
+let currentDraggedElement;
+
 async function loadBoard() {
     todos = await getBoardFromRemoteStorage();
     updateHTML();
@@ -23,81 +40,6 @@ async function setBoardToRemoteStorage() {
     }
   }
 
-  
-
-let todos = [
-    {
-        'id': 0,
-        'title': 'Putzen',
-        'description': 'lorem asdfgsatf sadfsadfsaf asfsadfsad asfasfsaf ',
-        'kanban': 'to-do',
-        'category':'design',
-        'priority': 'Urgent',
-        'dueDate': '2023-05-02'
-    },
-
-];
-
-let categories = [
-    {
-        'name': "Design",
-        'backgroundColor': "yellow"
-    },
-
-    {
-        'name': "Marketing",
-        'backgroundColor': "blue"
-    },
-
-    {
-        'name': "Sales",
-        'backgroundColor': "black"
-    },
-
-    {
-        'name': "Backoffice",
-        'backgroundColor': "red"
-    },
-]
-
-let priorities = [
-    {
-        'name': "urgent",
-        'image': '<img src="../img/priority-urgent.png">',
-        'symbol': '<div class="urgent"> Urgent <img class="urgent-symbol" src="../img/urgent-symbol.png"> </div>'
-    },
-
-    {
-        'name': "medium",
-        'image': '<img src="../img/priority-medium.png">',
-        'symbol': '<div class="urgent"> Medium <img src="../img/medium-symbol.png"> </div>'
-    },
-
-    {
-        'name': "low",
-        'image': '<img src="../img/priority-low.png">',
-        'symbol': '<div class="urgent"> Low <img src="../img/low-symbol.png"> </div>'
-    },
-]
-
-let contacts = [
-    {
-        'name': "Mustafa Soycan",
-        'avatar': '<div class="avatar-mustafa"> MS </div>'
-    },
-
-    {
-        'name': "Hao Truong",
-        'avatar': '<div class="avatar-hao"> HT </div>'
-    },
-
-    {
-        'name': "Matthias Plank",
-        'avatar': '<div class="avatar-matthias"> MP </div>'
-    },
-]
-let currentEditingIndex = -1;
-let currentDraggedElement;
 
 function updateHTML() {
     showToDoBoard();
@@ -118,8 +60,6 @@ function showToDoBoard() {
         let element = toDo[index];
         document.getElementById('to-do').innerHTML += generateTodoHTML(element);
     }
-
-
 }
 
 function showInProgressBoard() {
@@ -129,7 +69,6 @@ function showInProgressBoard() {
         let element = inProgress[index];
         document.getElementById('in-progress').innerHTML += generateTodoHTML(element);
     }
-
 }
 
 function showAwaitingFeedbackBoard() {
@@ -139,7 +78,6 @@ function showAwaitingFeedbackBoard() {
         let element = awaitingFeedback[index];
         document.getElementById('awaiting-feedback').innerHTML += generateTodoHTML(element);
     }
-
 }
 
 function showDoneBoard() {
@@ -149,7 +87,6 @@ function showDoneBoard() {
         let element = done[index];
         document.getElementById('done').innerHTML += generateTodoHTML(element);
     }
-
 }
 
 function allowDrop(ev) {
@@ -201,54 +138,18 @@ function editTask(id) {
     // Suchen Sie den entsprechenden Task anhand der ID
     const element = todos.find(task => task.id === id);
 
-    currentTask.innerHTML = `
-        <div class="edit-container">
-            <div class="title-input">
-                Title
-                <input id="titleInput" value="${element['title']}">
-            </div>
-        
-            <div class="description-input">
-                Description
-                <input id="descriptionInput" value="${element['description']}">
-            </div>
-
-            <div class="date-input">
-                Date
-                <input type="date" id="dateInput" value="${element['dueDate']}">
-            </div>
-
-            <div class="priority-input">
-                Prio
-                <div class="edit-task-prio-buttons">
-                <button id="buttonUrgent" onclick="priorityUrgent()"> Urgent <img id="urgent-image" src="../img/priority-urgent.png"></button>
-                <button id="buttonMedium" onclick="priorityMedium()"> Medium <img id="medium-image" src="../img/priority-medium.png"></button>
-                <button id="buttonLow" onclick="priorityLow()"> Low <img id="low-image" src="../img/priority-low.png"></button>
-                </div>
-            </div>
-
-            <div class="assigned-input">
-                Assigned to
-                <select id="assignedSelect">
-                    <option value="volvo">Mustafa Soycan</option>
-                    <option value="saab">Hao Truong</option>
-                    <option value="mercedes">Matthias Plank</option>
-                </select>
-            </div>
-
-            <div class="save-changes-button-container">
-                <button class="save-changes-button" onclick="saveChanges()"> <span> Ok </span> <img src="../img/checkmark-only-icon.png"> </button>
-            </div>
-        </div>`;
+    currentTask.innerHTML = editTaskHTML(element);
 
     // Setze den aktuellen Index für die Bearbeitung
     currentEditingIndex = todos.findIndex(task => task.id === id);
 }
 
+
 function saveChanges() {
     const title = document.getElementById('titleInput').value;
     const description = document.getElementById('descriptionInput').value;
-    const dueDate = document.getElementById('dueDateInput').value;
+    const dueDate = document.getElementById('dateInput').value;
+    const assigned = document.getElementById('assignedSelect').value;
 
 
     // Überprüfe, ob der Index gültig ist
@@ -256,6 +157,7 @@ function saveChanges() {
         todos[currentEditingIndex].title = title;
         todos[currentEditingIndex].description = description;
         todos[currentEditingIndex].dueDate = dueDate;
+        todos[currentEditingIndex].assigned = assigned;
     }
     setBoardToRemoteStorage();
     updateHTML();

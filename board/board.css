@@ -217,7 +217,41 @@ body {
     vertical-align: middle;
 }
 
-.urgent-symbol {
+.urgent img {
+    margin-left: 8px;
+}
+
+.medium {
+    background-color: rgb(255, 177, 33);
+    padding: 10px 24px;
+    width: 50px;
+    height: 10px;
+    border-radius: 10px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+}
+
+.medium img {
+    margin-left: 8px;
+}
+
+.low {
+    background-color: rgb(75, 224, 45);
+    padding: 10px 24px;
+    width: 50px;
+    height: 10px;
+    border-radius: 10px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+}
+
+.low img {
     margin-left: 8px;
 }
 

@@ -18,11 +18,11 @@ function generateTodoHTML(element) {
     <div class="space-between">
 
     <div  class="assigned">
-    ${contacts[0]['avatar']} 
+    ${element['assigned']} 
     </div>
 
     <div class="priorities">
-    ${priorities[1]['image']}
+    <img src="../img/priority-${element['priority']}.png">
     </div>
 
     </div>
@@ -53,7 +53,10 @@ function openTaskHTML(element){
     </div>
 
     <div class="priorities">
-        <b>Priority:</b> ${priorities[0]['symbol']}
+        <b>Priority:</b> 
+        <div class="${element['priority']}">
+        ${element['priority']} <img src="../img/${element['priority']}-symbol.svg">
+        </div>
     </div>
 
     <div>
@@ -63,18 +66,57 @@ function openTaskHTML(element){
             </div>
 
         <div class="assigned">
-            <div class="assigned-avatar">
-            ${contacts[0]['avatar']}
-            </div>
-
             <div class="assigned-name">
-             ${contacts[0]['name']}
-             </div>
+            ${element['assigned']}
+            </div>
         </div>
 
         <div class="delete-edit-buttons">
         <button class="delete-button"> </button>
         <button onclick="editTask(${element['id']})" class="edit-button"> <img src="../img/edit.png"> </button>
          </div>
+    </div>`;
+}
+
+
+function editTaskHTML(element){
+    return `
+    <div class="edit-container">
+        <div class="title-input">
+            Title
+            <input id="titleInput" value="${element['title']}">
+        </div>
+    
+        <div class="description-input">
+            Description
+            <input id="descriptionInput" value="${element['description']}">
+        </div>
+
+        <div class="date-input">
+            Date
+            <input type="date" id="dateInput" value="${element['dueDate']}">
+        </div>
+
+        <div class="priority-input">
+            Prio
+            <div class="edit-task-prio-buttons">
+            <button id="buttonUrgent" onclick="priorityUrgent()"> Urgent <img id="urgent-image" src="../img/priority-urgent.png"></button>
+            <button id="buttonMedium" onclick="priorityMedium()"> Medium <img id="medium-image" src="../img/priority-medium.png"></button>
+            <button id="buttonLow" onclick="priorityLow()"> Low <img id="low-image" src="../img/priority-low.png"></button>
+            </div>
+        </div>
+
+        <div class="assigned-input">
+            Assigned to
+            <select id="assignedSelect">
+                <option value="${element['assigned']}">Mustafa Soycan</option>
+                <option value="${element['assigned']}">Hao Truong</option>
+                <option value="${element['assigned']}">Matthias Plank</option>
+            </select>
+        </div>
+
+        <div class="save-changes-button-container">
+            <button class="save-changes-button" onclick="saveChanges()"> <span> Ok </span> <img src="../img/checkmark-only-icon.png"> </button>
+        </div>
     </div>`;
 }
