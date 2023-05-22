@@ -1,6 +1,6 @@
 function generateTodoHTML(element) {
     return `
-    <div onclick="openTask(${element['id']})" draggable="true" ondragstart="startDragging(${element['id']})" class="todo">
+    <div id="task-${element['id']}" onclick="openTask(${element['id']})" draggable="true" ondragstart="startDragging(${element['id']})" class="todo">
 
     <div class="${element['category']} category">
     ${element['category']}
@@ -72,7 +72,7 @@ function openTaskHTML(element){
         </div>
 
         <div class="delete-edit-buttons">
-        <button class="delete-button"> </button>
+        <button onclick="deleteTask(${element['id']})" class="delete-button"> </button>
         <button onclick="editTask(${element['id']})" class="edit-button"> <img src="../img/edit.png"> </button>
          </div>
     </div>`;

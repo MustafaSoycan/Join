@@ -1,4 +1,4 @@
-let todos = [
+let tasks = [
     {
         'id': 0,
         'title': 'Putzen',
@@ -17,13 +17,13 @@ let currentEditingIndex = -1;
 let currentDraggedElement;
 
 async function loadBoard() {
-    todos = await getBoardFromRemoteStorage();
+    tasks = await getBoardFromRemoteStorage();
     updateHTML();
   }
 
 async function setBoardToRemoteStorage() {
     try {
-      const response = await setItem(remoteStorageKey, JSON.stringify(todos));
+      const response = await setItem(remoteStorageKey, JSON.stringify(tasks));
       console.log(response);
     } catch (error) {
       console.log(error);
@@ -40,6 +40,15 @@ async function setBoardToRemoteStorage() {
     }
   }
 
+  function deleteTask(id) {
+    const index = tasks.findIndex(task => task.id === id);
+    if (index !== -1) {
+      tasks.splice(index, 1);
+      setBoardToRemoteStorage();
+      closeTask();
+      updateHTML();
+    }
+  }
 
 function updateHTML() {
     showToDoBoard();
@@ -48,13 +57,12 @@ function updateHTML() {
     showDoneBoard();
 }
 
-
 function startDragging(id) {
     currentDraggedElement = id;
 }
 
 function showToDoBoard() {
-    let toDo = todos.filter(t => t['kanban'] == 'to-do');
+    let toDo = tasks.filter(t => t['kanban'] == 'to-do');
     document.getElementById('to-do').innerHTML = '';
     for (let index = 0; index < toDo.length; index++) {
         let element = toDo[index];
@@ -63,7 +71,7 @@ function showToDoBoard() {
 }
 
 function showInProgressBoard() {
-    let inProgress = todos.filter(t => t['kanban'] == 'in-progress');
+    let inProgress = tasks.filter(t => t['kanban'] == 'in-progress');
     document.getElementById('in-progress').innerHTML = '';
     for (let index = 0; index < inProgress.length; index++) {
         let element = inProgress[index];
@@ -72,7 +80,7 @@ function showInProgressBoard() {
 }
 
 function showAwaitingFeedbackBoard() {
-    let awaitingFeedback = todos.filter(t => t['kanban'] == 'awaiting-feedback');
+    let awaitingFeedback = tasks.filter(t => t['kanban'] == 'awaiting-feedback');
     document.getElementById('awaiting-feedback').innerHTML = '';
     for (let index = 0; index < awaitingFeedback.length; index++) {
         let element = awaitingFeedback[index];
@@ -81,7 +89,7 @@ function showAwaitingFeedbackBoard() {
 }
 
 function showDoneBoard() {
-    let done = todos.filter(t => t['kanban'] == 'done');
+    let done = tasks.filter(t => t['kanban'] == 'done');
     document.getElementById('done').innerHTML = '';
     for (let index = 0; index < done.length; index++) {
         let element = done[index];
@@ -94,7 +102,7 @@ function allowDrop(ev) {
 }
 
 function moveTo(kanban) {
-    todos[currentDraggedElement]['kanban'] = kanban; // Z.B. Todo mit id 1: Das Feld 'category' ändert sich zu zb 'closed'
+    tasks[currentDraggedElement]['kanban'] = kanban; // Z.B. Todo mit id 1: Das Feld 'category' ändert sich zu zb 'closed'
     setBoardToRemoteStorage();
     updateHTML();
 }
@@ -114,7 +122,7 @@ function openTask(elementId) {
     let date = new Date("July 21");
 
     // Suchen Sie den entsprechenden Task anhand der ID
-    const element = todos.find(task => task.id === elementId);
+    const element = tasks.find(task => task.id === elementId);
 
     // Erstellen Sie den HTML-Code für die Karte mit den Werten des ausgewählten Tasks
     currentTask.innerHTML = ``;
@@ -136,12 +144,12 @@ function editTask(id) {
     currentTask.innerHTML = '';
 
     // Suchen Sie den entsprechenden Task anhand der ID
-    const element = todos.find(task => task.id === id);
+    const element = tasks.find(task => task.id === id);
 
     currentTask.innerHTML = editTaskHTML(element);
 
     // Setze den aktuellen Index für die Bearbeitung
-    currentEditingIndex = todos.findIndex(task => task.id === id);
+    currentEditingIndex = tasks.findIndex(task => task.id === id);
 }
 
 
@@ -153,11 +161,11 @@ function saveChanges() {
 
 
     // Überprüfe, ob der Index gültig ist
-    if (currentEditingIndex >= 0 && currentEditingIndex < todos.length) {
-        todos[currentEditingIndex].title = title;
-        todos[currentEditingIndex].description = description;
-        todos[currentEditingIndex].dueDate = dueDate;
-        todos[currentEditingIndex].assigned = assigned;
+    if (currentEditingIndex >= 0 && currentEditingIndex < tasks.length) {
+        tasks[currentEditingIndex].title = title;
+        tasks[currentEditingIndex].description = description;
+        tasks[currentEditingIndex].dueDate = dueDate;
+        tasks[currentEditingIndex].assigned = assigned;
     }
     setBoardToRemoteStorage();
     updateHTML();
@@ -174,8 +182,8 @@ function priorityUrgent() {
     document.getElementById('buttonLow').classList.remove('low-background');
     document.getElementById('low-image').src = "../img/priority-low.png";
 
-    // Aktualisiere die Priorität im todos Array
-    todos[currentEditingIndex].priority = 'urgent';
+    // Aktualisiere die Priorität im tasks Array
+    tasks[currentEditingIndex].priority = 'urgent';
 }
 
 function priorityMedium() {
@@ -188,8 +196,8 @@ function priorityMedium() {
     document.getElementById('buttonLow').classList.remove('low-background');
     document.getElementById('low-image').src = "../img/priority-low.png";
 
-    // Aktualisiere die Priorität im todos Array
-    todos[currentEditingIndex].priority = 'medium';
+    // Aktualisiere die Priorität im tasks Array
+    tasks[currentEditingIndex].priority = 'medium';
 }
 
 function priorityLow() {
@@ -202,6 +210,6 @@ function priorityLow() {
     document.getElementById('buttonMedium').classList.remove('medium-background');
     document.getElementById('medium-image').src = "../img/priority-medium.png";
 
-    // Aktualisiere die Priorität im todos Array
-    todos[currentEditingIndex].priority = 'low';
+    // Aktualisiere die Priorität im tasks Array
+    tasks[currentEditingIndex].priority = 'low';
 }

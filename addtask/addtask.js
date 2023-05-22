@@ -1,5 +1,5 @@
 async function loadArray(){
-todos = await getBoardFromRemoteStorage();
+tasks = await getBoardFromRemoteStorage();
 }
 
 async function createTask() {
@@ -12,7 +12,7 @@ async function createTask() {
 
 
   let newTask = {
-      id: todos.length,
+      id: tasks.length,
       title: title,
       description: description,
       category: category,
@@ -21,7 +21,7 @@ async function createTask() {
       kanban: 'to-do'
   };
 
-  todos.push(newTask);
+  tasks.push(newTask);
 
   document.getElementById('titleInput').value = '';
   document.getElementById('descriptionInput').value = '';
