@@ -30,9 +30,9 @@ function includeHTML() {
     localStorage.removeItem('username');
     document.getElementById('log-out-section').innerHTML += 
     ` 
-    <a href="../index.html"> 
-    <button> Log out </button>
-    </a>`;
+    <div class="logOut">
+    <a href="../index.html"> Log out </a>
+    </div>`;
 
 }
 

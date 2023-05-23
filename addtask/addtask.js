@@ -56,7 +56,7 @@ async function createTask() {
   // Restlicher Code...
   document.getElementById('titleInput').value = '';
   document.getElementById('descriptionInput').value = '';
-  document.getElementById('categoryInput').value = '';
+  document.getElementById('categoryInput').value= '';
   document.getElementById('dueDateInput').value = '';
   document.getElementById('assignedInput').value = '';
   
