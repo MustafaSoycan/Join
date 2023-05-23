@@ -16,9 +16,6 @@
     <script src="../contacts/contacts.js"></script>
     <script src="./addtask.js"></script>
     <script src="../remoteStorage/remoteStorage.js"></script>
-    
-    
-
 
     <title>Document</title>
 </head>
@@ -26,92 +23,17 @@
 <body onload="includeHTML(), loadArray()">
     <div w3-include-html="../templates/desktop_template.html"></div>
 
+    
+<div class="content">
 
-    <div class="content">
+    <div class="addTask-container">
 
+        <div w3-include-html="./addtask-template.html"></div>
 
-
-        <div class="addTask-container">
-
-            <div class="addTask-title">
-                <h1>Add Task</h1>
-            </div>
-
-            <div class="addTask-content">
-
-                <div class="addTask-leftSide">
-
-                    <div class="task-title">
-                        <span>Title</span>
-                        <input id="titleInput" placeholder="Enter a title">
-                    </div>
-
-                    <div class="task-description">
-                        <span>Description</span>
-                        <input id="descriptionInput" placeholder="Enter a description">
-                    </div>
-
-                    <div class="task-category">
-                        <span>Category</span>
-                        <select id="categoryInput" placeholder="Select task category">
-                            <option> Select Category to assign </option>
-                            <option value="design">Design </option>
-                            <option value="sales">Sales</option>
-                            <option value="backoffice">Backoffice</option>
-                            <option value="marketing">Marketing</option>
-                            <option value="media">Media</option>
-                        </select>
-                    </div>
-
-                    <div class="task-assigned">
-                        <span>Assigned to:</span>
-                        <select id="assignedInput" class="contactsfield" >
-                           <option> Select Contacts to assign </option>
-                        </select>
-                    </div>
-
-                </div>
-
-                <img src="../img/line.png">
-
-                <div class="addTask-rightSide">
-                    <div class="task-date">
-                        <span>Due Date</span>
-                        <input id="dueDateInput" type="date">
-                    </div>
-
-                    <div class="task-priority">
-                        <span>Prio</span>
-                        <div class="task-priority-buttons">
-                            <button id="buttonUrgent" onclick="priorityUrgent()">urgent<img id="urgent-image"
-                                    src="../img/priority-urgent.png"> </button>
-                            <button id="buttonMedium" onclick="priorityMedium()">medium<img id="medium-image"
-                                    src="../img/priority-medium.png"> </button>
-                            <button id="buttonLow" onclick="priorityLow()">low<img id="low-image"
-                                    src="../img/priority-low.png"> </button>
-                        </div>
-                    </div>
-
-                    <div class="task-subtasks">
-                        <span>Subtasks</span>
-
-                        
-                        <input id="subtaskInput" type="text" placeholder="Add new subtask">
-                        <button onclick="addSubtask()"> add </button>
-                        <div id="subtaskContainer">
-                        
-                        </div>
-                    </div>
-
-                </div>
+    </div>
+</div>
 
 
-            </div>
-
-            <div>
-                <button class="clear-button"> Clear <img src="../img/cross-icon.png"> </button>
-                <button class="create-task-button" onclick="createTask()">Create Task</button>
-            </div>
 </body>
 
 </html>

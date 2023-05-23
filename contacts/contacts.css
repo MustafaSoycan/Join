@@ -8,6 +8,31 @@ h3{
     z-index: 99;
 }
 
+#addNewTask{
+    z-index: 9999999;
+    display: flex;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5)  
+}
+.addNewTaskBackground{
+    background-color: white;
+    padding: 100px;
+    border-radius: 30px;
+    height: fit-content;
+    width: fit-content;
+}
+#addNewTaskClose{
+    display: flex;
+    justify-content: flex-end;
+}
+
 #contacts{
     margin-top: 100px;
     margin-left: 250px;
@@ -162,6 +187,10 @@ h3{
     text-align: left;
     color: #29ABE2;
     text-align: center;
+}
+
+.contactDetailsName a:hover{
+    cursor: pointer;
 }
 .contactDetailsConatctInfos{
     margin-left: 48px; 

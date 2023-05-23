@@ -1,6 +1,6 @@
 
-
-async function loadArray() {
+ 
+async function loadArray(){
   tasks = await getBoardFromRemoteStorage();
   await getContactsFromRemoteStorage();
   await showContacts();

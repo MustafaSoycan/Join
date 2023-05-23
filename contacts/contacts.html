@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="./contacts.css">
     <link rel="stylesheet" href="../templates/desktop_template.css">
 
+    <link rel="stylesheet" href="../addtask/addtask.css">
+    <script src="../addtask/addtask.js"></script>
+    <script src="../board/board.js"></script>
+
     <script src="../templates/include.js"></script>
     <script src="../remoteStorage/remoteStorage.js"></script>
     <script src="./contacts.js"></script>
@@ -17,6 +21,14 @@
 <body onload="includeHTML(), loadContactList()">
 
     <div w3-include-html="../templates/desktop_template.html"></div>
+    <div id="addNewTask" class="dsp-none">
+        <div class="addNewTaskBackground">
+            <div id="addNewTaskClose">
+                <img onclick="closeAddNewTask()" src="../img/close-task.png" alt="close">
+            </div>
+            <div w3-include-html="../addTask/addtask-template.html"></div>
+        </div>  
+    </div>
 
     <div id="mobileAddButton" class="mobileAddButton" onclick="addNewContact()">
         <button>

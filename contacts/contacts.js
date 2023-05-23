@@ -94,7 +94,7 @@ function openContactDetails(index){
             <div class="contactDetailsIcon" id="contactDetailsIcon${index}">${firstLetter}${firstLetterLastName}</div>
             <div>
                 <h3>${contact.firstName} ${contact.lastName}</h3>
-                <a>
+                <a onclick="addNewTask()">
                     <img class="contactDetailsNamePlusIcon" src="../img/plus-icon-blue.png" alt="PlusIcon">  
                     <span class="contactDetailsNamePlusText">Add Task</span>
                 </a>
@@ -267,4 +267,15 @@ function deleteMobile(index){
 function editMobile(index){
     console.log("EDIT Mobile" + index);
     editContact(index);
+}
+
+async function addNewTask(){
+    console.log("ADD NEW TASK"); 
+    await getContactsFromRemoteStorage();
+    await showContacts();
+    document.getElementById("addNewTask").classList.remove("dsp-none"); 
+}
+function closeAddNewTask(){
+    console.log("Close"); 
+    document.getElementById("addNewTask").classList.add("dsp-none"); 
 }
