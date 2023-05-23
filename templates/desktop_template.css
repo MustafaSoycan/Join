@@ -209,6 +209,10 @@ body {
     background-color:rgb(60, 72, 90);
     cursor: pointer;
 }
+
+.d-none{
+    display: none;
+}
 /*/-------------------------- DATENSCHUTZ ( SIDEBAR-BOTTOM ) -------------/*/
 .datenschutz {
     width: 250px;
