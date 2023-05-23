@@ -14,6 +14,9 @@ function generateTodoHTML(element) {
     ${element['description']} 
     </div>
 
+    <div class="ladebalken">
+  
+    </div>
 
     <div class="space-between">
 
@@ -30,14 +33,14 @@ function generateTodoHTML(element) {
     </div>`;
 }
 
-function openTaskHTML(element){
+function openTaskHTML(element) {
 
     let subtasksHTML = '';
 
     // Schleife über alle Subtasks und generiere HTML für jede Subtask
     for (let i = 0; i < element['subtasks'].length; i++) {
-      let subtask = element['subtasks'][i];
-      subtasksHTML += `
+        let subtask = element['subtasks'][i];
+        subtasksHTML += `
         <label>
           <input type="checkbox">
           ${subtask}
@@ -101,7 +104,7 @@ function openTaskHTML(element){
 }
 
 
-function editTaskHTML(element){
+function editTaskHTML(element) {
     return `
     <div class="edit-container">
         <div class="title-input">

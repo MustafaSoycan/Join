@@ -157,13 +157,19 @@ form{
 
 .contactsfield{
     background-color: white;
-    height: 70px;
+    max-height: 250px;
+    overflow: scroll;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid grey;
 }
 
 .contactsfield:hover{
-    background-color: lightgray;
     cursor: pointer;
 }
+
+
 
 /*/-------------------------- SUBTASKS -------------------------------- /*/
 
@@ -172,3 +178,27 @@ form{
     font-size: 14px;
 }
 
+/*/------------------------- CLEAR / CREATE TASK BUTTONS -----------------/*/
+
+.clear-button{
+    padding: 12px 24px;
+    border-radius: 10px;
+}
+
+.clear-button:hover{
+    cursor: pointer;
+    border: 1px solid aqua;
+}
+
+.create-task-button{
+    padding: 12px 28px;
+    border-radius: 10px;
+    border: unset;
+    background-color: rgb(67, 80, 99);
+    color: white;
+}
+
+.create-task-button:hover{
+    cursor: pointer;
+    background-color: aqua;
+}

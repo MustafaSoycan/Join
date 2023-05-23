@@ -1,7 +1,9 @@
 
+
 async function loadArray() {
   tasks = await getBoardFromRemoteStorage();
-  contacts = await getContactsFromRemoteStorage();
+  await getContactsFromRemoteStorage();
+  await showContacts();
 }
 
 
@@ -10,6 +12,7 @@ async function createTask() {
   let title = document.getElementById('titleInput').value;
   let description = document.getElementById('descriptionInput').value;
   let category = document.getElementById('categoryInput').value;
+  let assigned = document.getElementById('assignedInput').value;
   let dueDate = document.getElementById('dueDateInput').value;
   let priority = ''; // Hinzufügen einer leeren Prioritätsvariable
 
@@ -42,7 +45,7 @@ async function createTask() {
     description: description,
     category: category,
     dueDate: dueDate,
-    /*  assigned: assigned, */
+    assigned: assigned,
     kanban: 'to-do',
     priority: priority, // Festlegen der Priorität
     subtasks: subtasks // Hinzufügen der Subtasks zum newTask-Objekt
@@ -53,8 +56,9 @@ async function createTask() {
   // Restlicher Code...
   document.getElementById('titleInput').value = '';
   document.getElementById('descriptionInput').value = '';
-  document.getElementById('categoryInput').ariaSelected = '';
+  document.getElementById('categoryInput').value = '';
   document.getElementById('dueDateInput').value = '';
+  document.getElementById('assignedInput').value = '';
   
 
   setBoardToRemoteStorage();
@@ -70,4 +74,17 @@ function addSubtask(){
 
   document.getElementById('subtaskInput').value = '';
 
+}
+
+
+
+function showContacts() {
+  
+  let contactsField = document.getElementById('assignedInput');
+  contactsField.innerHTML = '';
+
+  for (let i = 0; i < contacts.length; i++) {
+    let contact = contacts[i];
+    contactsField.innerHTML += `<option class="${i}"> ${contact['firstName']} ${contact['lastName']} </option> <input type="checkbox"> `;
+  }
 }

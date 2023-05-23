@@ -124,7 +124,8 @@ body {
 
 .todo:hover {
     cursor: pointer;
-
+    transform: rotate(2deg);
+    transition: 125ms;
 }
 
 /*/---------- DRAG AND DROP HIGHLIGHT --------/*/

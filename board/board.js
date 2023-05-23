@@ -1,6 +1,6 @@
 let tasks = [];
 
-const remoteStorageKey = 'board';
+const remoteStorageKeyTest = 'board';
 let currentEditingIndex = -1;
 let currentDraggedElement;
 
@@ -11,7 +11,7 @@ async function loadBoard() {
 
 async function setBoardToRemoteStorage() {
     try {
-      const response = await setItem(remoteStorageKey, JSON.stringify(tasks));
+      const response = await setItem(remoteStorageKeyTest, JSON.stringify(tasks));
       console.log(response);
     } catch (error) {
       console.log(error);
@@ -20,7 +20,7 @@ async function setBoardToRemoteStorage() {
 
   async function getBoardFromRemoteStorage() {
     try {
-      const response = await getItem(remoteStorageKey);
+      const response = await getItem(remoteStorageKeyTest);
       return JSON.parse(response);
     } catch (error) {
       console.log(error);
