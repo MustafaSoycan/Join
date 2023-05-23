@@ -40,7 +40,7 @@ async function createTask() {
 
 
    let newTask = {
-    id: tasks.length,
+    id: generateUniqueId(),
     title: title,
     description: description,
     category: category,
@@ -87,4 +87,16 @@ function showContacts() {
     let contact = contacts[i];
     contactsField.innerHTML += `<option class="${i}"> ${contact['firstName']} ${contact['lastName']} </option> <input type="checkbox"> `;
   }
+}
+
+
+function generateUniqueId() {
+  // Generate a unique ID using timestamp and random number
+  var timestamp = new Date().getTime();
+  var randomNum = Math.floor(Math.random() * 10000);
+
+  // Combine timestamp and random number to create the ID
+  var uniqueId = parseInt(timestamp.toString() + randomNum.toString());
+
+  return uniqueId;
 }

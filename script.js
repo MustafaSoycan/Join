@@ -3,6 +3,10 @@ let user = [];
 
 async function init() {
     loadUser();
+    /*
+    await setItem('user', JSON.stringify(user));
+    console.log("set empty user");
+    */ 
 }
 
 
