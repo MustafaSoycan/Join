@@ -26,15 +26,17 @@ function includeHTML() {
     }
   }
 
-  function logOut(){
+  function logOut() {
     localStorage.removeItem('username');
-    document.getElementById('log-out-section').innerHTML += 
-    ` 
-    <a href="../index.html"> 
-    <button> Log out </button>
-    </a>`;
-
-}
+  
+    let logOut = document.getElementById('logOut');
+  
+    if (logOut.classList.contains('d-none')) {
+      logOut.classList.remove('d-none');
+    } else {
+      logOut.classList.add('d-none');
+    }
+  }
 
 function openMenu(){
   console.log("openMobileMenu"); 
