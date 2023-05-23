@@ -1,16 +1,4 @@
-let tasks = [
-    {
-        'id': 0,
-        'title': 'Putzen',
-        'description': 'lorem asdfgsatf sadfsadfsaf asfsadfsad asfasfsaf ',
-        'kanban': 'to-do',
-        'category':'design',
-        'priority': 'urgent',
-        'dueDate': '03-04-2023',
-        'assigned': 'Mustafa Soycan'
-    },
-
-];
+let tasks = [];
 
 const remoteStorageKey = 'board';
 let currentEditingIndex = -1;
@@ -58,8 +46,8 @@ function updateHTML() {
 }
 
 function startDragging(id) {
-    currentDraggedElement = id;
-}
+    currentDraggedElement = tasks.find(task => task.id === id);
+  }
 
 function showToDoBoard() {
     let toDo = tasks.filter(t => t['kanban'] == 'to-do');
@@ -102,9 +90,9 @@ function allowDrop(ev) {
 }
 
 function moveTo(kanban) {
-    tasks[currentDraggedElement]['kanban'] = kanban; // Z.B. Todo mit id 1: Das Feld 'category' ändert sich zu zb 'closed'
-    setBoardToRemoteStorage();
-    updateHTML();
+  currentDraggedElement['kanban'] = kanban;
+  setBoardToRemoteStorage();
+  updateHTML();
 }
 
 function highlight(id) {
