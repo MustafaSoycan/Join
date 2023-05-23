@@ -6,6 +6,8 @@ async function loadTasks(){
     await getTasksFromLocalStorage(); 
     console.log(tasks); 
     setItemValues(); 
+    LogInCheck()
+
 }
 
 function setItemValues(){
@@ -16,7 +18,15 @@ function setItemValues(){
     document.getElementById("tasksUrgent").innerHTML = tasks.filter(task => task.priority == "urgent").length;  ; 
     document.getElementById("tasksToDo").innerHTML = tasks.filter(task => task.kanban == "to-do").length; 
     document.getElementById("tasksDone").innerHTML = tasks.filter(task => task.kanban == "done").length; 
-    document.getElementById("summaryUsername").innerHTML = "My Username" ; 
+}
+
+function LogInCheck(){
+  if (localStorage.getItem('username')) {
+    let username = localStorage.getItem('username');
+    document.getElementById("summaryUsername").innerHTML = username  ; 
+  } else {
+    document.getElementById("summaryUsername").innerHTML = 'Guest'
+  }
 }
 
 async function getTasksFromLocalStorage(){ /* ACHTUNG: NUR TESTDATEN*/

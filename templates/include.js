@@ -27,11 +27,13 @@ function includeHTML() {
   }
 
   function logOut(){
+    localStorage.removeItem('username');
     document.getElementById('log-out-section').innerHTML += 
     ` 
     <a href="../index.html"> 
     <button> Log out </button>
     </a>`;
+
 }
 
 function openMenu(){

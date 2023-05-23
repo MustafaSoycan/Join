@@ -47,6 +47,10 @@ function openPage(page) {
 }
 
 
+function guestLogin(){
+       document.getElementById("summaryUsername").innerHTML = 'Guest'  ; 
+}
+
 function loadSignUp() {
     loginscreen.style.display = 'none';
     signupscreen.style.display = 'flex';
@@ -141,6 +145,7 @@ function emailCheck(){
     document.getElementById('current-user').textContent = 'Angemeldet ist der Benutzer: ' + foundUser.name;
     console.log('Name des Benutzers:', foundUser.name);
     alert(`user " ${foundUser.name} " ist angemeldet`)
+    localStorage.setItem('username', foundUser.name);
     emailInput.value = '';
     passwordInput.value = '';
     window.location.href = "./summary/summary.html";
