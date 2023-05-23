@@ -141,3 +141,34 @@ form{
 .task-priority-buttons button img {
     margin-left: 8px;
 }
+/*/------------------ CATEGORY-LOGO ( DESIGN ETC )  ----------------/*/
+
+.category{
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+}
+
+.design{
+    background-color: blue;
+}
+
+/*/-------------------- CONTACTS SECTION ----------------------/*/
+
+.contactsfield{
+    background-color: white;
+    height: 70px;
+}
+
+.contactsfield:hover{
+    background-color: lightgray;
+    cursor: pointer;
+}
+
+/*/-------------------------- SUBTASKS -------------------------------- /*/
+
+#subtaskContainer{
+    margin-top: 32px;
+    font-size: 14px;
+}
+

@@ -9,11 +9,14 @@
     <link rel="stylesheet" href="../templates/desktop_template.css">
     <link rel="stylesheet" href="addtask.css">
     <link rel="stylesheet" href="../board/board.css">
-
     
-    <script src="./addtask.js"></script>
+    
     <script src="../board/board.js"></script>
+    <script src="../contacts/contacts.json"></script>
+    <script src="../contacts/contacts.js"></script>
+    <script src="./addtask.js"></script>
     <script src="../remoteStorage/remoteStorage.js"></script>
+    
     
 
 
@@ -51,7 +54,7 @@
                     <div class="task-category">
                         <span>Category</span>
                         <select id="categoryInput" placeholder="Select task category">
-                            <option value="design">Design</option>
+                            <option value="design">Design </option>
                             <option value="sales">Sales</option>
                             <option value="backoffice">Backoffice</option>
                             <option value="marketing">Marketing</option>
@@ -61,12 +64,9 @@
 
                     <div class="task-assigned">
                         <span>Assigned to:</span>
-                        <select id="assignedToInput" placeholder="Select contacts to assign">
-                            <option value="Mustafa Soycan">Mustafa Soycan</option>
-                            <option value="Hao Truong">Hao Truong</option>
-                            <option value="Matthias Plank">Matthias Plank</option>
+                        <div id="assignedTo" onclick="showContacts()" class="contactsfield">
                             
-                        </select>
+                        </div>
                     </div>
 
                 </div>
@@ -93,7 +93,13 @@
 
                     <div class="task-subtasks">
                         <span>Subtasks</span>
-                        <input type="text" placeholder="Add new subtask">
+
+                        
+                        <input id="subtaskInput" type="text" placeholder="Add new subtask">
+                        <button onclick="addSubtask()"> add </button>
+                        <div id="subtaskContainer">
+                        
+                        </div>
                     </div>
 
                 </div>

@@ -31,6 +31,20 @@ function generateTodoHTML(element) {
 }
 
 function openTaskHTML(element){
+
+    let subtasksHTML = '';
+
+    // Schleife über alle Subtasks und generiere HTML für jede Subtask
+    for (let i = 0; i < element['subtasks'].length; i++) {
+      let subtask = element['subtasks'][i];
+      subtasksHTML += `
+        <label>
+          <input type="checkbox">
+          ${subtask}
+        </label>
+      `;
+    }
+
     return `
     <div class="close-task">
     <img onclick="closeTask()" src="../img/close-task.png">
@@ -61,14 +75,22 @@ function openTaskHTML(element){
 
     <div>
 
-          <div class="assigned-to">
+        <div class="assigned-to">
             <b> Assigned to: </b>
-            </div>
+        </div>
 
         <div class="assigned">
             <div class="assigned-name">
             ${element['assigned']}
             </div>
+        </div>
+
+        <div class="subtask-list">
+        <b> Subtasks: </b>
+        <div class="subtask-list-container">
+          ${subtasksHTML}
+        </div>
+        </div>
         </div>
 
         <div class="delete-edit-buttons">

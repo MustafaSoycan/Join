@@ -481,3 +481,15 @@ body {
     font-weight: bold;
     color: white;
 }
+
+/*/---------------- OPEN TASK SUBTASK SECTION -------------/*/
+
+.subtask-list{
+    display: flex;
+    flex-direction: column;
+}
+
+.subtask-list-container{
+    display: flex;
+    flex-direction: column;
+}
