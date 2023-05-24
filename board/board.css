@@ -541,3 +541,27 @@ body {
     display: flex;
     flex-direction: column;
 }
+
+/*/---------------- SUBTASK-------------/*/
+.ladebalken {
+    width: 100%;
+    height: 20px;
+    background-color: #f2f2f2;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+  
+  .progress-bar {
+    height: 100%;
+    background-color: #4caf50;
+    border-radius: 4px;
+    width: 0;
+    transition: width 0.3s ease-in-out;
+  }
+  
+  .task-count {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+  }
+  
