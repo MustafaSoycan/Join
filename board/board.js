@@ -145,7 +145,7 @@ function saveChanges() {
     const title = document.getElementById('titleInput').value;
     const description = document.getElementById('descriptionInput').value;
     const dueDate = document.getElementById('dateInput').value;
-    const assigned = document.getElementById('assignedSelect').value;
+    
 
 
     // Überprüfe, ob der Index gültig ist
@@ -153,7 +153,7 @@ function saveChanges() {
         tasks[currentEditingIndex].title = title;
         tasks[currentEditingIndex].description = description;
         tasks[currentEditingIndex].dueDate = dueDate;
-        tasks[currentEditingIndex].assigned = assigned;
+
     }
     setBoardToRemoteStorage();
     updateHTML();

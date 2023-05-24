@@ -1,4 +1,31 @@
 function generateTodoHTML(element) {
+    let contactsHTML = '';
+    let remainingCount = 0;
+
+    // Schleife über alle Subtasks und generiere HTML für jede Subtask
+    for (let i = 0; i < element['assigned'].length; i++) {
+        let contactFirstName = element['assigned'][i]['firstName'];
+        let contactFirstNameLetter = contactFirstName.charAt(0);
+
+        let contactLastName = element['assigned'][i]['lastName'];
+        let contactLastNameLetter = contactLastName.charAt(0);
+
+        let contactBackground = element['assigned'][i]['bgIconColor'];
+
+        if (i < 3) {
+            contactsHTML += `<div class="contactIcon" style="background-color: ${contactBackground};">${contactFirstNameLetter}${contactLastNameLetter}</div>`;
+        } else {
+            remainingCount++;
+        }
+    }
+
+    if (remainingCount > 0) {
+        contactsHTML += `<div class="contactIcon" style="background-color: black;">+${remainingCount}</div>`;
+    }
+
+
+   
+
     return `
     <div id="task-${element['id']}" onclick="openTask(${element['id']})" draggable="true" ondragstart="startDragging(${element['id']})" class="todo">
 
@@ -20,8 +47,8 @@ function generateTodoHTML(element) {
 
     <div class="space-between">
 
-    <div  class="assigned">
-    ${element['assigned']} 
+    <div class="assigned">
+    ${contactsHTML}
     </div>
 
     <div class="priorities">
@@ -34,6 +61,22 @@ function generateTodoHTML(element) {
 }
 
 function openTaskHTML(element) {
+
+
+    let contactsHTML = '';
+
+    // Schleife über alle Subtasks und generiere HTML für jede Subtask
+    for (let i = 0; i < element['assigned'].length; i++) {
+        let contactFirstName = element['assigned'][i]['firstName'];
+        let contactLastName = element['assigned'][i]['lastName']
+        contactsHTML += `
+        
+          <div class="contactsOnBoard"> ${contactFirstName} ${contactLastName} </div>
+        
+      `;
+    }
+
+
 
     let subtasksHTML = '';
 
@@ -84,7 +127,7 @@ function openTaskHTML(element) {
 
         <div class="assigned">
             <div class="assigned-name">
-            ${element['assigned']}
+            ${contactsHTML}
             </div>
         </div>
 
@@ -131,14 +174,7 @@ function editTaskHTML(element) {
             </div>
         </div>
 
-        <div class="assigned-input">
-            Assigned to
-            <select id="assignedSelect">
-                <option value="${element['assigned']}">Mustafa Soycan</option>
-                <option value="${element['assigned']}">Hao Truong</option>
-                <option value="${element['assigned']}">Matthias Plank</option>
-            </select>
-        </div>
+        
 
         <div class="save-changes-button-container">
             <button class="save-changes-button" onclick="saveChanges()"> <span> Ok </span> <img src="../img/checkmark-only-icon.png"> </button>

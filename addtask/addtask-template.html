@@ -29,10 +29,15 @@
         </div>
 
         <div class="task-assigned">
-            <span>Assigned to:</span>
-            <select id="assignedInput" class="contactsfield" >
-               <option> Select Contacts to assign </option>
-            </select>
+            <div>
+                <span>Assigned to:</span>
+                <div id="assignedCheckboxContainer"></div>
+                
+            </div>
+
+            <div id="assignedContacts">
+            </div>
+
         </div>
 
     </div>
@@ -52,20 +57,24 @@
                         src="../img/priority-urgent.png"> </button>
                 <button id="buttonMedium" onclick="priorityMedium()">medium<img id="medium-image"
                         src="../img/priority-medium.png"> </button>
-                <button id="buttonLow" onclick="priorityLow()">low<img id="low-image"
-                        src="../img/priority-low.png"> </button>
+                <button id="buttonLow" onclick="priorityLow()">low<img id="low-image" src="../img/priority-low.png">
+                </button>
             </div>
         </div>
 
         <div class="task-subtasks">
             <span>Subtasks</span>
 
-            
+
             <input id="subtaskInput" type="text" placeholder="Add new subtask">
-            <button onclick="addSubtask()"> add </button>
-            <div id="subtaskContainer">
-            
-            </div>
+            <button class="addSubtask-button" onclick="addSubtask()"> Add </button>
+            <div id="subtaskContainer"></div>
+        </div>
+
+
+        <div class="addTask-buttons">
+            <button class="clear-button"> Clear <img src="../img/cross-icon.png"> </button>
+            <button class="create-task-button" onclick="createTask()">Create Task</button>
         </div>
 
     </div>
@@ -73,7 +82,6 @@
 
 </div>
 
-<div>
-    <button class="clear-button"> Clear <img src="../img/cross-icon.png"> </button>
-    <button class="create-task-button" onclick="createTask()">Create Task</button>
-</div>
+<div id="successMessage" class="d-none slide-in-bottom">
+    Task added successfully to Board <img src="../img/taskAdded.png">
+  </div>

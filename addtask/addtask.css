@@ -36,7 +36,6 @@ body {
 .addTask-leftSide div {
     display: flex;
     flex-direction: column;
-    margin-bottom: 24px;
 }
 
 .task-title input {
@@ -45,7 +44,7 @@ body {
     border-radius: 10px;
     border: 1px solid lightgray;
     outline: none;
-    
+    margin-bottom: 32px;
 }
 
 form{
@@ -61,6 +60,7 @@ form{
     outline: none;
     min-width: 300px;
     font-size: 22px;
+    margin-bottom: 32px;
 }
 
 .task-category select {
@@ -70,6 +70,7 @@ form{
     outline: none;
     min-width: 300px;
     font-size: 22px;
+    margin-bottom: 32px;
 }
 
 .task-assigned select {
@@ -157,20 +158,45 @@ form{
 
 .contactsfield{
     background-color: white;
-    max-height: 250px;
-    overflow: scroll;
+    max-height: 200px;
+    overflow: auto;
     display: flex;
     justify-content: center;
     align-items: center;
     border: 1px solid grey;
+    min-height: 50px;
 }
 
 .contactsfield:hover{
     cursor: pointer;
+    background-color: rgb(240, 239, 239);
+}
+
+.contact-list-container{
+    display: flex;
+    flex-direction: row !important;
+    align-items: center;
+    font-size: 16px;
+}
+
+#assignedContacts{
+    margin-top: 32px;
+    display: block !important;
 }
 
 
+.addContact-button{
+    padding: 12px;
+    background-color: rgb(67,80,99);
+    border: unset;
+    color: white;
+    margin-bottom: 32px;
+}
 
+.addContact-button:hover{
+    cursor: pointer;
+    background-color: rgb(92, 107, 129);
+}
 /*/-------------------------- SUBTASKS -------------------------------- /*/
 
 #subtaskContainer{
@@ -178,8 +204,25 @@ form{
     font-size: 14px;
 }
 
-/*/------------------------- CLEAR / CREATE TASK BUTTONS -----------------/*/
+.addSubtask-button{
+    padding: 12px 28px;
+    border: unset;
+    background-color: rgb(67, 80, 99);
+    color: white;
+}
 
+.addSubtask-button:hover{
+    cursor: pointer;
+    background-color: rgb(92, 107, 129);
+}
+
+/*/------------------------- CLEAR / CREATE TASK BUTTONS -----------------/*/
+.addTask-buttons{
+    display: flex!important;
+    justify-content: flex-end;
+    flex-direction: row !important;
+    gap: 24px;
+}
 .clear-button{
     padding: 12px 24px;
     border-radius: 10px;
@@ -201,4 +244,42 @@ form{
 .create-task-button:hover{
     cursor: pointer;
     background-color: aqua;
+}
+
+/*/--------------- CHECKBOX FOR CONTACTS-------------/*/
+
+#assignedCheckboxContainer{
+    max-height: 100px;
+    overflow: auto;
+    background-color: white;
+}
+
+/*/ ------------- ANIMATION TASK ADDED ---------------------- /*/
+@keyframes slideInFromBottom {
+    0% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .slide-in-bottom {
+    animation: slideInFromBottom 0.5s ease-out;
+  }
+
+  #successMessage{
+    background-color: rgb(67,80,99);
+    width: 400px;
+    padding: 24px;
+    color: white;
+  }
+
+  #successMessage img{
+    height: 40px;
+    width: 40px;
+    object-fit: cover;
+    vertical-align: middle;
 }

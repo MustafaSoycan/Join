@@ -56,6 +56,21 @@ body {
 .interact {
     display: flex;
 }
+/*/----------------------------- CONTACT ICON -------------------------/*/
+
+.contactIcon{
+    height: 30px;
+    width: 30px;
+    color: white;
+    border-radius: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid white;
+    margin-left: -6px;
+    padding: 5px;
+}
 
 /*/--------------------------- KANBAN BOARD --------------------------/*/
 
@@ -138,7 +153,7 @@ body {
 
 /*/----------------------- CATEGORY DIV ------------------- /*/
 .category {
-    padding: 10px 16px;
+    padding: 16px 24px;
     max-width: 80px;
     height: 12px;
     display: flex;
@@ -207,7 +222,7 @@ body {
 
 .urgent {
     background-color: rgb(255, 61, 0);
-    padding: 10px 24px;
+    padding: 12px 36px;
     width: 50px;
     height: 10px;
     border-radius: 10px;
@@ -224,7 +239,7 @@ body {
 
 .medium {
     background-color: rgb(255, 177, 33);
-    padding: 10px 24px;
+    padding: 12px 36px;
     width: 50px;
     height: 10px;
     border-radius: 10px;
@@ -241,7 +256,7 @@ body {
 
 .low {
     background-color: rgb(75, 224, 45);
-    padding: 10px 24px;
+    padding: 12px 36px;
     width: 50px;
     height: 10px;
     border-radius: 10px;
@@ -260,12 +275,14 @@ body {
 
 #edit-task {
     width: 400px;
-    position: absolute;
+    position: fixed;
     top: 30%;
     left: 30%;
     background-color: white;
     padding: 32px;
     border-radius: 20px;
+    font-size: 22px;
+    min-height: 600px;
 }
 
 .close-task {
