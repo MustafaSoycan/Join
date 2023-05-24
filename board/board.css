@@ -303,7 +303,7 @@ body {
 /*/------------------- OPEN TASK --------------/*/
 
 #edit-task {
-    width: 400px;
+    width: 500px;
     position: fixed;
     top: 30%;
     left: 30%;
@@ -311,7 +311,8 @@ body {
     padding: 32px;
     border-radius: 20px;
     font-size: 22px;
-    min-height: 600px;
+    min-height: 650px;
+    max-height: 800px;
 }
 
 .close-task {

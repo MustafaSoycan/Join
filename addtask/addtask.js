@@ -13,7 +13,6 @@ async function createTask() {
   let dueDate = document.getElementById('dueDateInput').value;
 
 
-
   let priority = '';
   if (document.getElementById('buttonUrgent').classList.contains('urgent-background')) {
     priority = 'urgent';
@@ -23,14 +22,8 @@ async function createTask() {
     priority = 'low';
   }
 
-
-
   let subtasks = [];
-  let subtaskElements = document.getElementsByClassName('subtask');
-  for (let i = 0; i < subtaskElements.length; i++) {
-    let subtask = subtaskElements[i].innerText.trim();
-    subtasks.push(subtask);
-  }
+  setSubtasks(subtasks);
 
   let newTask = {
     id: generateUniqueId(),
@@ -46,29 +39,43 @@ async function createTask() {
 
   tasks.push(newTask);
 
+  setFieldsToStandard();
+  resetPriority();
+  resetCheckboxes(); // Checkboxen zurücksetzen
+  setBoardToRemoteStorage();
+  taskAddedReport();
+
+}
+
+function setSubtasks(subtasks){
+  let subtaskElements = document.getElementsByClassName('subtask');
+  for (let i = 0; i < subtaskElements.length; i++) {
+    let subtask = subtaskElements[i].innerText.trim();
+    subtasks.push(subtask);
+  }
+}
+
+function setFieldsToStandard() {
   document.getElementById('titleInput').value = '';
   document.getElementById('descriptionInput').value = '';
   document.getElementById('categoryInput').value = '';
   document.getElementById('dueDateInput').value = '';
-  
   document.getElementById('assignedContacts').innerHTML = '';
+  document.getElementById('subtaskContainer').innerHTML = '';
+}
 
+function resetPriority() {
+  // Deaktiviere die Prioritätsbuttons
+  document.getElementById('buttonUrgent').classList.remove('urgent-background');
+  document.getElementById('buttonMedium').classList.remove('medium-background');
+  document.getElementById('buttonLow').classList.remove('low-background');
+}
 
-   // Deaktiviere die Prioritätsbuttons
-   document.getElementById('buttonUrgent').classList.remove('urgent-background');
-   document.getElementById('buttonMedium').classList.remove('medium-background');
-   document.getElementById('buttonLow').classList.remove('low-background');
-
-  resetCheckboxes(); // Checkboxen zurücksetzen
-  setBoardToRemoteStorage();
-
-   // Anzeigen der Erfolgsmeldung
-   document.getElementById('successMessage').classList.remove('d-none');
-
-   // Weiterleitung zur Board-Ansicht
-   setTimeout(function() {
-     window.location.href = '../board/board.html';
-   }, 1500); // Warte 3 Sekunden, bevor zur Board-Ansicht weitergeleitet wird
+function taskAddedReport() {
+  document.getElementById('successMessage').classList.remove('d-none');
+  setTimeout(function () {
+    window.location.href = '../board/board.html';
+  }, 1500); // Warte 1,5 Sekunden, bevor zur Board Ansicht weitergeleitet wird
 
 }
 
