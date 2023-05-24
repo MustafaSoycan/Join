@@ -148,6 +148,7 @@ function openTaskHTML(element) {
 
 
 function editTaskHTML(element) {
+    
     return `
     <div class="edit-container">
         <div class="title-input">
@@ -174,6 +175,10 @@ function editTaskHTML(element) {
             </div>
         </div>
 
+        <div class="assigned-box">
+            <span>Assigned to:</span>
+            <div id="assignedCheckboxContainer"></div>
+        </div>
         
 
         <div class="save-changes-button-container">
@@ -181,3 +186,5 @@ function editTaskHTML(element) {
         </div>
     </div>`;
 }
+
+
