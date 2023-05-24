@@ -8,11 +8,14 @@
     <script src="../templates/include.js"></script>
     <link rel="stylesheet" href="../templates/desktop_template.css">
     <link rel="stylesheet" href="../board/board.css">
+
+    <link rel="stylesheet" href="../addtask/addtask.css">
   
     <script src="../remoteStorage/remoteStorage.js"></script>
     <script src="../board/board.js"></script>
     <script src="../board/board-template.js"></script>
     <script src="../addtask/addtask.js"></script>
+    <script src="../contacts/contacts.js"></script>
 
 
  
@@ -22,6 +25,15 @@
 
 <body onload="includeHTML(); loadBoard()">
     <div w3-include-html="../templates/desktop_template.html"></div>
+
+    <div id="addNewTask" class="dsp-none">
+        <div class="addNewTaskBackground">
+            <div id="addNewTaskClose">
+                <img onclick="closeAddNewTask()" src="../img/close-task.png" alt="close">
+            </div>
+            <div w3-include-html="../addTask/addtask-template.html"></div>
+        </div>  
+    </div>
 
     <div id="content">
 
@@ -37,7 +49,7 @@
                     <img src="../img/search.png">
                 </div>
 
-                <button class="add-task-button"> Add task <img src="../img/addtask.png">  </button>
+                <button onclick="addNewTask()" class="add-task-button"> Add task <img src="../img/addtask.png">  </button>
             </div>
         </div>
 
@@ -47,7 +59,7 @@
             <div class="kanban">
                 <div class="kanban-header">
                     
-                    TO DO <img src="../img/kanban-plus.png">
+                    TO DO <img onclick="addNewTask()" src="../img/kanban-plus.png">
                 </div>
 
                 <div id="to-do" ondrop="moveTo('to-do'); removeHighlight('to-do')" ondragleave="removeHighlight('to-do')" ondragover="allowDrop(event); highlight('to-do')">
@@ -58,7 +70,7 @@
 
             <div class="kanban">
                 <div class="kanban-header">
-                    IN PROGRESS <img src="../img/kanban-plus.png">
+                    IN PROGRESS <img onclick="addNewTask()" src="../img/kanban-plus.png">
                 </div>
 
                 <div id="in-progress" ondrop="moveTo('in-progress'); removeHighlight('in-progress')" ondragleave="removeHighlight('in-progress')" ondragover="allowDrop(event); highlight('in-progress')">
@@ -69,7 +81,7 @@
 
             <div class="kanban">
                 <div class="kanban-header">
-                    AWAITING FEEDBACK <img src="../img/kanban-plus.png">
+                    AWAITING FEEDBACK <img onclick="addNewTask()" src="../img/kanban-plus.png">
                 </div>
 
                 <div id="awaiting-feedback" ondrop="moveTo('awaiting-feedback'); removeHighlight('awaiting-feedback')" ondragleave="removeHighlight('awaiting-feedback')" ondragover="allowDrop(event); highlight('awaiting-feedback')">
@@ -80,7 +92,7 @@
 
             <div class="kanban">
                 <div class="kanban-header">
-                    DONE <img src="../img/kanban-plus.png">
+                    DONE <img onclick="addNewTask()" src="../img/kanban-plus.png">
                 </div>
 
                 <div id="done" ondrop="moveTo('done'); removeHighlight('done')" ondragleave="removeHighlight('done')" ondragover="allowDrop(event); highlight('done')">
