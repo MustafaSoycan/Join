@@ -3,7 +3,7 @@ let assigned = []; // Neues Array für zugewiesene Kontakte
 async function loadArray() {
   tasks = await getBoardFromRemoteStorage();
   await getContactsFromRemoteStorage();
-  await loadContacts();
+  await showContacts();
 }
 
 async function createTask() {
@@ -47,8 +47,7 @@ async function createTask() {
 
 }
 
-// PUSHT SUBTASKS IN SUBTASK-OBJEKT (ARRAY)
-function setSubtasks(subtasks) {
+function setSubtasks(subtasks){
   let subtaskElements = document.getElementsByClassName('subtask');
   for (let i = 0; i < subtaskElements.length; i++) {
     let subtask = subtaskElements[i].innerText.trim();
@@ -56,7 +55,6 @@ function setSubtasks(subtasks) {
   }
 }
 
-// SETZT ALLE INPUTFELDER AUF STANDARD (LEER)
 function setFieldsToStandard() {
   document.getElementById('titleInput').value = '';
   document.getElementById('descriptionInput').value = '';
@@ -66,14 +64,13 @@ function setFieldsToStandard() {
   document.getElementById('subtaskContainer').innerHTML = '';
 }
 
-// SETZT PRIORITÄTEN WIEDER AUF STANDARD
 function resetPriority() {
+  // Deaktiviere die Prioritätsbuttons
   document.getElementById('buttonUrgent').classList.remove('urgent-background');
   document.getElementById('buttonMedium').classList.remove('medium-background');
   document.getElementById('buttonLow').classList.remove('low-background');
 }
 
-// MELDUNG DASS TASK ERFOLGREICH ERSTELLT WURDE
 function taskAddedReport() {
   document.getElementById('successMessage').classList.remove('d-none');
   setTimeout(function () {
@@ -82,7 +79,6 @@ function taskAddedReport() {
 
 }
 
-// SUBTASKS HINZUFÜGEN
 function addSubtask() {
   let subtask = document.getElementById('subtaskInput').value;
   if (subtask === '') {
@@ -94,17 +90,17 @@ function addSubtask() {
   }
 }
 
-// LADET KONTAKTE
-function loadContacts() {
+function showContacts() {
   let contactsField = document.getElementById('assignedCheckboxContainer');
   contactsField.innerHTML = '';
 
   for (let i = 0; i < contacts.length; i++) {
     let contact = contacts[i];
-    contactsField.innerHTML += `<label class="label d-none"> <input type="checkbox" onchange="handleContactCheckboxChange(this, ${i})"> ${contact['firstName']} ${contact['lastName']} </label>`;
+    contactsField.innerHTML += `<label><input type="checkbox" onchange="handleContactCheckboxChange(this, ${i})"> ${contact['firstName']} ${contact['lastName']} </label>`;
   }
 }
 
+<<<<<<< HEAD
 // ZEIGT KONTAKTE AN
 function showContacts() {
   let labels = document.getElementsByClassName('label');
@@ -127,6 +123,8 @@ function showContacts() {
 }
 
 // CHECKBOX VON KONTAKT
+=======
+>>>>>>> parent of 189a490 (clean code)
 function handleContactCheckboxChange(checkbox, index) {
   let selectedContact = contacts[index];
 
@@ -140,9 +138,34 @@ function handleContactCheckboxChange(checkbox, index) {
   }
 }
 
+/*/function addAssignedContactElement(contact) {
+  let assignedContactsContainer = document.getElementById('assignedContacts');
+  let firstNameFirstLetter = contact.firstName.charAt(0);
+  let lastNameFirstLetter = contact.lastName.charAt(0);
+  let backgroundColor = contact.bgIconColor;
+  assignedContactsContainer.innerHTML += `
+    <div class="contact-list-container">
+        <div class="contactIcon" style="background-color: ${backgroundColor}">
+            ${firstNameFirstLetter}${lastNameFirstLetter} 
+        </div> 
 
-// AKTUALISIERT DAS "ASSIGNED" ARRAY
-function updateAssignedArray() {
+    </div>`;
+}/*/
+
+function removeAssignedContactElement(contact) {
+  let assignedContactsContainer = document.getElementById('assignedContacts');
+  let assignedContactElements = assignedContactsContainer.getElementsByClassName('contact-list-container');
+
+  for (let i = 0; i < assignedContactElements.length; i++) {
+    let assignedContactElement = assignedContactElements[i];
+    let assignedContactName = assignedContactElement.innerText.trim();
+
+    if (assignedContactName === `${contact.firstName} ${contact.lastName}`) {
+      assignedContactElement.remove();
+      break;
+    }
+  }
+
   // Aktualisiere das "assigned" Array, um den Kontakt zu entfernen
   let contactIndex = assigned.findIndex((assignedContact) => assignedContact === contact);
   if (contactIndex !== -1) {
@@ -150,7 +173,6 @@ function updateAssignedArray() {
   }
 }
 
-// SETZT CHECKBOXEN AUF STANDARD
 function resetCheckboxes() {
   let checkboxes = document.querySelectorAll('input[type="checkbox"]');
   for (let i = 0; i < checkboxes.length; i++) {
@@ -158,7 +180,6 @@ function resetCheckboxes() {
   }
 }
 
-// GENERIERT EINZIGARTIGE ID FÜR EINE TASK
 function generateUniqueId() {
   var timestamp = new Date().getTime();
   var randomNum = Math.floor(Math.random() * 10000);
