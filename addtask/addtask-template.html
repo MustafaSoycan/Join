@@ -4,18 +4,23 @@
 
 <div class="addTask-content">
 <form onsubmit="createTask();return false">
+
+    <!-- LEFT SIDE OF ADDTASK-->
     <div class="addTask-leftSide">
-   
+        
+        <!-- TASK TITLE -->
         <div class="task-title">
             <span>Title</span>
             <input required id="titleInput" placeholder="Enter a title">
         </div>
 
+        <!-- TASK DESCRIPTION-->
         <div class="task-description">
             <span>Description</span>
             <input id="descriptionInput" placeholder="Enter a description">
         </div>
 
+        <!-- TASK CATEGORY -->
         <div class="task-category">
             <span>Category</span>
             <select id="categoryInput" placeholder="Select task category">
@@ -28,11 +33,15 @@
             </select>
         </div>
 
+
+        <!-- TASK ASSIGNED-->
         <div class="task-assigned">
             <div>
                 <span>Assigned to:</span>
+                <div class="testcontainer" onclick="showlist()">
+                    Select contacts to assign
+                </div>
                 <div id="assignedCheckboxContainer"></div>
-                
             </div>
 
             <div id="assignedContacts">
@@ -42,14 +51,20 @@
 
     </div>
 
+
+    <!-- IMAGE ( LINE ) -->
     <img src="../img/line.png">
 
+    <!-- RIGHT SIDE OF ADDTASK-->
     <div class="addTask-rightSide">
+
+        <!-- TASK DATE-->
         <div class="task-date">
             <span>Due Date</span>
             <input required id="dueDateInput" type="date" min="2023-05-23">
         </div>
 
+        <!-- TASK PRIORITY -->
         <div class="task-priority">
             <span>Prio</span>
             <div class="task-priority-buttons">
@@ -62,16 +77,15 @@
             </div>
         </div>
 
+        <!-- TASK SUBTASKS -->
         <div class="task-subtasks">
             <span>Subtasks</span>
-
-
             <input id="subtaskInput" type="text" placeholder="Add new subtask">
             <button class="addSubtask-button" onclick="addSubtask()" type="button"> Add </button>
             <div id="subtaskContainer"></div>
         </div>
   
-
+        <!-- CLEAR/CREATE BUTTONS-->
         <div class="addTask-buttons">
             <button class="clear-button" type="button"> Clear <img src="../img/cross-icon.png"> </button>
             <button class="create-task-button" type="submit">Create Task</button>
@@ -82,6 +96,9 @@
 
 </div>
 
+
+<!-- TASK ADDED SUCCESSFULLY REPORT -->
 <div id="successMessage" class="d-none slide-in-bottom">
     Task added successfully to Board <img src="../img/taskAdded.png">
   </div>
+

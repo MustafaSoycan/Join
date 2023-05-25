@@ -47,7 +47,7 @@ body {
     margin-bottom: 32px;
 }
 
-form{
+form {
     display: flex !important;
 }
 
@@ -139,23 +139,26 @@ form{
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
     transform: translateY(-1px);
 }
+
 .task-priority-buttons button img {
     margin-left: 8px;
 }
+
 /*/------------------ CATEGORY-LOGO ( DESIGN ETC )  ----------------/*/
 
-.categoryAddTask{
+.categoryAddTask {
     height: 50px;
     width: 50px;
     border-radius: 100%;
 }
-.design{
+
+.design {
     background-color: blue;
 }
 
 /*/-------------------- CONTACTS SECTION ----------------------/*/
 
-.contactsfield{
+.contactsfield {
     background-color: white;
     max-height: 200px;
     overflow: auto;
@@ -166,73 +169,75 @@ form{
     min-height: 50px;
 }
 
-.contactsfield:hover{
+.contactsfield:hover {
     cursor: pointer;
     background-color: rgb(240, 239, 239);
 }
 
-.contact-list-container{
+.contact-list-container {
     display: flex;
     flex-direction: row !important;
     align-items: center;
     font-size: 16px;
 }
 
-#assignedContacts{
+#assignedContacts {
     margin-top: 32px;
     display: block !important;
 }
 
 
-.addContact-button{
+.addContact-button {
     padding: 12px;
-    background-color: rgb(67,80,99);
+    background-color: rgb(67, 80, 99);
     border: unset;
     color: white;
     margin-bottom: 32px;
 }
 
-.addContact-button:hover{
+.addContact-button:hover {
     cursor: pointer;
     background-color: rgb(92, 107, 129);
 }
+
 /*/-------------------------- SUBTASKS -------------------------------- /*/
 
-#subtaskContainer{
+#subtaskContainer {
     margin-top: 32px;
     font-size: 14px;
 }
 
-.addSubtask-button{
+.addSubtask-button {
     padding: 12px 28px;
     border: unset;
     background-color: rgb(67, 80, 99);
     color: white;
 }
 
-.addSubtask-button:hover{
+.addSubtask-button:hover {
     cursor: pointer;
     background-color: rgb(92, 107, 129);
 }
 
 /*/------------------------- CLEAR / CREATE TASK BUTTONS -----------------/*/
-.addTask-buttons{
-    display: flex!important;
+.addTask-buttons {
+    display: flex !important;
     justify-content: flex-end;
     flex-direction: row !important;
     gap: 24px;
 }
-.clear-button{
+
+.clear-button {
     padding: 12px 24px;
     border-radius: 10px;
 }
 
-.clear-button:hover{
+.clear-button:hover {
     cursor: pointer;
     border: 1px solid aqua;
 }
 
-.create-task-button{
+.create-task-button {
     padding: 12px 28px;
     border-radius: 10px;
     border: unset;
@@ -240,14 +245,14 @@ form{
     color: white;
 }
 
-.create-task-button:hover{
+.create-task-button:hover {
     cursor: pointer;
     background-color: aqua;
 }
 
 /*/--------------- CHECKBOX FOR CONTACTS-------------/*/
 
-#assignedCheckboxContainer{
+#assignedCheckboxContainer {
     max-height: 100px;
     overflow: auto;
     background-color: white;
@@ -256,29 +261,48 @@ form{
 /*/ ------------- ANIMATION TASK ADDED ---------------------- /*/
 @keyframes slideInFromBottom {
     0% {
-      transform: translateY(100%);
-      opacity: 0;
+        transform: translateY(100%);
+        opacity: 0;
     }
-    100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-  
-  .slide-in-bottom {
-    animation: slideInFromBottom 0.5s ease-out;
-  }
 
-  #successMessage{
-    background-color: rgb(67,80,99);
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.slide-in-bottom {
+    animation: slideInFromBottom 0.5s ease-out;
+}
+
+#successMessage {
+    background-color: rgb(67, 80, 99);
     width: 400px;
     padding: 24px;
     color: white;
-  }
+}
 
-  #successMessage img{
+#successMessage img {
     height: 40px;
     width: 40px;
+    border-radius: 8px;
+    margin: 80px auto 30px;
     object-fit: cover;
     vertical-align: middle;
+}
+
+
+
+.d-none{
+    display: none;
+}
+
+.testcontainer{
+    background-color: white;
+    height: 50px;
+}
+
+.testcontainer:hover{
+    background-color: grey;
+    cursor: pointer;
 }
