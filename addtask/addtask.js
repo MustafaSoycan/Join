@@ -41,7 +41,7 @@ async function createTask() {
 
   setFieldsToStandard();
   resetPriority();
-  resetCheckboxes(); 
+  resetCheckboxes(); // Checkboxen zurücksetzen
   setBoardToRemoteStorage();
   taskAddedReport();
 
@@ -102,23 +102,10 @@ function showContacts() {
 
 <<<<<<< HEAD
 // ZEIGT KONTAKTE AN
-function showContacts() {
+function showlist() {
   let labels = document.getElementsByClassName('label');
-  let container = document.getElementById('testcontainer');
-
-  if(container.classList.contains('bordernone')){
-    container.classList.remove('bordernone')
-  } else{
-    container.classList.add('bordernone');
-  }
-
-
   for (let i = 0; i < labels.length; i++) {
-    if (labels[i].classList.contains('d-none')) {
-      labels[i].classList.remove('d-none');
-    } else {
-      labels[i].classList.add('d-none');
-    }
+    labels[i].classList.remove('d-none');
   }
 }
 

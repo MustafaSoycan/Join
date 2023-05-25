@@ -73,10 +73,6 @@ form{
     margin-bottom: 32px;
 }
 
-.task-category select:hover {
-    cursor: pointer;
-}
-
 .task-assigned select {
     padding: 12px 18px;
     border-radius: 10px;
@@ -253,47 +249,18 @@ form{
 
 <<<<<<< HEAD
 #assignedCheckboxContainer {
+<<<<<<< HEAD
     max-height: 120px;
 =======
 #assignedCheckboxContainer{
     max-height: 100px;
 >>>>>>> parent of 189a490 (clean code)
+=======
+    max-height: 100px;
+>>>>>>> parent of d6325b6 (addTask Select Contact Design Update)
     overflow: auto;
     background-color: white;
 }
-
-.label{
-    padding: 12px 18px;
-    border-left: 1px solid lightgray;
-    border-right: 1px solid liughtgray;
-}
-
-.label:hover{
-    background-color: lightgrey;
-    cursor: pointer;
-}
-
-.d-none{
-    display: none;
-}
-
-#testcontainer{
-    background-color: white;
-    padding: 12px 18px;
-    border: 1px solid lightgray;
-    outline: none;
-    min-width: 300px;
-    font-size: 22px;
-}
-
-#testcontainer:hover{
-    cursor: pointer;
-}
-
-.bordernone{
-    border-bottom: none !important;
-}
-
 
 /*/ ------------- ANIMATION TASK ADDED ---------------------- /*/
 @keyframes slideInFromBottom {
@@ -328,7 +295,22 @@ form{
 
 
 
+.d-none{
+    display: none;
+}
 
+<<<<<<< HEAD
 =======
 }
 >>>>>>> parent of 189a490 (clean code)
+=======
+.testcontainer{
+    background-color: white;
+    height: 50px;
+}
+
+.testcontainer:hover{
+    background-color: grey;
+    cursor: pointer;
+}
+>>>>>>> parent of d6325b6 (addTask Select Contact Design Update)
