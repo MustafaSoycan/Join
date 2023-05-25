@@ -73,6 +73,10 @@ form {
     margin-bottom: 32px;
 }
 
+.task-category select:hover {
+    cursor: pointer;
+}
+
 .task-assigned select {
     padding: 12px 18px;
     border-radius: 10px;
@@ -253,10 +257,43 @@ form {
 /*/--------------- CHECKBOX FOR CONTACTS-------------/*/
 
 #assignedCheckboxContainer {
-    max-height: 100px;
+    max-height: 120px;
     overflow: auto;
     background-color: white;
 }
+
+.label{
+    padding: 12px 18px;
+    border-left: 1px solid lightgray;
+    border-right: 1px solid liughtgray;
+}
+
+.label:hover{
+    background-color: lightgrey;
+    cursor: pointer;
+}
+
+.d-none{
+    display: none;
+}
+
+#testcontainer{
+    background-color: white;
+    padding: 12px 18px;
+    border: 1px solid lightgray;
+    outline: none;
+    min-width: 300px;
+    font-size: 22px;
+}
+
+#testcontainer:hover{
+    cursor: pointer;
+}
+
+.bordernone{
+    border-bottom: none !important;
+}
+
 
 /*/ ------------- ANIMATION TASK ADDED ---------------------- /*/
 @keyframes slideInFromBottom {
@@ -293,16 +330,4 @@ form {
 
 
 
-.d-none{
-    display: none;
-}
 
-.testcontainer{
-    background-color: white;
-    height: 50px;
-}
-
-.testcontainer:hover{
-    background-color: grey;
-    cursor: pointer;
-}

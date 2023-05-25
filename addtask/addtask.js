@@ -41,7 +41,7 @@ async function createTask() {
 
   setFieldsToStandard();
   resetPriority();
-  resetCheckboxes(); // Checkboxen zurücksetzen
+  resetCheckboxes(); 
   setBoardToRemoteStorage();
   taskAddedReport();
 
@@ -106,10 +106,23 @@ function loadContacts() {
 }
 
 // ZEIGT KONTAKTE AN
-function showlist() {
+function showContacts() {
   let labels = document.getElementsByClassName('label');
+  let container = document.getElementById('testcontainer');
+
+  if(container.classList.contains('bordernone')){
+    container.classList.remove('bordernone')
+  } else{
+    container.classList.add('bordernone');
+  }
+
+
   for (let i = 0; i < labels.length; i++) {
-    labels[i].classList.remove('d-none');
+    if (labels[i].classList.contains('d-none')) {
+      labels[i].classList.remove('d-none');
+    } else {
+      labels[i].classList.add('d-none');
+    }
   }
 }
 
