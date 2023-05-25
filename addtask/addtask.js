@@ -100,7 +100,7 @@ function showContacts() {
   }
 }
 
-<<<<<<< HEAD
+
 // ZEIGT KONTAKTE AN
 function showlist() {
   let labels = document.getElementsByClassName('label');
@@ -110,8 +110,7 @@ function showlist() {
 }
 
 // CHECKBOX VON KONTAKT
-=======
->>>>>>> parent of 189a490 (clean code)
+
 function handleContactCheckboxChange(checkbox, index) {
   let selectedContact = contacts[index];
 

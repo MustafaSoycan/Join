@@ -56,8 +56,7 @@ function updateHTML() {
 
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 // FILTER TASKS
 function filterTasks() {
   let search = document.getElementById('searchInputField').value.toLowerCase();
@@ -69,12 +68,7 @@ function filterTasks() {
   });
   showFilteredTasks(filteredTasks);
 }
-=======
->>>>>>> parent of f7d9789 (search field working on board)
-=======
 
-
->>>>>>> parent of f7d9789 (search field working on board)
 
 
 // OPEN TAKS
