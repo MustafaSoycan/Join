@@ -253,9 +253,48 @@ form {
 /*/--------------- CHECKBOX FOR CONTACTS-------------/*/
 
 #assignedCheckboxContainer {
-    max-height: 100px;
+    max-height: 120px;
     overflow: auto;
     background-color: white;
+}
+
+.label{
+    padding: 12px 18px;
+    border-left: 1px solid lightgray;
+    border-right: 1px solid liughtgray;
+}
+
+.label:hover{
+    background-color: lightgrey;
+    cursor: pointer;
+}
+
+.d-none{
+    display: none;
+}
+
+#testcontainer{
+    background-color: white;
+    padding: 12px 18px;
+    border: 1px solid lightgray;
+    outline: none;
+    min-width: 300px;
+    font-size: 22px;
+}
+
+#testcontainer:hover{
+    cursor: pointer;
+}
+
+.bordernone{
+    border-bottom: none !important;
+}
+
+
+
+#testcontainer:hover{
+    background-color: rgb(219, 219, 219);
+    cursor: pointer;
 }
 
 /*/ ------------- ANIMATION TASK ADDED ---------------------- /*/
@@ -275,6 +314,7 @@ form {
     animation: slideInFromBottom 0.5s ease-out;
 }
 
+/*/ --------------------REPORT FOR ADDED TASK------------------- /*/
 #successMessage {
     background-color: rgb(67, 80, 99);
     width: 400px;
@@ -290,16 +330,8 @@ form {
     object-fit: cover;
     vertical-align: middle;
 }
+
 .d-none{
     display: none;
 }
 
-.testcontainer{
-    background-color: white;
-    height: 50px;
-}
-
-.testcontainer:hover{
-    background-color: grey;
-    cursor: pointer;
-}

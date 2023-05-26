@@ -84,7 +84,7 @@ function taskAddedReport() {
 // FÜGT SUBTASKS HINZU 
 function addSubtask() {
   let subtask = document.getElementById('subtaskInput').value;
-  
+
   if (subtask === '') {
     alert('Please enter a subtask.');
   } else {
@@ -101,15 +101,27 @@ function loadContacts() {
 
   for (let i = 0; i < contacts.length; i++) {
     let contact = contacts[i];
-    contactsField.innerHTML += `<label><input type="checkbox" onchange="handleContactCheckboxChange(this, ${i})"> ${contact['firstName']} ${contact['lastName']} </label>`;
+    contactsField.innerHTML += `<label class="label d-none"><input type="checkbox" onchange="handleContactCheckboxChange(this, ${i})"> ${contact['firstName']} ${contact['lastName']} </label>`;
   }
 }
 
 // ZEIGT KONTAKTE AN
-function showlist() {
+function showContacts() {
   let labels = document.getElementsByClassName('label');
+  let container = document.getElementById('testcontainer');
+
+  if(container.classList.contains('bordernone')){
+    container.classList.remove('bordernone')
+  } else{
+    container.classList.add('bordernone');
+  }
+
   for (let i = 0; i < labels.length; i++) {
-    labels[i].classList.remove('d-none');
+    if (labels[i].classList.contains('d-none')) {
+      labels[i].classList.remove('d-none');
+    } else {
+      labels[i].classList.add('d-none');
+    }
   }
 }
 

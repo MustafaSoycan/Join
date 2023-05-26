@@ -36,16 +36,7 @@ async function getBoardFromRemoteStorage() {
   }
 }
 
-//  LÖSCHT TASK
-function deleteTask(id) {
-  const index = tasks.findIndex(task => task.id === id);
-  if (index !== -1) {
-    tasks.splice(index, 1);
-    setBoardToRemoteStorage();
-    closeTask();
-    updateHTML();
-  }
-}
+
 
 // AKTUALISIERT DIE BOARDS
 function updateHTML() {
@@ -105,7 +96,6 @@ function openTask(elementId) {
 }
 
 
-
 // SCHLIESST TASK
 function closeTask() {
   let currentTask = document.getElementById('edit-task');
@@ -114,6 +104,17 @@ function closeTask() {
   content.classList.remove('blur');
 }
 
+
+//  LÖSCHT TASK
+function deleteTask(id) {
+  const index = tasks.findIndex(task => task.id === id);
+  if (index !== -1) {
+    tasks.splice(index, 1);
+    setBoardToRemoteStorage();
+    closeTask();
+    updateHTML();
+  }
+}
 
 
 // TASK BEARBEITEN (HTML TEMPLATE ZUM BEARBEITEN IN BOARD-TEMPLATE.JS (editTaskHTML) )
