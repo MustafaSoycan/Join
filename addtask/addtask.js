@@ -34,14 +34,14 @@ async function createTask() {
     assigned: assigned,
     kanban: 'to-do',
     priority: priority,
-    subtasks: subtasks
+    subtasks: subtasks,
+    subtaskStatus: {}
   };
 
   tasks.push(newTask);
 
   setFieldsToStandard();
   resetPriority();
-  resetCheckboxes(); // Checkboxen zurücksetzen
   setBoardToRemoteStorage();
   taskAddedReport();
 

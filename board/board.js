@@ -7,14 +7,10 @@ let currentDraggedElement;
 async function loadBoard() {
   tasks = await getBoardFromRemoteStorage();
   updateHTML();
-  updateTaskCount();
+
 }
 
-function updateTaskCount() {
-  const taskCount = tasks.length; // Hier die Anzahl der Tasks aus dem tasks Array erhalten
-  const taskCountElement = document.querySelector('.task-count');
-  taskCountElement.textContent = taskCount;
-}
+
 
 // REMOTE STORAGE
 async function setBoardToRemoteStorage() {
