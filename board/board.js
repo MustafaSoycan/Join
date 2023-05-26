@@ -60,7 +60,7 @@ function updateHTML() {
 // FILTER TASKS
 function filterTasks() {
   let search = document.getElementById('searchInputField').value.toLowerCase();
-  
+
   let filteredTasks = tasks.filter(task => {
     const title = task.title.toLowerCase();
     const description = task.description.toLowerCase();
@@ -69,6 +69,18 @@ function filterTasks() {
   showFilteredTasks(filteredTasks);
 }
 
+function showFilteredTasks(filteredTasks) {
+  document.getElementById('to-do').innerHTML = '';
+  document.getElementById('in-progress').innerHTML = '';
+  document.getElementById('awaiting-feedback').innerHTML = '';
+  document.getElementById('done').innerHTML = '';
+
+  filteredTasks.forEach(task => {
+    const element = generateTodoHTML(task);
+    const kanban = task.kanban;
+    document.getElementById(kanban).innerHTML += element;
+  });
+}
 
 
 // OPEN TAKS
