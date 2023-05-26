@@ -3,7 +3,7 @@ let assigned = []; // Neues Array für zugewiesene Kontakte
 async function loadArray() {
   tasks = await getBoardFromRemoteStorage();
   await getContactsFromRemoteStorage();
-  await showContacts();
+  await loadContacts();
 }
 
 async function createTask() {
@@ -47,6 +47,7 @@ async function createTask() {
 
 }
 
+// PUSHT ALLE HINZUGEFÜGTEN SUBTASKS INS SUTBASK ARRAY
 function setSubtasks(subtasks){
   let subtaskElements = document.getElementsByClassName('subtask');
   for (let i = 0; i < subtaskElements.length; i++) {
@@ -55,6 +56,7 @@ function setSubtasks(subtasks){
   }
 }
 
+// SETZT ALLE FELDER AUF STANDARD NACH ERSTELLUNG
 function setFieldsToStandard() {
   document.getElementById('titleInput').value = '';
   document.getElementById('descriptionInput').value = '';
@@ -64,23 +66,25 @@ function setFieldsToStandard() {
   document.getElementById('subtaskContainer').innerHTML = '';
 }
 
+// SETZT PRIO BUTTONS WIEDER AUF STANDARD
 function resetPriority() {
-  // Deaktiviere die Prioritätsbuttons
   document.getElementById('buttonUrgent').classList.remove('urgent-background');
   document.getElementById('buttonMedium').classList.remove('medium-background');
   document.getElementById('buttonLow').classList.remove('low-background');
 }
 
+// MELDUNG DASS TASK ERFOLGREICHT ERSTELLT WURDE
 function taskAddedReport() {
   document.getElementById('successMessage').classList.remove('d-none');
   setTimeout(function () {
     window.location.href = '../board/board.html';
   }, 1500); // Warte 1,5 Sekunden, bevor zur Board Ansicht weitergeleitet wird
-
 }
 
+// FÜGT SUBTASKS HINZU 
 function addSubtask() {
   let subtask = document.getElementById('subtaskInput').value;
+  
   if (subtask === '') {
     alert('Please enter a subtask.');
   } else {
@@ -90,7 +94,8 @@ function addSubtask() {
   }
 }
 
-function showContacts() {
+// LADET ALLE KONTAKTE
+function loadContacts() {
   let contactsField = document.getElementById('assignedCheckboxContainer');
   contactsField.innerHTML = '';
 
@@ -100,7 +105,6 @@ function showContacts() {
   }
 }
 
-
 // ZEIGT KONTAKTE AN
 function showlist() {
   let labels = document.getElementsByClassName('label');
@@ -109,56 +113,27 @@ function showlist() {
   }
 }
 
-// CHECKBOX VON KONTAKT
-
+// AN UND AUSKLICKEN VON CHECKBOX ( PUSHT KONTAKT INS ARRAY )
 function handleContactCheckboxChange(checkbox, index) {
   let selectedContact = contacts[index];
 
   if (checkbox.checked) {
     assigned.push(selectedContact);
-    addAssignedContactElement(selectedContact);
   } else {
     let contactIndex = assigned.findIndex((contact) => contact === selectedContact);
     assigned.splice(contactIndex, 1);
-    removeAssignedContactElement(selectedContact);
   }
 }
 
-/*/function addAssignedContactElement(contact) {
-  let assignedContactsContainer = document.getElementById('assignedContacts');
-  let firstNameFirstLetter = contact.firstName.charAt(0);
-  let lastNameFirstLetter = contact.lastName.charAt(0);
-  let backgroundColor = contact.bgIconColor;
-  assignedContactsContainer.innerHTML += `
-    <div class="contact-list-container">
-        <div class="contactIcon" style="background-color: ${backgroundColor}">
-            ${firstNameFirstLetter}${lastNameFirstLetter} 
-        </div> 
-
-    </div>`;
-}/*/
-
-function removeAssignedContactElement(contact) {
-  let assignedContactsContainer = document.getElementById('assignedContacts');
-  let assignedContactElements = assignedContactsContainer.getElementsByClassName('contact-list-container');
-
-  for (let i = 0; i < assignedContactElements.length; i++) {
-    let assignedContactElement = assignedContactElements[i];
-    let assignedContactName = assignedContactElement.innerText.trim();
-
-    if (assignedContactName === `${contact.firstName} ${contact.lastName}`) {
-      assignedContactElement.remove();
-      break;
-    }
-  }
-
-  // Aktualisiere das "assigned" Array, um den Kontakt zu entfernen
+// AKTUALISIERT ARRAY MIT ASSIGNED
+function updateAssignedArray(){
   let contactIndex = assigned.findIndex((assignedContact) => assignedContact === contact);
   if (contactIndex !== -1) {
     assigned.splice(contactIndex, 1);
   }
 }
 
+// SETZT CHECKBOXEN WIEDER AUF STANDRAD NACH ERSTELLUNG
 function resetCheckboxes() {
   let checkboxes = document.querySelectorAll('input[type="checkbox"]');
   for (let i = 0; i < checkboxes.length; i++) {
@@ -166,10 +141,10 @@ function resetCheckboxes() {
   }
 }
 
+// ERSTELLT EINZIGARTIGE ID
 function generateUniqueId() {
   var timestamp = new Date().getTime();
   var randomNum = Math.floor(Math.random() * 10000);
   var uniqueId = parseInt(timestamp.toString() + randomNum.toString());
-
   return uniqueId;
 }
