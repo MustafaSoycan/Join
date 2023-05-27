@@ -24,7 +24,8 @@ function generateTodoHTML(element) {
     }
 
     let subtaskCount = element['subtasks'].length;
-    let completedSubtasks = 0; // Hier muss die Anzahl der erledigten Subtasks für das Element bereitgestellt werden
+    let completedSubtasks = element['subtaskStatus'].filter(status => status === true).length;
+    console.log(completedSubtasks)
     let progressPercentage = (completedSubtasks / subtaskCount) * 100;
 
    
@@ -47,7 +48,7 @@ function generateTodoHTML(element) {
     <div class="ladebalken">
     <div class="progress-bar" style="width: ${progressPercentage}%"></div>
     <span id="subtaskCount">${subtaskCount}</span>
-    </div>
+  </div>
 
     <div class="space-between">
 

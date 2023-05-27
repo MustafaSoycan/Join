@@ -101,6 +101,9 @@ function changeSubtaskStatus(elementId, subtask, isChecked) {
   } else {
     findtask.subtaskStatus[position] = false; // Setze den Status der Subtask auf false
   }
+
+  setBoardToRemoteStorage()
+  updateHTML()
 }
 
 
