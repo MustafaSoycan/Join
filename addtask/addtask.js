@@ -12,7 +12,6 @@ async function createTask() {
   let category = document.getElementById('categoryInput').value;
   let dueDate = document.getElementById('dueDateInput').value;
 
-
   let priority = '';
   if (document.getElementById('buttonUrgent').classList.contains('urgent-background')) {
     priority = 'urgent';
@@ -25,6 +24,11 @@ async function createTask() {
   let subtasks = [];
   setSubtasks(subtasks);
 
+  let subtaskStatus = [];
+  subtasks.forEach(() => {
+    subtaskStatus.push(false); // Push false in das subtaskStatus-Array
+  });
+
   let newTask = {
     id: generateUniqueId(),
     title: title,
@@ -35,7 +39,7 @@ async function createTask() {
     kanban: 'to-do',
     priority: priority,
     subtasks: subtasks,
-    subtaskStatus: {}
+    subtaskStatus: subtaskStatus // Array mit false-Werten für Subtask-Status
   };
 
   tasks.push(newTask);
@@ -44,7 +48,6 @@ async function createTask() {
   resetPriority();
   setBoardToRemoteStorage();
   taskAddedReport();
-
 }
 
 // PUSHT ALLE HINZUGEFÜGTEN SUBTASKS INS SUTBASK ARRAY
@@ -55,7 +58,7 @@ function setSubtasks(subtasks){
     subtasks.push(subtask);
   }
 }
-
+ 
 // SETZT ALLE FELDER AUF STANDARD NACH ERSTELLUNG
 function setFieldsToStandard() {
   document.getElementById('titleInput').value = '';
