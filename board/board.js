@@ -97,7 +97,7 @@ function changeSubtaskStatus(elementId, subtask, isChecked) {
   let position = findtask.subtasks.indexOf(findsubtask); // Position der Subtask im subtasks-Array des gefundenen Tasks
   console.log(position);
     
-  if (isChecked === 'true') {
+  if (isChecked) {
     findtask.subtaskStatus[position] = true; // Setze den Status der Subtask auf true
   } else {
     findtask.subtaskStatus[position] = false; // Setze den Status der Subtask auf false
