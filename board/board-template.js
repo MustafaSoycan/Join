@@ -86,15 +86,16 @@ function openTaskHTML(element) {
 
     // Schleife über alle Subtasks und generiere HTML für jede Subtask
     for (let i = 0; i < element['subtasks'].length; i++) {
-        let subtask = element['subtasks'][i];
-        let checkboxId = `${element['id']}-checkbox-${i}`;
-        subtasksHTML += `
-          <label>
-            <input id="${checkboxId}" type="checkbox" onchange="changeSubtaskStatus(${element['id']}, '${subtask}', this.checked)">
-            ${subtask}
-          </label>
-        `;
-      }
+      let subtask = element['subtasks'][i];
+      let checkboxId = `${element['id']}-checkbox-${i}`;
+      let checkboxChecked = element.subtaskStatus[i] ? 'checked' : ''; // Überprüfen Sie den Zustand in subtaskStatus und legen Sie den Wert für "checked" fest
+      subtasksHTML += `
+        <label>
+          <input id="${checkboxId}" type="checkbox" ${checkboxChecked} onchange="changeSubtaskStatus(${element['id']}, '${subtask}', this.checked)">
+          ${subtask}
+        </label>
+      `;
+    }
       
       
       
