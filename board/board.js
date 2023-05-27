@@ -102,12 +102,7 @@ function changeSubtaskStatus(elementId, subtask, isChecked) {
     findtask.subtaskStatus[position] = false; // Setze den Status der Subtask auf false
   }
 }
-function setCurrentStatus(elementId, subtask){
-  let findtask = tasks.find(task => task.id === elementId); // Suche nach dem Task mit der entsprechenden ID
-  let findsubtask = findtask.subtasks.find(task => task === subtask); // Suche nach der Subtask im subtasks-Array des gefundenen Tasks
-  let position = findtask.subtasks.indexOf(findsubtask); // Position der Subtask im subtasks-Array des gefundenen Tasks
-  
-}
+
 
 
 
