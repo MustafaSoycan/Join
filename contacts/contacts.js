@@ -4,14 +4,7 @@ const remoteStorageKey = `contacts`;
 async function loadContactList(){
 
     await getContactsFromRemoteStorage();
-
-    /*
-    let resp = setItem(remoteStorageKey , JSON.stringify(contacts)); 
-    console.log(resp); 
-    */
-
     renderContactList();
-
 }
 
 function renderContactList(){
@@ -44,7 +37,6 @@ function renderContactList(){
             </div>
         `; 
         document.getElementById("contactIcon"+i).style.backgroundColor = contact.bgIconColor; 
-        //setContactIconBackground(i); 
     }
 }
 
@@ -55,6 +47,7 @@ function sortContact(){
         }
       });
 }
+
 function setContactIconBackground(id){
     let color = Math.floor(Math.random()*16777215).toString(16);
     document.getElementById("contactIcon"+id).style.backgroundColor = "#"+color; 
@@ -62,29 +55,17 @@ function setContactIconBackground(id){
 
 async function getContactsFromRemoteStorage(){
     
-    /*ALLTE VERSION - JSON FROM LOCAL FILE */
-    /* 
-    const url = "./contacts.json"
-    response = await fetch(url); 
-    //console.log(response);         
-    contacts = await response.json();     
-    */
-    
-    /* GET CONTACTS FROM REMOTE STORAGE */
     let resp =  await getItem(remoteStorageKey);
     contacts = JSON.parse(resp); 
-    //console.log("GET FROM STORAGE:" + contacts);
 }
 
 function openContactDetails(index){
 
     if (window.matchMedia('screen and (max-width: 800px) ').matches) {
-        console.log("mobile");
         openMobileVersion(index); 
     } else {
-        console.log("not mobile");
-    }
 
+    }
     let contact = contacts[index]; 
     const firstLetter = contact.firstName.substring(0, 1); 
     const firstLetterLastName = contact.lastName.substring(0, 1); 
@@ -118,10 +99,10 @@ function openContactDetails(index){
     </div>
     `;
     document.getElementById("contactDetailsIcon"+index).style.backgroundColor = contact.bgIconColor; 
-    console.log("Open" + index); 
 }
 
 function addNewContact(){
+
     document.getElementById("openContact").classList.remove("dsp-none");
     document.getElementById("openContact").classList.add("openContact"); 
     renderContactForm(); 
@@ -164,20 +145,14 @@ function renderContactForm(){
                         </button>
                     </div>
                 </form>
-
-            </div>
-
-
-            
+            </div>        
         </div>
     </div>
-    
     `;
-
 }
 
 function addContact(){
-    console.log("Add Contact"); 
+
     let name = document.getElementById("contactOverlayName").value ; 
     let email = document.getElementById("contactOverlayEmail").value ; 
     let phone = document.getElementById("contactOverlayPhone").value ; 
@@ -200,18 +175,16 @@ function addContact(){
 
 function setContactsToRemoteStorage(){
     let resp = setItem(remoteStorageKey , JSON.stringify(contacts)); 
-    console.log(resp); 
 }
 
 function closeContactOverlay(){
-    console.log("Close"); 
+
     document.getElementById("openContact").classList.add("dsp-none");
     document.getElementById("openContact").classList.remove("openContact"); 
 }
 
 function editContact(index){
-    console.log("edit");
-    console.log(contacts[index].firstName);
+
     document.getElementById("openContact").classList.remove("dsp-none");
     document.getElementById("openContact").classList.add("openContact"); 
     renderContactForm(); 
@@ -224,11 +197,10 @@ function editContact(index){
     document.getElementById("contactOverlayForm").onsubmit = function() {saveEditedContact(index)};
     document.getElementById("contactOverlayCancleButton").onclick = function() {deleteEditedContact(index)};
     document.getElementById("contactOverlayCancleButtonText").innerHTML = "Delete"; 
-    
 }
 
 function saveEditedContact(index){
-    console.log("SAVE edit");
+
     let name = document.getElementById("contactOverlayName").value ; 
     let fullName = name.split(' '); 
     let firstName = fullName[0];
@@ -243,7 +215,7 @@ function saveEditedContact(index){
 } 
 
 function deleteEditedContact(index){
-    console.log("DELETE edit");
+
     contacts.splice(index, 1); 
     setContactsToRemoteStorage(); 
     closeContactOverlay(); 
@@ -262,22 +234,23 @@ function openMobileVersion(index){
 }
 
 function deleteMobile(index){
-    console.log("DELETE Mobile" + index);
+    deleteEditedContact(index); 
+    location.reload();
+    
 }
+
 function editMobile(index){
-    console.log("EDIT Mobile" + index);
     document.getElementById("mobileEditBtn").classList.add("dsp-none");
     document.getElementById("mobileDeleteBtn").classList.add("dsp-none");
     editContact(index);
 }
 
 async function addNewTask(){
-    console.log("ADD NEW TASK"); 
     await getContactsFromRemoteStorage();
     await showContacts();
     document.getElementById("addNewTask").classList.remove("dsp-none"); 
 }
+
 function closeAddNewTask(){
-    console.log("Close"); 
     document.getElementById("addNewTask").classList.add("dsp-none"); 
 }

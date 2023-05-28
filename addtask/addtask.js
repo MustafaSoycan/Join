@@ -12,7 +12,7 @@ async function createTask() {
   let category = document.getElementById('categoryInput').value;
   let dueDate = document.getElementById('dueDateInput').value;
 
-  let priority = '';
+  let priority = 'medium'; // Standardpriorität (falls nichts ausgewählt). 
   if (document.getElementById('buttonUrgent').classList.contains('urgent-background')) {
     priority = 'urgent';
   } else if (document.getElementById('buttonMedium').classList.contains('medium-background')) {
