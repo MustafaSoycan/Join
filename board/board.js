@@ -147,14 +147,22 @@ function editTask(id) {
 
 
 function updateAssignedContacts() {
+  // Erstelle ein leeres Array, um zugewiesene Kontakte zu speichern
   const assignedContacts = [];
+  
+  // Wähle alle ausgewählten Checkbox-Elemente aus
   const assignedCheckboxElements = document.querySelectorAll('input[type="checkbox"]:checked');
-
+  
+  // Iteriere über jedes ausgewählte Checkbox-Element
   assignedCheckboxElements.forEach((checkbox) => {
+      // Extrahiere den Index des Kontakts aus der ID der Checkbox
       const contactIndex = parseInt(checkbox.id.split('-')[1]);
+      
+      // Füge den entsprechenden Kontakt zum zugewiesenen Kontakte-Array hinzu
       assignedContacts.push(contacts[contactIndex]);
   });
-
+  
+  // Aktualisiere die 'assigned'-Eigenschaft des aktuellen bearbeiteten Tasks mit den zugewiesenen Kontakten
   tasks[currentEditingIndex].assigned = assignedContacts;
 }
 
