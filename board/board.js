@@ -6,6 +6,7 @@ let currentDraggedElement;
 
 async function loadBoard() {
   tasks = await getBoardFromRemoteStorage();
+  await getContactsFromRemoteStorage();
   updateHTML();
 
 }
@@ -104,6 +105,7 @@ function changeSubtaskStatus(elementId, subtask, isChecked) {
 
   setBoardToRemoteStorage()
   updateHTML()
+  saveChanges();
 }
 
 

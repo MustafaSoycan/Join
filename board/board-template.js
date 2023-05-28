@@ -28,7 +28,7 @@ function generateTodoHTML(element) {
     console.log(completedSubtasks)
     let progressPercentage = (completedSubtasks / subtaskCount) * 100;
 
-   
+
 
     return `
     <div id="task-${element['id']}" onclick="openTask(${element['id']})" draggable="true" ondragstart="startDragging(${element['id']})" class="todo">
@@ -87,20 +87,20 @@ function openTaskHTML(element) {
 
     // Schleife über alle Subtasks und generiere HTML für jede Subtask
     for (let i = 0; i < element['subtasks'].length; i++) {
-      let subtask = element['subtasks'][i];
-      let checkboxId = `${element['id']}-checkbox-${i}`;
-      let checkboxChecked = element.subtaskStatus[i] ? 'checked' : ''; // Überprüfen Sie den Zustand in subtaskStatus und legen Sie den Wert für "checked" fest
-      subtasksHTML += `
+        let subtask = element['subtasks'][i];
+        let checkboxId = `${element['id']}-checkbox-${i}`;
+        let checkboxChecked = element.subtaskStatus[i] ? 'checked' : ''; // Überprüfen Sie den Zustand in subtaskStatus und legen Sie den Wert für "checked" fest
+        subtasksHTML += `
         <label>
           <input id="${checkboxId}" type="checkbox" ${checkboxChecked} onchange="changeSubtaskStatus(${element['id']}, '${subtask}', this.checked)">
           ${subtask}
         </label>
       `;
     }
-      
-      
-      
-      
+
+
+
+
 
     return `
     <div class="close-task">
@@ -160,6 +160,22 @@ function openTaskHTML(element) {
 
 function editTaskHTML(element) {
     
+    let contactsHTML = '';
+
+    // Schleife über alle Subtasks und generiere HTML für jede Subtask
+    for (let i = 0; i < contacts.length; i++) {
+        let contactFirstName = contacts[i]['firstName'];
+        let contactLastName = contacts[i]['lastName'];
+
+        contactsHTML += `
+        <div class="contactsOnBoard">
+            <label>
+                <input type="checkbox"> ${contactFirstName} ${contactLastName}
+            </label>
+        </div>
+     `;
+    }
+
     return `
     <div class="edit-container">
         <div class="title-input">
@@ -188,7 +204,8 @@ function editTaskHTML(element) {
 
         <div class="assigned-box">
             <span>Assigned to:</span>
-            <div id="assignedCheckboxContainer"></div>
+             ${contactsHTML}
+        
         </div>
         
 
