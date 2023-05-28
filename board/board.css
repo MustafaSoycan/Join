@@ -565,3 +565,17 @@ body {
     color: #333;
   }
   
+  @media only screen and (max-width: 786px) {
+    .kanbanboard {
+        display: flex;
+        justify-content: space-around;
+        margin-right: 100px;
+        margin-left: 50px;
+        flex-direction: column;
+    }
+
+    #content {
+        margin-left: 0px;
+        margin-top: 150px;
+    }
+}

@@ -24,8 +24,13 @@ function generateTodoHTML(element) {
     }
 
     let subtaskCount = element['subtasks'].length;
-    let completedSubtasks = element['subtaskStatus'].filter(status => status === true).length;
-    console.log(completedSubtasks)
+    let completedSubtasks = 0;
+    
+    if (Array.isArray(element['subtaskStatus'])) {
+      completedSubtasks = element['subtaskStatus'].filter(status => status === true).length;
+    }
+    
+    console.log(completedSubtasks);
     let progressPercentage = (completedSubtasks / subtaskCount) * 100;
 
    
