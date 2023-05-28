@@ -165,6 +165,39 @@ function openTaskHTML(element) {
 
 
 function editTaskHTML(element) {
+
+    let contactsHTML = '';
+
+    for (let i = 0; i < contacts.length; i++) {
+        let contactFirstName = contacts[i]['firstName'];
+        let contactLastName = contacts[i]['lastName'];
+
+        let assigned = false;
+
+        // Überprüfe, ob der Kontakt dem aktuellen Task zugewiesen ist
+        for (let j = 0; j < element['assigned'].length; j++) {
+            if (contactFirstName === element['assigned'][j]['firstName']) {
+                assigned = true;
+                break;
+            }
+        }
+
+        if (assigned) {
+            contactsHTML += `
+                <div class="contactsOnBoard">
+                    <label>
+                    <input type="checkbox" id="contactCheckbox-${i}" checked> ${contactFirstName} ${contactLastName}
+                    </label>
+                </div>`;
+        } else {
+            contactsHTML += `
+                <div class="contactsOnBoard">
+                    <label>
+                    <input type="checkbox" id="contactCheckbox-${i}"> ${contactFirstName} ${contactLastName}
+                    </label>
+                </div>`;
+        }
+    }
     
     return `
     <div class="edit-container">

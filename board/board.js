@@ -6,6 +6,7 @@ let currentDraggedElement;
 
 async function loadBoard() {
   tasks = await getBoardFromRemoteStorage();
+  await getContactsFromRemoteStorage();
   updateHTML();
 
 }
@@ -32,7 +33,17 @@ async function getBoardFromRemoteStorage() {
   }
 }
 
+function updateAssignedContacts() {
+  const assignedContacts = [];
+  const assignedCheckboxElements = document.querySelectorAll('input[type="checkbox"]:checked');
 
+  assignedCheckboxElements.forEach((checkbox) => {
+      const contactIndex = parseInt(checkbox.id.split('-')[1]);
+      assignedContacts.push(contacts[contactIndex]);
+  });
+
+  tasks[currentEditingIndex].assigned = assignedContacts;
+}
 
 // AKTUALISIERT DIE BOARDS
 function updateHTML() {
@@ -158,6 +169,7 @@ function saveChanges() {
     tasks[currentEditingIndex].description = description;
     tasks[currentEditingIndex].dueDate = dueDate;
   }
+  updateAssignedContacts();
   setBoardToRemoteStorage();
   updateHTML();
   closeTask();
