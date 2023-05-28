@@ -33,17 +33,7 @@ async function getBoardFromRemoteStorage() {
   }
 }
 
-function updateAssignedContacts() {
-  const assignedContacts = [];
-  const assignedCheckboxElements = document.querySelectorAll('input[type="checkbox"]:checked');
 
-  assignedCheckboxElements.forEach((checkbox) => {
-      const contactIndex = parseInt(checkbox.id.split('-')[1]);
-      assignedContacts.push(contacts[contactIndex]);
-  });
-
-  tasks[currentEditingIndex].assigned = assignedContacts;
-}
 
 // AKTUALISIERT DIE BOARDS
 function updateHTML() {
@@ -156,6 +146,17 @@ function editTask(id) {
 }
 
 
+function updateAssignedContacts() {
+  const assignedContacts = [];
+  const assignedCheckboxElements = document.querySelectorAll('input[type="checkbox"]:checked');
+
+  assignedCheckboxElements.forEach((checkbox) => {
+      const contactIndex = parseInt(checkbox.id.split('-')[1]);
+      assignedContacts.push(contacts[contactIndex]);
+  });
+
+  tasks[currentEditingIndex].assigned = assignedContacts;
+}
 
 // SPEICHERT ÄNDERUNG NACHDEM TASK BEARBEITET WURDE
 function saveChanges() {
