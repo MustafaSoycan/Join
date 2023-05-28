@@ -278,6 +278,9 @@ h3{
     flex-direction: row;
     overflow: hidden;
 }
+.contactOverlay form{
+   flex-direction: column;
+}
 .contactOverlay h1{
     font-size: 61px;
     font-weight: 700;
@@ -551,12 +554,43 @@ h3{
     .mobileProjectInfo{
         display: none !important;
     }
+    .contactOverlay{
+        flex-direction: column;
+        height: 80vh;
+        width: 90vw;
+    }
+    .contactOverlayContentClose{
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        filter: invert();
+    }
+    #contactOverlaySideBarSubtitle{
+        display: none;
+    }
+    .contactOverlaySideBar{
+        width: auto;
+        padding-top: 100px;
+        padding-bottom: 100px;
+        padding-right: 30px;
+    }
 
+    .contactOverlayContentMain{
+        flex-direction: column;
+        position: relative; 
+        top: -80px;
+        }
+    .contactOverlayContentIcon{
+        display: flex;
+    }
+    .contactOverlaySideBar img{
+        display: none;
+    }
+    .contactOverlayButtons{
+        margin-top: 0px; 
+        position: relative; 
+        top: -50px;
+    }
 
-
-
-
-
-
-
+    
 }

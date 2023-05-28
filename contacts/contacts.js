@@ -266,6 +266,8 @@ function deleteMobile(index){
 }
 function editMobile(index){
     console.log("EDIT Mobile" + index);
+    document.getElementById("mobileEditBtn").classList.add("dsp-none");
+    document.getElementById("mobileDeleteBtn").classList.add("dsp-none");
     editContact(index);
 }
 
