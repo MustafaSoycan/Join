@@ -11,19 +11,19 @@
             <!-- TASK TITLE-->
             <div class="task-title">
                 <span>Title</span>
-                <input required id="titleInput" placeholder="Enter a title">
+                <input required id="titleInputAddTask" placeholder="Enter a title">
             </div>
 
             <!-- TASK DESCRIPTION-->
             <div class="task-description">
                 <span>Description</span>
-                <input id="descriptionInput" placeholder="Enter a description">
+                <input id="descriptionInputAddTask" placeholder="Enter a description">
             </div>
 
             <!-- TASK CATEGORY-->
             <div class="task-category">
                 <span>Category</span>
-                <select id="categoryInput" placeholder="Select task category">
+                <select id="categoryInputAddTask" placeholder="Select task category">
                     <option> Select Category to assign </option>
                     <option value="design">Design </option>
                     <option value="sales">Sales</option>
@@ -43,7 +43,7 @@
                     <div id="assignedCheckboxContainer"></div>
 
                 </div>
-                    <div id="assignedContacts"></div>
+                    <div id="assignedContactsAddTask"></div>
             </div>
 
         </div>
@@ -55,18 +55,18 @@
         <div class="addTask-rightSide">
             <div class="task-date">
                 <span>Due Date</span>
-                <input required id="dueDateInput" type="date" min="2023-05-23">
+                <input required id="dueDateInputAddTask" type="date" min="2023-05-23">
             </div>
 
             <!-- TASK PRIORITY-->
             <div class="task-priority">
                 <span>Prio</span>
                 <div class="task-priority-buttons">
-                    <button id="buttonUrgent" onclick="priorityUrgent()" type="button">urgent<img id="urgent-image"
+                    <button id="buttonUrgentAddTask" onclick="priorityUrgentAddTask()" type="button">urgent<img id="urgent-image"
                             src="../img/priority-urgent.png"> </button>
-                    <button id="buttonMedium" onclick="priorityMedium()" type="button">medium<img id="medium-image"
+                    <button id="buttonMediumAddTask" onclick="priorityMediumAddTask()" type="button">medium<img id="medium-image"
                             src="../img/priority-medium.png"> </button>
-                    <button id="buttonLow" onclick="priorityLow()" type="button">low<img id="low-image"
+                    <button id="buttonLowAddTask" onclick="priorityLowAddTask()" type="button">low<img id="low-image"
                             src="../img/priority-low.png">
                     </button>
                 </div>

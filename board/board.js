@@ -8,7 +8,6 @@ async function loadBoard() {
   tasks = await getBoardFromRemoteStorage();
   await getContactsFromRemoteStorage();
   updateHTML();
-
 }
 
 

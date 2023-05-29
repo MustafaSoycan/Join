@@ -247,6 +247,7 @@ function editMobile(index){
 
 async function addNewTask(){
     await getContactsFromRemoteStorage();
+    await loadContacts();
     await showContacts();
     document.getElementById("addNewTask").classList.remove("dsp-none"); 
 }
