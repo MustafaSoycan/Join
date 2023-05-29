@@ -335,24 +335,95 @@ form {
     display: none;
 }
 
+/*/--------------- MEDIA QUERRY -------------------------/*/
 
-@media only screen and (max-width: 800px) {
-    .content{
-        margin-left: 0px;
-        margin-bottom: 100px;
-        margin-top: 100px;
-    }
-    .addTask-container{
-        margin-left: 50px;
-        margin-top: 150px;
-    }
+@media only screen and (max-width: 1500px) {
     form{
-        flex-direction: column;
+        display: unset !important;
     }
+
     form img{
         display: none;
     }
-    .addTask-rightSide {
-        margin-left: 000px;
+
+    .addTask-leftSide{
+        margin: unset !important;
     }
+
+    .addTask-rightSide{
+        margin: unset;
+    }
+
+    .task-assigned{
+        margin-bottom: 32px;
+    }
+
+    .task-date{
+        margin-bottom: 32px !important;
+    }
+}
+
+
+@media only screen and (max-width: 930px){
+    .addTask-container{
+        margin-left: 100px;
+    }
+}
+
+@media only screen and (max-width: 800px){
+    .addTask-container{
+        margin-left: unset !important;
+    }
+
+    .content{
+        margin-left: 200px !important;
+    }
+}
+
+@media only screen and (max-width: 700px){
+    .content{
+        margin-left: 150px !important;
+    }
+}
+
+@media only screen and (max-width: 650px){
+
+    .content{
+        margin-left: 100px !important;
+    }
+}
+
+@media only screen and (max-width: 600px){
+
+    .content{
+        margin-left: 50px !important;
+    }
+}
+
+
+@media only screen and (max-width: 480px){
+
+   .addTask-leftSide input{
+    width: 50px;
+   }
+
+   .task-category select{
+    width: 50px !important;
+   }
+
+   .task-assigned{
+    width: 50px;
+   }
+
+   .task-date{
+    width: 50px;
+   }
+
+   .task-priority{
+    max-width: 50px;
+   }
+
+   .task-priority-buttons button{
+    width: 100px;
+   }
 }
