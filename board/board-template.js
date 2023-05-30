@@ -232,10 +232,16 @@ function editTaskHTML(element) {
             </div>
         </div>
 
+
         <div class="assigned-box">
-            <span>Assigned to:</span>
-            <div id="assignedCheckboxContainer">
-            ${contactsHTML}</div>
+            <span class="assigned-to-span">
+            Assigned to:
+            </span>
+
+            
+            <div id="generateContactsHTML">
+            ${contactsHTML}
+            </div>
         </div>
         
 

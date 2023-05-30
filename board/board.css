@@ -246,6 +246,10 @@ body {
     align-items: center;
 }
 
+#generateContactsHTML{
+    margin-top: 24px;
+}
+
 /*/--------------------------- DISPLAY NONE --------------/*/
 
 .d-none {

@@ -293,6 +293,15 @@ form {
     cursor: pointer;
 }
 
+#assignedCheckboxContainer::-webkit-scrollbar{
+    width: 8px;
+}
+
+#assignedCheckboxContainer::-webkit-scrollbar-thumb{
+    border-radius: 3px;
+    background-color: rgb(41,171,226);
+}
+
 /*/ ------------- ANIMATION TASK ADDED ---------------------- /*/
 @keyframes slideInFromBottom {
     0% {
