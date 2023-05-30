@@ -1,4 +1,32 @@
-/**
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: board.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: board.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
  * Das Array mit den Aufgaben.
  * @type {Array}
  */
@@ -253,7 +281,7 @@ function saveChanges() {
   const dueDate = document.getElementById('dateInput').value;
 
   // Überprüfe, ob der Index gültig ist
-  if (currentEditingIndex >= 0 && currentEditingIndex < tasks.length) {
+  if (currentEditingIndex >= 0 &amp;&amp; currentEditingIndex &lt; tasks.length) {
     tasks[currentEditingIndex].title = title;
     tasks[currentEditingIndex].description = description;
     tasks[currentEditingIndex].dueDate = dueDate;
@@ -364,7 +392,7 @@ function removeHighlight(id) {
 function showToDoBoard() {
   let toDo = tasks.filter(t => t['kanban'] == 'to-do');
   document.getElementById('to-do').innerHTML = '';
-  for (let index = 0; index < toDo.length; index++) {
+  for (let index = 0; index &lt; toDo.length; index++) {
     let element = toDo[index];
     document.getElementById('to-do').innerHTML += generateTodoHTML(element);
   }
@@ -376,7 +404,7 @@ function showToDoBoard() {
 function showInProgressBoard() {
   let inProgress = tasks.filter(t => t['kanban'] == 'in-progress');
   document.getElementById('in-progress').innerHTML = '';
-  for (let index = 0; index < inProgress.length; index++) {
+  for (let index = 0; index &lt; inProgress.length; index++) {
     let element = inProgress[index];
     document.getElementById('in-progress').innerHTML += generateTodoHTML(element);
   }
@@ -388,7 +416,7 @@ function showInProgressBoard() {
 function showAwaitingFeedbackBoard() {
   let awaitingFeedback = tasks.filter(t => t['kanban'] == 'awaiting-feedback');
   document.getElementById('awaiting-feedback').innerHTML = '';
-  for (let index = 0; index < awaitingFeedback.length; index++) {
+  for (let index = 0; index &lt; awaitingFeedback.length; index++) {
     let element = awaitingFeedback[index];
     document.getElementById('awaiting-feedback').innerHTML += generateTodoHTML(element);
   }
@@ -400,8 +428,30 @@ function showAwaitingFeedbackBoard() {
 function showDoneBoard() {
   let done = tasks.filter(t => t['kanban'] == 'done');
   document.getElementById('done').innerHTML = '';
-  for (let index = 0; index < done.length; index++) {
+  for (let index = 0; index &lt; done.length; index++) {
     let element = done[index];
     document.getElementById('done').innerHTML += generateTodoHTML(element);
   }
-}
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#allowDrop">allowDrop</a></li><li><a href="global.html#changeSubtaskStatus">changeSubtaskStatus</a></li><li><a href="global.html#closeTask">closeTask</a></li><li><a href="global.html#currentDraggedElement">currentDraggedElement</a></li><li><a href="global.html#currentEditingIndex">currentEditingIndex</a></li><li><a href="global.html#deleteTask">deleteTask</a></li><li><a href="global.html#editTask">editTask</a></li><li><a href="global.html#filterTasks">filterTasks</a></li><li><a href="global.html#getBoardFromRemoteStorage">getBoardFromRemoteStorage</a></li><li><a href="global.html#highlight">highlight</a></li><li><a href="global.html#loadBoard">loadBoard</a></li><li><a href="global.html#moveTo">moveTo</a></li><li><a href="global.html#openTask">openTask</a></li><li><a href="global.html#priorityLow">priorityLow</a></li><li><a href="global.html#priorityMedium">priorityMedium</a></li><li><a href="global.html#priorityUrgent">priorityUrgent</a></li><li><a href="global.html#remoteStorageKeyTest">remoteStorageKeyTest</a></li><li><a href="global.html#removeHighlight">removeHighlight</a></li><li><a href="global.html#saveChanges">saveChanges</a></li><li><a href="global.html#setBoardToRemoteStorage">setBoardToRemoteStorage</a></li><li><a href="global.html#showAwaitingFeedbackBoard">showAwaitingFeedbackBoard</a></li><li><a href="global.html#showDoneBoard">showDoneBoard</a></li><li><a href="global.html#showFilteredTasks">showFilteredTasks</a></li><li><a href="global.html#showInProgressBoard">showInProgressBoard</a></li><li><a href="global.html#showToDoBoard">showToDoBoard</a></li><li><a href="global.html#startDragging">startDragging</a></li><li><a href="global.html#tasks">tasks</a></li><li><a href="global.html#updateAssignedContacts">updateAssignedContacts</a></li><li><a href="global.html#updateHTML">updateHTML</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Wed May 31 2023 01:22:03 GMT+0200 (Mitteleuropäische Sommerzeit)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

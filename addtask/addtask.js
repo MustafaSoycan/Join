@@ -1,11 +1,13 @@
 let assigned = []; // Neues Array für zugewiesene Kontakte
 
+
 async function loadArray() {
   tasks = await getBoardFromRemoteStorage();
   await getContactsFromRemoteStorage();
   await loadContacts();
   setMinDateAttribute();
 }
+
 
 async function createTask() {
   let title = document.getElementById('titleInputAddTask').value;
@@ -51,15 +53,17 @@ async function createTask() {
   taskAddedReport();
 }
 
+
 // PUSHT ALLE HINZUGEFÜGTEN SUBTASKS INS SUTBASK ARRAY
-function setSubtasks(subtasks){
+function setSubtasks(subtasks) {
   let subtaskElements = document.getElementsByClassName('subtask');
   for (let i = 0; i < subtaskElements.length; i++) {
     let subtask = subtaskElements[i].innerText.trim();
     subtasks.push(subtask);
   }
 }
- 
+
+
 // SETZT ALLE FELDER AUF STANDARD NACH ERSTELLUNG
 function setFieldsToStandard() {
   document.getElementById('titleInputAddTask').value = '';
@@ -69,12 +73,14 @@ function setFieldsToStandard() {
   document.getElementById('subtaskContainer').innerHTML = '';
 }
 
+
 // SETZT PRIO BUTTONS WIEDER AUF STANDARD
 function resetPriority() {
   document.getElementById('buttonUrgentAddTask').classList.remove('urgent-background');
   document.getElementById('buttonMediumAddTask').classList.remove('medium-background');
   document.getElementById('buttonLowAddTask').classList.remove('low-background');
 }
+
 
 // MELDUNG DASS TASK ERFOLGREICHT ERSTELLT WURDE
 function taskAddedReport() {
@@ -98,6 +104,7 @@ function addSubtask() {
   }
 }
 
+
 // LADET ALLE KONTAKTE
 function loadContacts() {
   let contactsField = document.getElementById('assignedCheckboxContainer');
@@ -109,15 +116,16 @@ function loadContacts() {
   }
 }
 
+
 // ZEIGT KONTAKTE AN
 function showContacts() {
   console.log("showContacts function");
   let labels = document.getElementsByClassName('label');
   let container = document.getElementById('selectContacts');
 
-  if(container.classList.contains('bordernone')){
+  if (container.classList.contains('bordernone')) {
     container.classList.remove('bordernone')
-  } else{
+  } else {
     container.classList.add('bordernone');
   }
 
@@ -131,12 +139,13 @@ function showContacts() {
 
   let contacts = document.getElementById('assignedCheckboxContainer');
 
-  if(contacts.classList.contains('border-bottom')){
+  if (contacts.classList.contains('border-bottom')) {
     contacts.classList.remove('border-bottom')
-  } else{
+  } else {
     contacts.classList.add('border-bottom');
   }
 }
+
 
 // AN UND AUSKLICKEN VON CHECKBOX ( PUSHT KONTAKT INS ARRAY )
 function handleContactCheckboxChange(checkbox, index) {
@@ -150,13 +159,15 @@ function handleContactCheckboxChange(checkbox, index) {
   }
 }
 
+
 // AKTUALISIERT ARRAY MIT ASSIGNED
-function updateAssignedArray(){
+function updateAssignedArray() {
   let contactIndex = assigned.findIndex((assignedContact) => assignedContact === contact);
   if (contactIndex !== -1) {
     assigned.splice(contactIndex, 1);
   }
 }
+
 
 // SETZT CHECKBOXEN WIEDER AUF STANDRAD NACH ERSTELLUNG
 function resetCheckboxes() {
@@ -166,6 +177,7 @@ function resetCheckboxes() {
   }
 }
 
+
 // ERSTELLT EINZIGARTIGE ID
 function generateUniqueId() {
   var timestamp = new Date().getTime();
@@ -173,6 +185,7 @@ function generateUniqueId() {
   var uniqueId = parseInt(timestamp.toString() + randomNum.toString());
   return uniqueId;
 }
+
 
 function priorityUrgentAddTask() {
   document.getElementById('buttonUrgentAddTask').classList.add('urgent-background');
@@ -183,6 +196,7 @@ function priorityUrgentAddTask() {
   document.getElementById('low-image').src = "../img/priority-low.png";
 }
 
+
 function priorityMediumAddTask() {
   document.getElementById('buttonMediumAddTask').classList.add('medium-background');
   document.getElementById('medium-image').src = "../img/medium-symbol.svg";
@@ -192,6 +206,7 @@ function priorityMediumAddTask() {
   document.getElementById('low-image').src = "../img/priority-low.png";
 }
 
+
 function priorityLowAddTask() {
   document.getElementById('buttonLowAddTask').classList.add('low-background');
   document.getElementById('low-image').src = "../img/low-symbol.svg";
@@ -200,19 +215,21 @@ function priorityLowAddTask() {
   document.getElementById('buttonMediumAddTask').classList.remove('medium-background');
   document.getElementById('medium-image').src = "../img/priority-medium.png";
 }
-function setMinDateAttribute(){
+
+
+function setMinDateAttribute() {
   var today = new Date();
   var dd = today.getDate();
   var mm = today.getMonth() + 1; //January is 0!
   var yyyy = today.getFullYear();
-  
+
   if (dd < 10) {
-     dd = '0' + dd;
+    dd = '0' + dd;
   }
-  
+
   if (mm < 10) {
-     mm = '0' + mm;
-  } 
+    mm = '0' + mm;
+  }
   today = yyyy + '-' + mm + '-' + dd;
   document.getElementById("dueDateInputAddTask").setAttribute("min", today);
   document.getElementById("dueDateInputAddTask").setAttribute("max", "20250-12-31");
