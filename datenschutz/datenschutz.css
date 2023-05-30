@@ -2,4 +2,19 @@
     margin-left: 300px;
     margin-top: 150px;
     margin-right: 300px;
+    margin-bottom: 150px;
+}
+
+@media only screen and (max-width: 1500px) {
+    #datenschutz{
+        margin-right: 100px !important;
+    }
+}
+
+
+@media only screen and (max-width: 800px) {
+    #datenschutz{
+        margin-left: 50px !important;
+        margin-right: 50px !important;
+    }
 }
