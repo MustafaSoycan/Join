@@ -1,13 +1,19 @@
 let contacts = [];
 const remoteStorageKey = `contacts`;
 
+/**
+ * Initialisierung bei aufruf der Kontaktseite. Kontakte aus Backend laden und HTML Code generieren. 
+ */
 async function loadContactList(){
-
     await getContactsFromRemoteStorage();
     renderContactList();
 }
 
+/**
+ * Kontaktliste als HTML Code erstellen und anzeigen.
+ */
 function renderContactList(){
+
     let letter = ""; 
     sortContact();
     document.getElementById("contactList").innerHTML = /*html*/ ``; 
@@ -40,6 +46,9 @@ function renderContactList(){
     }
 }
 
+/**
+ * Kontakte alphabetisch sortieren.
+ */
 function sortContact(){
     contacts = contacts.sort((a, b) => {
         if (a.firstName < b.firstName) {
@@ -48,17 +57,27 @@ function sortContact(){
       });
 }
 
+/**
+ * Zufällige Hintergrundfarbe für Konktakt erstellen und diesem Zuweisen. 
+ * @param {id} id - Position des Kontakts im Array
+ */
 function setContactIconBackground(id){
     let color = Math.floor(Math.random()*16777215).toString(16);
     document.getElementById("contactIcon"+id).style.backgroundColor = "#"+color; 
 } 
 
+/**
+ * Kontakte aus Backend/RemoteStorage laden. 
+ */
 async function getContactsFromRemoteStorage(){
-    
     let resp =  await getItem(remoteStorageKey);
     contacts = JSON.parse(resp); 
 }
 
+/**
+ * Öffnen des selektierten Kontakts. 
+ * @param {int} index -  Position des Kontakts im Array
+ */
 function openContactDetails(index){
 
     if (window.matchMedia('screen and (max-width: 800px) ').matches) {
@@ -101,6 +120,9 @@ function openContactDetails(index){
     document.getElementById("contactDetailsIcon"+index).style.backgroundColor = contact.bgIconColor; 
 }
 
+/**
+ * Neune Kontakt erstellen. Öffnete HTML Ansicht zur erstellung eine neuen Kontakts. 
+ */
 function addNewContact(){
 
     document.getElementById("openContact").classList.remove("dsp-none");
@@ -108,8 +130,10 @@ function addNewContact(){
     renderContactForm(); 
 }
 
+/**
+ * Erzeugen des HTML Code für die erstellung eine neuen Kontakts.
+ */
 function renderContactForm(){
-
     document.getElementById("openContact").innerHTML = /*html*/ `
     <div class="contactOverlay">
         <div class="contactOverlayContentClose">
@@ -151,8 +175,11 @@ function renderContactForm(){
     `;
 }
 
+/**
+ * Neuen Kontakt erstellen. Erstellen eines neuen Kontakt mit anschließender 
+ * speicherung im RemoteStorage und aktualisierung der HTML Oberfläche.
+ */
 function addContact(){
-
     let name = document.getElementById("contactOverlayName").value ; 
     let email = document.getElementById("contactOverlayEmail").value ; 
     let phone = document.getElementById("contactOverlayPhone").value ; 
@@ -173,18 +200,26 @@ function addContact(){
     renderContactList(); 
 }
 
+/**
+ * Speichern der Kontakte im RemoteStorage/Backend. 
+ */
 function setContactsToRemoteStorage(){
     let resp = setItem(remoteStorageKey , JSON.stringify(contacts)); 
 }
 
+/**
+ * Schließen eines Kontakts in der mobilen Ansicht. 
+ */
 function closeContactOverlay(){
-
     document.getElementById("openContact").classList.add("dsp-none");
     document.getElementById("openContact").classList.remove("openContact"); 
 }
 
+/**
+ * Öffnen eines Kontakt zum bearbeiten. 
+ * @param {int} index -Position des Kontakts im Array
+ */
 function editContact(index){
-
     document.getElementById("openContact").classList.remove("dsp-none");
     document.getElementById("openContact").classList.add("openContact"); 
     renderContactForm(); 
@@ -199,8 +234,11 @@ function editContact(index){
     document.getElementById("contactOverlayCancleButtonText").innerHTML = "Delete"; 
 }
 
+/**
+ * Speichern eines editierten Kontakts.
+ * @param {int} index -  Position des Kontakts im Array
+ */
 function saveEditedContact(index){
-
     let name = document.getElementById("contactOverlayName").value ; 
     let fullName = name.split(' '); 
     let firstName = fullName[0];
@@ -214,14 +252,21 @@ function saveEditedContact(index){
     renderContactList(); 
 } 
 
+/**
+ * Löschen eines Kontakt im Bearbeitungsmodus. 
+ * @param {int} index - Position des Kontakts im Array
+ */
 function deleteEditedContact(index){
-
     contacts.splice(index, 1); 
     setContactsToRemoteStorage(); 
     closeContactOverlay(); 
     renderContactList(); 
 }
 
+/**
+ * Öffnet einen Kontakt in der mobilen Ansicht. 
+ * @param {int} index - Position des Kontakts im Array
+ */
 function openMobileVersion(index){
     document.getElementById("contactList").classList.add("dsp-none");
     document.getElementById("newContactBtn").classList.add("dsp-none");
@@ -235,17 +280,16 @@ function openMobileVersion(index){
 
 /**
  * Löscht einen ausgewählten Kontakt in der mobilen Ansicht.
- * @param {Int} index - Position des Kontakts im Array
+ * @param {int} index - Position des Kontakts im Array
  */
 function deleteMobile(index){
     deleteEditedContact(index); 
     location.reload();
-    
 }
+
 /**
  * Öffnet die edit-Oberfläche in der mobilen Ansicht
- * 
- * @param {Int} index - Position des Kontakts im Array
+ * @param {int} index - Position des Kontakts im Array
  */
 function editMobile(index){
     document.getElementById("mobileEditBtn").classList.add("dsp-none");
@@ -253,6 +297,9 @@ function editMobile(index){
     editContact(index);
 }
 
+/**
+ * Öffnet das AddTask-Overlay.
+ */
 async function addNewTask(){
     await getContactsFromRemoteStorage();
     await loadContacts();
@@ -261,6 +308,9 @@ async function addNewTask(){
     document.getElementById("addNewTask").classList.remove("dsp-none"); 
 }
 
+/**
+ * Schließt das Addtask-Overlay.
+ */
 function closeAddNewTask(){
     document.getElementById("addNewTask").classList.add("dsp-none"); 
 }
