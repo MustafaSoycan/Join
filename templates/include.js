@@ -41,3 +41,18 @@ function includeHTML() {
 function openMenu(){
   console.log("openMobileMenu"); 
 }
+
+
+
+// Event Listener für Kategorien in der Sidebar-Middle und Sidebar-Bottom
+var categories = document.querySelectorAll('.sidebar-middle a, .sidebar-bottom a');
+categories.forEach(function(category) {
+  category.addEventListener('click', function() {
+    // Entferne die Markierung von allen Kategorien
+    categories.forEach(function(c) {
+      c.classList.remove('active');
+    });
+    // Füge die Markierung zur ausgewählten Kategorie hinzu
+    category.classList.add('active');
+  });
+});

@@ -76,7 +76,7 @@ function showFilteredTasks(filteredTasks) {
 // ÖFFNET TASK ( HTML TEMPLATE NACHDEM TASK GEÖFFNET IST IN BOARD-TEMPLATE.JS (openTaskHTML) )
 function openTask(elementId) {
   let currentTask = document.getElementById('edit-task');
-  let content = document.getElementById('content');
+  let kanban = document.getElementById('kanban-board');
 
   let date = new Date("July 21");
 
@@ -88,7 +88,7 @@ function openTask(elementId) {
   currentTask.innerHTML = openTaskHTML(element, date);
 
   currentTask.classList.remove('d-none');
-  content.classList.add('blur');
+  kanban.classList.add('blur');
 }
 
 function changeSubtaskStatus(elementId, subtask, isChecked) {
@@ -113,8 +113,8 @@ function changeSubtaskStatus(elementId, subtask, isChecked) {
 function closeTask() {
   let currentTask = document.getElementById('edit-task');
   currentTask.classList.add('d-none');
-  let content = document.getElementById('content');
-  content.classList.remove('blur');
+  let kanban = document.getElementById('kanban-board');
+  kanban.classList.remove('blur');
 }
 
 

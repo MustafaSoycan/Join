@@ -184,7 +184,7 @@ body {
 
 /*/----------------------- CATEGORY DIV ------------------- /*/
 .category {
-    padding: 16px 24px;
+    padding: 12px 12px;
     max-width: 80px;
     height: 12px;
     display: flex;
@@ -193,26 +193,28 @@ body {
     border-radius: 12px;
     color: white;
     margin-bottom: 12px;
+    font-size: 16px;
+    font-weight: bold;
 }
 
 .design {
-    background-color: orange;
+    background-color: rgb(255,122,0);
 }
 
 .sales {
-    background-color: red;
+    background-color: rgb(252,113,255);
 }
 
 .media {
-    background-color: black;
+    background-color: rgb(255,199,1);
 }
 
 .marketing {
-    background-color: blue;
+    background-color: rgb(0,56,255);
 }
 
 .backoffice{
-    background-color: aqua;
+    background-color: rgb(31,215,193);
 }
 
 .title {
@@ -230,6 +232,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 15px;
 }
 
 .avatar-mustafa {
@@ -307,14 +310,13 @@ body {
 #edit-task {
     width: 500px;
     position: fixed;
-    top: 30%;
+    top: 15%;
     left: 30%;
     background-color: white;
     padding: 32px;
     border-radius: 20px;
     font-size: 22px;
-    min-height: 650px;
-    max-height: 800px;
+    min-height: 450px;
 }
 
 .close-task {
@@ -395,6 +397,16 @@ body {
     cursor: pointer;
     border-color: rgb(41, 171, 226);
     background-image: url(../img/delete-hover.png);
+}
+
+.contactsOnBoard{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.nameOfAssigned{
+    margin-left: 10px;
 }
 
 /*/ ------------------- EDIT TASK -----------------/*/

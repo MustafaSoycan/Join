@@ -74,7 +74,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 150px;
+    margin-top: 30px;
     gap: 20px;
 }
 
@@ -93,7 +93,7 @@ body {
 /*/----------------- SUMMARY ( SIDEBAR MIDDLE ) -----------/*/
 .summary {
     width: 250px;
-    height: 42px;
+    height: 50px;
 }
 
 .summary:hover {
@@ -112,7 +112,7 @@ body {
 /*/----------------- CONTACTS ( SIDEBAR MIDDLE ) -----------/*/
 .contacts {
     width: 250px;
-    height: 42px;
+    height: 50px;
 }
 
 .contacts:hover {
@@ -127,7 +127,7 @@ body {
 /*/----------------- ADD TASK ( SIDEBAR MIDDLE ) -----------/*/
 .addTask {
     width: 250px;
-    height: 42px;
+    height: 50px;
 }
 
 .addTask:hover {
@@ -142,7 +142,7 @@ body {
 /*/----------------- BOARD ( SIDEBAR MIDDLE ) -----------/*/
 .board {
     width: 250px;
-    height: 42px;
+    height: 50px;
 }
 
 .board:hover {
@@ -216,7 +216,7 @@ body {
 /*/-------------------------- DATENSCHUTZ ( SIDEBAR-BOTTOM ) -------------/*/
 .datenschutz {
     width: 250px;
-    height: 42px;
+    height: 50px;
 }
 
 .datenschutz:hover {
@@ -363,3 +363,13 @@ body {
    
 
 }
+
+
+/*/-------------- EVENT LISTENER FOR LINKS ------------/*/
+.sidebar-middle a.active {
+    background-color: darkblue;
+  }
+  
+.sidebar-bottom a.active {
+    background-color: darkblue;
+  }

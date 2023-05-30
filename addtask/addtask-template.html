@@ -17,14 +17,14 @@
             <!-- TASK DESCRIPTION-->
             <div class="task-description">
                 <span>Description</span>
-                <input id="descriptionInputAddTask" placeholder="Enter a description">
+                <input required id="descriptionInputAddTask" placeholder="Enter a description">
             </div>
 
             <!-- TASK CATEGORY-->
             <div class="task-category">
                 <span>Category</span>
-                <select id="categoryInputAddTask" placeholder="Select task category">
-                    <option> Select Category to assign </option>
+                <select  id="categoryInputAddTask" required>
+                    <option value="" disabled selected hidden>Select Category to assign</option>
                     <option value="design">Design </option>
                     <option value="sales">Sales</option>
                     <option value="backoffice">Backoffice</option>

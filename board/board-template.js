@@ -78,12 +78,19 @@ function openTaskHTML(element) {
 
     // Schleife über alle Subtasks und generiere HTML für jede Subtask
     for (let i = 0; i < element['assigned'].length; i++) {
+
         let contactFirstName = element['assigned'][i]['firstName'];
+        let contactFirstNameLetter = contactFirstName.charAt(0);
+
+
         let contactLastName = element['assigned'][i]['lastName']
+        let contactLastNameLetter = contactLastName.charAt(0);
+        let contactBackground = element['assigned'][i]['bgIconColor'];
+
+        let icon = `<div class="contactIcon" style="background-color: ${contactBackground};">${contactFirstNameLetter}${contactLastNameLetter}</div>`;
+
         contactsHTML += `
-        
-          <div class="contactsOnBoard"> ${contactFirstName} ${contactLastName} </div>
-        
+          <div class="contactsOnBoard"> ${icon} <div class="nameOfAssigned">${contactFirstName} ${contactLastName}</div> </div>
       `;
     }
 
