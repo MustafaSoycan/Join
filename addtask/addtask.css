@@ -258,22 +258,22 @@ form {
     background-color: white;
 }
 
-.label{
+.label {
     padding: 12px 18px;
     border-left: 1px solid lightgray;
     border-right: 1px solid liughtgray;
 }
 
-.label:hover{
+.label:hover {
     background-color: lightgrey;
     cursor: pointer;
 }
 
-.d-none{
+.d-none {
     display: none;
 }
 
-#testcontainer{
+#testcontainer {
     background-color: white;
     padding: 12px 18px;
     border: 1px solid lightgray;
@@ -282,17 +282,17 @@ form {
     font-size: 22px;
 }
 
-#testcontainer:hover{
+#testcontainer:hover {
     cursor: pointer;
 }
 
-.bordernone{
+.bordernone {
     border-bottom: none !important;
 }
 
 
 
-#testcontainer:hover{
+#testcontainer:hover {
     background-color: rgb(219, 219, 219);
     cursor: pointer;
 }
@@ -331,99 +331,113 @@ form {
     vertical-align: middle;
 }
 
-.d-none{
+.d-none {
     display: none;
 }
 
 /*/--------------- MEDIA QUERRY -------------------------/*/
 
 @media only screen and (max-width: 1500px) {
-    form{
+    form {
         display: unset !important;
     }
 
-    form img{
+    form .line {
         display: none;
     }
 
-    .addTask-leftSide{
+    .addTask-leftSide {
         margin: unset !important;
     }
 
-    .addTask-rightSide{
+    .addTask-rightSide {
         margin: unset;
     }
 
-    .task-assigned{
+    .task-assigned {
         margin-bottom: 32px;
     }
 
-    .task-date{
+    .task-date {
         margin-bottom: 32px !important;
     }
 }
 
 
-@media only screen and (max-width: 930px){
-    .addTask-container{
+@media only screen and (max-width: 930px) {
+    .addTask-container {
         margin-left: 100px;
     }
 }
 
-@media only screen and (max-width: 800px){
-    .addTask-container{
+@media only screen and (max-width: 800px) {
+    .addTask-container {
         margin-left: unset !important;
     }
 
-    .content{
+    .content {
         margin-left: 200px !important;
     }
 }
 
-@media only screen and (max-width: 700px){
-    .content{
+@media only screen and (max-width: 700px) {
+    .content {
         margin-left: 150px !important;
     }
 }
 
-@media only screen and (max-width: 650px){
+@media only screen and (max-width: 650px) {
 
-    .content{
+    .content {
         margin-left: 100px !important;
     }
 }
 
-@media only screen and (max-width: 600px){
+@media only screen and (max-width: 600px) {
 
-    .content{
+    .content {
         margin-left: 50px !important;
     }
 }
 
 
-@media only screen and (max-width: 480px){
+@media only screen and (max-width: 480px) {
+    .addTask-leftSide input {
+        width: 150px;
+    }
 
-   .addTask-leftSide input{
-    width: 50px;
-   }
+    .task-date {
+        width: 150px;
+    }
 
-   .task-category select{
-    width: 50px !important;
-   }
+    .task-priority {
+        max-width: 150px;
+    }
 
-   .task-assigned{
-    width: 50px;
-   }
+    .task-priority-buttons button {
+        width: 100px;
+    }
 
-   .task-date{
-    width: 50px;
-   }
+    .addTask-leftSide,
+    .addTask-rightSide {
+        margin: 0;
+    }
 
-   .task-priority{
-    max-width: 50px;
-   }
+    .task-title,
+    .task-description,
+    .task-category,
+    .task-assigned,
+    .task-date,
+    .task-priority {
+        margin-bottom: 16px;
+    }
+}
 
-   .task-priority-buttons button{
-    width: 100px;
-   }
+
+
+@media only screen and (max-width: 420px) {
+    .content{
+        margin-left: 15px !important;
+        margin-bottom: 90px !important;
+    }
 }
