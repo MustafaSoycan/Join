@@ -238,7 +238,11 @@ function deleteMobile(index){
     location.reload();
     
 }
-
+/**
+ * Öffnet die edit-Oberfläche in der mobilen Ansicht
+ * 
+ * @param {Int} index - Position des Kontakts im Array
+ */
 function editMobile(index){
     document.getElementById("mobileEditBtn").classList.add("dsp-none");
     document.getElementById("mobileDeleteBtn").classList.add("dsp-none");
@@ -249,6 +253,7 @@ async function addNewTask(){
     await getContactsFromRemoteStorage();
     await loadContacts();
     await showContacts();
+    setMinDateAttribute();
     document.getElementById("addNewTask").classList.remove("dsp-none"); 
 }
 

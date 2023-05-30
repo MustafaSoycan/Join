@@ -4,6 +4,7 @@ async function loadArray() {
   tasks = await getBoardFromRemoteStorage();
   await getContactsFromRemoteStorage();
   await loadContacts();
+  setMinDateAttribute();
 }
 
 async function createTask() {
@@ -180,7 +181,6 @@ function priorityUrgentAddTask() {
   document.getElementById('medium-image').src = "../img/priority-medium.png";
   document.getElementById('buttonLowAddTask').classList.remove('low-background');
   document.getElementById('low-image').src = "../img/priority-low.png";
-  // tasks[currentEditingIndex].priority = 'urgent'; 
 }
 
 function priorityMediumAddTask() {
@@ -190,7 +190,6 @@ function priorityMediumAddTask() {
   document.getElementById('urgent-image').src = "../img/priority-urgent.png";
   document.getElementById('buttonLowAddTask').classList.remove('low-background');
   document.getElementById('low-image').src = "../img/priority-low.png";
-  // tasks[currentEditingIndex].priority = 'medium';
 }
 
 function priorityLowAddTask() {
@@ -200,5 +199,21 @@ function priorityLowAddTask() {
   document.getElementById('urgent-image').src = "../img/priority-urgent.png";
   document.getElementById('buttonMediumAddTask').classList.remove('medium-background');
   document.getElementById('medium-image').src = "../img/priority-medium.png";
-  // tasks[currentEditingIndex].priority = 'low';
+}
+function setMinDateAttribute(){
+  var today = new Date();
+  var dd = today.getDate();
+  var mm = today.getMonth() + 1; //January is 0!
+  var yyyy = today.getFullYear();
+  
+  if (dd < 10) {
+     dd = '0' + dd;
+  }
+  
+  if (mm < 10) {
+     mm = '0' + mm;
+  } 
+  today = yyyy + '-' + mm + '-' + dd;
+  document.getElementById("dueDateInputAddTask").setAttribute("min", today);
+  document.getElementById("dueDateInputAddTask").setAttribute("max", "20250-12-31");
 }
