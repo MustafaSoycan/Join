@@ -597,8 +597,29 @@ body {
     font-weight: bold;
     color: #333;
   }
-  
+
+
+  @media only screen and (max-width: 1500px) {
+    #edit-task{
+        width: 400px;
+        top: 15%;
+        left: 40%;
+    }
+  }
+
+  @media only screen and (max-width: 1000px) {
+    #edit-task{
+        width: 350px;
+    }
+  }
+
   @media only screen and (max-width: 800px) {
+
+    #edit-task{
+        top: 15%;
+        left: 25%;
+    }
+
     .kanbanboard {
         display: flex;
         justify-content: center;
@@ -625,6 +646,56 @@ body {
         flex-direction: column;
     }
     
+}
+
+@media only screen and (max-width: 700px) {
+    #edit-task{
+        top: 15%;
+        left: 20%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #edit-task{
+        width: 350px;
+        top: 15%;
+        left: 15%;
+    }
+}
+
+
+@media only screen and (max-width: 530px) {
+    #edit-task{
+        width: 270px;
+        top: 15%;
+        left: 15%;
+    }
+
+    .edit-task-prio-buttons {
+        gap: 6px;
+    }
+
+    .edit-task-prio-buttons button{
+        width: 90px;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    #edit-task {
+        width: 270px;
+        top: 13%;
+        left: 6%;
+        font-size: 18px !important;
+    }
+    #edit-task h1{
+        font-size: 28px !important;
+    }
+
+    .contactIcon{
+        height: 18px;
+        width: 18px;
+        font-size: 14px !important;
+    }
 }
 
 @media only screen and (min-width: 801px) and (max-width:1045px) {
