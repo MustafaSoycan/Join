@@ -73,8 +73,6 @@ body {
 }
 
 .add-task-button {
-    padding-top: 15px;
-    padding-bottom: 15px;
     padding-left: 10px;
     background-color: rgb(42, 54, 71);
     color: white;

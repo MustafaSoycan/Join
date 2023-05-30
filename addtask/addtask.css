@@ -98,6 +98,7 @@ form {
 }
 
 .task-date input {
+    font-family: 'Inter', sans-serif;
     padding: 12px 18px;
     border-radius: 10px;
     min-width: 300px;
