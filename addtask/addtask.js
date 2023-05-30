@@ -65,7 +65,6 @@ function setFieldsToStandard() {
   document.getElementById('descriptionInputAddTask').value = '';
   document.getElementById('categoryInputAddTask').value = '';
   document.getElementById('dueDateInputAddTask').value = '';
-  document.getElementById('assignedContactsAddTask').innerHTML = '';
   document.getElementById('subtaskContainer').innerHTML = '';
 }
 
@@ -81,8 +80,9 @@ function taskAddedReport() {
   document.getElementById('successMessage').classList.remove('d-none');
   setTimeout(function () {
     window.location.href = '../board/board.html';
-  }, 1500); // Warte 1,5 Sekunden, bevor zur Board Ansicht weitergeleitet wird
+  }, 1700); // Warte 1,7 Sekunden, bevor zur Board Ansicht weitergeleitet wird
 }
+
 
 // FÜGT SUBTASKS HINZU 
 function addSubtask() {
@@ -92,7 +92,7 @@ function addSubtask() {
     alert('Please enter a subtask.');
   } else {
     let container = document.getElementById('subtaskContainer');
-    container.innerHTML += `<label class="subtask"> ${subtask} <input type="checkbox"> </label>`;
+    container.innerHTML += `<label class="subtask"> <input type="checkbox"> ${subtask} </label>`;
     document.getElementById('subtaskInput').value = '';
   }
 }

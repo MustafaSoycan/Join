@@ -152,9 +152,6 @@ form {
     border-radius: 100%;
 }
 
-.design {
-    background-color: blue;
-}
 
 /*/-------------------- CONTACTS SECTION ----------------------/*/
 
@@ -223,28 +220,47 @@ form {
 }
 
 .clear-button {
-    padding: 12px 24px;
+    padding: 16px 24px;
     border-radius: 10px;
+    font-weight: bold;
 }
 
 .clear-button:hover {
     cursor: pointer;
-    border: 1px solid aqua;
+    border: 1px solid rgb(41,171,226);
+    box-shadow: 1px bottom black;
+    color: rgb(41,171,226);
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
+    transform: translateY(-1px);
+}
+
+.clear-button img{
+    vertical-align: middle;
+    margin-left: 8px;
+    
 }
 
 .create-task-button {
-    padding: 12px 28px;
+    padding: 16px 24px;
     border-radius: 10px;
     border: unset;
     background-color: rgb(67, 80, 99);
     color: white;
+    font-weight: bold;
+
 }
 
 .create-task-button:hover {
     cursor: pointer;
-    background-color: aqua;
+    background-color: rgb(41,171,226);
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
+    transform: translateY(-1px);
 }
 
+.create-task-button img{
+    vertical-align: middle;
+    margin-left: 8px;
+}
 /*/--------------- CHECKBOX FOR CONTACTS-------------/*/
 
 #assignedCheckboxContainer {
@@ -322,18 +338,18 @@ form {
 /*/ --------------------REPORT FOR ADDED TASK------------------- /*/
 #successMessage {
     background-color: rgb(67, 80, 99);
-    width: 400px;
+    width: 450px;
     padding: 24px;
     color: white;
+    border-radius: 10px;
 }
 
 #successMessage img {
     height: 40px;
     width: 40px;
-    border-radius: 8px;
-    margin: 80px auto 30px;
     object-fit: cover;
     vertical-align: middle;
+    padding: 24px;
 }
 
 .d-none {
@@ -445,4 +461,10 @@ form {
         margin-left: 15px !important;
         margin-bottom: 90px !important;
     }
+
+    label input{
+        width: unset !important;
+    }
+
+    
 }

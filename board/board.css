@@ -4,8 +4,15 @@
 }
 
 body {
+    font-family: 'Open Sans', sans-serif;
     background-color: rgb(245,245,245);
 }
+
+@font-face {
+    font-family: 'Open Sans', sans-serif;
+    src: url(fonts/Open_Sans/static/OpenSans-Regular.ttf)
+}
+
 
 .dsp-none{
     display: none !important;
@@ -558,6 +565,11 @@ body {
 .subtask-list-container{
     display: flex;
     flex-direction: column;
+}
+
+.task-subtasks input {
+    
+    min-width: 30px;
 }
 
 /*/---------------- SUBTASK-------------/*/

@@ -2,14 +2,14 @@ html{
     margin: 0;  
 }
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     margin: 0;
     height: 100%;
 }
 
 @font-face {
-    font-family: 'Inter', sans-serif;
-    src: url(fonts/inter/static/Inter-Regular.ttf)
+    font-family: 'Open Sans', sans-serif;
+    src: url(fonts/Open_Sans/static/OpenSans-Regular.ttf)
 }
 
 #topbar-template {
