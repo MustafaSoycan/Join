@@ -1,4 +1,32 @@
-let contacts = [];
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: contacts.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: contacts.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>let contacts = [];
 const remoteStorageKey = `contacts`;
 
 async function loadContactList(){
@@ -11,30 +39,30 @@ function renderContactList(){
     let letter = ""; 
     sortContact();
     document.getElementById("contactList").innerHTML = /*html*/ ``; 
-    for (let i = 0; i < contacts.length; i++) {
+    for (let i = 0; i &lt; contacts.length; i++) {
         const contact = contacts[i];
         const firstLetter = contact.firstName.substring(0, 1); 
         const firstLetterLastName = contact.lastName.substring(0, 1); 
         if(letter != firstLetter) {
             letter = firstLetter; 
             document.getElementById("contactList").innerHTML += /*html*/ `
-                <div>
-                    <h3 class="contactLetter">${letter}</h3>
-                    <hr class="contactLetterDivider">
-                </div>
+                &lt;div>
+                    &lt;h3 class="contactLetter">${letter}&lt;/h3>
+                    &lt;hr class="contactLetterDivider">
+                &lt;/div>
             `; 
        }
         document.getElementById("contactList").innerHTML += /*html*/ `
-            <div id="contactListItem" class="contactListItem" onClick="openContactDetails(${i})">
-                <div>
-                    <div id="contactIcon${i}" class="contactIcon">${firstLetter}${firstLetterLastName}</div>
-                </div>
-                <div>
-                    <h3 class="contactName">${contact.firstName} ${contact.lastName}</h3>
-                    <a class="contactEmail" href= "mailto:${contact.email}">${contact.email}</a>
-                </div>
+            &lt;div id="contactListItem" class="contactListItem" onClick="openContactDetails(${i})">
+                &lt;div>
+                    &lt;div id="contactIcon${i}" class="contactIcon">${firstLetter}${firstLetterLastName}&lt;/div>
+                &lt;/div>
+                &lt;div>
+                    &lt;h3 class="contactName">${contact.firstName} ${contact.lastName}&lt;/h3>
+                    &lt;a class="contactEmail" href= "mailto:${contact.email}">${contact.email}&lt;/a>
+                &lt;/div>
                
-            </div>
+            &lt;/div>
         `; 
         document.getElementById("contactIcon"+i).style.backgroundColor = contact.bgIconColor; 
     }
@@ -42,7 +70,7 @@ function renderContactList(){
 
 function sortContact(){
     contacts = contacts.sort((a, b) => {
-        if (a.firstName < b.firstName) {
+        if (a.firstName &lt; b.firstName) {
           return -1;
         }
       });
@@ -70,33 +98,33 @@ function openContactDetails(index){
     const firstLetter = contact.firstName.substring(0, 1); 
     const firstLetterLastName = contact.lastName.substring(0, 1); 
     document.getElementById("selectedContact").innerHTML = /*html*/  `
-    <div>
-        <div class="contactDetailsName">
-            <div class="contactDetailsIcon" id="contactDetailsIcon${index}">${firstLetter}${firstLetterLastName}</div>
-            <div>
-                <h3>${contact.firstName} ${contact.lastName}</h3>
-                <a onclick="addNewTask()">
-                    <img class="contactDetailsNamePlusIcon" src="../img/plus-icon-blue.png" alt="PlusIcon">  
-                    <span class="contactDetailsNamePlusText">Add Task</span>
-                </a>
-            </div>
-        </div>
-        <div class="contactDetailsConatctInfos">
-            <h3>Contact Information</h3>
-            <div class="contactDetailsConatctInfosEdit" onclick="editContact(${index})">
-                <img  src="../img/edit-contact-icon.png" alt="">
-                <h3>Edit contact</h3>
-            </div>
-        </div>
-        <div  class="contactDetailsConatctMailTel">
-            <h3>E-Mail</h3>
-            <a class="contactEmail" href= "mailto:${contact.email}">${contact.email}</a>
-        </div>
-        <div  class="contactDetailsConatctMailTel">
-            <h3>Phone</h3>
-            <a class="contactEmail" href= "tel:${contact.tel}">${contact.tel}</a>
-        </div>
-    </div>
+    &lt;div>
+        &lt;div class="contactDetailsName">
+            &lt;div class="contactDetailsIcon" id="contactDetailsIcon${index}">${firstLetter}${firstLetterLastName}&lt;/div>
+            &lt;div>
+                &lt;h3>${contact.firstName} ${contact.lastName}&lt;/h3>
+                &lt;a onclick="addNewTask()">
+                    &lt;img class="contactDetailsNamePlusIcon" src="../img/plus-icon-blue.png" alt="PlusIcon">  
+                    &lt;span class="contactDetailsNamePlusText">Add Task&lt;/span>
+                &lt;/a>
+            &lt;/div>
+        &lt;/div>
+        &lt;div class="contactDetailsConatctInfos">
+            &lt;h3>Contact Information&lt;/h3>
+            &lt;div class="contactDetailsConatctInfosEdit" onclick="editContact(${index})">
+                &lt;img  src="../img/edit-contact-icon.png" alt="">
+                &lt;h3>Edit contact&lt;/h3>
+            &lt;/div>
+        &lt;/div>
+        &lt;div  class="contactDetailsConatctMailTel">
+            &lt;h3>E-Mail&lt;/h3>
+            &lt;a class="contactEmail" href= "mailto:${contact.email}">${contact.email}&lt;/a>
+        &lt;/div>
+        &lt;div  class="contactDetailsConatctMailTel">
+            &lt;h3>Phone&lt;/h3>
+            &lt;a class="contactEmail" href= "tel:${contact.tel}">${contact.tel}&lt;/a>
+        &lt;/div>
+    &lt;/div>
     `;
     document.getElementById("contactDetailsIcon"+index).style.backgroundColor = contact.bgIconColor; 
 }
@@ -111,43 +139,43 @@ function addNewContact(){
 function renderContactForm(){
 
     document.getElementById("openContact").innerHTML = /*html*/ `
-    <div class="contactOverlay">
-        <div class="contactOverlayContentClose">
-            <img onclick="closeContactOverlay()"src="../img/cross-icon.png" alt="cross">
-        </div>
-        <div class="contactOverlaySideBar">
-            <img src="../img/join-logo.png" alt="">
-            <h1 id="contactOverlaySideBarTitle">Add contact</h1>
-            <h2 id="contactOverlaySideBarSubtitle">Tasks are better with a team!</h2>
-            <div class="blueStyleElem"></div>
-        </div>
-        <div class="contactOverlayContent">
-            <div class="contactOverlayContentView">
-                <form id="contactOverlayForm" onsubmit="addContact();return false">
-                    <div class="contactOverlayContentMain">
-                        <div>
-                            <img class="contactOverlayContentIcon" src="../img/profil-icon-white.png" alt="profilIcon">
-                       </div>
-                        <div class="contactOverlayContentInputs">
-                            <input required class="backgroundName" id="contactOverlayName" placeholder="Name" type="text">
-                            <input required class="backgroundMail" id="contactOverlayEmail" placeholder="Email" type="email">
-                            <input required class="backgroundTel" id="contactOverlayPhone" placeholder="Phone" type="tel">
-                        </div>
-                    </div>
-                    <div class="contactOverlayButtons">
-                        <button id="contactOverlayCancleButton" onclick="closeContactOverlay()" type="button" class="buttonWhite">
-                            <h3 id="contactOverlayCancleButtonText">Cancel</h3>
-                            <img src="../img/cross-icon.png" alt=""> 
-                        </button>
-                        <button id="contactOverlaySubmitButton" class="buttonBlue" type="submit">
-                            <h3 id="contactOverlaySubmitButtonText">Create contact</h3>
-                            <img src="../img/checkmark-only-icon.png" alt=""> 
-                        </button>
-                    </div>
-                </form>
-            </div>        
-        </div>
-    </div>
+    &lt;div class="contactOverlay">
+        &lt;div class="contactOverlayContentClose">
+            &lt;img onclick="closeContactOverlay()"src="../img/cross-icon.png" alt="cross">
+        &lt;/div>
+        &lt;div class="contactOverlaySideBar">
+            &lt;img src="../img/join-logo.png" alt="">
+            &lt;h1 id="contactOverlaySideBarTitle">Add contact&lt;/h1>
+            &lt;h2 id="contactOverlaySideBarSubtitle">Tasks are better with a team!&lt;/h2>
+            &lt;div class="blueStyleElem">&lt;/div>
+        &lt;/div>
+        &lt;div class="contactOverlayContent">
+            &lt;div class="contactOverlayContentView">
+                &lt;form id="contactOverlayForm" onsubmit="addContact();return false">
+                    &lt;div class="contactOverlayContentMain">
+                        &lt;div>
+                            &lt;img class="contactOverlayContentIcon" src="../img/profil-icon-white.png" alt="profilIcon">
+                       &lt;/div>
+                        &lt;div class="contactOverlayContentInputs">
+                            &lt;input required class="backgroundName" id="contactOverlayName" placeholder="Name" type="text">
+                            &lt;input required class="backgroundMail" id="contactOverlayEmail" placeholder="Email" type="email">
+                            &lt;input required class="backgroundTel" id="contactOverlayPhone" placeholder="Phone" type="tel">
+                        &lt;/div>
+                    &lt;/div>
+                    &lt;div class="contactOverlayButtons">
+                        &lt;button id="contactOverlayCancleButton" onclick="closeContactOverlay()" type="button" class="buttonWhite">
+                            &lt;h3 id="contactOverlayCancleButtonText">Cancel&lt;/h3>
+                            &lt;img src="../img/cross-icon.png" alt=""> 
+                        &lt;/button>
+                        &lt;button id="contactOverlaySubmitButton" class="buttonBlue" type="submit">
+                            &lt;h3 id="contactOverlaySubmitButtonText">Create contact&lt;/h3>
+                            &lt;img src="../img/checkmark-only-icon.png" alt=""> 
+                        &lt;/button>
+                    &lt;/div>
+                &lt;/form>
+            &lt;/div>        
+        &lt;/div>
+    &lt;/div>
     `;
 }
 
@@ -263,4 +291,26 @@ async function addNewTask(){
 
 function closeAddNewTask(){
     document.getElementById("addNewTask").classList.add("dsp-none"); 
-}
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#deleteMobile">deleteMobile</a></li><li><a href="global.html#editMobile">editMobile</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Tue May 30 2023 20:57:24 GMT+0200 (Central European Summer Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
