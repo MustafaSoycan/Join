@@ -112,7 +112,7 @@ function loadContacts() {
 function showContacts() {
   console.log("showContacts function");
   let labels = document.getElementsByClassName('label');
-  let container = document.getElementById('testcontainer');
+  let container = document.getElementById('selectContacts');
 
   if(container.classList.contains('bordernone')){
     container.classList.remove('bordernone')
@@ -126,6 +126,14 @@ function showContacts() {
     } else {
       labels[i].classList.add('d-none');
     }
+  }
+
+  let contacts = document.getElementById('assignedCheckboxContainer');
+
+  if(contacts.classList.contains('border-bottom')){
+    contacts.classList.remove('border-bottom')
+  } else{
+    contacts.classList.add('border-bottom');
   }
 }
 

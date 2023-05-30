@@ -207,16 +207,11 @@ form {
     font-size: 14px;
 }
 
-.addSubtask-button {
-    padding: 12px 28px;
-    border: unset;
-    background-color: rgb(67, 80, 99);
-    color: white;
-}
 
-.addSubtask-button:hover {
-    cursor: pointer;
-    background-color: rgb(92, 107, 129);
+
+.addSubtask-input-button{
+    display: flex !important;
+    flex-direction: row !;
 }
 
 /*/------------------------- CLEAR / CREATE TASK BUTTONS -----------------/*/
@@ -256,12 +251,16 @@ form {
     max-height: 120px;
     overflow: auto;
     background-color: white;
+    border-left: 1px solid lightgray;
+    border-right: 1px solid lightgray;
+}
+
+.border-bottom{
+    border-bottom: 1px solid lightgray;;
 }
 
 .label {
     padding: 12px 18px;
-    border-left: 1px solid lightgray;
-    border-right: 1px solid liughtgray;
 }
 
 .label:hover {
@@ -273,7 +272,7 @@ form {
     display: none;
 }
 
-#testcontainer {
+#selectContacts {
     background-color: white;
     padding: 12px 18px;
     border: 1px solid lightgray;
@@ -282,7 +281,7 @@ form {
     font-size: 22px;
 }
 
-#testcontainer:hover {
+#selectContacts:hover {
     cursor: pointer;
 }
 
@@ -290,10 +289,7 @@ form {
     border-bottom: none !important;
 }
 
-
-
-#testcontainer:hover {
-    background-color: rgb(219, 219, 219);
+#selectContacts:hover {
     cursor: pointer;
 }
 

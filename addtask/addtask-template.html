@@ -37,13 +37,18 @@
             <div class="task-assigned">
                 <div>
                     <span>Assigned to:</span>
-                    <div id="testcontainer" onclick="showContacts()">
+                    <div id="selectContacts" onclick="showContacts()">
                         Select contacts to assign
                     </div>
-                    <div id="assignedCheckboxContainer"></div>
+
+                    
+                    <div id="assignedCheckboxContainer">
+                        
+                    </div>
+                    
 
                 </div>
-                    <div id="assignedContactsAddTask"></div>
+                  
             </div>
 
         </div>
@@ -75,8 +80,10 @@
             <!-- TASK SUBTASKS-->
             <div class="task-subtasks">
                 <span>Subtasks</span>
+                <div class="subtask-input-button">
                 <input id="subtaskInput" type="text" placeholder="Add new subtask">
-                <button class="addSubtask-button" onclick="addSubtask()" type="button"> Add </button>
+                <button class="addSubtask-button" onclick="addSubtask()" type="button"> <img src="../img/addSubtaskButton.png"></button>
+                </div>
                 <div id="subtaskContainer"></div>
             </div>
 
