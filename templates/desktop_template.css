@@ -211,8 +211,40 @@ body {
 }
 
 .d-none{
-    display: none;
+    display: none !important;
 }
+/*/------------------- LOG OUT BUTTON MOBILE--------------------/*/
+
+.logOutMobile{
+    background-color:rgb(42,54,71);
+    position: fixed;
+    top: 50px;
+    right: 20px;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.logOutMobile a{
+    text-decoration: none;
+    color: white;
+    padding: 12px;
+}
+
+.logOutM.logOutMobile{
+    background-color:rgb(60, 72, 90);
+    cursor: pointer;
+}
+
+
 /*/-------------------------- DATENSCHUTZ ( SIDEBAR-BOTTOM ) -------------/*/
 .datenschutz {
     width: 250px;

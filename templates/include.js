@@ -40,6 +40,15 @@ function includeHTML() {
 
 function openMenu(){
   console.log("openMobileMenu"); 
+  let mobileMenu = document.getElementById('mobileMenuPopup');
+  
+  if (mobileMenu.classList.contains('d-none')) {
+    mobileMenu.classList.remove('d-none');
+    console.log("contains d-none"); 
+  } else {
+    mobileMenu.classList.add('d-none');
+    console.log("add d-none"); 
+  }
 }
 
 
