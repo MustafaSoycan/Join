@@ -1,6 +1,14 @@
+/**
+ * Array für zugewiesene Kontakte
+ * @type {Object[]}
+ */
 let assigned = []; // Neues Array für zugewiesene Kontakte
 
 
+/**
+ * Lädt alle Aufgaben und Kontakte aus dem Remote Storage
+ * @returns {Promise<void>}
+ */
 async function loadArray() {
   tasks = await getBoardFromRemoteStorage();
   await getContactsFromRemoteStorage();
@@ -9,6 +17,10 @@ async function loadArray() {
 }
 
 
+/**
+ * Erstellt eine neue Aufgabe
+ * 
+ */
 async function createTask() {
   let title = document.getElementById('titleInputAddTask').value;
   let description = document.getElementById('descriptionInputAddTask').value;
@@ -24,14 +36,19 @@ async function createTask() {
     priority = 'low';
   }
 
+ 
   let subtasks = [];
   setSubtasks(subtasks);
 
-  let subtaskStatus = [];
+  taskStatus = [];
   subtasks.forEach(() => {
     subtaskStatus.push(false); // Push false in das subtaskStatus-Array
   });
 
+
+  /**
+   * @type {Object}
+   */
   let newTask = {
     id: generateUniqueId(),
     title: title,
@@ -54,8 +71,12 @@ async function createTask() {
 }
 
 
-// PUSHT ALLE HINZUGEFÜGTEN SUBTASKS INS SUTBASK ARRAY
+/**
+ * Alle hinzugefügten Subtasks werden in das Array der Aufgabe gepusht
+ * @param {string[]} subtasks - Das Array der Subtasks
+ */
 function setSubtasks(subtasks) {
+  
   let subtaskElements = document.getElementsByClassName('subtask');
   for (let i = 0; i < subtaskElements.length; i++) {
     let subtask = subtaskElements[i].innerText.trim();
@@ -64,7 +85,9 @@ function setSubtasks(subtasks) {
 }
 
 
-// SETZT ALLE FELDER AUF STANDARD NACH ERSTELLUNG
+/**
+ * Setzt alle ausgefüllten Felder wieder zurück, nachdem eine Aufgabe erstellt wurde.
+ */
 function setFieldsToStandard() {
   document.getElementById('titleInputAddTask').value = '';
   document.getElementById('descriptionInputAddTask').value = '';
@@ -74,7 +97,9 @@ function setFieldsToStandard() {
 }
 
 
-// SETZT PRIO BUTTONS WIEDER AUF STANDARD
+/**
+ * Setzt die Buttons für die Priorität wieder zurück, nachdem eine Aufgabe erstellt wurde.
+ */
 function resetPriority() {
   document.getElementById('buttonUrgentAddTask').classList.remove('urgent-background');
   document.getElementById('buttonMediumAddTask').classList.remove('medium-background');
@@ -82,7 +107,9 @@ function resetPriority() {
 }
 
 
-// MELDUNG DASS TASK ERFOLGREICHT ERSTELLT WURDE
+/**
+ * Gibt eine Rückmeldung, dass eine Aufgabe erstellt wurde.
+ */
 function taskAddedReport() {
   document.getElementById('successMessage').classList.remove('d-none');
   setTimeout(function () {
@@ -91,13 +118,21 @@ function taskAddedReport() {
 }
 
 
-// FÜGT SUBTASKS HINZU 
+/**
+ * Die Möglichkeit, eine Subtask hinzuzufügen.
+ */
 function addSubtask() {
+  /**
+   * @type {string}
+   */
   let subtask = document.getElementById('subtaskInput').value;
 
   if (subtask === '') {
     alert('Please enter a subtask.');
   } else {
+    /**
+     * @type {HTMLElement}
+     */
     let container = document.getElementById('subtaskContainer');
     container.innerHTML += `<label class="subtask"> <input type="checkbox"> ${subtask} </label>`;
     document.getElementById('subtaskInput').value = '';
@@ -105,7 +140,9 @@ function addSubtask() {
 }
 
 
-// LADET ALLE KONTAKTE
+/**
+ * Lädt alle Kontakte aus der Kontaktliste.
+ */
 function loadContacts() {
   let contactsField = document.getElementById('assignedCheckboxContainer');
   contactsField.innerHTML = '';
@@ -117,7 +154,9 @@ function loadContacts() {
 }
 
 
-// ZEIGT KONTAKTE AN
+/**
+ * Zeigt alle Kontakte aus der Kontaktliste an.
+ */
 function showContacts() {
   console.log("showContacts function");
   let labels = document.getElementsByClassName('label');
@@ -147,7 +186,11 @@ function showContacts() {
 }
 
 
-// AN UND AUSKLICKEN VON CHECKBOX ( PUSHT KONTAKT INS ARRAY )
+/**
+ * Ermöglicht mit der Checkbox das Zuweisen und Entfernen eines Kontaktes.
+ * @param {HTMLInputElement} checkbox - Die Checkbox
+ * @param {number} index - Der Index des Kontakts
+ */
 function handleContactCheckboxChange(checkbox, index) {
   let selectedContact = contacts[index];
 
@@ -160,8 +203,11 @@ function handleContactCheckboxChange(checkbox, index) {
 }
 
 
-// AKTUALISIERT ARRAY MIT ASSIGNED
-function updateAssignedArray() {
+/**
+ * Aktualisiert das Array mit den jeweiligen Kontakten.
+ * @param {Object} contact - Der Kontakt
+ */
+function updateAssignedArray(contact) {
   let contactIndex = assigned.findIndex((assignedContact) => assignedContact === contact);
   if (contactIndex !== -1) {
     assigned.splice(contactIndex, 1);
@@ -169,7 +215,9 @@ function updateAssignedArray() {
 }
 
 
-// SETZT CHECKBOXEN WIEDER AUF STANDRAD NACH ERSTELLUNG
+/**
+ * Setzt alle Checkboxen wieder zurück, nachdem eine Aufgabe erstellt wurde.
+ */
 function resetCheckboxes() {
   let checkboxes = document.querySelectorAll('input[type="checkbox"]');
   for (let i = 0; i < checkboxes.length; i++) {
@@ -178,7 +226,10 @@ function resetCheckboxes() {
 }
 
 
-// ERSTELLT EINZIGARTIGE ID
+/**
+ * Erstellt eine einzigartige ID.
+ * @returns {number} - Die einzigartige ID
+ */
 function generateUniqueId() {
   var timestamp = new Date().getTime();
   var randomNum = Math.floor(Math.random() * 10000);
@@ -187,6 +238,9 @@ function generateUniqueId() {
 }
 
 
+/**
+ * Setzt die Priorität für die erstellte Aufgabe auf "dringend".
+ */
 function priorityUrgentAddTask() {
   document.getElementById('buttonUrgentAddTask').classList.add('urgent-background');
   document.getElementById('urgent-image').src = "../img/urgent-symbol.png";
@@ -197,6 +251,9 @@ function priorityUrgentAddTask() {
 }
 
 
+/**
+ * Setzt die Priorität für die erstellte Aufgabe auf "mittel".
+ */
 function priorityMediumAddTask() {
   document.getElementById('buttonMediumAddTask').classList.add('medium-background');
   document.getElementById('medium-image').src = "../img/medium-symbol.svg";
@@ -207,6 +264,9 @@ function priorityMediumAddTask() {
 }
 
 
+/**
+ * Setzt die Priorität für die erstellte Aufgabe auf "niedrig".
+ */
 function priorityLowAddTask() {
   document.getElementById('buttonLowAddTask').classList.add('low-background');
   document.getElementById('low-image').src = "../img/low-symbol.svg";
@@ -217,6 +277,9 @@ function priorityLowAddTask() {
 }
 
 
+/**
+ * Setzt ein Mindestdatum.
+ */
 function setMinDateAttribute() {
   var today = new Date();
   var dd = today.getDate();
