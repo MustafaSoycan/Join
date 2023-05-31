@@ -40,7 +40,7 @@ async function createTask() {
   let subtasks = [];
   setSubtasks(subtasks);
 
-  taskStatus = [];
+  let subtaskStatus = [];
   subtasks.forEach(() => {
     subtaskStatus.push(false); // Push false in das subtaskStatus-Array
   });

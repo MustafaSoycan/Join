@@ -1,3 +1,6 @@
+/**
+ * Ein Array zur Speicherung der Benutzerdaten.
+ */
 let user = [];
 
 
@@ -10,6 +13,9 @@ async function init() {
 }
 
 
+/**
+ * Lädt die Benutzerdaten aus dem Backend.
+ */
 async function loadUser() {
     try {
         user = JSON.parse(await getItem('user'));
@@ -18,12 +24,19 @@ async function loadUser() {
     }
 }
 
-  
+/**
+ * Überprüft, ob eine E-Mail gültig ist.
+ * Gibt true zurück, wenn die E-Mail gültig ist, andernfalls false.
+ */
 function isValidEmail(email) {
     return email.includes('@');
   }
 
 
+  /**
+ * Event-Listener, der aufgerufen wird, wenn das DOM geladen ist.
+ * Elemente für Anmeldescreen, Registrierungsscreen, Passwort vergessen-Screen,Passwort ändern Screen.
+ */
   let loginscreen, signupscreen, forgotPW1, changePW;
 
   window.addEventListener('DOMContentLoaded', function() {
@@ -34,6 +47,9 @@ function isValidEmail(email) {
   });
 
 
+  /**
+ * Öffnet eine bestimmte Seite basierend auf dem angegebenen Parameter.
+ */
 function openPage(page) {
     if (page === "log-in") {
         checkLogin()
@@ -51,22 +67,33 @@ function openPage(page) {
 }
 
 
+  /**
+ * Führt eine Gastanmeldung durch.
+ */
 function guestLogin(){
        document.getElementById("summaryUsername").innerHTML = 'Guest'  ; 
 }
 
+  /**
+ * Lädt das Registrierungsformular.
+ */
 function loadSignUp() {
     loginscreen.style.display = 'none';
     signupscreen.style.display = 'flex';
 }
 
 
+  /**
+ * Zeigt den Bildschirm zum Zurücksetzen des Passworts an.
+ */
 function forgotPW() {
     loginscreen.style.display = 'none';
     forgotPW1.style.display = 'flex';
 }
 
-
+/**
+*Geht zurück zum Anmeldebildschirm.
+*/
 function back() {
     loginscreen.style.display = 'flex';
     signupscreen.style.display = 'none';
@@ -74,12 +101,17 @@ function back() {
 }
 
 
+/**
+*Wechselt zur vorherigen Ansicht (Passwort ändern).
+*/
 function  backChange(){
     forgotPW1.style.display = 'flex';
     changePW.style.display = 'none';
 }
 
-
+/**
+*Setzt das Passwort zurück.
+*/
   function resetPW() {
     let emailInput = document.getElementById('email-forgot');
     let emailValue = emailInput.value;
@@ -95,7 +127,9 @@ function  backChange(){
     }
   }
 
-  
+  /**
+*Überprüft die E-Mail und zeigt Animationen an.
+*/
 function emailCheck(){
     let animationInfo = document.getElementById('animation-info');
     animationInfo.style.display = 'flex';
@@ -104,7 +138,9 @@ function emailCheck(){
     changePW.style.display = 'flex';
 }
 
-
+/**
+*Überprüft das eingegebene Passwort und führt entsprechende Aktionen aus.
+*/
   function checkPW() {
     let newPasswordInput = document.getElementById('new-password');
     let confirmPasswordInput = document.getElementById('confirm-password');
@@ -126,8 +162,11 @@ function emailCheck(){
       alert('Bitte geben Sie gültige Passwörter ein.');
     }
   }
+ 
   
-
+/**
+*Überprüft den Login und führt entsprechende Aktionen aus.
+*/
   function checkLogin() {
     let emailInput = document.getElementById('log-in-email');
     let passwordInput = document.getElementById('log-in-pw');
@@ -144,6 +183,10 @@ function emailCheck(){
     }
   }
 
+
+/**
+Überprüft den Benutzer.
+*/
   function userCheck(foundUser, emailInput, passwordInput){
     document.getElementById('current-user').textContent = '';
     document.getElementById('current-user').textContent = 'Angemeldet ist der Benutzer: ' + foundUser.name;
@@ -162,6 +205,9 @@ document.addEventListener('DOMContentLoaded', function () {
   let password = document.getElementById('password');
   let registerBtn = document.getElementById('registerBtn');
 
+  /**
+ * Registriert einen neuen Benutzer.
+ */
   async function register() {
     if (nameInput.value === '' || email.value === '' || password.value === '') {
       alert('Bitte füllen Sie alle Felder aus.');
@@ -192,6 +238,9 @@ document.addEventListener('DOMContentLoaded', function () {
     back();
   }
 
+  /**
+ * Setzt das Formular zurück.
+ */
   function resetForm() {
     nameInput.value = '';
     email.value = '';
@@ -199,7 +248,9 @@ document.addEventListener('DOMContentLoaded', function () {
     registerBtn.disabled = false;
   }
 
-
+/**
+ * Überprüft, ob ein Benutzer bereits registriert ist.
+ */
   function isUserAlreadyRegistered(name, email) {
     for (let i = 0; i < user.length; i++) {
       if (user[i].name === name || user[i].email === email) {
