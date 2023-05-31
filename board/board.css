@@ -631,7 +631,7 @@ body {
     top: 50%;
     left: 40%;
     background-color: rgb(67, 80, 99);
-    width: 450px;
+    width: 400px;
     padding: 24px;
     color: white;
     border-radius: 10px;
@@ -662,6 +662,9 @@ body {
 }
 
 @media only screen and (max-width: 800px) {
+    #savedChanges{
+        left: 20%;
+    }
 
     #edit-task {
         top: 15%;
@@ -697,6 +700,11 @@ body {
 }
 
 @media only screen and (max-width: 700px) {
+    #savedChanges{
+        left: 15%;
+        width: 360px;
+    }
+
     #edit-task {
         top: 15%;
         left: 20%;
@@ -704,6 +712,12 @@ body {
 }
 
 @media only screen and (max-width: 600px) {
+
+    #savedChanges{
+        top: 15%;
+        left: 10%;
+    }
+
     #edit-task {
         width: 350px;
         top: 15%;
@@ -713,6 +727,11 @@ body {
 
 
 @media only screen and (max-width: 530px) {
+    #savedChanges{
+        top: 15%;
+        left: 5%;
+    }
+
     #edit-task {
         width: 270px;
         top: 15%;
