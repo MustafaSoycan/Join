@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: board/board.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: board/board.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Das Array mit den Aufgaben.
+ * @type {Array}
+ */
+let tasks = [];
+
+
+/**
+ * Der Schlüssel zum Speichern im Remote Storage.
+ * @type {string}
+ */
+const remoteStorageKeyTest = 'board';
+
+
+/**
+ * Der aktuelle Index der Aufgabe für die Bearbeitung.
+ * @type {number}
+ */
+let currentEditingIndex = -1;
+
+
+/**
+ * Das aktuelle gezogene Element.
+ * @type {object}
+ */
+let currentDraggedElement;
+
+
+/**
+ * Lädt alle Aufgaben und Kontakte aus dem Remote Storage und zeigt sie im HTML an.
+ * 
+ */
+async function loadBoard() {
+  tasks = await getBoardFromRemoteStorage();
+  await getContactsFromRemoteStorage();
+  updateHTML();
+}
+
+
+/**
+ * Speichert die Aufgaben im Remote Storage.
+ * 
+ */
+async function setBoardToRemoteStorage() {
+  try {
+    const response = await setItem(remoteStorageKeyTest, JSON.stringify(tasks));
+    console.log(response);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+
+/**
+ * Lädt die Aufgaben aus dem Remote Storage.
+ *
+ */
+async function getBoardFromRemoteStorage() {
+  try {
+    const response = await getItem(remoteStorageKeyTest);
+    return JSON.parse(response);
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
+}
+
+
+/**
+ * Aktualisiert das HTML der verschiedenen Boards mit den Aufgaben.
+ */
+function updateHTML() {
+  showToDoBoard();
+  showInProgressBoard();
+  showAwaitingFeedbackBoard();
+  showDoneBoard();
+}
+
+
+/**
+ * Filtert die Aufgaben, wenn etwas in das Suchfeld eingegeben wird.
+ */
+function filterTasks() {
+  /**
+   * Der Suchbegriff.
+   * @type {string}
+   */
+  let search = document.getElementById('searchInputField').value.toLowerCase();
+
+  /**
+   * Die gefilterten Aufgaben.
+   * @type {Array}
+   */
+  let filteredTasks = tasks.filter(task => {
+    const title = task.title.toLowerCase();
+    const description = task.description.toLowerCase();
+    return title.includes(search) || description.includes(search);
+  });
+  showFilteredTasks(filteredTasks);
+}
+
+
+/**
+ * Zeigt die gefilterten Aufgaben im jeweiligen Board an.
+ * @param {Array} filteredTasks - Die gefilterten Aufgaben.
+ */
+function showFilteredTasks(filteredTasks) {
+  document.getElementById('to-do').innerHTML = '';
+  document.getElementById('in-progress').innerHTML = '';
+  document.getElementById('awaiting-feedback').innerHTML = '';
+  document.getElementById('done').innerHTML = '';
+
+  filteredTasks.forEach(task => {
+    const element = generateTodoHTML(task);
+    const kanban = task.kanban;
+    document.getElementById(kanban).innerHTML += element;
+  });
+}
+
+
+/**
+ * Öffnet die ausgewählte Aufgabe und zeigt diese in HTML an.
+ * @param {string} elementId - Die ID des Elements.
+ */
+function openTask(elementId) {
+  let currentTask = document.getElementById('edit-task');
+  let kanban = document.getElementById('kanban-board');
+
+  let date = new Date("July 21");
+
+  // Suchen Sie den entsprechenden Task anhand der ID
+  const element = tasks.find(task => task.id === elementId);
+
+  // Erstellen Sie den HTML-Code für die Karte mit den Werten des ausgewählten Tasks
+  currentTask.innerHTML = ``;
+  currentTask.innerHTML = openTaskHTML(element, date);
+
+  currentTask.classList.remove('d-none');
+  kanban.classList.add('blur');
+}
+
+
+/**
+ * Ändert den Status einer Teilaufgabe.
+ * @param {string} elementId - Die ID des Elements.
+ * @param {string} subtask - Die Teilaufgabe.
+ * @param {boolean} isChecked - Der ausgewählte Status.
+ */
+function changeSubtaskStatus(elementId, subtask, isChecked) {
+  let findtask = tasks.find(task => task.id === elementId); // Suche nach dem Task mit der entsprechenden ID
+  let findsubtask = findtask.subtasks.find(task => task === subtask); // Suche nach der Subtask im subtasks-Array des gefundenen Tasks
+  let position = findtask.subtasks.indexOf(findsubtask); // Position der Subtask im subtasks-Array des gefundenen Tasks
+
+  if (isChecked) {
+    findtask.subtaskStatus[position] = true; // Setze den Status der Subtask auf true
+  } else {
+    findtask.subtaskStatus[position] = false; // Setze den Status der Subtask auf false
+  }
+
+  setBoardToRemoteStorage();
+  updateHTML();
+}
+
+
+/**
+ * Schließt die geöffnete Aufgabe.
+ */
+function closeTask() {
+  let currentTask = document.getElementById('edit-task');
+  currentTask.classList.add('d-none');
+  let kanban = document.getElementById('kanban-board');
+  kanban.classList.remove('blur');
+}
+
+
+/**
+ * Löscht die ausgewählte Aufgabe.
+ * @param {string} id - Die ID der Aufgabe.
+ */
+function deleteTask(id) {
+  const index = tasks.findIndex(task => task.id === id);
+  if (index !== -1) {
+    tasks.splice(index, 1);
+    setBoardToRemoteStorage();
+    closeTask();
+    updateHTML();
+  }
+}
+
+
+/**
+ * Die Möglichkeit, eine Aufgabe zu bearbeiten.
+ * @param {string} id - Die ID der Aufgabe.
+ */
+function editTask(id) {
+  let currentTask = document.getElementById('edit-task');
+  currentTask.innerHTML = '';
+
+  // Suchen Sie den entsprechenden Task anhand der ID
+  const element = tasks.find(task => task.id === id);
+
+  currentTask.innerHTML = editTaskHTML(element);
+
+  // Setze den aktuellen Index für die Bearbeitung
+  currentEditingIndex = tasks.findIndex(task => task.id === id);
+}
+
+
+/**
+ * Das Zuweisen der Kontakte für die jeweilige Aufgabe.
+ */
+function updateAssignedContacts() {
+  // Erstelle ein leeres Array, um zugewiesene Kontakte zu speichern
+  const assignedContacts = [];
+
+  // Wähle alle ausgewählten Checkbox-Elemente aus
+  const assignedCheckboxElements = document.querySelectorAll('input[type="checkbox"]:checked');
+
+  // Iteriere über jedes ausgewählte Checkbox-Element
+  assignedCheckboxElements.forEach((checkbox) => {
+    // Extrahiere den Index des Kontakts aus der ID der Checkbox
+    const contactIndex = parseInt(checkbox.id.split('-')[1]);
+
+    // Füge den entsprechenden Kontakt zum zugewiesenen Kontakte-Array hinzu
+    assignedContacts.push(contacts[contactIndex]);
+  });
+
+  // Aktualisiere die 'assigned'-Eigenschaft des aktuellen bearbeiteten Tasks mit den zugewiesenen Kontakten
+  tasks[currentEditingIndex].assigned = assignedContacts;
+}
+
+
+/**
+ * Speichert die Aufgabe, nachdem sie bearbeitet wurde.
+ */
+function saveChanges() {
+  /**
+   * Der Titel der Aufgabe.
+   * @type {string}
+   */
+  const title = document.getElementById('titleInput').value;
+
+  /**
+   * Die Beschreibung der Aufgabe.
+   * @type {string}
+   */
+  const description = document.getElementById('descriptionInput').value;
+
+  /**
+   * Das Fälligkeitsdatum der Aufgabe.
+   * @type {string}
+   */
+  const dueDate = document.getElementById('dateInput').value;
+
+  // Überprüfe, ob der Index gültig ist
+  if (currentEditingIndex >= 0 &amp;&amp; currentEditingIndex &lt; tasks.length) {
+    tasks[currentEditingIndex].title = title;
+    tasks[currentEditingIndex].description = description;
+    tasks[currentEditingIndex].dueDate = dueDate;
+  }
+  updateAssignedContacts();
+  setBoardToRemoteStorage();
+  updateHTML();
+  closeTask();
+  savedChangesReport();
+}
+
+
+
+/**
+ * Setzt die Priorität auf "dringend".
+ */
+function priorityUrgent() {
+  document.getElementById('buttonUrgent').classList.add('urgent-background');
+  document.getElementById('urgent-image').src = "../img/urgent-symbol.png";
+  document.getElementById('buttonMedium').classList.remove('medium-background');
+  document.getElementById('medium-image').src = "../img/priority-medium.png";
+  document.getElementById('buttonLow').classList.remove('low-background');
+  document.getElementById('low-image').src = "../img/priority-low.png";
+  tasks[currentEditingIndex].priority = 'urgent';
+}
+
+
+/**
+ * Setzt die Priorität auf "mittel".
+ */
+function priorityMedium() {
+  document.getElementById('buttonMedium').classList.add('medium-background');
+  document.getElementById('medium-image').src = "../img/medium-symbol.svg";
+  document.getElementById('buttonUrgent').classList.remove('urgent-background');
+  document.getElementById('urgent-image').src = "../img/priority-urgent.png";
+  document.getElementById('buttonLow').classList.remove('low-background');
+  document.getElementById('low-image').src = "../img/priority-low.png";
+  tasks[currentEditingIndex].priority = 'medium';
+}
+
+
+/**
+ * Setzt die Priorität auf "niedrig".
+ */
+function priorityLow() {
+  document.getElementById('buttonLow').classList.add('low-background');
+  document.getElementById('low-image').src = "../img/low-symbol.svg";
+  document.getElementById('buttonUrgent').classList.remove('urgent-background');
+  document.getElementById('urgent-image').src = "../img/priority-urgent.png";
+  document.getElementById('buttonMedium').classList.remove('medium-background');
+  document.getElementById('medium-image').src = "../img/priority-medium.png";
+  tasks[currentEditingIndex].priority = 'low';
+}
+
+
+
+/**
+ * Lässt die Aufgabe für den Drag-and-Drop-Vorgang vorbereitet werden.
+ *
+ * @param {string} id - Die ID der Aufgabe, die gezogen werden soll.
+ */
+function startDragging(id) {
+  currentDraggedElement = tasks.find(task => task.id === id);
+}
+
+/**
+ * Erlaubt den Drag-and-Drop-Vorgang.
+ *
+ * @param {Event} ev - Das Drag-and-Drop-Ereignisobjekt.
+ */
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+/**
+ * Bewegt die gezogene Aufgabe in ein bestimmtes Kanban-Board.
+ *
+ * @param {string} kanban - Der Name des Kanban-Boards, in das die Aufgabe verschoben wird.
+ */
+function moveTo(kanban) {
+  currentDraggedElement['kanban'] = kanban;
+  setBoardToRemoteStorage();
+  updateHTML();
+}
+
+/**
+ * Hervorhebungsbereich für den Drag-and-Drop-Vorgang.
+ *
+ * @param {string} id - Die ID des Bereichs, der hervorgehoben werden soll.
+ */
+function highlight(id) {
+  document.getElementById(id).classList.add('drag-area-highlight');
+}
+
+/**
+ * Entfernt die Hervorhebung des Bereichs nach dem Drag-and-Drop-Vorgang.
+ *
+ * @param {string} id - Die ID des Bereichs, dessen Hervorhebung entfernt werden soll.
+ */
+function removeHighlight(id) {
+  document.getElementById(id).classList.remove('drag-area-highlight');
+}
+
+
+
+/**
+ * Zeigt alle Aufgaben im 'To Do'-Board an.
+ */
+function showToDoBoard() {
+  let toDo = tasks.filter(t => t['kanban'] == 'to-do');
+  document.getElementById('to-do').innerHTML = '';
+  for (let index = 0; index &lt; toDo.length; index++) {
+    let element = toDo[index];
+    document.getElementById('to-do').innerHTML += generateTodoHTML(element);
+  }
+}
+
+/**
+ * Zeigt alle Aufgaben im 'In Progress'-Board an.
+ */
+function showInProgressBoard() {
+  let inProgress = tasks.filter(t => t['kanban'] == 'in-progress');
+  document.getElementById('in-progress').innerHTML = '';
+  for (let index = 0; index &lt; inProgress.length; index++) {
+    let element = inProgress[index];
+    document.getElementById('in-progress').innerHTML += generateTodoHTML(element);
+  }
+}
+
+/**
+ * Zeigt alle Aufgaben im 'Awaiting Feedback'-Board an.
+ */
+function showAwaitingFeedbackBoard() {
+  let awaitingFeedback = tasks.filter(t => t['kanban'] == 'awaiting-feedback');
+  document.getElementById('awaiting-feedback').innerHTML = '';
+  for (let index = 0; index &lt; awaitingFeedback.length; index++) {
+    let element = awaitingFeedback[index];
+    document.getElementById('awaiting-feedback').innerHTML += generateTodoHTML(element);
+  }
+}
+
+/**
+ * Zeigt alle Aufgaben im 'Done'-Board an.
+ */
+function showDoneBoard() {
+  let done = tasks.filter(t => t['kanban'] == 'done');
+  document.getElementById('done').innerHTML = '';
+  for (let index = 0; index &lt; done.length; index++) {
+    let element = done[index];
+    document.getElementById('done').innerHTML += generateTodoHTML(element);
+  }
+}
+
+
+function savedChangesReport() {
+  document.getElementById('savedChanges').classList.remove('d-none');
+  setTimeout(() => {
+    document.getElementById('savedChanges').classList.add('d-none');
+  }, 2000); // Entfernt Meldung wieder nach 2 Sekunden.
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#LogInCheck">LogInCheck</a></li><li><a href="global.html#addContact">addContact</a></li><li><a href="global.html#addNewContact">addNewContact</a></li><li><a href="global.html#addNewTask">addNewTask</a></li><li><a href="global.html#addSubtask">addSubtask</a></li><li><a href="global.html#allowDrop">allowDrop</a></li><li><a href="global.html#assigned">assigned</a></li><li><a href="global.html#changeSubtaskStatus">changeSubtaskStatus</a></li><li><a href="global.html#closeAddNewTask">closeAddNewTask</a></li><li><a href="global.html#closeContactOverlay">closeContactOverlay</a></li><li><a href="global.html#closeTask">closeTask</a></li><li><a href="global.html#createTask">createTask</a></li><li><a href="global.html#currentDraggedElement">currentDraggedElement</a></li><li><a href="global.html#currentEditingIndex">currentEditingIndex</a></li><li><a href="global.html#deleteEditedContact">deleteEditedContact</a></li><li><a href="global.html#deleteMobile">deleteMobile</a></li><li><a href="global.html#deleteTask">deleteTask</a></li><li><a href="global.html#editContact">editContact</a></li><li><a href="global.html#editMobile">editMobile</a></li><li><a href="global.html#editTask">editTask</a></li><li><a href="global.html#filterTasks">filterTasks</a></li><li><a href="global.html#generateUniqueId">generateUniqueId</a></li><li><a href="global.html#getBoardFromRemoteStorage">getBoardFromRemoteStorage</a></li><li><a href="global.html#getContactsFromRemoteStorage">getContactsFromRemoteStorage</a></li><li><a href="global.html#getItem">getItem</a></li><li><a href="global.html#getNextUrgentDate">getNextUrgentDate</a></li><li><a href="global.html#getTasksFromLocalStorage">getTasksFromLocalStorage</a></li><li><a href="global.html#handleContactCheckboxChange">handleContactCheckboxChange</a></li><li><a href="global.html#highlight">highlight</a></li><li><a href="global.html#loadArray">loadArray</a></li><li><a href="global.html#loadBoard">loadBoard</a></li><li><a href="global.html#loadContactList">loadContactList</a></li><li><a href="global.html#loadContacts">loadContacts</a></li><li><a href="global.html#loadTasks">loadTasks</a></li><li><a href="global.html#moveTo">moveTo</a></li><li><a href="global.html#openContactDetails">openContactDetails</a></li><li><a href="global.html#openMobileVersion">openMobileVersion</a></li><li><a href="global.html#openTask">openTask</a></li><li><a href="global.html#priorityLow">priorityLow</a></li><li><a href="global.html#priorityLowAddTask">priorityLowAddTask</a></li><li><a href="global.html#priorityMedium">priorityMedium</a></li><li><a href="global.html#priorityMediumAddTask">priorityMediumAddTask</a></li><li><a href="global.html#priorityUrgent">priorityUrgent</a></li><li><a href="global.html#priorityUrgentAddTask">priorityUrgentAddTask</a></li><li><a href="global.html#remoteStorageKeyTest">remoteStorageKeyTest</a></li><li><a href="global.html#removeHighlight">removeHighlight</a></li><li><a href="global.html#renderContactForm">renderContactForm</a></li><li><a href="global.html#renderContactList">renderContactList</a></li><li><a href="global.html#resetCheckboxes">resetCheckboxes</a></li><li><a href="global.html#resetPriority">resetPriority</a></li><li><a href="global.html#saveChanges">saveChanges</a></li><li><a href="global.html#saveEditedContact">saveEditedContact</a></li><li><a href="global.html#setBoardToRemoteStorage">setBoardToRemoteStorage</a></li><li><a href="global.html#setContactIconBackground">setContactIconBackground</a></li><li><a href="global.html#setContactsToRemoteStorage">setContactsToRemoteStorage</a></li><li><a href="global.html#setFieldsToStandard">setFieldsToStandard</a></li><li><a href="global.html#setItem">setItem</a></li><li><a href="global.html#setItemValues">setItemValues</a></li><li><a href="global.html#setMinDateAttribute">setMinDateAttribute</a></li><li><a href="global.html#setSubtasks">setSubtasks</a></li><li><a href="global.html#showAwaitingFeedbackBoard">showAwaitingFeedbackBoard</a></li><li><a href="global.html#showContacts">showContacts</a></li><li><a href="global.html#showDoneBoard">showDoneBoard</a></li><li><a href="global.html#showFilteredTasks">showFilteredTasks</a></li><li><a href="global.html#showInProgressBoard">showInProgressBoard</a></li><li><a href="global.html#showToDoBoard">showToDoBoard</a></li><li><a href="global.html#sortContact">sortContact</a></li><li><a href="global.html#startDragging">startDragging</a></li><li><a href="global.html#taskAddedReport">taskAddedReport</a></li><li><a href="global.html#tasks">tasks</a></li><li><a href="global.html#updateAssignedArray">updateAssignedArray</a></li><li><a href="global.html#updateAssignedContacts">updateAssignedContacts</a></li><li><a href="global.html#updateHTML">updateHTML</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Wed May 31 2023 21:14:45 GMT+0200 (Central European Summer Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

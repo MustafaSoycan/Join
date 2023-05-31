@@ -1,27 +1,31 @@
 let tasks = []; 
 const taskremoteStorageKey = "board"; 
 
+/**
+ * Initialisierung und laden der Daten vom Backend. Wird beim Öffnen der Summary aufgerufen.
+ */
 async function loadTasks(){
-    console.log("Tasks werden geladen"); 
     await getTasksFromLocalStorage(); 
-    console.log(tasks); 
     setItemValues(); 
     LogInCheck()
-
 }
 
+/**
+ * Setzt die Werte in der HTML Oberfläche.
+ */
 function setItemValues(){
-
     document.getElementById("tasksInBoard").innerHTML = tasks.length ; 
     document.getElementById("tasksInProgress").innerHTML = tasks.filter(task => task.kanban == "in-progress").length; 
     document.getElementById("tasksAwaitingFeedback").innerHTML = tasks.filter(task => task.kanban == "awaiting-feedback").length; 
     document.getElementById("tasksUrgent").innerHTML = tasks.filter(task => task.priority == "urgent").length;  
     document.getElementById("taskUrgentDate").innerHTML = getNextUrgentDate();  
- 
     document.getElementById("tasksToDo").innerHTML = tasks.filter(task => task.kanban == "to-do").length; 
     document.getElementById("tasksDone").innerHTML = tasks.filter(task => task.kanban == "done").length; 
 }
 
+/**
+ * Überprüft mit welchem User eingeloggt wurde und setzt den Namen als Begrüßung in der HTML Oberfläche. 
+ */
 function LogInCheck(){
   if (localStorage.getItem('username')) {
     let username = localStorage.getItem('username');
@@ -31,8 +35,10 @@ function LogInCheck(){
   }
 }
 
+/**
+ * Lädt die Tasks vom RemoteStorage/Backend.
+ */
 async function getTasksFromLocalStorage(){ /* ACHTUNG: NUR TESTDATEN*/
-    
         try {
           const response = await getItem(taskremoteStorageKey);
           tasks =  JSON.parse(response);
@@ -40,13 +46,14 @@ async function getTasksFromLocalStorage(){ /* ACHTUNG: NUR TESTDATEN*/
           console.log(error);
           tasks =  [];
         }
-   
 }
 
+/**
+ * Ermittelt und gibt das nächste fällige Datum für "urgent-Taks" zurück.
+ * @returns Datum als String
+ */
 function getNextUrgentDate(){
-
   let urgent = tasks.filter(task => task.priority == "urgent"); 
-  console.log(urgent);
   if ( urgent.length > 0 ) {
     urgent = urgent.sort (function(a,b){
       // Turn your strings into dates, and then subtract them
@@ -58,6 +65,4 @@ function getNextUrgentDate(){
   else {
     return "No urgent task"; 
   }
-
- 
 }

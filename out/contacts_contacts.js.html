@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: contacts/contacts.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: contacts/contacts.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>let contacts = [];
+const remoteStorageKey = `contacts`;
+
+/**
+ * Initialisierung bei aufruf der Kontaktseite. Kontakte aus Backend laden und HTML Code generieren. 
+ */
+async function loadContactList(){
+    await getContactsFromRemoteStorage();
+    renderContactList();
+}
+
+/**
+ * Kontaktliste als HTML Code erstellen und anzeigen.
+ */
+function renderContactList(){
+    let letter = ""; 
+    sortContact();
+    document.getElementById("contactList").innerHTML = /*html*/ ``; 
+    for (let i = 0; i &lt; contacts.length; i++) {
+        const contact = contacts[i];
+        const firstLetter = contact.firstName.substring(0, 1); 
+        const firstLetterLastName = contact.lastName.substring(0, 1); 
+        if(letter != firstLetter) {
+            letter = firstLetter; 
+            document.getElementById("contactList").innerHTML += /*html*/ `
+                &lt;div>
+                    &lt;h3 class="contactLetter">${letter}&lt;/h3>
+                    &lt;hr class="contactLetterDivider">
+                &lt;/div>
+            `; 
+       }
+        document.getElementById("contactList").innerHTML += /*html*/ `
+            &lt;div id="contactListItem" class="contactListItem" onClick="openContactDetails(${i})">
+                &lt;div>
+                    &lt;div id="contactIcon${i}" class="contactIcon">${firstLetter}${firstLetterLastName}&lt;/div>
+                &lt;/div>
+                &lt;div>
+                    &lt;h3 class="contactName">${contact.firstName} ${contact.lastName}&lt;/h3>
+                    &lt;a class="contactEmail" href= "mailto:${contact.email}">${contact.email}&lt;/a>
+                &lt;/div>
+               
+            &lt;/div>
+        `; 
+        document.getElementById("contactIcon"+i).style.backgroundColor = contact.bgIconColor; 
+    }
+}
+
+/**
+ * Kontakte alphabetisch sortieren.
+ */
+function sortContact(){
+    contacts = contacts.sort((a, b) => {
+        if (a.firstName &lt; b.firstName) {
+          return -1;
+        }
+      });
+}
+
+/**
+ * Zufällige Hintergrundfarbe für Konktakt erstellen und diesem Zuweisen. 
+ * @param {id} id - Position des Kontakts im Array
+ */
+function setContactIconBackground(id){
+    let color = Math.floor(Math.random()*16777215).toString(16);
+    document.getElementById("contactIcon"+id).style.backgroundColor = "#"+color; 
+} 
+
+/**
+ * Kontakte aus Backend/RemoteStorage laden. 
+ */
+async function getContactsFromRemoteStorage(){
+    let resp =  await getItem(remoteStorageKey);
+    contacts = JSON.parse(resp); 
+}
+
+/**
+ * Öffnen des selektierten Kontakts. 
+ * @param {int} index -  Position des Kontakts im Array
+ */
+function openContactDetails(index){
+
+    if (window.matchMedia('screen and (max-width: 800px) ').matches) {
+        openMobileVersion(index); 
+    } else {
+
+    }
+    let contact = contacts[index]; 
+    const firstLetter = contact.firstName.substring(0, 1); 
+    const firstLetterLastName = contact.lastName.substring(0, 1); 
+    document.getElementById("selectedContact").innerHTML = /*html*/  `
+    &lt;div>
+        &lt;div class="contactDetailsName">
+            &lt;div class="contactDetailsIcon" id="contactDetailsIcon${index}">${firstLetter}${firstLetterLastName}&lt;/div>
+            &lt;div>
+                &lt;h3>${contact.firstName} ${contact.lastName}&lt;/h3>
+                &lt;a onclick="addNewTask()">
+                    &lt;img class="contactDetailsNamePlusIcon" src="../img/plus-icon-blue.png" alt="PlusIcon">  
+                    &lt;span class="contactDetailsNamePlusText">Add Task&lt;/span>
+                &lt;/a>
+            &lt;/div>
+        &lt;/div>
+        &lt;div class="contactDetailsConatctInfos">
+            &lt;h3>Contact Information&lt;/h3>
+            &lt;div class="contactDetailsConatctInfosEdit" onclick="editContact(${index})">
+                &lt;img  src="../img/edit-contact-icon.png" alt="">
+                &lt;h3>Edit contact&lt;/h3>
+            &lt;/div>
+        &lt;/div>
+        &lt;div  class="contactDetailsConatctMailTel">
+            &lt;h3>E-Mail&lt;/h3>
+            &lt;a class="contactEmail" href= "mailto:${contact.email}">${contact.email}&lt;/a>
+        &lt;/div>
+        &lt;div  class="contactDetailsConatctMailTel">
+            &lt;h3>Phone&lt;/h3>
+            &lt;a class="contactEmail" href= "tel:${contact.tel}">${contact.tel}&lt;/a>
+        &lt;/div>
+    &lt;/div>
+    `;
+    document.getElementById("contactDetailsIcon"+index).style.backgroundColor = contact.bgIconColor; 
+}
+
+/**
+ * Neune Kontakt erstellen. Öffnete HTML Ansicht zur erstellung eine neuen Kontakts. 
+ */
+function addNewContact(){
+
+    document.getElementById("openContact").classList.remove("dsp-none");
+    document.getElementById("openContact").classList.add("openContact"); 
+    renderContactForm(); 
+}
+
+/**
+ * Erzeugen des HTML Code für die erstellung eine neuen Kontakts.
+ */
+function renderContactForm(){
+    document.getElementById("openContact").innerHTML = /*html*/ `
+    &lt;div class="contactOverlay">
+        &lt;div class="contactOverlayContentClose">
+            &lt;img onclick="closeContactOverlay()"src="../img/cross-icon.png" alt="cross">
+        &lt;/div>
+        &lt;div class="contactOverlaySideBar">
+            &lt;img src="../img/join-logo.png" alt="">
+            &lt;h1 id="contactOverlaySideBarTitle">Add contact&lt;/h1>
+            &lt;h2 id="contactOverlaySideBarSubtitle">Tasks are better with a team!&lt;/h2>
+            &lt;div class="blueStyleElem">&lt;/div>
+        &lt;/div>
+        &lt;div class="contactOverlayContent">
+            &lt;div class="contactOverlayContentView">
+                &lt;form id="contactOverlayForm" onsubmit="addContact();return false">
+                    &lt;div class="contactOverlayContentMain">
+                        &lt;div>
+                            &lt;img class="contactOverlayContentIcon" src="../img/profil-icon-white.png" alt="profilIcon">
+                       &lt;/div>
+                        &lt;div class="contactOverlayContentInputs">
+                            &lt;input required class="backgroundName" id="contactOverlayName" placeholder="Name" type="text">
+                            &lt;input required class="backgroundMail" id="contactOverlayEmail" placeholder="Email" type="email">
+                            &lt;input required class="backgroundTel" id="contactOverlayPhone" placeholder="Phone" type="tel">
+                        &lt;/div>
+                    &lt;/div>
+                    &lt;div class="contactOverlayButtons">
+                        &lt;button id="contactOverlayCancleButton" onclick="closeContactOverlay()" type="button" class="buttonWhite">
+                            &lt;h3 id="contactOverlayCancleButtonText">Cancel&lt;/h3>
+                            &lt;img src="../img/cross-icon.png" alt=""> 
+                        &lt;/button>
+                        &lt;button id="contactOverlaySubmitButton" class="buttonBlue" type="submit">
+                            &lt;h3 id="contactOverlaySubmitButtonText">Create contact&lt;/h3>
+                            &lt;img src="../img/checkmark-only-icon.png" alt=""> 
+                        &lt;/button>
+                    &lt;/div>
+                &lt;/form>
+            &lt;/div>        
+        &lt;/div>
+    &lt;/div>
+    `;
+}
+
+/**
+ * Neuen Kontakt erstellen. Erstellen eines neuen Kontakt mit anschließender 
+ * speicherung im RemoteStorage und aktualisierung der HTML Oberfläche.
+ */
+function addContact(){
+    let name = document.getElementById("contactOverlayName").value ; 
+    let email = document.getElementById("contactOverlayEmail").value ; 
+    let phone = document.getElementById("contactOverlayPhone").value ; 
+    let fullName = name.split(' '); 
+    let firstName = fullName[0];
+    let lastName = fullName[1];
+    let bgColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+
+    contacts.push({
+        "firstName": `${firstName}`,
+        "lastName": `${lastName}`,
+        "email": `${email}`,
+        "tel": `${phone}`,
+        "bgIconColor": `${bgColor}`
+    })
+    setContactsToRemoteStorage(); 
+    closeContactOverlay(); 
+    renderContactList(); 
+}
+
+/**
+ * Speichern der Kontakte im RemoteStorage/Backend. 
+ */
+function setContactsToRemoteStorage(){
+    let resp = setItem(remoteStorageKey , JSON.stringify(contacts)); 
+}
+
+/**
+ * Schließen eines Kontakts in der mobilen Ansicht. 
+ */
+function closeContactOverlay(){
+    document.getElementById("openContact").classList.add("dsp-none");
+    document.getElementById("openContact").classList.remove("openContact"); 
+}
+
+/**
+ * Öffnen eines Kontakt zum bearbeiten. 
+ * @param {int} index -Position des Kontakts im Array
+ */
+function editContact(index){
+    document.getElementById("openContact").classList.remove("dsp-none");
+    document.getElementById("openContact").classList.add("openContact"); 
+    renderContactForm(); 
+    document.getElementById("contactOverlaySideBarTitle").innerHTML = "Edit contact"; 
+    document.getElementById("contactOverlaySideBarSubtitle").innerHTML = ""; 
+    document.getElementById("contactOverlayName").value = contacts[index].firstName + " " + contacts[index].lastName; 
+    document.getElementById("contactOverlayEmail").value = contacts[index].email; 
+    document.getElementById("contactOverlayPhone").value = contacts[index].tel; 
+    document.getElementById("contactOverlaySubmitButtonText").innerHTML = "Save"; 
+    document.getElementById("contactOverlayForm").onsubmit = function() {saveEditedContact(index)};
+    document.getElementById("contactOverlayCancleButton").onclick = function() {deleteEditedContact(index)};
+    document.getElementById("contactOverlayCancleButtonText").innerHTML = "Delete"; 
+}
+
+/**
+ * Speichern eines editierten Kontakts.
+ * @param {int} index -  Position des Kontakts im Array
+ */
+function saveEditedContact(index){
+    let name = document.getElementById("contactOverlayName").value ; 
+    let fullName = name.split(' '); 
+    let firstName = fullName[0];
+    let lastName = fullName[1];
+    contacts[index].firstName = firstName; 
+    contacts[index].lastName = lastName; 
+    contacts[index].email = document.getElementById("contactOverlayEmail").value ; 
+    contacts[index].tel = document.getElementById("contactOverlayPhone").value ; 
+    setContactsToRemoteStorage(); 
+    closeContactOverlay(); 
+    renderContactList(); 
+} 
+
+/**
+ * Löschen eines Kontakt im Bearbeitungsmodus. 
+ * @param {int} index - Position des Kontakts im Array
+ */
+function deleteEditedContact(index){
+    contacts.splice(index, 1); 
+    setContactsToRemoteStorage(); 
+    closeContactOverlay(); 
+    renderContactList(); 
+}
+
+/**
+ * Öffnet einen Kontakt in der mobilen Ansicht. 
+ * @param {int} index - Position des Kontakts im Array
+ */
+function openMobileVersion(index){
+    document.getElementById("contactList").classList.add("dsp-none");
+    document.getElementById("newContactBtn").classList.add("dsp-none");
+    document.getElementById("mobileAddButton").classList.add("dsp-none");
+    document.getElementById("contactDetail").style.display = "flex";
+    document.getElementById("mobileProjectInfo").style.setProperty('display', 'flex', 'important');
+    document.getElementById("mobileButtons").style.display = "flex";
+    document.getElementById("mobileDeleteBtn").onclick = function() {deleteMobile(index)};
+    document.getElementById("mobileEditBtn").onclick = function() {editMobile(index)};
+}
+
+/**
+ * Löscht einen ausgewählten Kontakt in der mobilen Ansicht.
+ * @param {int} index - Position des Kontakts im Array
+ */
+function deleteMobile(index){
+    deleteEditedContact(index); 
+    location.reload();
+}
+
+/**
+ * Öffnet die edit-Oberfläche in der mobilen Ansicht
+ * @param {int} index - Position des Kontakts im Array
+ */
+function editMobile(index){
+    document.getElementById("mobileEditBtn").classList.add("dsp-none");
+    document.getElementById("mobileDeleteBtn").classList.add("dsp-none");
+    editContact(index);
+}
+
+/**
+ * Öffnet das AddTask-Overlay.
+ */
+async function addNewTask(){
+    await getContactsFromRemoteStorage();
+    await loadContacts();
+    await showContacts();
+    setMinDateAttribute();
+    document.getElementById("addNewTask").classList.remove("dsp-none"); 
+}
+
+/**
+ * Schließt das Addtask-Overlay.
+ */
+function closeAddNewTask(){
+    document.getElementById("addNewTask").classList.add("dsp-none"); 
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#LogInCheck">LogInCheck</a></li><li><a href="global.html#addContact">addContact</a></li><li><a href="global.html#addNewContact">addNewContact</a></li><li><a href="global.html#addNewTask">addNewTask</a></li><li><a href="global.html#addSubtask">addSubtask</a></li><li><a href="global.html#allowDrop">allowDrop</a></li><li><a href="global.html#assigned">assigned</a></li><li><a href="global.html#changeSubtaskStatus">changeSubtaskStatus</a></li><li><a href="global.html#closeAddNewTask">closeAddNewTask</a></li><li><a href="global.html#closeContactOverlay">closeContactOverlay</a></li><li><a href="global.html#closeTask">closeTask</a></li><li><a href="global.html#createTask">createTask</a></li><li><a href="global.html#currentDraggedElement">currentDraggedElement</a></li><li><a href="global.html#currentEditingIndex">currentEditingIndex</a></li><li><a href="global.html#deleteEditedContact">deleteEditedContact</a></li><li><a href="global.html#deleteMobile">deleteMobile</a></li><li><a href="global.html#deleteTask">deleteTask</a></li><li><a href="global.html#editContact">editContact</a></li><li><a href="global.html#editMobile">editMobile</a></li><li><a href="global.html#editTask">editTask</a></li><li><a href="global.html#filterTasks">filterTasks</a></li><li><a href="global.html#generateUniqueId">generateUniqueId</a></li><li><a href="global.html#getBoardFromRemoteStorage">getBoardFromRemoteStorage</a></li><li><a href="global.html#getContactsFromRemoteStorage">getContactsFromRemoteStorage</a></li><li><a href="global.html#getItem">getItem</a></li><li><a href="global.html#getNextUrgentDate">getNextUrgentDate</a></li><li><a href="global.html#getTasksFromLocalStorage">getTasksFromLocalStorage</a></li><li><a href="global.html#handleContactCheckboxChange">handleContactCheckboxChange</a></li><li><a href="global.html#highlight">highlight</a></li><li><a href="global.html#loadArray">loadArray</a></li><li><a href="global.html#loadBoard">loadBoard</a></li><li><a href="global.html#loadContactList">loadContactList</a></li><li><a href="global.html#loadContacts">loadContacts</a></li><li><a href="global.html#loadTasks">loadTasks</a></li><li><a href="global.html#moveTo">moveTo</a></li><li><a href="global.html#openContactDetails">openContactDetails</a></li><li><a href="global.html#openMobileVersion">openMobileVersion</a></li><li><a href="global.html#openTask">openTask</a></li><li><a href="global.html#priorityLow">priorityLow</a></li><li><a href="global.html#priorityLowAddTask">priorityLowAddTask</a></li><li><a href="global.html#priorityMedium">priorityMedium</a></li><li><a href="global.html#priorityMediumAddTask">priorityMediumAddTask</a></li><li><a href="global.html#priorityUrgent">priorityUrgent</a></li><li><a href="global.html#priorityUrgentAddTask">priorityUrgentAddTask</a></li><li><a href="global.html#remoteStorageKeyTest">remoteStorageKeyTest</a></li><li><a href="global.html#removeHighlight">removeHighlight</a></li><li><a href="global.html#renderContactForm">renderContactForm</a></li><li><a href="global.html#renderContactList">renderContactList</a></li><li><a href="global.html#resetCheckboxes">resetCheckboxes</a></li><li><a href="global.html#resetPriority">resetPriority</a></li><li><a href="global.html#saveChanges">saveChanges</a></li><li><a href="global.html#saveEditedContact">saveEditedContact</a></li><li><a href="global.html#setBoardToRemoteStorage">setBoardToRemoteStorage</a></li><li><a href="global.html#setContactIconBackground">setContactIconBackground</a></li><li><a href="global.html#setContactsToRemoteStorage">setContactsToRemoteStorage</a></li><li><a href="global.html#setFieldsToStandard">setFieldsToStandard</a></li><li><a href="global.html#setItem">setItem</a></li><li><a href="global.html#setItemValues">setItemValues</a></li><li><a href="global.html#setMinDateAttribute">setMinDateAttribute</a></li><li><a href="global.html#setSubtasks">setSubtasks</a></li><li><a href="global.html#showAwaitingFeedbackBoard">showAwaitingFeedbackBoard</a></li><li><a href="global.html#showContacts">showContacts</a></li><li><a href="global.html#showDoneBoard">showDoneBoard</a></li><li><a href="global.html#showFilteredTasks">showFilteredTasks</a></li><li><a href="global.html#showInProgressBoard">showInProgressBoard</a></li><li><a href="global.html#showToDoBoard">showToDoBoard</a></li><li><a href="global.html#sortContact">sortContact</a></li><li><a href="global.html#startDragging">startDragging</a></li><li><a href="global.html#taskAddedReport">taskAddedReport</a></li><li><a href="global.html#tasks">tasks</a></li><li><a href="global.html#updateAssignedArray">updateAssignedArray</a></li><li><a href="global.html#updateAssignedContacts">updateAssignedContacts</a></li><li><a href="global.html#updateHTML">updateHTML</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Wed May 31 2023 21:14:45 GMT+0200 (Central European Summer Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

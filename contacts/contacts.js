@@ -13,7 +13,6 @@ async function loadContactList(){
  * Kontaktliste als HTML Code erstellen und anzeigen.
  */
 function renderContactList(){
-
     let letter = ""; 
     sortContact();
     document.getElementById("contactList").innerHTML = /*html*/ ``; 
