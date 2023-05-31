@@ -5,7 +5,7 @@
 
 body {
     font-family: 'Open Sans', sans-serif;
-    background-color: rgb(245,245,245);
+    background-color: rgb(245, 245, 245);
 }
 
 @font-face {
@@ -14,10 +14,11 @@ body {
 }
 
 
-.dsp-none{
+.dsp-none {
     display: none !important;
 }
-#addNewTask{
+
+#addNewTask {
     z-index: 9999999;
     display: flex;
     position: fixed;
@@ -28,16 +29,18 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.5)  
+    background-color: rgba(0, 0, 0, 0.5)
 }
-.addNewTaskBackground{
+
+.addNewTaskBackground {
     background-color: white;
     padding: 100px;
     border-radius: 30px;
     height: fit-content;
     width: fit-content;
 }
-#addNewTaskClose{
+
+#addNewTaskClose {
     display: flex;
     justify-content: flex-end;
 }
@@ -91,9 +94,10 @@ body {
     display: flex;
     height: 6vh;
 }
+
 /*/----------------------------- CONTACT ICON -------------------------/*/
 
-.contactIcon{
+.contactIcon {
     height: 30px;
     width: 30px;
     color: white;
@@ -203,23 +207,23 @@ body {
 }
 
 .design {
-    background-color: rgb(255,122,0);
+    background-color: rgb(255, 122, 0);
 }
 
 .sales {
-    background-color: rgb(252,113,255);
+    background-color: rgb(252, 113, 255);
 }
 
 .media {
-    background-color: rgb(255,199,1);
+    background-color: rgb(255, 199, 1);
 }
 
 .marketing {
-    background-color: rgb(0,56,255);
+    background-color: rgb(0, 56, 255);
 }
 
-.backoffice{
-    background-color: rgb(31,215,193);
+.backoffice {
+    background-color: rgb(31, 215, 193);
 }
 
 .title {
@@ -251,7 +255,7 @@ body {
     align-items: center;
 }
 
-#generateContactsHTML{
+#generateContactsHTML {
     margin-top: 24px;
 }
 
@@ -408,13 +412,13 @@ body {
     background-image: url(../img/delete-hover.png);
 }
 
-.contactsOnBoard{
+.contactsOnBoard {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
 }
 
-.nameOfAssigned{
+.nameOfAssigned {
     margin-left: 10px;
 }
 
@@ -479,7 +483,7 @@ body {
     display: flex;
     flex-direction: column;
     margin-bottom: 24px;
-    
+
 }
 
 .save-changes-button {
@@ -495,7 +499,7 @@ body {
     border: unset;
 }
 
-.save-changes-button img{
+.save-changes-button img {
     margin-left: 8px;
 }
 
@@ -535,38 +539,38 @@ body {
     transform: translateY(-1px);
 }
 
-.urgent-background{
-    background-color: rgb(255,61,0) !important;
+.urgent-background {
+    background-color: rgb(255, 61, 0) !important;
     font-weight: bold;
     color: white;
 }
 
-.medium-background{
-    background-color: rgb(255,168,0) !important;
+.medium-background {
+    background-color: rgb(255, 168, 0) !important;
     font-weight: bold;
     color: white;
 }
 
-.low-background{
-    background-color: rgb(122,226,41) !important;
+.low-background {
+    background-color: rgb(122, 226, 41) !important;
     font-weight: bold;
     color: white;
 }
 
 /*/---------------- OPEN TASK SUBTASK SECTION -------------/*/
 
-.subtask-list{
+.subtask-list {
     display: flex;
     flex-direction: column;
 }
 
-.subtask-list-container{
+.subtask-list-container {
     display: flex;
     flex-direction: column;
 }
 
 .task-subtasks input {
-    
+
     min-width: 30px;
 }
 
@@ -576,46 +580,90 @@ body {
     height: 10px;
     background-color: #f2f2f2;
     border-radius: 4px;
-  }
+}
 
-  .loading-box{
+.loading-box {
     display: flex;
     align-items: center;
     width: 225px
-  }
-  
-  .progress-bar {
+}
+
+.progress-bar {
     height: 10px;
     background-color: #29ABE2;
     border-radius: 4px;
     width: 0;
     transition: width 0.3s ease-in-out;
-  }
-  
-  .task-count {
+}
+
+.task-count {
     font-size: 14px;
     font-weight: bold;
     color: #333;
-  }
+}
+
+/*/------------------ SAVED CHANGES REPORT --------------------/*/
 
 
-  @media only screen and (max-width: 1500px) {
-    #edit-task{
+
+@keyframes slideInFromBottom {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.slide-in-bottom {
+    animation: slideInFromBottom 0.5s ease-out;
+}
+
+
+#savedChanges {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    left: 40%;
+    background-color: rgb(67, 80, 99);
+    width: 450px;
+    padding: 24px;
+    color: white;
+    border-radius: 10px;
+}
+
+#savedChanges img {
+    margin-left: 20px;
+    height: 60px;
+    width: 60px;
+    object-fit: cover;
+}
+
+/*/--------------------------- MEDIA QUERRYS -----------------------------/*/
+
+
+@media only screen and (max-width: 1500px) {
+    #edit-task {
         width: 400px;
         top: 15%;
         left: 40%;
     }
-  }
+}
 
-  @media only screen and (max-width: 1000px) {
-    #edit-task{
+@media only screen and (max-width: 1000px) {
+    #edit-task {
         width: 350px;
     }
-  }
+}
 
-  @media only screen and (max-width: 800px) {
+@media only screen and (max-width: 800px) {
 
-    #edit-task{
+    #edit-task {
         top: 15%;
         left: 25%;
     }
@@ -636,7 +684,7 @@ body {
         padding-bottom: 80px;
     }
 
-    .board-header{
+    .board-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -645,18 +693,18 @@ body {
         margin-bottom: 20px;
         flex-direction: column;
     }
-    
+
 }
 
 @media only screen and (max-width: 700px) {
-    #edit-task{
+    #edit-task {
         top: 15%;
         left: 20%;
     }
 }
 
 @media only screen and (max-width: 600px) {
-    #edit-task{
+    #edit-task {
         width: 350px;
         top: 15%;
         left: 15%;
@@ -665,7 +713,7 @@ body {
 
 
 @media only screen and (max-width: 530px) {
-    #edit-task{
+    #edit-task {
         width: 270px;
         top: 15%;
         left: 15%;
@@ -675,7 +723,7 @@ body {
         gap: 6px;
     }
 
-    .edit-task-prio-buttons button{
+    .edit-task-prio-buttons button {
         width: 90px;
     }
 }
@@ -687,11 +735,12 @@ body {
         left: 6%;
         font-size: 18px !important;
     }
-    #edit-task h1{
+
+    #edit-task h1 {
         font-size: 28px !important;
     }
 
-    .contactIcon{
+    .contactIcon {
         height: 18px;
         width: 18px;
         font-size: 14px !important;
@@ -699,7 +748,7 @@ body {
 }
 
 @media only screen and (min-width: 801px) and (max-width:1045px) {
-.board-header {
-    flex-direction: column;
-}
+    .board-header {
+        flex-direction: column;
+    }
 }

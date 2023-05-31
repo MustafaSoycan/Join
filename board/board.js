@@ -262,6 +262,7 @@ function saveChanges() {
   setBoardToRemoteStorage();
   updateHTML();
   closeTask();
+  savedChangesReport();
 }
 
 
@@ -404,4 +405,12 @@ function showDoneBoard() {
     let element = done[index];
     document.getElementById('done').innerHTML += generateTodoHTML(element);
   }
+}
+
+
+function savedChangesReport() {
+  document.getElementById('savedChanges').classList.remove('d-none');
+  setTimeout(() => {
+    document.getElementById('savedChanges').classList.add('d-none');
+  }, 2000); // Entfernt Meldung wieder nach 2 Sekunden.
 }
