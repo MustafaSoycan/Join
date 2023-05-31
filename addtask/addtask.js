@@ -149,10 +149,13 @@ function loadContacts() {
 
   for (let i = 0; i < contacts.length; i++) {
     let contact = contacts[i];
-    contactsField.innerHTML += `<label class="label d-none"><input type="checkbox" onchange="handleContactCheckboxChange(this, ${i})"> ${contact['firstName']} ${contact['lastName']} </label>`;
+    contactsField.innerHTML += `<label onclick="doNotClose(event)" class="label d-none"><input type="checkbox" onchange="handleContactCheckboxChange(this, ${i})"> ${contact['firstName']} ${contact['lastName']} </label>`;
   }
 }
 
+  function doNotClose(event){
+    event.stopPropagation();
+  }
 
 /**
  * Zeigt alle Kontakte aus der Kontaktliste an.
@@ -183,6 +186,7 @@ function showContacts() {
   } else {
     contacts.classList.add('border-bottom');
   }
+
 }
 
 
@@ -297,3 +301,24 @@ function setMinDateAttribute() {
   document.getElementById("dueDateInputAddTask").setAttribute("min", today);
   document.getElementById("dueDateInputAddTask").setAttribute("max", "20250-12-31");
 }
+
+
+
+// Event-Listener für Klick-Ereignisse im gesamten Dokument
+document.addEventListener('click', function(event) {
+  let contactMenu = document.getElementById('selectContacts');
+  let targetElement = event.target; // geklicktes Element
+
+
+  // Überprüfen, ob das geklickte Element Teil des Dropdown-Menüs ist oder ob das Menü geöffnet ist
+  if (!contactMenu.contains(targetElement)) {
+
+    contactMenu.classList.remove('bordernone');
+
+    let labels = document.getElementsByClassName('label');
+    for (let i = 0; i < labels.length; i++) {
+      labels[i].classList.add('d-none');
+    }
+  }
+
+});
