@@ -307,6 +307,7 @@ async function addNewTask(){
     await loadContacts();
     await showContacts();
     setMinDateAttribute();
+    priorityMediumAddTask();
     document.getElementById("addNewTask").classList.remove("dsp-none"); 
 }
 

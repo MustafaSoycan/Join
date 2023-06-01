@@ -14,6 +14,7 @@ async function loadArray() {
   await getContactsFromRemoteStorage();
   await loadContacts();
   setMinDateAttribute();
+  priorityMediumAddTask();
 }
 
 
@@ -27,6 +28,7 @@ async function createTask() {
   let category = document.getElementById('categoryInputAddTask').value;
   let dueDate = document.getElementById('dueDateInputAddTask').value;
 
+ 
   let priority = 'medium'; // Standardpriorität (falls nichts ausgewählt). 
   if (document.getElementById('buttonUrgentAddTask').classList.contains('urgent-background')) {
     priority = 'urgent';

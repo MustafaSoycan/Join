@@ -330,6 +330,8 @@ body {
     border-radius: 20px;
     font-size: 22px;
     min-height: 450px;
+    max-height: 700px;
+    overflow: auto;
 }
 
 .close-task {
@@ -667,6 +669,7 @@ body {
     }
 
     #edit-task {
+        max-height: 550px;
         top: 15%;
         left: 25%;
     }
@@ -706,6 +709,7 @@ body {
     }
 
     #edit-task {
+        max-height: 500px;
         top: 15%;
         left: 20%;
     }
@@ -719,6 +723,7 @@ body {
     }
 
     #edit-task {
+        max-height: 400px;
         width: 350px;
         top: 15%;
         left: 15%;
@@ -733,6 +738,7 @@ body {
     }
 
     #edit-task {
+        max-height: 300px;
         width: 270px;
         top: 15%;
         left: 15%;
@@ -743,15 +749,17 @@ body {
     }
 
     .edit-task-prio-buttons button {
-        width: 90px;
+        width: 80px;
     }
 }
 
 @media only screen and (max-width: 450px) {
     #edit-task {
-        width: 270px;
-        top: 13%;
-        left: 6%;
+        width: 260px;
+        padding: 16px;
+        max-height: 250px;
+        top: 16%;
+        left: 10%;
         font-size: 18px !important;
     }
 
@@ -763,6 +771,14 @@ body {
         height: 18px;
         width: 18px;
         font-size: 14px !important;
+    }
+    
+    .edit-task-prio-buttons {
+        gap: 6px;
+    }
+
+    .edit-task-prio-buttons button {
+        width: 80px;
     }
 }
 
