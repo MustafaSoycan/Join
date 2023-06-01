@@ -125,6 +125,7 @@ function openContactDetails(index){
 function addNewContact(){
 
     document.getElementById("openContact").classList.remove("dsp-none");
+    document.getElementById("body").classList.add("overflow-hidden"); 
     document.getElementById("openContact").classList.add("openContact"); 
     renderContactForm(); 
 }
@@ -211,6 +212,7 @@ function setContactsToRemoteStorage(){
  */
 function closeContactOverlay(){
     document.getElementById("openContact").classList.add("dsp-none");
+    document.getElementById("body").classList.remove("overflow-hidden"); 
     document.getElementById("openContact").classList.remove("openContact"); 
 }
 
@@ -260,6 +262,7 @@ function deleteEditedContact(index){
     setContactsToRemoteStorage(); 
     closeContactOverlay(); 
     renderContactList(); 
+    location.reload();
 }
 
 /**

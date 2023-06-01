@@ -7,18 +7,23 @@ h3{
 #topbar-template{
     z-index: 99;
 }
+.overflow-hidden{
+    overflow: hidden;
+}
 #addNewTask{
     z-index: 9999999;
     display: flex;
     position: fixed;
     top: 0px;
     left: 0px;
+    bottom: 0px;
     width: 100vw;
     height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.5)  
+    background-color: rgba(0, 0, 0, 0.5); 
+    overflow: scroll;  
+
 }
 .addNewTaskBackground{
     background-color: white;
@@ -215,7 +220,7 @@ h3{
     flex-direction: column;
     gap:24px;
     margin-top: 48px;
-    margin-bottom: 12px;
+    /*margin-bottom: 12px;*/
 }
 
 
@@ -438,13 +443,14 @@ h3{
 @media only screen and (max-width: 800px) {
     #contacts{
         margin-left: 0px;
-        margin-bottom: 130px;
+        margin-bottom: 100px;
         display: block;
         height: auto;
     }
     #contactDetail{
         display: none;
         height: calc(100vh - 200px);
+        overflow: scroll;
     }
     #contactList{
         width: 100%;
@@ -553,6 +559,7 @@ h3{
         display: none !important;
     }
     .contactOverlay{
+        overflow: scroll;
         flex-direction: column;
         height: 80vh;
         width: 90vw;

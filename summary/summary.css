@@ -121,6 +121,15 @@
         display: none;
     }
 }
+@media only screen and (max-width: 950px) {
+    .summaryHeader h1{
+        font-size: 48px;
+   }
+    .summaryHeader h3, .summaryCardWithIcon h3{
+         font-size: 18px;
+         font-weight: 300;
+    }
+}
  @media only screen and (max-width: 800px) {
     .summarySection{
         margin-left: 0px;
@@ -132,7 +141,6 @@
   .summarySection{
     margin-top: 70px;
     margin-left: 0px;
-    padding-top: 96px;
     padding-left: 25px;
     padding-right: 25px;
   }
