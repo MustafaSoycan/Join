@@ -28,6 +28,7 @@ h3{
 .addNewTaskBackground{
     background-color: white;
     padding: 100px;
+    margin-top: 30px;
     border-radius: 30px;
     height: fit-content;
     width: fit-content;
@@ -222,16 +223,6 @@ h3{
     margin-top: 48px;
     /*margin-bottom: 12px;*/
 }
-
-
-
-
-
-
-
-
-
-
 .newContactBtn{
     position: absolute;
     bottom: 32px;
@@ -305,6 +296,7 @@ h3{
     background-color: #2A3647;
     width: 400px; 
     padding-left: 30px;
+    padding-right: 30px;
 }
 .contactOverlaySideBar img{
   width: 50px;
@@ -438,6 +430,25 @@ h3{
 }
 .mobileButtons img{ 
     width: 40px;
+}
+
+@media only screen and (max-width: 1100px) { 
+
+    #contactOverlaySideBarTitle{
+        font-size: 32px;
+    }
+    #contactOverlaySideBarSubtitle{
+        font-size: 24px;
+    }
+    .contactOverlayContentView{
+        margin-left: 20px;
+        margin-right: 80px;
+    }
+    .contactOverlayContentMain{
+        gap: 24px;
+    }
+  
+
 }
 
 @media only screen and (max-width: 800px) {
@@ -575,8 +586,8 @@ h3{
     }
     .contactOverlaySideBar{
         width: auto;
-        padding-top: 100px;
-        padding-bottom: 100px;
+        padding-top: 50px;
+        padding-bottom: 80px;
         padding-right: 30px;
     }
 
@@ -596,6 +607,21 @@ h3{
         position: relative; 
         top: -50px;
     }
+    .contactOverlayContentView{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .contactOverlayContentInputs{
+        gap: 24px;
+    }
+    .contactOverlayButtons{
+        justify-content: space-around;
+    }
+    .addNewTaskBackground{
+        padding: 50px;
+        margin-left: 10px;
+    }
 
     
 }
+
