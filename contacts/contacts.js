@@ -18,8 +18,8 @@ function renderContactList(){
     document.getElementById("contactList").innerHTML = /*html*/ ``; 
     for (let i = 0; i < contacts.length; i++) {
         const contact = contacts[i];
-        const firstLetter = contact.firstName.substring(0, 1); 
-        const firstLetterLastName = contact.lastName.substring(0, 1); 
+        const firstLetter = contact.firstName.substring(0, 1).toUpperCase(); 
+        const firstLetterLastName = contact.lastName.substring(0, 1).toUpperCase(); 
         if(letter != firstLetter) {
             letter = firstLetter; 
             document.getElementById("contactList").innerHTML += /*html*/ `
@@ -50,7 +50,7 @@ function renderContactList(){
  */
 function sortContact(){
     contacts = contacts.sort((a, b) => {
-        if (a.firstName < b.firstName) {
+        if (a.firstName.toUpperCase() < b.firstName.toUpperCase()) {
           return -1;
         }
       });
@@ -120,7 +120,7 @@ function openContactDetails(index){
 }
 
 /**
- * Neune Kontakt erstellen. Öffnete HTML Ansicht zur erstellung eine neuen Kontakts. 
+ * Neuen Kontakt erstellen. Öffnete HTML Ansicht zur erstellung eine neuen Kontakts. 
  */
 function addNewContact(){
 

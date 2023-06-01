@@ -7,7 +7,6 @@ h3{
 #topbar-template{
     z-index: 99;
 }
-
 #addNewTask{
     z-index: 9999999;
     display: flex;
@@ -52,7 +51,6 @@ h3{
     z-index: 10;
     overflow-y: scroll;
 }
-
 .contactLetter{
     padding-left: 32px;
     font-size: 21px;
