@@ -76,7 +76,7 @@ body {
 }
 
 .add-task-button {
-    padding-left: 10px;
+    padding: 12px 24px 12px 24px;
     background-color: rgb(42, 54, 71);
     color: white;
     font-size: 25px;
@@ -88,6 +88,11 @@ body {
 .add-task-button:hover {
     background-color: rgb(41, 171, 226);
     cursor: pointer;
+}
+
+.add-task-button img{
+    vertical-align: middle;
+    margin-left: 4px;
 }
 
 .interact {
@@ -125,8 +130,8 @@ body {
 .kanban {
     display: flex;
     flex-direction: column;
-    min-width: 280px;
-    max-width: 280px;
+    min-width: 320px;
+    max-width: 320px;
     padding: 24px;
 
 }
@@ -151,19 +156,19 @@ body {
 }
 
 #to-do {
-    min-height: 100%;
+    min-height: 50vh;
 }
 
 #in-progress {
-    min-height: 100%;
+    min-height: 50vh;
 }
 
 #awaiting-feedback {
-    min-height: 100%;
+    min-height: 50vh;
 }
 
 #done {
-    min-height: 100%;
+    min-height: 50vh;
 }
 
 /*/------------------ TO DO DIV ------------/*/
@@ -321,16 +326,18 @@ body {
 /*/------------------- OPEN TASK --------------/*/
 
 #edit-task {
-    width: 500px;
+    min-width: 30vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
     position: fixed;
-    top: 15%;
-    left: 30%;
     background-color: white;
     padding: 32px;
     border-radius: 20px;
     font-size: 22px;
-    min-height: 450px;
-    max-height: 700px;
+    min-height: 5vh;
+    max-height: 50vh;
     overflow: auto;
 }
 
@@ -525,8 +532,9 @@ body {
     border-radius: 10px;
     border: 0.5px solid lightgray;
     background-color: white;
-    width: 100px;
-    display: flex;
+    width: auto;
+    display: block;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
 }
@@ -626,14 +634,15 @@ body {
 
 
 #savedChanges {
-    position: absolute;
+    position: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
     top: 50%;
-    left: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background-color: rgb(67, 80, 99);
-    width: 400px;
+    width: 30vh;
     padding: 24px;
     color: white;
     border-radius: 10px;
@@ -641,38 +650,51 @@ body {
 
 #savedChanges img {
     margin-left: 20px;
-    height: 60px;
-    width: 60px;
+    height: 4vh;
+    width: 4vh;
     object-fit: cover;
 }
 
 /*/--------------------------- MEDIA QUERRYS -----------------------------/*/
 
 
-@media only screen and (max-width: 1500px) {
+@media only screen and (max-width: 1400px) {
     #edit-task {
-        width: 400px;
-        top: 15%;
-        left: 40%;
+        left: 60%;
+    }
+
+    #savedChanges{
+        left: 60%;
     }
 }
 
 @media only screen and (max-width: 1000px) {
     #edit-task {
-        width: 350px;
+        left: 68%;
+        min-width: 25vh;
+    }
+
+    #savedChanges{
+        left: 65%
+    }
+
+    .add-task-button {
+        font-size: 16px;
     }
 }
 
+
+
 @media only screen and (max-width: 800px) {
+    
     #savedChanges{
-        left: 20%;
+        left: 50%
     }
 
     #edit-task {
-        max-height: 550px;
-        top: 15%;
-        left: 25%;
+        left: 50%;
     }
+
 
     .kanbanboard {
         display: flex;
@@ -702,46 +724,12 @@ body {
 
 }
 
-@media only screen and (max-width: 700px) {
-    #savedChanges{
-        left: 15%;
-        width: 360px;
-    }
-
-    #edit-task {
-        max-height: 500px;
-        top: 15%;
-        left: 20%;
-    }
-}
-
-@media only screen and (max-width: 600px) {
-
-    #savedChanges{
-        top: 15%;
-        left: 10%;
-    }
-
-    #edit-task {
-        max-height: 400px;
-        width: 350px;
-        top: 15%;
-        left: 15%;
-    }
-}
 
 
 @media only screen and (max-width: 530px) {
-    #savedChanges{
-        top: 15%;
-        left: 5%;
-    }
 
-    #edit-task {
-        max-height: 300px;
-        width: 270px;
-        top: 15%;
-        left: 15%;
+    .add-task-button span{
+        display: none;
     }
 
     .edit-task-prio-buttons {
@@ -754,14 +742,7 @@ body {
 }
 
 @media only screen and (max-width: 450px) {
-    #edit-task {
-        width: 260px;
-        padding: 16px;
-        max-height: 250px;
-        top: 16%;
-        left: 10%;
-        font-size: 18px !important;
-    }
+
 
     #edit-task h1 {
         font-size: 28px !important;
@@ -772,7 +753,7 @@ body {
         width: 18px;
         font-size: 14px !important;
     }
-    
+
     .edit-task-prio-buttons {
         gap: 6px;
     }
