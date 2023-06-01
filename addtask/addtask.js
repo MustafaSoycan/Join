@@ -322,3 +322,13 @@ document.addEventListener('click', function(event) {
   }
 
 });
+
+
+document.addEventListener('keydown', function(event) {
+  if (event.keyCode === 13) { // Überprüfen, ob die Enter-Taste gedrückt wurde
+    if (document.activeElement.id == 'subtaskInput') { // Überprüfen, ob das aktive Element das Subtask-Eingabefeld ist
+      addSubtask(); 
+      event.preventDefault(); 
+    }
+  }
+});
