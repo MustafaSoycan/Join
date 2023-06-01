@@ -32,6 +32,20 @@ function generateTodoHTML(element) {
     
     let progressPercentage = (completedSubtasks / subtaskCount) * 100;
 
+    let loadingBoxHTML = '';
+    if (subtaskCount > 0) {
+        loadingBoxHTML = `
+            <div id="loadingBox">
+                <div class="loading-box">
+                    <div class="ladebalken">
+                        <div class="progress-bar" style="width: ${progressPercentage}%"></div>
+                    </div>
+                    <span id="subtaskCount">${completedSubtasks}/${subtaskCount} Done</span>
+                </div>
+            </div>
+        `;
+    }
+
    
 
     return `
@@ -49,12 +63,7 @@ function generateTodoHTML(element) {
     ${element['description']} 
     </div>
 
-    <div class="loading-box"> 
-    <div class="ladebalken">
-    <div class="progress-bar" style="width: ${progressPercentage}%"></div>
-    </div>
-    <span id="subtaskCount">${completedSubtasks}/${subtaskCount} Done</span>
-    </div>
+    ${loadingBoxHTML}
 
     <div class="space-between">
 
