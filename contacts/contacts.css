@@ -432,6 +432,7 @@ h3{
     width: 40px;
 }
 
+
 @media only screen and (max-width: 1100px) { 
 
     #contactOverlaySideBarTitle{
@@ -447,8 +448,6 @@ h3{
     .contactOverlayContentMain{
         gap: 24px;
     }
-  
-
 }
 
 @media only screen and (max-width: 800px) {
@@ -621,7 +620,5 @@ h3{
         padding: 50px;
         margin-left: 10px;
     }
-
-    
 }
 

@@ -1,3 +1,7 @@
+/**
+ * Funktion zum einbinden der Templates.
+ * @returns Git das den inklidierten HTML Code zurück
+ */
 function includeHTML() {
     var z, i, elmnt, file, xhttp;
     /* Loop through a collection of all HTML elements: */
@@ -38,16 +42,15 @@ function includeHTML() {
     }
   }
 
+/**
+ * Öffnet das mobile Menü
+ */
 function openMenu(){
-  console.log("openMobileMenu"); 
   let mobileMenu = document.getElementById('mobileMenuPopup');
-  
   if (mobileMenu.classList.contains('d-none')) {
     mobileMenu.classList.remove('d-none');
-    console.log("contains d-none"); 
   } else {
     mobileMenu.classList.add('d-none');
-    console.log("add d-none"); 
   }
 }
 

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: summary/summary.js</title>
+    <title>JSDoc: Source: templates/include.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: summary/summary.js</h1>
+    <h1 class="page-title">Source: templates/include.js</h1>
 
     
 
@@ -26,99 +26,76 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>let tasks = []; 
-const taskremoteStorageKey = "board"; 
-let mobileWelcomeShowed = false ; 
-
-
-/**
- * Initialisierung und laden der Daten vom Backend. Wird beim Öffnen der Summary aufgerufen.
+            <pre class="prettyprint source linenums"><code>/**
+ * Funktion zum einbinden der Templates.
+ * @returns Git das den inklidierten HTML Code zurück
  */
-async function loadTasks(){
-    await getTasksFromLocalStorage(); 
-    checkMobileLogin(); 
-    setItemValues(); 
-    LogInCheck();
-   
-}
-
-/**
- * Setzt die Werte in der HTML Oberfläche.
- */
-function setItemValues(){
-    document.getElementById("tasksInBoard").innerHTML = tasks.length ; 
-    document.getElementById("tasksInProgress").innerHTML = tasks.filter(task => task.kanban == "in-progress").length; 
-    document.getElementById("tasksAwaitingFeedback").innerHTML = tasks.filter(task => task.kanban == "awaiting-feedback").length; 
-    document.getElementById("tasksUrgent").innerHTML = tasks.filter(task => task.priority == "urgent").length;  
-    document.getElementById("taskUrgentDate").innerHTML = getNextUrgentDate();  
-    document.getElementById("tasksToDo").innerHTML = tasks.filter(task => task.kanban == "to-do").length; 
-    document.getElementById("tasksDone").innerHTML = tasks.filter(task => task.kanban == "done").length; 
-}
-
-/**
- * Überprüft mit welchem User eingeloggt wurde und setzt den Namen als Begrüßung in der HTML Oberfläche. 
- */
-function LogInCheck(){
-  if (localStorage.getItem('username')) {
-    let username = localStorage.getItem('username');
-    document.getElementById("summaryUsername").innerHTML = username  ; 
-  } else {
-    document.getElementById("summaryUsername").innerHTML = 'Guest'
-  }
-}
-
-/**
- * Lädt die Tasks vom RemoteStorage/Backend.
- */
-async function getTasksFromLocalStorage(){ /* ACHTUNG: NUR TESTDATEN*/
-        try {
-          const response = await getItem(taskremoteStorageKey);
-          tasks =  JSON.parse(response);
-        } catch (error) {
-          console.log(error);
-          tasks =  [];
+function includeHTML() {
+    var z, i, elmnt, file, xhttp;
+    /* Loop through a collection of all HTML elements: */
+    z = document.getElementsByTagName("*");
+    for (i = 0; i &lt; z.length; i++) {
+      elmnt = z[i];
+      /*search for elements with a certain atrribute:*/
+      file = elmnt.getAttribute("w3-include-html");
+      if (file) {
+        /* Make an HTTP request using the attribute value as the file name: */
+        xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4) {
+            if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+            if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+            /* Remove the attribute, and call this function once more: */
+            elmnt.removeAttribute("w3-include-html");
+            includeHTML();
+          }
         }
-}
+        xhttp.open("GET", file, true);
+        xhttp.send();
+        /* Exit the function: */
+        return;
+      }
+    }
+  }
+
+  function logOut() {
+    localStorage.removeItem('username');
+  
+    let logOut = document.getElementById('logOut');
+  
+    if (logOut.classList.contains('d-none')) {
+      logOut.classList.remove('d-none');
+    } else {
+      logOut.classList.add('d-none');
+    }
+  }
 
 /**
- * Ermittelt und gibt das nächste fällige Datum für "urgent-Taks" zurück.
- * @returns Datum als String
+ * Öffnet das mobile Menü
  */
-function getNextUrgentDate(){
-  let urgent = tasks.filter(task => task.priority == "urgent"); 
-  if ( urgent.length > 0 ) {
-    urgent = urgent.sort (function(a,b){
-      // Turn your strings into dates, and then subtract them
-      // to get a value that is either negative, positive, or zero.
-      return new Date(a.dueDate) - new Date(b.dueDate);
+function openMenu(){
+  let mobileMenu = document.getElementById('mobileMenuPopup');
+  if (mobileMenu.classList.contains('d-none')) {
+    mobileMenu.classList.remove('d-none');
+  } else {
+    mobileMenu.classList.add('d-none');
+  }
+}
+
+
+
+// Event Listener für Kategorien in der Sidebar-Middle und Sidebar-Bottom
+var categories = document.querySelectorAll('.sidebar-middle a, .sidebar-bottom a');
+categories.forEach(function(category) {
+  category.addEventListener('click', function() {
+    // Entferne die Markierung von allen Kategorien
+    categories.forEach(function(c) {
+      c.classList.remove('active');
     });
-    return urgent[0].dueDate; 
-  }
-  else {
-    return "No urgent task"; 
-  }
-}
-
-/**
- * Überprüft ob es sich sich um den ersten Aufruf der Summaryseite nach dem Login handelt und zeigt ggf. den Wilkommensbildschirm an. 
- */
-function checkMobileLogin(){
-  mobileWelcomeShowed = localStorage.getItem('login'); 
-
-  if ( window.matchMedia('screen and (max-width: 800px)').matches &amp;&amp; mobileWelcomeShowed === "true") {
- 
-      localStorage.setItem('login', false); 
-      document.getElementById("summaryWelcome").classList.remove("summaryWelcome");
-      document.getElementById("summaryWelcome").classList.add("welcomeMobile");
-      document.getElementById("summaryWelcome").classList.add("welcomeMobileOpacity");
-      setTimeout(() => {
-        document.getElementById("summaryWelcome").classList.remove("welcomeMobile");
-        document.getElementById("summaryWelcome").classList.add("summaryWelcome");
-        document.getElementById("summaryWelcome").classList.remove("welcomeMobileOpacity");
-      }, "2000");
-  } 
-}
-</code></pre>
+    // Füge die Markierung zur ausgewählten Kategorie hinzu
+    category.classList.add('active');
+  });
+});</code></pre>
         </article>
     </section>
 

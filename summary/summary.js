@@ -1,13 +1,17 @@
 let tasks = []; 
 const taskremoteStorageKey = "board"; 
+let mobileWelcomeShowed = false ; 
+
 
 /**
  * Initialisierung und laden der Daten vom Backend. Wird beim Öffnen der Summary aufgerufen.
  */
 async function loadTasks(){
     await getTasksFromLocalStorage(); 
+    checkMobileLogin(); 
     setItemValues(); 
-    LogInCheck()
+    LogInCheck();
+   
 }
 
 /**
@@ -65,4 +69,24 @@ function getNextUrgentDate(){
   else {
     return "No urgent task"; 
   }
+}
+
+/**
+ * Überprüft ob es sich sich um den ersten Aufruf der Summaryseite nach dem Login handelt und zeigt ggf. den Wilkommensbildschirm an. 
+ */
+function checkMobileLogin(){
+  mobileWelcomeShowed = localStorage.getItem('login'); 
+
+  if ( window.matchMedia('screen and (max-width: 800px)').matches && mobileWelcomeShowed === "true") {
+ 
+      localStorage.setItem('login', false); 
+      document.getElementById("summaryWelcome").classList.remove("summaryWelcome");
+      document.getElementById("summaryWelcome").classList.add("welcomeMobile");
+      document.getElementById("summaryWelcome").classList.add("welcomeMobileOpacity");
+      setTimeout(() => {
+        document.getElementById("summaryWelcome").classList.remove("welcomeMobile");
+        document.getElementById("summaryWelcome").classList.add("summaryWelcome");
+        document.getElementById("summaryWelcome").classList.remove("welcomeMobileOpacity");
+      }, "2000");
+  } 
 }
