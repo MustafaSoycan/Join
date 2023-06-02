@@ -22,11 +22,12 @@ body {
     z-index: 9999999;
     display: flex;
     position: fixed;
-    top: 0px;
-    left: 0px;
     width: 100vw;
     height: 100vh;
-    display: flex;
+    display: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.5)
@@ -34,15 +35,21 @@ body {
 
 .addNewTaskBackground {
     background-color: white;
-    padding: 100px;
+    padding: 80px;
     border-radius: 30px;
-    height: fit-content;
-    width: fit-content;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 #addNewTaskClose {
     display: flex;
     justify-content: flex-end;
+}
+
+#addNewTaskClose img{
+    margin-top: 12px;
 }
 
 
@@ -82,7 +89,7 @@ body {
     font-size: 25px;
     border-radius: 10px;
     border: unset;
-    margin-left: 30px;
+    margin-left: 20px;
 }
 
 .add-task-button:hover {
@@ -341,12 +348,27 @@ body {
     overflow: auto;
 }
 
+#edit-task::-webkit-scrollbar{
+    width: 10px;
+    height: 1px !important;
+}
+
+#edit-task::-webkit-scrollbar-thumb{
+    border-radius: 6px;
+    background-color: lightgray;
+}
+
 .close-task {
     display: flex;
     justify-content: flex-end;
 }
 
-.close-task img:hover {
+.close-task-image{
+    position: fixed;
+    top: 2vh;
+    right: 2vh;
+}
+.close-task-image:hover {
     opacity: 0.6;
     cursor: pointer;
 }
@@ -525,15 +547,16 @@ body {
 .edit-task-prio-buttons {
     display: flex;
     gap: 16px;
+    justify-content: space-between;
 }
 
 .edit-task-prio-buttons button {
-    padding: 12px 24px;
+    padding: 12px 24px 12px 24px;
     border-radius: 10px;
     border: 0.5px solid lightgray;
     background-color: white;
-    width: auto;
-    display: block;
+    width: 10.5vh;
+    display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
@@ -656,7 +679,11 @@ body {
 }
 
 /*/--------------------------- MEDIA QUERRYS -----------------------------/*/
-
+@media only screen and (max-width: 1900px) {
+    .addNewTaskBackground{
+        left: 58%;
+    }
+}
 
 @media only screen and (max-width: 1400px) {
     #edit-task {
@@ -668,10 +695,12 @@ body {
     }
 }
 
-@media only screen and (max-width: 1000px) {
+
+
+@media only screen and (max-width: 1085px) {
     #edit-task {
-        left: 68%;
-        min-width: 25vh;
+        left: 65%;
+        min-width: 27vh;
     }
 
     #savedChanges{
@@ -681,17 +710,28 @@ body {
     .add-task-button {
         font-size: 16px;
     }
+
+    .addNewTaskBackground{
+        left: 65%;
+        padding: 30px;
+        overflow: auto;
+        height: 65vh;
+    }
+
+    
 }
 
 
 
 @media only screen and (max-width: 800px) {
-    
+
+
     #savedChanges{
         left: 50%
     }
 
     #edit-task {
+   
         left: 50%;
     }
 
@@ -705,6 +745,9 @@ body {
         align-items: center;
     }
 
+    .kanban{
+        padding: 10px;
+    }
 
     #content {
         margin-left: 0px;
@@ -722,12 +765,30 @@ body {
         flex-direction: column;
     }
 
+   
+
 }
 
 
-
 @media only screen and (max-width: 530px) {
+    
+    .addNewTaskBackground{
+        left: 50%;
+        height: 100%;
+    }
 
+    .addNewTaskBackground::-webkit-scrollbar{
+        width: 10px;
+        height: 1px !important;
+    }
+    
+    .addNewTaskBackground::-webkit-scrollbar-thumb{
+        border-radius: 6px;
+        background-color: lightgray;
+    }
+
+    
+   
     .add-task-button span{
         display: none;
     }
@@ -736,9 +797,6 @@ body {
         gap: 6px;
     }
 
-    .edit-task-prio-buttons button {
-        width: 80px;
-    }
 }
 
 @media only screen and (max-width: 450px) {
@@ -758,9 +816,7 @@ body {
         gap: 6px;
     }
 
-    .edit-task-prio-buttons button {
-        width: 80px;
-    }
+    
 }
 
 @media only screen and (min-width: 801px) and (max-width:1045px) {

@@ -45,6 +45,7 @@ body {
     border: 1px solid lightgray;
     outline: none;
     margin-bottom: 32px;
+    font-size: 22px;
 }
 
 form {
@@ -120,19 +121,21 @@ form {
 
 /*/ --------------- PRIO BUTTONS ----------- /*/
 .task-priority-buttons {
-    gap: 16px;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
 }
 
 .task-priority-buttons button {
-    padding: 10px 32px;
+
     border-radius: 10px;
     border: 0.5px solid lightgray;
     background-color: white;
-    width: 120px;
+    min-width: 9.5vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 22px;
+    font-size: 18px;
 }
 
 .task-priority-buttons button:hover {
@@ -143,6 +146,10 @@ form {
 
 .task-priority-buttons button img {
     margin-left: 8px;
+    height: 1.5vh;
+    width: 1.5vh;
+    object-fit: contain;
+    padding: 4px 4px 4px 4px;
 }
 
 /*/------------------ CATEGORY-LOGO ( DESIGN ETC )  ----------------/*/
@@ -384,14 +391,28 @@ form {
     }
 }
 
+@media only screen and (max-width: 1200px) {
+.task-priority-buttons button {
+    min-width: 9.5vh;
+    padding: 6px;
+}
+
+
+
+
+}
 
 @media only screen and (max-width: 930px) {
     .addTask-container {
         margin-left: 100px;
     }
+
+   
 }
 
 @media only screen and (max-width: 800px) {
+
+
     .addTask-container {
         margin-left: unset !important;
     }
@@ -399,6 +420,7 @@ form {
     .content {
         margin-left: 200px !important;
     }
+
 }
 
 @media only screen and (max-width: 700px) {
@@ -432,11 +454,7 @@ form {
     }
 
     .task-priority {
-        max-width: 150px;
-    }
-
-    .task-priority-buttons button {
-        width: 100px;
+        min-width: 150px;
     }
 
     .addTask-leftSide,

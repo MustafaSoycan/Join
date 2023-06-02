@@ -126,7 +126,7 @@ function openTaskHTML(element) {
 
     return `
     <div class="close-task">
-    <img onclick="closeTask()" src="../img/close-task.png">
+    <img class="close-task-image" onclick="closeTask()" src="../img/close-task.png">
     </div>
     <div class="${element['category']} category">
     ${element['category']}
