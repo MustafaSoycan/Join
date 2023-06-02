@@ -142,7 +142,7 @@ body {
 .title-container span {
     font-family: 'Inter';
     font-style: normal;
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: bold;
     text-align: center;
     color: #000000;
@@ -365,18 +365,21 @@ body {
 
 
 
+
 @media only screen and (min-width: 350px) and (max-width: 768px) {
     .login-page {
         width: 86vw;
-        height: 64vh;
+        height: 70vh;
+        margin-top: 20vw;
     }
 
     .sign-up-container {
-        bottom: 35px;
+        bottom: 9px;
         left: 50px;
         top: unset;
         right: unset;
     }
+
 
     .log-btn {
         width: 40vw;
@@ -391,7 +394,7 @@ body {
     }
 
     .title-container span {
-        font-size: 3rem;
+        font-size: 1.8rem;
     }
 
     .title-container {
@@ -409,7 +412,7 @@ body {
     }
 
     .pw-mobile span {
-        font-size: 2.3rem;
+        font-size: 1.7rem;
     }
 
     .forgot-pw-input {
@@ -460,10 +463,6 @@ body {
 
     .mobile-column{
         flex-direction: column-reverse;
-    }
-
-    .gap-small {
-        gap: 3rem;
     }
 
 }
