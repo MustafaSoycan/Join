@@ -75,7 +75,6 @@ body {
 }
 
 .find-task input {
-    height: 25px;
     border: none;
     outline: none;
     padding: 10px 20px;
@@ -765,6 +764,10 @@ body {
         flex-direction: column;
     }
 
+    .addNewTaskBackground{
+        left: 53%;
+       
+    }
    
 
 }

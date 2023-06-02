@@ -127,7 +127,7 @@ form {
 }
 
 .task-priority-buttons button {
-
+    padding: 8px;
     border-radius: 10px;
     border: 0.5px solid lightgray;
     background-color: white;
@@ -405,6 +405,7 @@ form {
 @media only screen and (max-width: 930px) {
     .addTask-container {
         margin-left: 100px;
+        
     }
 
    
@@ -415,6 +416,7 @@ form {
 
     .addTask-container {
         margin-left: unset !important;
+        margin-bottom: 100px !important;
     }
 
     .content {
@@ -440,6 +442,9 @@ form {
 
     .content {
         margin-left: 50px !important;
+    }
+    .addTask-buttons{
+    justify-content: space-around;
     }
 }
 
@@ -479,10 +484,8 @@ form {
         margin-left: 15px !important;
         margin-bottom: 90px !important;
     }
-
     label input{
         width: unset !important;
     }
-
-    
 }
+
