@@ -44,6 +44,7 @@ function isValidEmail(email) {
     signupscreen = document.getElementById('sign-up-screen');
     forgotPW1 = document.getElementById('forgotPW');
     changePW = document.getElementById('changePW');
+    signupButton = document.getElementById('signup-screen');
   });
 
 
@@ -79,6 +80,7 @@ function guestLogin(){
  */
 function loadSignUp() {
     loginscreen.style.display = 'none';
+    signupButton.style.display = 'none';
     signupscreen.style.display = 'flex';
 }
 
@@ -88,6 +90,7 @@ function loadSignUp() {
  */
 function forgotPW() {
     loginscreen.style.display = 'none';
+    signupButton.style.display = 'none';
     forgotPW1.style.display = 'flex';
 }
 
@@ -96,6 +99,7 @@ function forgotPW() {
 */
 function back() {
     loginscreen.style.display = 'flex';
+    signupButton.style.display = 'flex';
     signupscreen.style.display = 'none';
     forgotPW1.style.display = 'none';
 }
@@ -117,6 +121,7 @@ function  backChange(){
     let emailValue = emailInput.value;
   
     if (emailValue !== '' && isValidEmail(emailValue)) {
+      document.getElementById('email-forgot').value=''
       emailCheck()
   
       animationInfo.addEventListener('animationend', function() {
@@ -130,13 +135,21 @@ function  backChange(){
   /**
 *Überprüft die E-Mail und zeigt Animationen an.
 */
-function emailCheck(){
-    let animationInfo = document.getElementById('animation-info');
-    animationInfo.style.display = 'flex';
-    forgotPW1.style.display = 'none';
-    loginscreen.style.display = 'none';
-    changePW.style.display = 'flex';
+function emailCheck() {
+  let animationInfo = document.getElementById('animation-info');
+  animationInfo.style.display = 'flex';
+  forgotPW1.style.display = 'none';
+  loginscreen.style.display = 'none';
+  signupButton.style.display = 'none';
+  changePW.style.display = 'flex';
+
+  // Füge den Event-Listener für 'animationend' hinzu
+  animationInfo.addEventListener('animationend', function() {
+    // Animation ist abgeschlossen
+    animationInfo.style.display = 'none';
+  }, { once: true }); // { once: true } sorgt dafür, dass der Event-Listener nur einmalig ausgeführt wird
 }
+
 
 /**
 *Überprüft das eingegebene Passwort und führt entsprechende Aktionen aus.
@@ -151,9 +164,13 @@ function emailCheck(){
     if (newPassword !== '' && confirmPassword !== '' && newPassword === confirmPassword) {
       let animationReset = document.getElementById('animation-reset');
 
+      confirmPasswordInput.value = ''
+      newPasswordInput.value = ''
+
       animationReset.style.display = 'flex';
       changePW.style.display = 'none';
       loginscreen.style.display = 'flex';
+      signupButton.style.display = 'flex';
   
       animationReset.addEventListener('animationend', function() {
         animationReset.style.display = 'none';
