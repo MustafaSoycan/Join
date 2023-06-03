@@ -49,7 +49,7 @@
                 <div class="flex gap mobile-column">
                     <div class="flex-column">
                         <div>
-                            <input type="checkbox" style="cursor: pointer;">
+                            <input id="remember-me-checkbox" type="checkbox" style="cursor: pointer;">
                             <span class="remember-span">Remember me</span>
                         </div>
                     </div>
@@ -59,7 +59,7 @@
 
                 </div>
                 <div class="flex gap mobile-column">
-                    <button  onclick="openPage('log-in')" class="log-btn">Log in</button>
+                    <button  onclick=" login();openPage('log-in')" class="log-btn">Log in</button>
                     <button  onclick="openPage('summary')" class="guest-log-btn">Guest Log in</button>
                 </div>
             </div>

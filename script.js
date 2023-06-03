@@ -6,6 +6,7 @@ let user = [];
 
 async function init() {
     loadUser();
+    loadRememberMe();
     /*
     await setItem('user', JSON.stringify(user));
     console.log("set empty user");
@@ -294,3 +295,59 @@ function showPW(pages){
     passwordInput.type = 'password';
   }
 }
+
+/**
+ * Speichern der Werte im Local Storage 
+ */
+function login() {
+  let emailInput = document.getElementById('log-in-email');
+  let passwordInput = document.getElementById('log-in-pw');
+  let rememberMeCheckbox = document.getElementById('remember-me-checkbox');
+
+  let email = emailInput.value;
+  let password = passwordInput.value;
+  let rememberMe = rememberMeCheckbox.checked;
+
+  // Überprüfen, ob E-Mail und Passwort eingegeben wurden
+  if (email && password && rememberMe) {
+    // Entfernen der vorherigen Einträge aus dem Local Storage
+    localStorage.removeItem('email');
+    localStorage.removeItem('password');
+    localStorage.removeItem('rememberMe');
+
+    // Speichern der neuen Werte im Local Storage
+    localStorage.setItem('email', email);
+    localStorage.setItem('password', password);
+    localStorage.setItem('rememberMe', rememberMe);
+  } else if(!rememberMe) {
+    // Entfernen der vorherigen Einträge aus dem Local Storage
+    localStorage.removeItem('email');
+    localStorage.removeItem('password');
+    localStorage.removeItem('rememberMe');
+  }
+}
+
+
+/**
+ * Aufrufen der Werte aus de Local Storage
+ */
+function loadRememberMe(){
+  let emailInput = document.getElementById('log-in-email');
+  let passwordInput = document.getElementById('log-in-pw');
+  let rememberMeCheckbox = document.getElementById('remember-me-checkbox');
+
+  // Überprüfen, ob gespeicherte Werte im Local Storage vorhanden sind
+  if (localStorage.getItem('email') && localStorage.getItem('password') && localStorage.getItem('rememberMe')) {
+    // Werte aus dem Local Storage abrufen
+    let email = localStorage.getItem('email');
+    let password = localStorage.getItem('password');
+    let rememberMe = localStorage.getItem('rememberMe');
+
+    // Werte in die entsprechenden Felder einfügen
+    emailInput.value = email;
+    passwordInput.value = password;
+    rememberMeCheckbox.checked = (rememberMe === 'true');
+  }
+}
+
+
