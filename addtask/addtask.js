@@ -291,20 +291,19 @@ function setMinDateAttribute() {
   var dd = today.getDate();
   var mm = today.getMonth() + 1; //January is 0!
   var yyyy = today.getFullYear();
-
+  var nextyyyy = yyyy + 1; 
   if (dd < 10) {
     dd = '0' + dd;
   }
 
-  if (mm < 10) {
+  if (mm < 10) {                                                                          
     mm = '0' + mm;
   }
   today = yyyy + '-' + mm + '-' + dd;
+  const nextYear = nextyyyy + '-' + mm + '-' + dd;
   document.getElementById("dueDateInputAddTask").setAttribute("min", today);
-  document.getElementById("dueDateInputAddTask").setAttribute("max", "20250-12-31");
+  document.getElementById("dueDateInputAddTask").setAttribute("max", nextYear);
 }
-
-
 
 // Event-Listener für Klick-Ereignisse im gesamten Dokument
 document.addEventListener('click', function(event) {
@@ -334,3 +333,7 @@ document.addEventListener('keydown', function(event) {
     }
   }
 });
+
+function clearAddTaskForm(){
+  window.location.reload();
+}
