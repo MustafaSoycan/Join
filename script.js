@@ -129,8 +129,6 @@ function  backChange(){
       animationInfo.addEventListener('animationend', function() {
         animationInfo.style.display = 'none';
       }, { once: true });
-    } else {
-        alert('bitte eine gültige email eingeben')
     }
   }
 
@@ -177,8 +175,6 @@ function emailCheck() {
       animationReset.addEventListener('animationend', function() {
         animationReset.style.display = 'none';
       }, { once: true });
-    } else {
-      alert('Bitte geben Sie gültige Passwörter ein.');
     }
   }
  
@@ -197,8 +193,6 @@ function emailCheck() {
   
     if (foundUser) {
         userCheck(foundUser, emailInput, passwordInput)
-    } else {
-      alert('Die E-Mail-Adresse oder das Passwort ist ungültig.');
     }
   }
 
@@ -230,17 +224,14 @@ document.addEventListener('DOMContentLoaded', function () {
  */
   async function register() {
     if (nameInput.value === '' || email.value === '' || password.value === '') {
-      alert('Bitte füllen Sie alle Felder aus.');
       return;
     }
 
     if (!isValidEmail(email.value)) {
-      alert('Bitte geben Sie eine gültige E-Mail-Adresse ein.');
       return;
     }
 
     if (isUserAlreadyRegistered(nameInput.value, email.value)) {
-      alert('Der Name oder die E-Mail-Adresse ist bereits vergeben.');
       return;
     }
 

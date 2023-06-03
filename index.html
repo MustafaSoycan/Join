@@ -21,7 +21,7 @@
     <div style="display: none;">
     <span id="current-user"></span>
     </div>
-
+    <form>
     <div class="logo-page">
         <img class="logo-img" src="./img/logo-dark.png" alt="">
         <div class="logo-page-background"> </div>
@@ -33,15 +33,15 @@
         </div>
         </div>
 
-        
+
         <div class="login-page" id="signup-screen" style="display:flex">
             <div class="title-container" >
                 <span class="login-font">Log in</span>
             </div>
             <div class="login-input">
-                <input id="log-in-email" class="input-mail" type="text" placeholder="E-mail">
+                <input id="log-in-email" name="email" class="input-mail" type="text" placeholder="E-mail" required autocomplete="username">
                 <div>
-                <input id="log-in-pw" class="input-key" type="password" placeholder="Password">
+                    <input id="log-in-pw" name="password" class="input-key" type="password" placeholder="Password" required autocomplete="current-password">
                 <img onclick="showPW('log-in-pw')"  class="keyIMG" src="./img/lock-icon.png">
                 </div>
             </div>
@@ -66,7 +66,7 @@
         </div>
 
     </div>
-
+</form>
 
     <div id="sign-up-screen" class="logo-sign-up" style="display:none">
         <form onsubmit="register(); return false;" class="login-page">
@@ -77,10 +77,10 @@
                 <span class="signInFont" >Sign in</span>
             </div>
             <div class="login-input">
-                <input id="name" class="input-name" required type="text" placeholder="name">
-                <input id="email" class="input-mail" required type="email" placeholder="E-mail">
+                <input id="name" name="name" class="input-name" required type="text" placeholder="name">
+                <input id="email" name="email" class="input-mail" type="email" placeholder="E-mail" required autocomplete="username">
                 <div>
-                <input id="password" class="input-key" required type="password" placeholder="Password">
+                    <input id="password" name="password" class="input-key" type="password" placeholder="Password" required autocomplete="current-password">
                 <img onclick="showPW('password')"  class="keyIMG" src="./img/lock-icon.png">
                 </div>
             </div>
@@ -94,25 +94,29 @@
     
 
 
-    <div id="forgotPW" class="logo-sign-up" style="display:none"  ">
+    <div id="forgotPW" class="logo-sign-up" style="display:none">
         <div class="login-page forgot-pw">
             <div class="title-container pw-mobile">
                 <div onclick="openPage('back')">
-                <img class="left-arrow-img" src="./img/left-arrow-icon.png" alt="">
+                    <img class="left-arrow-img" src="./img/left-arrow-icon.png" alt="">
                 </div>
                 <span class="forgotmypwFont">I forgot my password</span>
             </div>
-            <div class="forgot-pw-input flex-column">
-                <span>Don't worry! We will send you an email with the instructions to reset your password.</span>
-                <input id="email-forgot" class="input-mail" required type="email" placeholder="E-mail">
-            </div>
-            <div class="flex-column gap-small">
-                <div class="flex gap mobile-column">
-                    <button onclick="resetPW()" class="log-btn forgot-pw-btn">Send me the email</button>
+            <form>
+                <div class="forgot-pw-input flex-column">
+                    <span>Don't worry! We will send you an email with the instructions to reset your password.</span>
+                    <input id="email-forgot" class="input-mail" required type="email" name="email" placeholder="E-mail">
                 </div>
-            </div>
+                <div class="flex-column gap-small">
+                    <div class="flex gap mobile-column">
+                        <button onclick="resetPW()" class="log-btn forgot-pw-btn">Send me the email</button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
+    
+    
 
 <div id="animation-info" class="info-background" style="display:none">
   <img class="info-image" src="./img/send-message-information.png" alt="">
@@ -124,32 +128,39 @@
 
 
 
-    <div id="changePW" class="logo-sign-up" style="display:none">
-        <div class="login-page reset-pw">
-            <div class=" title-container">
-                <div onclick="openPage('backChange')">
+<div id="changePW" class="logo-sign-up" style="display:none">
+    <div class="login-page reset-pw">
+        <div class="title-container">
+            <div onclick="openPage('backChange')">
                 <img class="left-arrow-img" src="./img/left-arrow-icon.png" alt="">
-                </div>
-                <span class="resetPwFont">Reset your password</span>
             </div>
+            <span class="resetPwFont">Reset your password</span>
+        </div>
+        <form>
             <div class="forgot-pw-input flex-column">
                 <span>Change your account password</span>
                 <div>
-                <input id="new-password" type="password" placeholder="New password">
-                <img onclick="showPW('new-password')"  class="keyIMG" src="./img/lock-icon.png">
+                    <input id="username" type="text" style="display: none;">
                 </div>
                 <div>
-                <input id="confirm-password" type="password" placeholder="Confirm password">
-                <img onclick="showPW('confirm-password')"  class="keyIMG" src="./img/lock-icon.png">      
-                </div>      
+                    <input required id="new-password" type="password" placeholder="New password" autocomplete="new-password">
+                    <img onclick="showPW('new-password')" class="keyIMG" src="./img/lock-icon.png">
+                </div>
+                <div>
+                    <input  required id="confirm-password" type="password" placeholder="Confirm password" autocomplete="new-password">
+                    <img onclick="showPW('confirm-password')" class="keyIMG" src="./img/lock-icon.png">
+                </div>
             </div>
             <div class="flex-column gap-small">
                 <div class="flex gap mobile-column">
                     <button onclick="checkPW()" class="log-btn forgot-pw-btn">Continue</button>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
+</div>
+
+
 
 
 </body>

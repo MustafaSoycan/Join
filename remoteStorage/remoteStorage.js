@@ -16,6 +16,9 @@ const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
  * @returns {String} 
  */
 async function setItem(key, value) {
+    if (!key || !value) {
+        throw "Key and value are required.";
+    }
     const payload = { key, value, token: STORAGE_TOKEN };
     return fetch(STORAGE_URL, { method: 'POST', body: JSON.stringify(payload)})
     .then(res => res.json());
