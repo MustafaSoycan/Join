@@ -450,6 +450,7 @@ h3{
     }
 }
 
+
 @media only screen and (max-width: 800px) {
     #contacts{
         margin-left: 0px;
@@ -622,3 +623,14 @@ h3{
     }
 }
 
+
+@media only screen and (min-width: 900px) and (max-width: 1024px){
+
+    #contactList {
+        width: 100vw;
+    }
+
+    .contactDetailHeader {
+        margin-left: 21px;
+    }
+}
