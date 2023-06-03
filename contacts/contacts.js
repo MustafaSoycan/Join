@@ -186,6 +186,9 @@ function addContact(){
     let fullName = name.split(' '); 
     let firstName = fullName[0];
     let lastName = fullName[1];
+    if ( lastName == undefined){
+        lastName = ""; 
+    }
     let bgColor = '#' + Math.floor(Math.random()*16777215).toString(16);
 
     contacts.push({

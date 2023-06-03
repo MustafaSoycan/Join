@@ -3,7 +3,7 @@
 </div>
 
 <div class="addTask-content">
-    <form onsubmit="createTask();return false">
+    <form id="addNewTaskForm" onsubmit="createTask();return false">
 
         <!-- ADD TASK LEFT SIDE-->
         <div class="addTask-leftSide">
@@ -89,7 +89,7 @@
 
              <!-- CLEAR/CREATE TASK BUTTON-->
             <div class="addTask-buttons">
-                <button class="clear-button" type="button"> Clear <img src="../img/cross-icon.png"> </button>
+                <button class="clear-button" type="button" onclick="clearAddTaskForm()">Clear<img src="../img/cross-icon.png"> </button>
                 <button class="create-task-button" type="submit">Create Task <img src="../img/checkmark-only-icon.png"> </button>
             </div>
 

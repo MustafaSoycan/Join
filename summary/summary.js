@@ -58,13 +58,18 @@ async function getTasksFromLocalStorage(){ /* ACHTUNG: NUR TESTDATEN*/
  */
 function getNextUrgentDate(){
   let urgent = tasks.filter(task => task.priority == "urgent"); 
+  const options = {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric'
+  };
   if ( urgent.length > 0 ) {
     urgent = urgent.sort (function(a,b){
       // Turn your strings into dates, and then subtract them
       // to get a value that is either negative, positive, or zero.
       return new Date(a.dueDate) - new Date(b.dueDate);
     });
-    return urgent[0].dueDate; 
+    return new Date (urgent[0].dueDate).toLocaleDateString("de-DE", options); 
   }
   else {
     return "No urgent task"; 
