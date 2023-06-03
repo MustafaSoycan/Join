@@ -203,8 +203,6 @@ function emailCheck() {
   function userCheck(foundUser, emailInput, passwordInput){
     document.getElementById('current-user').textContent = '';
     document.getElementById('current-user').textContent = 'Angemeldet ist der Benutzer: ' + foundUser.name;
-    console.log('Name des Benutzers:', foundUser.name);
-    alert(`user " ${foundUser.name} " ist angemeldet`)
     localStorage.setItem('username', foundUser.name);
     localStorage.setItem('login', true);
     emailInput.value = '';
