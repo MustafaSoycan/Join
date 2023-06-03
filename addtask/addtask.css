@@ -490,3 +490,33 @@ form {
     }
 }
 
+
+
+
+
+@media only screen and (max-width: 374px) {
+    .content{
+        margin-left: 5px !important;
+        margin-right: 5px !important;
+    }
+
+    .addTask-leftSide input, .addTask-rightSide input{
+        width: 95vw;
+        padding: 0;
+        width: 95vw;
+    }
+
+    .task-title{
+        width: 80vw;
+        padding: 0;
+    }
+
+    .addTask-leftSide, .addTask-rightSide {
+        width: 95vw;
+    }
+
+    #selectContacts {
+        min-width: unset;
+    }
+
+}

@@ -825,3 +825,22 @@ body {
         flex-direction: column;
     }
 }
+
+@media only screen and (max-width:374px) {
+
+    .board-header {
+        width: 100%;
+    }
+
+    .interact {
+        display: flex;
+        height: 15vh;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .kanban {
+        min-width: unset;
+    }
+}
