@@ -29,7 +29,9 @@ function includeHTML() {
       }
     }
   }
-
+  /**
+   * Funktion zum Ausloggen aus dem JOIN System. ‚
+   */
   function logOut() {
     localStorage.removeItem('username');
   
