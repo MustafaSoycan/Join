@@ -128,8 +128,6 @@ body {
 .kanbanboard {
     display: flex;
     justify-content: space-around;
-    margin-right: 100px;
-    margin-left: 50px;
     flex-wrap: wrap;
 }
 
