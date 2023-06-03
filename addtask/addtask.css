@@ -345,15 +345,19 @@ form {
 /*/ --------------------REPORT FOR ADDED TASK------------------- /*/
 #successMessage {
     background-color: rgb(67, 80, 99);
-    width: 450px;
+    width: 350px;
     padding: 24px;
     color: white;
     border-radius: 10px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 #successMessage img {
-    height: 40px;
-    width: 40px;
+    height: 30px;
+    width: 30px;
     object-fit: cover;
     vertical-align: middle;
     padding: 24px;
@@ -389,6 +393,10 @@ form {
     .task-date {
         margin-bottom: 32px !important;
     }
+
+    #successMessage{
+        left: 60%;
+    }
 }
 
 @media only screen and (max-width: 1200px) {
@@ -396,10 +404,12 @@ form {
     min-width: 9.5vh;
     padding: 6px;
 }
+}
 
-
-
-
+@media only screen and (max-width: 1000px) {
+    #successMessage{
+        left: 65%;
+    }
 }
 
 @media only screen and (max-width: 930px) {
@@ -413,7 +423,6 @@ form {
 
 @media only screen and (max-width: 800px) {
 
-
     .addTask-container {
         margin-left: unset !important;
         margin-bottom: 100px !important;  
@@ -424,6 +433,10 @@ form {
         margin-left: 200px !important;
     }
 
+
+    #successMessage{
+        left: 50%;
+    }
 }
 
 @media only screen and (max-width: 700px) {
@@ -449,6 +462,12 @@ form {
     }
 }
 
+@media only screen and (max-width: 500px) {
+    #successMessage{
+        width: 200px;
+    }
+
+}
 
 @media only screen and (max-width: 480px) {
     .addTask-leftSide input {
