@@ -282,4 +282,15 @@ document.addEventListener('DOMContentLoaded', function () {
   registerBtn.addEventListener('click', register);
 });
 
+/**
+ * Zeige und verberge das Passwort.
+ */
+function showPW(pages){
 
+  let passwordInput = document.getElementById(pages);
+  if (passwordInput.type === 'password') {
+    passwordInput.type = 'text';
+  } else if (passwordInput.type === 'text') {
+    passwordInput.type = 'password';
+  }
+}

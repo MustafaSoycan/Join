@@ -138,11 +138,25 @@ body {
     z-index: 0;
 }
 
+.login-font{
+    font-size: 3.8rem;
+}
+
+.forgotmypwFont{
+    font-size: 3.8rem;
+}
+
+.resetPwFont{
+    font-size: 3.0rem;
+}
+
+.signInFont{
+    font-size: 3.8rem;
+}
 
 .title-container span {
     font-family: 'Inter';
     font-style: normal;
-    font-size: 3rem;
     font-weight: bold;
     text-align: center;
     color: #000000;
@@ -225,8 +239,19 @@ body {
     padding-left: 0.5rem;
 }
 
+.keyIMG{
+    animation-name: unset !important;
+    animation-duration: unset !important;
+    animation-timing-function: unset !important;
+    animation-fill-mode: unset !important;
+    position: absolute;
+    right: 7.8rem;
+    margin-top: 0.8rem;
+    cursor: pointer;
+}
+
+
 .input-key {
-    background-image: url('/img/lock-icon.png');
     background-position: right center;
     background-repeat: no-repeat;
     padding-right: 0.5rem;
@@ -366,15 +391,33 @@ body {
 
 
 
-@media only screen and (min-width: 350px) and (max-width: 768px) {
+@media only screen and (min-width: 350px) and (max-width: 767px) {
     .login-page {
         width: 86vw;
-        height: 70vh;
-        margin-top: 20vw;
+        height: 65vh;
     }
 
+    .forgotmypwFont{
+        font-size: 1.8rem;
+    }
+
+    .resetPwFont{
+        font-size: 1.7rem;
+    }
+    
+    .signInFont{
+        font-size: 3rem;
+    }
+    
+    .keyIMG{
+        right: 2rem;
+
+            
+    }
+    
+
     .sign-up-container {
-        bottom: 9px;
+        bottom: 3vh;
         left: 50px;
         top: unset;
         right: unset;
@@ -393,12 +436,10 @@ body {
         width: 70vw;
     }
 
-    .title-container span {
-        font-size: 1.8rem;
-    }
 
     .title-container {
         width: 25vw;
+        height: 10vh;
     }
 
     .mobile-btn {
@@ -411,8 +452,8 @@ body {
         left: 8vw;
     }
 
-    .pw-mobile span {
-        font-size: 1.7rem;
+    .login-font{
+        font-size: 3.8rem;
     }
 
     .forgot-pw-input {
@@ -472,6 +513,5 @@ body {
         width: 730px;
         height: 500px;
     }
-
 }
 

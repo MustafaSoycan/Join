@@ -40,7 +40,10 @@
             </div>
             <div class="login-input">
                 <input id="log-in-email" class="input-mail" type="text" placeholder="E-mail">
-                <input id="log-in-pw" class="input-key" type="text" placeholder="Password">
+                <div>
+                <input id="log-in-pw" class="input-key" type="password" placeholder="Password">
+                <img onclick="showPW('log-in-pw')"  class="keyIMG" src="./img/lock-icon.png">
+                </div>
             </div>
             <div class="flex-column gap-small">
                 <div class="flex gap mobile-column">
@@ -71,12 +74,15 @@
                 <div onclick="openPage('back')">
                     <img class="left-arrow-img" src="./img/left-arrow-icon.png" alt="">
                 </div>
-                <span>Sign in</span>
+                <span class="signInFont" >Sign in</span>
             </div>
             <div class="login-input">
                 <input id="name" class="input-name" required type="text" placeholder="name">
                 <input id="email" class="input-mail" required type="email" placeholder="E-mail">
-                <input id="password" class="input-key" required type="text" placeholder="Password">
+                <div>
+                <input id="password" class="input-key" required type="password" placeholder="Password">
+                <img onclick="showPW('password')"  class="keyIMG" src="./img/lock-icon.png">
+                </div>
             </div>
             <div class="flex-column gap-small">
                 <div class="flex gap mobile-column">
@@ -94,7 +100,7 @@
                 <div onclick="openPage('back')">
                 <img class="left-arrow-img" src="./img/left-arrow-icon.png" alt="">
                 </div>
-                <span>I forgot my password</span>
+                <span class="forgotmypwFont">I forgot my password</span>
             </div>
             <div class="forgot-pw-input flex-column">
                 <span>Don't worry! We will send you an email with the instructions to reset your password.</span>
@@ -124,12 +130,19 @@
                 <div onclick="openPage('backChange')">
                 <img class="left-arrow-img" src="./img/left-arrow-icon.png" alt="">
                 </div>
-                <span>Reset your password</span>
+                <span class="resetPwFont">Reset your password</span>
             </div>
             <div class="forgot-pw-input flex-column">
                 <span>Change your account password</span>
-                <input id="new-password" type="text" placeholder="New password">
-                <input id="confirm-password" type="text" placeholder="Confirm password">            </div>
+                <div>
+                <input id="new-password" type="password" placeholder="New password">
+                <img onclick="showPW('new-password')"  class="keyIMG" src="./img/lock-icon.png">
+                </div>
+                <div>
+                <input id="confirm-password" type="password" placeholder="Confirm password">
+                <img onclick="showPW('confirm-password')"  class="keyIMG" src="./img/lock-icon.png">      
+                </div>      
+            </div>
             <div class="flex-column gap-small">
                 <div class="flex gap mobile-column">
                     <button onclick="checkPW()" class="log-btn forgot-pw-btn">Continue</button>
