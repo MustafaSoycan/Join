@@ -693,6 +693,28 @@ h3{
     }
 }
 
+@media only screen and (max-width: 450px) {
+    #contactList{
+        min-width: 300px;
+    }
+    .contactName{
+        font-size: 18px;
+    }
+    .contactEmail{
+        font-size: 12px;
+    }
+    .contactLetter{
+        font-size: 18px;
+    }
+    .contactListItem{
+        padding: 8px;
+        gap: 12px;
+    }
+    #contactList .contactIcon{
+        padding: 8px;
+    }
+
+}
 /*
 @media only screen and (min-width: 900px) and (max-width: 1024px){
 
