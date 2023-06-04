@@ -511,31 +511,52 @@ form {
 
 
 
-
-
-@media only screen and (max-width: 374px) {
+@media only screen and (max-width: 360px) {
     .content{
         margin-left: 5px !important;
         margin-right: 5px !important;
     }
 
     .addTask-leftSide input, .addTask-rightSide input{
-        width: 95vw;
+        width: 90vw;
         padding: 0;
-        width: 95vw;
+        min-width: unset;
     }
 
     .task-title{
-        width: 80vw;
+        width: 90vw;
         padding: 0;
     }
 
+    .task-title input{ 
+        min-width: unset;
+    }
+
     .addTask-leftSide, .addTask-rightSide {
-        width: 95vw;
+        width: 90vw;
     }
 
     #selectContacts {
         min-width: unset;
+        padding: 0;
+        width: 90vw;
     }
 
+    .task-category select {
+        width: 90vw;
+        min-width: unset;
+    }
+
+    .task-priority {
+        width: 90vw;
+        min-width: none;
+    }
+
+    .addSubtask-button{
+        width: 90vw;
+    }
+
+    .task-description input {
+        min-width: unset;
+    }
 }
