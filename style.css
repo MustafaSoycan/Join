@@ -391,10 +391,9 @@ body {
 
 
 
-@media only screen and (min-width: 350px) and (max-width: 767px) {
+@media only screen and (min-width: 320px) and (max-width: 767px) {
     .login-page {
         width: 86vw;
-        height: 65vh;
     }
 
     .forgotmypwFont{
@@ -421,6 +420,7 @@ body {
         left: 50px;
         top: unset;
         right: unset;
+        z-index: 999;
     }
 
 
@@ -439,7 +439,7 @@ body {
 
     .title-container {
         width: 25vw;
-        height: 10vh;
+        height: 14vh;
     }
 
     .mobile-btn {
@@ -498,7 +498,7 @@ body {
         }
 
         100% {
-            transform: translate(-34vw, -42vh) scale(0.3);
+            transform: translate(-34vw, -42vh) scale(0.2);
         }
     }
 
