@@ -137,7 +137,7 @@ function renderContactForm(){
     document.getElementById("openContact").innerHTML = /*html*/ `
     <div class="contactOverlay">
         <div class="contactOverlayContentClose">
-            <img onclick="closeContactOverlay()"src="../img/cross-icon.png" alt="cross">
+            <img onclick="closeContactOverlay()" src="../img/close-task.png" alt="cross">
         </div>
         <div class="contactOverlaySideBar">
             <img src="../img/join-logo.png" alt="">

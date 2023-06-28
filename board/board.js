@@ -408,9 +408,13 @@ function showDoneBoard() {
 }
 
 
+/**
+ * Rückmeldung, dass eine Aufgabe umgeändert wurde.
+ */
 function savedChangesReport() {
   document.getElementById('savedChanges').classList.remove('d-none');
   setTimeout(() => {
     document.getElementById('savedChanges').classList.add('d-none');
   }, 2000); // Entfernt Meldung wieder nach 2 Sekunden.
 }
+

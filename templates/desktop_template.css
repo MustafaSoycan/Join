@@ -257,7 +257,7 @@ body {
 }
 
 .datenschutz-picture {
-    margin-left: 25px;
+    margin-left: 60px;
 }
 
 /*/---------------- MOBILE QUERRYS----------------/*/
@@ -281,9 +281,10 @@ body {
 .sidebar-mobile a:hover{
     background-color: #091931;
 }
+
 #topbar-mobile{
     display: none;
-    height: 51px;
+    height: 100px;
     justify-content: space-between;
     align-items: center;
     box-shadow: -2px 0px 6px 0px rgb(0, 0, 0, 0.2);
@@ -302,6 +303,8 @@ body {
 .mobileProjectInfo{
     display: none;
 }
+
+
 
 @media only screen and (max-width: 800px) {
     .addTask-picture{

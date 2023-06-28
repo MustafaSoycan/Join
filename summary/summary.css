@@ -1,4 +1,7 @@
-.summarySection{
+body{
+background-color: rgb(245, 245, 245);
+}
+.summarySection {
     margin-top: 100px;
     margin-left: 250px;
     padding-top: 50px;
@@ -9,36 +12,42 @@
     background-color: #F5F5F5;
     min-height: calc(100vh - 100px - 50px);
 }
-.summaryHeader{
+
+.summaryHeader {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    gap:48px;
+    gap: 48px;
 }
-.verticalDivider{
+
+.verticalDivider {
     width: 0px;
     height: 59px;
     border: 3px solid #29ABE2;
 }
-.summaryContent{
+
+.summaryContent {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap:48px;
+    gap: 48px;
     margin-top: 48px;
     justify-content: center;
 }
-.summaryCardsRow{
+
+.summaryCardsRow {
     display: flex;
-    gap:32px;
+    gap: 32px;
 }
-.summaryCards{
+
+.summaryCards {
     display: flex;
     flex-direction: column;
-    gap:32px;
+    gap: 32px;
 }
-.summaryCard{
+
+.summaryCard {
     border-radius: 30px;
     background-color: white;
     padding: 24px;
@@ -52,39 +61,46 @@
     text-align: center;
     box-shadow: 4px 0px 6px rgba(0, 0, 0, 0.08);
 }
-.summaryContent h1{
+
+.summaryContent h1 {
     margin: 0px;
     font-size: 64px;
     font-weight: 600;
-  
+
 }
-.summaryContent h4{
+
+.summaryContent h4 {
     font-size: 21px;
     font-weight: 100;
     margin: 0px;
 }
-.summaryHeader h1{
+
+.summaryHeader h1 {
     font-size: 61px;
     font-weight: 700;
     margin: 0px;
 }
-.summaryHeader h3{
+
+.summaryHeader h3 {
     font-size: 27px;
     font-weight: 400;
     margin: 0px;
 }
-.summaryWelcomeMessage{
+
+.summaryWelcomeMessage {
     font-size: 47px;
     font-weight: 500;
     margin: 0px;
 }
-.summaryUsername{
+
+.summaryUsername {
     color: #29ABE2;
     font-size: 60px;
     font-weight: 700;
     margin: 0px;
 }
-.summaryCardWithIcon{
+
+.summaryCardWithIcon {
     border-radius: 30px;
     background-color: white;
     padding: 24px;
@@ -98,26 +114,30 @@
     text-align: center;
     box-shadow: 4px 0px 6px rgba(0, 0, 0, 0.08);
 }
-.cardDivider{
+
+.cardDivider {
     height: 120px;
     border: 1px solid black;
 }
-.summaryContent a{
+
+.summaryContent a {
     text-decoration: none;
     color: black;
 }
-.summaryContent a:hover{
-   color: white;
-   background-color: #2A3647;
-   transition: transform 125ms linear;
-   transform: scale(1.05); 
+
+.summaryContent a:hover {
+    color: white;
+    background-color: #2A3647;
+    transition: transform 125ms linear;
+    transform: scale(1.05);
 }
-.hoverIcon:hover img{
-   filter: invert() grayscale(100%) contrast(100);
- }
- 
- 
- .welcomeMobile{
+
+.hoverIcon:hover img {
+    filter: invert() grayscale(100%) contrast(100);
+}
+
+
+.welcomeMobile {
     display: flex !important;
     position: fixed;
     top: 0px;
@@ -131,86 +151,144 @@
     align-items: center;
     opacity: 0;
     transition: opacity 1s ease-in;
- }
- .welcomeMobileOpacity{
-    opacity: 1;
- }
+}
 
- @media only screen and (max-width: 1200px) {
-    .summaryWelcome{
+.welcomeMobileOpacity {
+    opacity: 1;
+}
+
+@media only screen and (max-width: 1200px) {
+    .summaryWelcome {
         display: none;
     }
 }
-@media only screen and (max-width: 950px) {
-    .summaryHeader h1{
-        font-size: 48px;
-   }
-    .summaryHeader h3, .summaryCardWithIcon h3{
-         font-size: 18px;
-         font-weight: 300;
+
+@media only screen and (max-width: 1025px) {
+    .summaryContent{
+        margin-top: 20px;
     }
 }
- @media only screen and (max-width: 800px) {
-    .summarySection{
+
+@media only screen and (max-width: 950px) {
+    .summaryHeader h1 {
+        font-size: 48px;
+    }
+
+    .summaryHeader h3,
+    .summaryCardWithIcon h3 {
+        font-size: 18px;
+        font-weight: 300;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .summarySection {
         margin-left: 0px;
         min-height: 100%;
         padding-bottom: 120px;
     }
 }
+
+@media only screen and (max-height: 800px) {
+    .summaryContent {
+        margin-top: 18px;
+        padding: 7px ;
+    }
+
+    .summaryCards {
+        gap: 18px !important;
+    }
+
+}
+
 @media only screen and (max-width: 650px) {
-  .summarySection{
-    margin-top: 70px;
-    margin-left: 0px;
-    padding-left: 25px;
-    padding-right: 25px;
-  }
-  .summaryCard{
-    padding: 12px;
-  }
-  .summaryCard h1, .summaryCardWithIcon h1{
-    font-size: 32px;
-  }
-  .summaryCard h4, .summaryCardWithIcon h4{
-    font-size: 12px;
-  }
-  .summaryCardsRow{
-    gap:8px;
-  }
-  .summaryHeader{
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-  }
-  .summaryHeader :nth-child(1) { order: 1; }
-  .summaryHeader :nth-child(2) { order: 3; }
-  .summaryHeader :nth-child(3) { order: 2; }
-  .verticalDivider{
-    transform: rotate(90deg);
-    margin-left: 32px;
-    border: 1px solid #29ABE2;
-  }
-  .summaryHeader h1{
-   font-size: 32px;
-  }
-  .summaryHeader h3, .summaryCardWithIcon h3{
-    font-size: 18px;
-    font-weight: 300;
-   }
-   .summaryCardWithIcon img{
+    .summarySection {
+        margin-top: 70px;
+        margin-left: 0px;
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .summaryCard {
+        padding: 12px;
+    }
+
+    .summaryCard h1,
+    .summaryCardWithIcon h1 {
+        font-size: 32px;
+    }
+
+    .summaryCard h4,
+    .summaryCardWithIcon h4 {
+        font-size: 12px;
+    }
+
+    .summaryCardsRow {
+        gap: 8px;
+    }
+
+    .summaryHeader {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .summaryHeader :nth-child(1) {
+        order: 1;
+    }
+
+    .summaryHeader :nth-child(2) {
+        order: 3;
+    }
+
+    .summaryHeader :nth-child(3) {
+        order: 2;
+    }
+
+    .verticalDivider {
+        transform: rotate(90deg);
+        margin-left: 32px;
+        border: 1px solid #29ABE2;
+    }
+
+    .summaryHeader h1 {
+        font-size: 32px;
+    }
+
+    .summaryHeader h3,
+    .summaryCardWithIcon h3 {
+        font-size: 18px;
+        font-weight: 300;
+    }
+
+    .summaryCardWithIcon img {
         width: 32px;
-   }
-   .summaryContent{
-    margin-top: 0px;;
-   }
-   .verticalDivider{
+    }
+
+    .summaryContent {
+        margin-top: 0px;
+        ;
+    }
+
+    .verticalDivider {
         margin-left: 32px;
         margin-right: 0px;
         margin-bottom: -10px;
         margin-top: -25px;
-   }
-   .cardDivider{
-    margin: 14px;
-   }
- 
+    }
+
+    .cardDivider {
+        margin: 14px;
+    }
 }
 
+@media only screen and (max-width: 374px) {
+    .summaryContent {
+        margin-top: 0px !important;
+    }
+
+    .summaryCardWithIcon {
+        padding: 9px !important;
+    }
+
+}

@@ -337,3 +337,16 @@ document.addEventListener('keydown', function(event) {
 function clearAddTaskForm(){
   window.location.reload();
 }
+
+function setTodayDate() {
+  var today = new Date();
+  var dueDateInput = document.getElementById('dueDateInputAddTask');
+  dueDateInput.value = formatDate(today);
+}
+
+function formatDate(date) {
+  var year = date.getFullYear();
+  var month = ('0' + (date.getMonth() + 1)).slice(-2);
+  var day = ('0' + date.getDate()).slice(-2);
+  return year + '-' + month + '-' + day;
+}

@@ -56,17 +56,30 @@ function openMenu(){
   }
 }
 
-
-
-// Event Listener für Kategorien in der Sidebar-Middle und Sidebar-Bottom
-var categories = document.querySelectorAll('.sidebar-middle a, .sidebar-bottom a');
-categories.forEach(function(category) {
-  category.addEventListener('click', function() {
-    // Entferne die Markierung von allen Kategorien
-    categories.forEach(function(c) {
-      c.classList.remove('active');
-    });
-    // Füge die Markierung zur ausgewählten Kategorie hinzu
-    category.classList.add('active');
-  });
+window.addEventListener("DOMContentLoaded", function() {
+  var activePage = localStorage.getItem("activePage");
+  if (activePage) {
+      var link = document.querySelector('a[data-page="' + activePage + '"]');
+      if (link) {
+          link.classList.add("active");
+      }
+  }
 });
+
+function changeActivePage(event, pageName) {
+  event.preventDefault(); // Verhindert das Laden der neuen Seite
+
+  var clickedElement = event.target;
+  
+  // Entferne die Klasse "active" von allen Links
+  var links = document.getElementsByTagName("a");
+  for (var i = 0; i < links.length; i++) {
+      links[i].classList.remove("active");
+  }
+
+  // Füge die Klasse "active" zum geklickten Link hinzu
+  clickedElement.classList.add("active");
+
+  // Speichere den Zustand der aktiven Seite im Web Storage
+  localStorage.setItem("activePage", pageName);
+}

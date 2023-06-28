@@ -2,6 +2,18 @@ body {
     background-color: rgb(246, 247, 248);
 }
 
+body::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+
+body::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, .5);
+    box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
+
+
 .content {
     margin-left: 250px;
     margin-top: 100px;
@@ -48,6 +60,11 @@ body {
     font-size: 22px;
 }
 
+.task-title input:hover{
+    cursor: pointer;
+    background-color: rgb(248, 248, 248);
+} 
+
 form {
     display: flex !important;
 }
@@ -64,6 +81,11 @@ form {
     margin-bottom: 32px;
 }
 
+.task-description input:hover{
+    cursor: pointer;
+    background-color: rgb(248, 248, 248);
+}
+
 .task-category select {
     padding: 12px 18px;
     border-radius: 10px;
@@ -74,15 +96,18 @@ form {
     margin-bottom: 32px;
 }
 
-.task-assigned select {
-    padding: 12px 18px;
-    border-radius: 10px;
-    border: 1px solid lightgray;
-    outline: none;
-    min-width: 300px;
-    font-size: 22px;
+.task-category select:hover{
+    cursor: pointer;
+    background-color: rgb(248, 248, 248);
 }
 
+
+
+
+#selectContacts:hover{
+    cursor: pointer;
+    background-color: rgb(248, 248, 248);
+}
 
 /*/ ------------- RIGHT SIDE ADD TASK CONTENT ---------------/*/
 
@@ -107,6 +132,11 @@ form {
     outline: none;
 }
 
+.task-date input:hover{
+    cursor: pointer;
+    background-color: rgb(248, 248, 248);
+}
+
 .task-priority-buttons {
     flex-direction: row !important;
 }
@@ -117,6 +147,15 @@ form {
     border: 1px solid lightgray;
     outline: none;
     min-width: 300px;
+}
+
+.task-subtasks input:hover{
+    cursor: pointer;
+    background-color: rgb(248, 248, 248);
+}
+
+.addSubtask-button:hover{
+    cursor: pointer;
 }
 
 /*/ --------------- PRIO BUTTONS ----------- /*/
@@ -229,16 +268,19 @@ form {
 .clear-button {
     padding: 16px 24px;
     border-radius: 10px;
+    border: unset;
+    color: rgb(41,171,226);
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(41,171,226);
     font-weight: bold;
 }
 
 .clear-button:hover {
     cursor: pointer;
-    border: 1px solid rgb(41,171,226);
-    box-shadow: 1px bottom black;
-    color: rgb(41,171,226);
+    background-color: rgb(41,171,226);
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
     transform: translateY(-1px);
+    color: white;
 }
 
 .clear-button img{
@@ -344,8 +386,10 @@ form {
 
 /*/ --------------------REPORT FOR ADDED TASK------------------- /*/
 #successMessage {
+    
     background-color: rgb(67, 80, 99);
-    width: 350px;
+    min-width: 350px;
+    width: 400px;
     padding: 24px;
     color: white;
     border-radius: 10px;
@@ -355,16 +399,19 @@ form {
     transform: translate(-50%, -50%);
 }
 
-#successMessage img {
-    height: 30px;
-    width: 30px;
-    object-fit: cover;
-    vertical-align: middle;
-    padding: 24px;
-}
+
 
 .d-none {
     display: none;
+}
+
+
+.addedToBoard{
+    height: 30px;
+    width: 30px;
+    object-fit: contain;
+    vertical-align: middle;
+    margin-left: 24px;
 }
 
 /*/--------------- MEDIA QUERRY -------------------------/*/

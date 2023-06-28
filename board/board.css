@@ -8,6 +8,22 @@ body {
     background-color: rgb(245, 245, 245);
 }
 
+body::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+
+body::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, .5);
+    box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
+
+.title,
+.description {
+    word-break: break-word;
+}
+
 @font-face {
     font-family: 'Open Sans', sans-serif;
     src: url(fonts/Open_Sans/static/OpenSans-Regular.ttf)
@@ -48,8 +64,15 @@ body {
     justify-content: flex-end;
 }
 
-#addNewTaskClose img{
+#addNewTaskClose img {
     margin-top: 12px;
+    opacity: 1;
+}
+
+#addNewTaskClose img:hover {
+    margin-top: 12px;
+    opacity: 0.5;
+    cursor: pointer;
 }
 
 
@@ -96,7 +119,7 @@ body {
     cursor: pointer;
 }
 
-.add-task-button img{
+.add-task-button img {
     vertical-align: middle;
     margin-left: 4px;
 }
@@ -163,16 +186,61 @@ body {
     min-height: 50vh;
 }
 
+#to-do::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+
+#to-do::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, .5);
+    box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
+
+
 #in-progress {
     min-height: 50vh;
+}
+
+#in-progress::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+
+#in-progress::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, .5);
+    box-shadow: 0 0 1px rgba(255, 255, 255, .5);
 }
 
 #awaiting-feedback {
     min-height: 50vh;
 }
 
+#awaiting-feedback::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+
+#awaiting-feedback::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, .5);
+    box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
+
 #done {
     min-height: 50vh;
+}
+
+#done::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+
+#done::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, .5);
+    box-shadow: 0 0 1px rgba(255, 255, 255, .5);
 }
 
 /*/------------------ TO DO DIV ------------/*/
@@ -181,9 +249,10 @@ body {
     min-height: 50px;
     background-color: rgb(255, 255, 255);
     margin-bottom: 20px;
-    border-radius: 24px;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
 }
 
 .todo:hover {
@@ -330,7 +399,7 @@ body {
 /*/------------------- OPEN TASK --------------/*/
 
 #edit-task {
-    min-width: 30vh;
+    width: 40vh;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -338,21 +407,26 @@ body {
     position: fixed;
     background-color: white;
     padding: 32px;
-    border-radius: 20px;
+    border-radius: 10px;
     font-size: 22px;
     min-height: 5vh;
     max-height: 50vh;
     overflow: auto;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
 }
 
-#edit-task::-webkit-scrollbar{
+#edit-task::-webkit-scrollbar {
     width: 10px;
     height: 1px !important;
 }
 
-#edit-task::-webkit-scrollbar-thumb{
+#edit-task::-webkit-scrollbar-thumb {
     border-radius: 6px;
-    background-color: lightgray;
+    background-color: rgb(206, 206, 206)
+}
+
+.subtask-list-container label input:hover {
+    cursor: pointer;
 }
 
 .close-task {
@@ -360,11 +434,12 @@ body {
     justify-content: flex-end;
 }
 
-.close-task-image{
+.close-task-image {
     position: fixed;
-    top: 2vh;
+    top: 3vh;
     right: 2vh;
 }
+
 .close-task-image:hover {
     opacity: 0.6;
     cursor: pointer;
@@ -459,6 +534,11 @@ body {
     font-size: 16px;
 }
 
+.edit-container .title-input input:hover {
+    cursor: pointer;
+}
+
+
 .edit-container .description-input input {
     height: 75px;
     border-radius: 10px;
@@ -467,6 +547,11 @@ body {
     font-size: 16px;
 }
 
+.edit-container .description-input input:hover {
+    cursor: pointer;
+}
+
+
 .edit-container .date-input input {
     height: 30px;
     border-radius: 10px;
@@ -474,6 +559,11 @@ body {
     padding: 12px;
     font-size: 16px;
 }
+
+.edit-container .date-input input:hover {
+    cursor: pointer;
+}
+
 
 .edit-container .assigned-input select {
     height: 30px;
@@ -486,7 +576,11 @@ body {
     display: flex;
     flex-direction: column;
     margin-bottom: 24px;
+}
 
+.title-input input:hover {
+    cursor: pointer;
+    background-color: rgb(248, 248, 248);
 }
 
 .description-input {
@@ -495,11 +589,23 @@ body {
     margin-bottom: 24px;
 }
 
+.description-input input:hover {
+    cursor: pointer;
+    background-color: rgb(248, 248, 248);
+}
+
+
 .date-input {
     display: flex;
     flex-direction: column;
     margin-bottom: 24px;
 }
+
+.date-input input:hover {
+    cursor: pointer;
+    background-color: rgb(248, 248, 248);
+}
+
 
 .priority-input {
     display: flex;
@@ -507,11 +613,17 @@ body {
     margin-bottom: 24px;
 }
 
+
+
 .assigned-input {
     display: flex;
     flex-direction: column;
     margin-bottom: 24px;
+}
 
+
+.contactsOnBoard label {
+    cursor: pointer;
 }
 
 .save-changes-button {
@@ -632,6 +744,7 @@ body {
     color: #333;
 }
 
+
 /*/------------------ SAVED CHANGES REPORT --------------------/*/
 
 
@@ -677,7 +790,7 @@ body {
 
 /*/--------------------------- MEDIA QUERRYS -----------------------------/*/
 @media only screen and (max-width: 1900px) {
-    .addNewTaskBackground{
+    .addNewTaskBackground {
         left: 58%;
     }
 }
@@ -687,7 +800,7 @@ body {
         left: 60%;
     }
 
-    #savedChanges{
+    #savedChanges {
         left: 60%;
     }
 }
@@ -700,7 +813,7 @@ body {
         min-width: 27vh;
     }
 
-    #savedChanges{
+    #savedChanges {
         left: 65%
     }
 
@@ -708,42 +821,93 @@ body {
         font-size: 16px;
     }
 
-    .addNewTaskBackground{
+    .addNewTaskBackground {
         left: 65%;
         padding: 30px;
         overflow: auto;
         height: 65vh;
     }
-
-    
 }
 
+@media only screen and (max-width: 1065px) {
+    #content {
+        margin-left: 280px;
+    }
 
+    .todo:hover {
+        transform: unset;
+        transition: unset;
+    }
+
+    .kanban {
+        max-width: unset;
+    }
+
+    .kanbanboard {
+        justify-content: unset;
+    }
+
+    #to-do {
+        min-height: 20vh;
+        display: flex;
+        gap: 24px;
+        overflow: auto;
+    }
+
+    #in-progress {
+        min-height: 20vh;
+        display: flex;
+        gap: 24px;
+        overflow: auto;
+    }
+
+    #awaiting-feedback {
+        min-height: 20vh;
+        display: flex;
+        gap: 24px;
+        overflow: auto;
+    }
+
+    #done {
+        min-height: 20vh;
+        display: flex;
+        gap: 24px;
+        overflow: auto;
+    }
+
+    .todo {
+        min-width: 20vh;
+    }
+}
+
+@media only screen and (max-height: 800px) {
+    .todo {
+        min-width: 27vh;
+    }
+}
 
 @media only screen and (max-width: 800px) {
 
 
-    #savedChanges{
+    #savedChanges {
         left: 50%
     }
 
     #edit-task {
-   
         left: 50%;
     }
 
 
     .kanbanboard {
         display: flex;
-        justify-content: center;
         margin-right: 0px;
         margin-left: 0px;
-        flex-direction: column;
         align-items: center;
     }
 
-    .kanban{
+    .kanban {
         padding: 10px;
+        margin-bottom: 16px;
     }
 
     #content {
@@ -762,41 +926,50 @@ body {
         flex-direction: column;
     }
 
-    .addNewTaskBackground{
+    .addNewTaskBackground {
         left: 53%;
-       
+
     }
-   
+
+    .todo {
+        min-width: 35vh;
+    }
+
 
 }
 
 
 @media only screen and (max-width: 530px) {
-    
-    .addNewTaskBackground{
+
+    .addNewTaskBackground {
         left: 50%;
         height: 100%;
     }
 
-    .addNewTaskBackground::-webkit-scrollbar{
+    .addNewTaskBackground::-webkit-scrollbar {
         width: 10px;
         height: 1px !important;
     }
-    
-    .addNewTaskBackground::-webkit-scrollbar-thumb{
+
+    .addNewTaskBackground::-webkit-scrollbar-thumb {
         border-radius: 6px;
         background-color: lightgray;
     }
 
-    
-   
-    .add-task-button span{
+
+
+    .add-task-button span {
         display: none;
     }
 
     .edit-task-prio-buttons {
         gap: 6px;
     }
+
+    .todo {
+        margin-bottom: 16px;
+    }
+
 
 }
 
@@ -817,7 +990,7 @@ body {
         gap: 6px;
     }
 
-    
+
 }
 
 @media only screen and (min-width: 801px) and (max-width:1045px) {
@@ -840,7 +1013,12 @@ body {
         gap: 10px;
     }
 
+
+    .todo {
+        min-width: 42vh;
+    }
+
     .kanban {
-        min-width: unset;
+        min-width: 45vh;
     }
 }

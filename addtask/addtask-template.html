@@ -10,19 +10,19 @@
             
             <!-- TASK TITLE-->
             <div class="task-title">
-                <span>Title</span>
+                <span><b>Title</b></span>
                 <input required id="titleInputAddTask" placeholder="Enter a title">
             </div>
 
             <!-- TASK DESCRIPTION-->
             <div class="task-description">
-                <span>Description</span>
+                <span><b>Description</b></span>
                 <input required id="descriptionInputAddTask" placeholder="Enter a description">
             </div>
 
             <!-- TASK CATEGORY-->
             <div class="task-category">
-                <span>Category</span>
+                <span><b>Category</b></span>
                 <select  id="categoryInputAddTask" required>
                     <option value="" disabled selected hidden>Select Category to assign</option>
                     <option value="design">Design </option>
@@ -36,7 +36,7 @@
             <!-- TASK ASSIGNED-->
             <div class="task-assigned">
                 <div>
-                    <span>Assigned to:</span>
+                    <span><b>Assigned to:</b></span>
                     <div id="selectContacts" onclick="showContacts()">
                         Select contacts to assign
                     </div>
@@ -59,13 +59,13 @@
         <!-- ADD TASK RIGHT SIDE-->
         <div class="addTask-rightSide">
             <div class="task-date">
-                <span>Due Date</span>
-                <input required id="dueDateInputAddTask" type="date">
+                <span><b>Due Date</b></span>
+                <input required id="dueDateInputAddTask" onclick="setTodayDate()" type="date">
             </div>
 
             <!-- TASK PRIORITY-->
             <div class="task-priority">
-                <span>Prio</span>
+                <span><b>Prio</b></span>
                 <div class="task-priority-buttons">
                     <button id="buttonUrgentAddTask" onclick="priorityUrgentAddTask()" type="button">urgent<img id="urgent-image"
                             src="../img/priority-urgent.png"> </button>
@@ -79,7 +79,7 @@
 
             <!-- TASK SUBTASKS-->
             <div class="task-subtasks">
-                <span>Subtasks</span>
+                <span><b>Subtasks</b></span>
                 <div class="subtask-input-button">
                 <input id="subtaskInput" type="text" placeholder="Add new subtask">
                 <button class="addSubtask-button" onclick="addSubtask()" type="button"> <img src="../img/addSubtaskButton.png"></button>
@@ -89,7 +89,7 @@
 
              <!-- CLEAR/CREATE TASK BUTTON-->
             <div class="addTask-buttons">
-                <button class="clear-button" type="button" onclick="clearAddTaskForm()">Clear<img src="../img/cross-icon.png"> </button>
+                <button class="clear-button" type="button" onclick="clearAddTaskForm()">Clear</button>
                 <button class="create-task-button" type="submit">Create Task <img src="../img/checkmark-only-icon.png"> </button>
             </div>
 
@@ -98,3 +98,7 @@
 
 </div>
 
+ <!-- TASK ADDED SUCESSSFULLY REPORT-->
+ <div id="successMessage" class="d-none slide-in-bottom">
+    <span> Task added successfully to board </span> <img class="addedToBoard" src="../img/addedToBoard.png">
+</div>

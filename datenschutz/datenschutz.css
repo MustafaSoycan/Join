@@ -1,8 +1,28 @@
 #datenschutz{
-    margin-left: 300px;
+    margin-left: 180px;
     margin-top: 150px;
     margin-right: 300px;
     margin-bottom: 150px;
+}
+
+body{
+    background-color: rgb(245, 245, 245);
+    color: rgb(42,54,71);
+}
+
+body::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+
+body::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, .5);
+    box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
+
+h2{
+   color:  rgb(41, 171, 226);
 }
 
 @media only screen and (max-width: 1500px) {

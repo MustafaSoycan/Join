@@ -5,6 +5,7 @@ body {
 }
 
 
+
 :root {
     font-family: 'Inter', sans-serif;
 }
@@ -318,6 +319,11 @@ body {
     cursor: pointer;
 }
 
+.log-btn:hover {
+    background-color: rgb(41, 171, 226);
+    cursor: pointer;
+}
+
 .guest-log-btn {
     background: #FFFFFF;
     border-radius: 0.5rem;
@@ -335,6 +341,14 @@ body {
     cursor: pointer;
 }
 
+.guest-log-btn:hover {
+    background-color: rgb(41, 171, 226);
+    cursor: pointer;
+    color: white;
+    border: unset;
+
+}
+
 .sign-up-container {
     display: flex;
     align-items: center;
@@ -349,6 +363,11 @@ body {
     top: 2vh;
     left: 2vw;
     cursor: pointer;
+    opacity: 1;
+}
+
+.left-arrow-img:hover{
+    opacity: 0.3;
 }
 
 .login-input span {

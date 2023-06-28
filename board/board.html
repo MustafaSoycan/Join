@@ -16,14 +16,14 @@
     <script src="../addtask/addtask.js"></script>
     <script src="../contacts/contacts.js"></script>
     
-    <title>Join</title>
-    <link rel="icon" type="image/x-icon" href="../img/logo-dark-small.png">
+    <title>Board</title>
+    <link rel="icon" type="image/x-icon" href="../img/join-logo.png">
 
 
 
 </head>
 
-<body onload="includeHTML(); loadBoard()">
+<body onload="includeHTML(); loadBoard()" id="board">
     <div w3-include-html="../templates/desktop_template.html"></div>
 
     <div id="addNewTask" class="dsp-none">
@@ -53,6 +53,7 @@
             </div>
         </div>
 
+        
 
         <div class="kanbanboard" id="kanban-board">
 
