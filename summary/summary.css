@@ -1,6 +1,7 @@
 body{
-background-color: rgb(245, 245, 245);
+background-color: rgb(246,247,248);
 }
+
 .summarySection {
     margin-top: 100px;
     margin-left: 250px;
@@ -9,7 +10,6 @@ background-color: rgb(245, 245, 245);
     padding-right: 100px;
     display: flex;
     flex-direction: column;
-    background-color: #F5F5F5;
     min-height: calc(100vh - 100px - 50px);
 }
 

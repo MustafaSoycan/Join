@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(246, 247, 248);
+    background-color: rgb(246,247,248) !important;
 }
 
 body::-webkit-scrollbar {

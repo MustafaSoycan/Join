@@ -3,10 +3,12 @@
     margin-top: 150px;
     margin-right: 300px;
     margin-bottom: 150px;
+
+    background-color: rgb(246,247,248);
 }
 
 body{
-    background-color: rgb(245, 245, 245);
+    background-color: rgb(246,247,248);
     color: rgb(42,54,71);
 }
 

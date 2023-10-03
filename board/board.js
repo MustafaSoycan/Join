@@ -139,29 +139,6 @@ function openTask(elementId) {
   kanban.classList.add('blur');
 }
 
-
-/**
- * Ändert den Status einer Teilaufgabe.
- * @param {string} elementId - Die ID des Elements.
- * @param {string} subtask - Die Teilaufgabe.
- * @param {boolean} isChecked - Der ausgewählte Status.
- */
-function changeSubtaskStatus(elementId, subtask, isChecked) {
-  let findtask = tasks.find(task => task.id === elementId); // Suche nach dem Task mit der entsprechenden ID
-  let findsubtask = findtask.subtasks.find(task => task === subtask); // Suche nach der Subtask im subtasks-Array des gefundenen Tasks
-  let position = findtask.subtasks.indexOf(findsubtask); // Position der Subtask im subtasks-Array des gefundenen Tasks
-
-  if (isChecked) {
-    findtask.subtaskStatus[position] = true; // Setze den Status der Subtask auf true
-  } else {
-    findtask.subtaskStatus[position] = false; // Setze den Status der Subtask auf false
-  }
-
-  setBoardToRemoteStorage();
-  updateHTML();
-}
-
-
 /**
  * Schließt die geöffnete Aufgabe.
  */
@@ -204,6 +181,30 @@ function editTask(id) {
   // Setze den aktuellen Index für die Bearbeitung
   currentEditingIndex = tasks.findIndex(task => task.id === id);
 }
+
+
+/**
+ * Ändert den Status einer Teilaufgabe.
+ * @param {string} elementId - Die ID des Elements.
+ * @param {string} subtask - Die Teilaufgabe.
+ * @param {boolean} isChecked - Der ausgewählte Status.
+ */
+function changeSubtaskStatus(elementId, subtask, isChecked) {
+  let findtask = tasks.find(task => task.id === elementId); // Suche nach dem Task mit der entsprechenden ID
+  let findsubtask = findtask.subtasks.find(task => task === subtask); // Suche nach der Subtask im subtasks-Array des gefundenen Tasks
+  let position = findtask.subtasks.indexOf(findsubtask); // Position der Subtask im subtasks-Array des gefundenen Tasks
+
+  if (isChecked) {
+    findtask.subtaskStatus[position] = true; // Setze den Status der Subtask auf true
+  } else {
+    findtask.subtaskStatus[position] = false; // Setze den Status der Subtask auf false
+  }
+
+  setBoardToRemoteStorage();
+  updateHTML();
+}
+
+
 
 
 /**
