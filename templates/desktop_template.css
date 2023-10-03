@@ -105,9 +105,6 @@ body {
     margin-left: 65px;
 }
 
-.summary:active{
-    background-color: rgb(9, 25, 49);
-}
 
 /*/----------------- CONTACTS ( SIDEBAR MIDDLE ) -----------/*/
 .contacts {
@@ -131,7 +128,7 @@ body {
 }
 
 .addTask:hover {
-    background-color: rgb(9, 25, 49);
+    background-color: rgb(16, 38, 70);
     cursor: pointer;
 }
 
@@ -154,10 +151,7 @@ body {
     margin-left: 65px;
 }
 
-.board:active {
-    background-color: rgb(9, 25, 49);
 
-}
 
 
 /*/-------------------------- SIDEBAR-BOTTOM-------------/*/
@@ -394,17 +388,14 @@ body {
         align-items: center;
         padding-left: 25px;
     }
-
-   
-
 }
 
 
-/*/-------------- EVENT LISTENER FOR LINKS ------------/*/
-.sidebar-middle a.active {
-    background-color: darkblue;
-  }
-  
-.sidebar-bottom a.active {
-    background-color: darkblue;
+
+
+/*/------------------------- HIGHLIGHT LINKS ------------/*/
+
+.active-link {
+    background-color: rgb(32, 124, 163); /* Zum Beispiel: Blaue Hintergrundfarbe */
+    color: #fff; /* Weiße Schriftfarbe */
   }

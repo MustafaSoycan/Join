@@ -409,8 +409,8 @@ body::-webkit-scrollbar-thumb {
     padding: 32px;
     border-radius: 10px;
     font-size: 22px;
-    min-height: 5vh;
-    max-height: 50vh;
+    
+    
     overflow: auto;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
 }
@@ -749,21 +749,6 @@ body::-webkit-scrollbar-thumb {
 
 
 
-@keyframes slideInFromBottom {
-    0% {
-        transform: translateY(100%);
-        opacity: 0;
-    }
-
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-.slide-in-bottom {
-    animation: slideInFromBottom 0.5s ease-out;
-}
 
 
 #savedChanges {
@@ -775,11 +760,12 @@ body::-webkit-scrollbar-thumb {
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: rgb(67, 80, 99);
-    width: 30vh;
     padding: 24px;
     color: white;
     border-radius: 10px;
 }
+
+
 
 #savedChanges img {
     margin-left: 20px;
