@@ -125,7 +125,7 @@ function showFilteredTasks(filteredTasks) {
 function openTask(elementId) {
   let currentTask = document.getElementById('edit-task');
   let kanban = document.getElementById('kanban-board');
-
+  let popUp = document.getElementById('pop-up')
   let date = new Date("July 21");
 
   // Suchen Sie den entsprechenden Task anhand der ID
@@ -136,6 +136,7 @@ function openTask(elementId) {
   currentTask.innerHTML = openTaskHTML(element, date);
 
   currentTask.classList.remove('d-none');
+  popUp.classList.remove('d-none');
   kanban.classList.add('blur');
 }
 
@@ -144,6 +145,9 @@ function openTask(elementId) {
  */
 function closeTask() {
   let currentTask = document.getElementById('edit-task');
+  let popUp = document.getElementById('pop-up');
+
+  popUp.classList.add('d-none')
   currentTask.classList.add('d-none');
   let kanban = document.getElementById('kanban-board');
   kanban.classList.remove('blur');
@@ -183,6 +187,10 @@ function editTask(id) {
   currentEditingIndex = tasks.findIndex(task => task.id === id);
 }
 
+
+function doNotClose(event){
+  event.stopPropagation();
+}
 
 /**
  * Ändert den Status einer Teilaufgabe.

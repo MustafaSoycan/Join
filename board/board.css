@@ -3,6 +3,10 @@
     margin-top: 150px;
 }
 
+#pop-up-container{
+    position: relative;
+}
+
 body {
     font-family: 'Open Sans', sans-serif;
     background-color: rgb(245, 245, 245);
@@ -146,7 +150,19 @@ body::-webkit-scrollbar-thumb {
 }
 
 /*/--------------------------- KANBAN BOARD --------------------------/*/
+#pop-up{
+    background-color: rgba(228, 228, 228, 0.507);
+    height: 100vh;
+    width: 100%;
 
+    position: absolute;
+   
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+}
 
 .kanbanboard {
     display: flex;
@@ -252,13 +268,15 @@ body::-webkit-scrollbar-thumb {
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Schatteneffekt */
+
+    transition: 0.5s ease;
 }
 
 .todo:hover {
     cursor: pointer;
-    transform: rotate(2deg);
-    transition: 125ms;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+    transform: scale(1.02); /* Vergrößert den Container um 10% bei Hover */
 }
 
 /*/---------- DRAG AND DROP HIGHLIGHT --------/*/
