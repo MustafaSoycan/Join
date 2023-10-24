@@ -1,6 +1,7 @@
 #content {
     margin-left: 300px;
-    margin-top: 150px;
+    margin-right: 100px;
+    margin-top: 100px;
 }
 
 #pop-up-container{
@@ -84,9 +85,7 @@ body::-webkit-scrollbar-thumb {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-right: 100px;
-    margin-left: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 24px;
 }
 
 .board-header h1 {
@@ -130,7 +129,7 @@ body::-webkit-scrollbar-thumb {
 
 .interact {
     display: flex;
-    height: 6vh;
+    height: 5vh;
 }
 
 /*/----------------------------- CONTACT ICON -------------------------/*/
@@ -166,8 +165,9 @@ body::-webkit-scrollbar-thumb {
 
 .kanbanboard {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-wrap: wrap;
+    gap: 24px;
 }
 
 .kanban {
@@ -175,8 +175,6 @@ body::-webkit-scrollbar-thumb {
     flex-direction: column;
     min-width: 320px;
     max-width: 320px;
-    padding: 24px;
-
 }
 
 .kanban-header {
@@ -184,7 +182,7 @@ body::-webkit-scrollbar-thumb {
     justify-content: space-between;
     font-size: 18px;
     font-weight: bold;
-    margin-bottom: 50px;
+    margin-bottom: 16px;
 }
 
 .kanban-header img {
